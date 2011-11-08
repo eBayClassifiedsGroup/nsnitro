@@ -1,3 +1,6 @@
 Simple Python Library to control Citrix Netscaler 9.2+ load balancers with NITRO API.
 
 Proper documentation pending alpha release.
+
+For now, you can find simple command-line interface using this library in contrib/.
+Feedback/comments welcome.
