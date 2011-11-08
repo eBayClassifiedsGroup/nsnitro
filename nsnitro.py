@@ -16,10 +16,7 @@ class NSNitro:
 	contenttype = "application/x-www-form-urlencoded"
 	postheaders = {'Cookie' : 'sessionid='+sessionid, 'Content-type' : contenttype}
 
-        def __init__(self):
-                pass
-
-        def initialize(self, ip, user, password):
+        def __init__(self, ip, user, password):
                 self.ip = ip
                 self.user = user
                 self.password = password

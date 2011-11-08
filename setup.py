@@ -30,6 +30,6 @@ setup(
         "argparse",
     ],
     data_files=[
-        ('/usr/local/bin', ['contrib/nsnitrocmd.py'])
+        ('/usr/bin', ['contrib/nsnitrocmd.py'])
     ],
 )

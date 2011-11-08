@@ -5,7 +5,6 @@ import sys
 import json
 import nsnitro
 
-nitro = nsnitro.NSNitro()
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
@@ -21,7 +20,7 @@ if __name__ == "__main__":
 	parser.add_argument('--dargs', action='store_true', help='show service')
 	args = parser.parse_args()	
 
-	nitro.initialize(args.lbip, args.user, args.password)
+	nitro = nsnitro.NSNitro(args.lbip, args.user, args.password)
 
 	try:
 		if args.dargs:
