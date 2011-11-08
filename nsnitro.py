@@ -25,12 +25,12 @@ class NSNitro:
 
         def get_url(self):
                 if not self.initialized:
-                        raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+                        raise NSNitroError("Not initialized.")
                 return self.baseurl        
 
 	def get_sessionid(self):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
@@ -38,7 +38,7 @@ class NSNitro:
 
         def login(self):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 
                 payload = {"object":{"login":{"username":"api_user","password":"api_user"}}}
                 payload_encoded = urllib.urlencode(payload)
@@ -60,7 +60,7 @@ class NSNitro:
 
 	def enable_lbvserver(self, vserver_name):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
@@ -87,7 +87,7 @@ class NSNitro:
 
 	def disable_lbvserver(self, vserver_name):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
@@ -114,7 +114,7 @@ class NSNitro:
 
 	def get_lbvserver(self, vserver_name):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
@@ -137,7 +137,7 @@ class NSNitro:
 
 	def get_service(self, service_name):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
@@ -159,7 +159,7 @@ class NSNitro:
 
 	def disable_service(self, service_name):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
@@ -188,7 +188,7 @@ class NSNitro:
 
 	def enable_service(self, service_name):
 		if not self.initialized:
-			raise NSNitroError("Not initialized. Call NSNitro.initialize() with ip, user, pass")
+			raise NSNitroError("Not initialized.")
 		if not self.loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
