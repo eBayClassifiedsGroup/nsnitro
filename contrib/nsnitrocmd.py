@@ -16,7 +16,8 @@ if __name__ == "__main__":
 	parser.add_argument('--enableservice', metavar='SERVICENAME', help='enable service')
 	parser.add_argument('--disableservice', metavar='SERVICENAME', help='disable service')
 	parser.add_argument('--getservice', metavar='SERVICENAME', nargs='?', const='list', help='show service')
-	parser.add_argument('--getserviceslist', action='store_true', help='show service')
+	parser.add_argument('--getserviceslist', action='store_true', help='show services list')
+	parser.add_argument('--getservicesstatus', action='store_true', help='show services status')
 	parser.add_argument('--dargs', action='store_true', help='show service')
 	args = parser.parse_args()	
 
@@ -68,6 +69,13 @@ if __name__ == "__main__":
 			print "-- Cconfigured services ---"
 			for service in response.get_response_field("service"):
 				print "\t" + service['name']
+			sys.exit(0)
+
+		if args.getservicesstatus:
+			response = nitro.get_service("")
+			print "-- Cconfigured services (with status) ---"
+			for service in response.get_response_field("service"):
+				print "\t" + service['name'] + ": " + service['svrstate']
 			sys.exit(0)
 
 
