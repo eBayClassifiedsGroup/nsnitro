@@ -4,3 +4,14 @@ Proper documentation pending alpha release.
 
 For now, you can find simple command-line interface using this library in contrib/.
 Feedback/comments welcome.
+
+
+Very basic usage:
+
+import nsnitro
+
+nitro = NSNitro('192.168.1.100', 'user', 'password')
+nitro.login()
+nitro.get_service("") // returns an NSResponse object with all configured services
+
+
