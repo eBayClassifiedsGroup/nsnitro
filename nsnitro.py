@@ -334,8 +334,8 @@ class NSNitroResponse:
 
 
 	def __parse_response(self):
-		self.errorcode = self.jresponse['errorcode']
-		self.message   = self.jresponse['message']
+		self.errorcode = self.__jresponse['errorcode']
+		self.message   = self.__jresponse['message']
 		if self.errorcode != 0:
 			self.failed = True
 	
