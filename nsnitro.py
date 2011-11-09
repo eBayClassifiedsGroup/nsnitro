@@ -1,3 +1,5 @@
+""" Citrix Netscaler Nitro API accessor """
+
 import urllib, urllib2
 import json
 
@@ -5,52 +7,57 @@ __version__ = "0.0.1"
 __all__ = [ 'NSNitro', 'NSNitroError', 'NSNitroResponse' ]
 
 class NSNitro:
+	""" Main class """
 
-        ip          = "1.2.3.4"
-        user        = "api_user"
-        password    = "api_user"
-        baseurl     = "http://1.2.3.4/nitro/v1/config/"
-	sessionid   = ""
-	loggedin    = False
-        initialized = False
-	contenttype = "application/x-www-form-urlencoded"
-	postheaders = {'Cookie' : 'sessionid='+sessionid, 'Content-type' : contenttype}
+        __ip          = "1.2.3.4"
+        __user        = "api_user"
+        __password    = "api_user"
+        __baseurl     = "http://1.2.3.4/nitro/v1/config/"
+	__sessionid   = ""
+	__loggedin    = False
+        __initialized = False
+	__contenttype = "application/x-www-form-urlencoded"
+	__postheaders = {'Cookie' : 'sessionid='+__sessionid, 'Content-type' : __contenttype}
 
         def __init__(self, ip, user, password):
-                self.ip = ip
-                self.user = user
-                self.password = password
-                self.baseurl = "http://%s/nitro/v1/config/" % ip
-                self.initialized = True
+		""" Contructor: ip - LB ip, user - LB username, pass - LB password """
+                self.__ip = ip
+                self.__user = user
+                self.__password = password
+                self.__baseurl = "http://%s/nitro/v1/config/" % ip
+                self.__initialized = True
 
         def get_url(self):
-                if not self.initialized:
+		""" Returns base url for nitro API. Mostly useful for debugging """
+                if not self.__initialized:
                         raise NSNitroError("Not initialized.")
-                return self.baseurl        
+                return self.__baseurl        
 
 	def get_sessionid(self):
-		if not self.initialized:
+		""" Returns sessionID that LB gave us after logging in """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
-		return self.sessionid
+		return self.__sessionid
 
         def login(self):
-		if not self.initialized:
+		""" Logins to the LB using the credentials give to constructor """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
 
                 payload = {"object":{"login":{"username":"api_user","password":"api_user"}}}
                 payload_encoded = urllib.urlencode(payload)
 
         	try:
-                	req = urllib2.Request(self.baseurl, payload_encoded, { 'Content-Type': self.contenttype } )
+                	req = urllib2.Request(self.__baseurl, payload_encoded, { 'Content-Type': self.__contenttype } )
                 	response = urllib2.urlopen(req)
                 	de_content = eval(response.read())
 
-                	self.sessionid = de_content['sessionid']
-			self.postheaders = {'Cookie' : 'sessionid='+self.sessionid, 'Content-type' : self.contenttype}
-                	self.loggedin = True
+                	self.__sessionid = de_content['sessionid']
+			self.__postheaders = {'Cookie' : 'sessionid='+self.__sessionid, 'Content-type' : self.__contenttype}
+                	self.__loggedin = True
 			return True
 
         	except urllib2.HTTPError, e:
@@ -59,9 +66,10 @@ class NSNitro:
 
 
 	def enable_lbvserver(self, vserver_name):
-		if not self.initialized:
+		""" Enables vserver vserver_name """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
 		try:
@@ -73,7 +81,7 @@ class NSNitro:
 		payload_encoded = urllib.urlencode(payload)
 
 		try:
-			req = urllib2.Request(self.baseurl, payload_encoded, self.postheaders)
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
         		response = urllib2.urlopen(req)
 
         	except urllib2.HTTPError, e:
@@ -86,9 +94,10 @@ class NSNitro:
         	return nsresponse	
 
 	def disable_lbvserver(self, vserver_name):
-		if not self.initialized:
+		""" Disables vserver vserver_name """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
 		try:
@@ -100,7 +109,7 @@ class NSNitro:
 		payload_encoded = urllib.urlencode(payload)
 
 		try:
-			req = urllib2.Request(self.baseurl, payload_encoded, self.postheaders)
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
         		response = urllib2.urlopen(req)
 
         	except urllib2.HTTPError, e:
@@ -113,16 +122,17 @@ class NSNitro:
         	return nsresponse	
 
 	def get_lbvserver(self, vserver_name):
-		if not self.initialized:
+		""" Gets vserver details matching vserver_name """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
-		url = self.baseurl + "lbvserver/" + vserver_name
+		url = self.__baseurl + "lbvserver/" + vserver_name
 
 		try:
 			opener = urllib2.build_opener()
-			opener.addheaders.append(('Cookie', 'sessionid='+self.sessionid))
+			opener.addheaders.append(('Cookie', 'sessionid='+self.__sessionid))
 			response = opener.open(url)
 
         	except urllib2.HTTPError, e:
@@ -136,16 +146,17 @@ class NSNitro:
 
 
 	def get_service(self, service_name):
-		if not self.initialized:
+		""" Gets service details matching service_name """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
-		url = self.baseurl + "service/" + service_name
+		url = self.__baseurl + "service/" + service_name
 
 		try:
 			opener = urllib2.build_opener()
-			opener.addheaders.append(('Cookie', 'sessionid='+self.sessionid))
+			opener.addheaders.append(('Cookie', 'sessionid='+self.__sessionid))
 			response = opener.open(url)
 
         	except urllib2.HTTPError, e:
@@ -158,9 +169,10 @@ class NSNitro:
         	return nsresponse	
 
 	def disable_service(self, service_name):
-		if not self.initialized:
+		""" Disables service service_name """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
 		try:
@@ -171,10 +183,8 @@ class NSNitro:
         	payload = { "object" : { "params" : { "action" : "disable" }, "service" : { "name" : service_name } } }
 		payload_encoded = urllib.urlencode(payload)
 
-		url = self.baseurl + "service/" + service_name
-
 		try:
-			req = urllib2.Request(self.baseurl, payload_encoded, self.postheaders)
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
         		response = urllib2.urlopen(req)
 
         	except urllib2.HTTPError, e:
@@ -187,9 +197,10 @@ class NSNitro:
         	return nsresponse	
 
 	def enable_service(self, service_name):
-		if not self.initialized:
+		""" Enables service service_name """
+		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
-		if not self.loggedin:
+		if not self.__loggedin:
 			raise NSNitroError("Not logged in. Call NSNitro.login()")
 
 		try:
@@ -200,10 +211,8 @@ class NSNitro:
         	payload = { "object" : { "params" : { "action" : "enable" }, "service" : { "name" : service_name } } }
 		payload_encoded = urllib.urlencode(payload)
 
-		url = self.baseurl + "service/" + service_name
-
 		try:
-			req = urllib2.Request(self.baseurl, payload_encoded, self.postheaders)
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
         		response = urllib2.urlopen(req)
 
         	except urllib2.HTTPError, e:
@@ -216,36 +225,41 @@ class NSNitro:
         	return nsresponse	
 
 class NSNitroResponse:
-
-	jresponse = False
-	sresponse = False
+	""" Generic class for accessing LB response dictionary. Can provide string response back and a parsed dictionary """
+	__jresponse = False
+	__sresponse = False
 	errorcode = -1
-	messages = False
+	message = False
 	failed = False
 
 	def __init__(self, response):
-		self.sresponse = response
-		self.jresponse = json.loads(response)
-		self.parse_response()
+		""" Constructor. reponse - string response """
+		self.__sresponse = response
+		self.__jresponse = json.loads(response)
+		self.__parse_response()
 
 
 	def get_json_response(self):
-		return self.jresponse
+		""" Returns LB response as parsed dictionary """
+		return self.__jresponse
 
 	def get_string_response(self):
-		return self.sresponse
+		""" Returns LB response as a string """
+		return self.__sresponse
 
 
-	def parse_response(self):
+	def __parse_response(self):
 		self.errorcode = self.jresponse['errorcode']
 		self.message   = self.jresponse['message']
 		if self.errorcode != 0:
 			self.failed = True
 	
 	def get_response_field(self, field_name):
+		""" Returns field_name of parsed JSON dictionary """
 		return self.jresponse[field_name]
 			
 class NSNitroError(Exception):
+	""" Custom exception class """
 	def __init__(self, value):
 		self.message = value
 	def __str__(self):
