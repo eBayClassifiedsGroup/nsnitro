@@ -109,4 +109,4 @@ if __name__ == "__main__":
 			
 
 	except nsnitro.NSNitroError, e:
-		print "Something went wrong: " + e.message
+		print "Error: " + e.message

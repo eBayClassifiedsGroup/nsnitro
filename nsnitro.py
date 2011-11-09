@@ -47,22 +47,25 @@ class NSNitro:
 		if not self.__initialized:
 			raise NSNitroError("Not initialized.")
 
-                payload = {"object":{"login":{"username":"api_user","password":"api_user"}}}
+                payload = {"object":{"login":{"username":self.__user,"password":self.__password}}}
                 payload_encoded = urllib.urlencode(payload)
 
         	try:
                 	req = urllib2.Request(self.__baseurl, payload_encoded, { 'Content-Type': self.__contenttype } )
                 	response = urllib2.urlopen(req)
-                	de_content = eval(response.read())
+			nsresponse = NSNitroResponse(response.read())
+			if nsresponse.failed:
+				raise NSNitroError(nsresponse.message)
 
-                	self.__sessionid = de_content['sessionid']
+                	self.__sessionid = nsresponse.get_response_field('sessionid')
 			self.__postheaders = {'Cookie' : 'sessionid='+self.__sessionid, 'Content-type' : self.__contenttype}
                 	self.__loggedin = True
 			return True
 
         	except urllib2.HTTPError, e:
-                	print "Got reponse code: %s from the server" % e.code
                 	raise NSNitroError("Could not login: %s, %s" % (e.code, e.message))
+		except SyntaxError:
+                	raise NSNitroError("Could not parse LB response.")
 
 
 	def rename_lbvserver(self, vserver_name, vserver_new_name):
@@ -341,7 +344,7 @@ class NSNitroResponse:
 	
 	def get_response_field(self, field_name):
 		""" Returns field_name of parsed JSON dictionary """
-		return self.jresponse[field_name]
+		return self.__jresponse[field_name]
 			
 class NSNitroError(Exception):
 	""" Custom exception class """
