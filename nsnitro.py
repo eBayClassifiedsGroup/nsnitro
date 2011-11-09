@@ -170,6 +170,7 @@ class NSNitro:
 
 		try:
 			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
+			req.get_method = lambda: 'PUT'
         		response = urllib2.urlopen(req)
 
         	except urllib2.HTTPError, e:
