@@ -65,6 +65,34 @@ class NSNitro:
                 	raise NSNitroError("Could not login: %s, %s" % (e.code, e.message))
 
 
+	def rename_lbvserver(self, vserver_name, vserver_new_name):
+		""" Renames vserver vserver_name to vserver_new_name"""
+		if not self.__initialized:
+			raise NSNitroError("Not initialized.")
+		if not self.__loggedin:
+			raise NSNitroError("Not logged in. Call NSNitro.login()")
+
+		try:
+			self.get_lbvserver(vserver_name)
+		except NSNitroError, e:
+			raise e
+
+        	payload = { "object" : { "params" : { "action" : "rename" }, "lbvserver" : { "name" : vserver_name, "newname" : vserver_new_name } } }
+		payload_encoded = urllib.urlencode(payload)
+
+		try:
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
+        		response = urllib2.urlopen(req)
+
+        	except urllib2.HTTPError, e:
+                	print "Got reponse code: %s from the server" % e.code
+                	raise NSNitroError("Could not enable vserver: %s, %s" % (e.code, e.message))
+
+		nsresponse = NSNitroResponse(response.read())
+		if nsresponse.failed:
+			raise NSNitroError(nsresponse.message)
+        	return nsresponse	
+
 	def enable_lbvserver(self, vserver_name):
 		""" Enables vserver vserver_name """
 		if not self.__initialized:
@@ -115,6 +143,35 @@ class NSNitro:
         	except urllib2.HTTPError, e:
                 	print "Got reponse code: %s from the server" % e.code
                 	raise NSNitroError("Could not disable vserver: %s, %s" % (e.code, e.message))
+
+		nsresponse = NSNitroResponse(response.read())
+		if nsresponse.failed:
+			raise NSNitroError(nsresponse.message)
+        	return nsresponse	
+
+	def bind_service_to_lbvserver(self, vserver_name, service_name, weight):
+		""" Bind service service_name to lb vserver vserver_name """
+		if not self.__initialized:
+			raise NSNitroError("Not initialized.")
+		if not self.__loggedin:
+			raise NSNitroError("Not logged in. Call NSNitro.login()")
+
+		try:
+			self.get_lbvserver(vserver_name)
+			self.get_service(service_name)
+		except NSNitroError, e:
+			raise e
+
+        	payload = { "object" : { "lbvserver_service_binding" : { "servicename" : service_name, "weight" : weight, "name" : vserver_name } } }
+		payload_encoded = urllib.urlencode(payload)
+
+		try:
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
+        		response = urllib2.urlopen(req)
+
+        	except urllib2.HTTPError, e:
+                	print "Got reponse code: %s from the server" % e.code
+                	raise NSNitroError("Could not enable vserver: %s, %s" % (e.code, e.message))
 
 		nsresponse = NSNitroResponse(response.read())
 		if nsresponse.failed:
@@ -218,6 +275,34 @@ class NSNitro:
         	except urllib2.HTTPError, e:
                 	print "Got reponse code: %s from the server" % e.code
                 	raise NSNitroError("Could not enable service: %s, %s" % (e.code, e.message))
+
+		nsresponse = NSNitroResponse(response.read())
+		if nsresponse.failed:
+			raise NSNitroError(nsresponse.message)
+        	return nsresponse	
+
+	def rename_service(self, service_name, service_new_name):
+		""" Renames service service_name to service_new_name """
+		if not self.__initialized:
+			raise NSNitroError("Not initialized.")
+		if not self.__loggedin:
+			raise NSNitroError("Not logged in. Call NSNitro.login()")
+
+		try:
+			self.get_service(service_name)
+		except NSNitroError, e:
+			raise e
+
+        	payload = { "object" : { "params" : { "action" : "rename" }, "service" : { "name" : service_name, "newname" : service_new_name } } }
+		payload_encoded = urllib.urlencode(payload)
+
+		try:
+			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
+        		response = urllib2.urlopen(req)
+
+        	except urllib2.HTTPError, e:
+                	print "Got reponse code: %s from the server" % e.code
+                	raise NSNitroError("Could not enable vserver: %s, %s" % (e.code, e.message))
 
 		nsresponse = NSNitroResponse(response.read())
 		if nsresponse.failed:
