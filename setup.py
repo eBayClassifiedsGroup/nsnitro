@@ -18,7 +18,7 @@ setup(
     license = "GPL",
     keywords = "citrix netscaler nitro api",
     url = "http://packages.python.org/nsnitro",
-    py_modules=['nsnitro'],
+    py_modules=['nsnitro', 'nsresources'],
     long_description=read('README'),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",

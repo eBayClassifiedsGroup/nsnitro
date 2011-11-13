@@ -4,7 +4,7 @@ import argparse
 import sys
 import json
 import nsnitro
-
+import nsresources
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
@@ -106,7 +106,5 @@ if __name__ == "__main__":
 
 		print "No action specified. Exiting."
 		sys.exit(0)
-			
-
-	except nsnitro.NSNitroError, e:
-		print "Error: " + e.message
+	except nsresources.NSNitroError, e:
+		print "Error: %s", e.message
