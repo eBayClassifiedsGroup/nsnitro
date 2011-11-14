@@ -139,6 +139,46 @@ class NSNitro:
 		nsresponse = self.get(url)
 		return nsresponse	
 
+	def get_server(self, server_name):
+		""" Gets server details matching server_name """
+		if not self.__ready:
+			raise nsresources.NSNitroError("Not initialized or not logged in.")
+
+		url = self.__baseurl + "server/" + server_name
+
+		nsresponse = self.get(url)
+		return nsresponse	
+
+	def disable_server(self, server_name):
+		""" Disables server server_name """
+		if not self.__ready:
+			raise nsresources.NSNitroError("Not initialized or not logged in.")
+
+		try:
+			self.get_server(server_name)
+		except nsresources.NSNitroError, e:
+			raise e
+
+		payload = { "object" : { "params" : { "action" : "disable" }, "server" : { "name" : server_name } } }
+		nsresponse = self.__post(payload)
+		return nsresponse
+
+	def enable_server(self, server_name):
+		""" Enables server server_name """
+		if not self.__ready:
+			raise nsresources.NSNitroError("Not initialized or not logged in.")
+
+		try:
+			self.get_server(server_name)
+		except nsresources.NSNitroError, e:
+			raise e
+
+		payload = { "object" : { "params" : { "action" : "enable" }, "server" : { "name" : server_name } } }
+
+		nsresponse = self.__post(payload)
+		return nsresponse	
+
+
 	def disable_service(self, service_name):
 		""" Disables service service_name """
 		if not self.__ready:
@@ -150,7 +190,7 @@ class NSNitro:
 			raise e
 
 		payload = { "object" : { "params" : { "action" : "disable" }, "service" : { "name" : service_name } } }
-		nsresponse = self.__post(self, payload)
+		nsresponse = self.__post(payload)
 		return nsresponse
 
 	def enable_service(self, service_name):
@@ -180,7 +220,7 @@ class NSNitro:
 
 		payload = { "object" : { "params" : { "action" : "rename" }, "service" : { "name" : service_name, "newname" : service_new_name } } }
 
-		nsresponse = self.__post(self, payload)
+		nsresponse = self.__post(payload)
 		return nsresponse
 
 	def __post(self, payload):

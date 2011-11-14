@@ -16,6 +16,9 @@ if __name__ == "__main__":
 	parser.add_argument('--enableservice', metavar='SERVICENAME', help='enable service')
 	parser.add_argument('--disableservice', metavar='SERVICENAME', help='disable service')
 	parser.add_argument('--getservice', metavar='SERVICENAME', nargs='?', const='list', help='show service')
+	parser.add_argument('--enableserver', metavar='SERVERNAME', help='enable server')
+	parser.add_argument('--disableserver', metavar='SERVERNAME', help='disable server')
+	parser.add_argument('--getserver', metavar='SERVERNAME', nargs='?', const='list', help='show server')
 	parser.add_argument('--getservicestatus', metavar='SERVICENAME', help='show service status')
 	parser.add_argument('--getserviceslist', action='store_true', help='show services list')
 	parser.add_argument('--getservicesstatus', action='store_true', help='show services status')
@@ -67,6 +70,31 @@ if __name__ == "__main__":
 
 			#print "Here: " +  response
 			sys.exit(0)
+
+		if args.enableserver:
+			nitro.enable_server(args.enableserver)
+			print "Enabled server: %s" % args.enableserver
+			sys.exit(0)
+
+		if args.disableserver:
+			nitro.disable_server(args.disableserver)
+			print "Disabled server: %s" % args.disableserver
+			sys.exit(0)
+
+		if args.getserver:
+			if args.getserver == "list":
+				response = nitro.get_server("")
+			else:
+				response = nitro.get_server(args.getserver)
+
+			for server in response.get_response_field("server"):
+				print "--- Server: " + server['name'] + " ---"
+				for k, v in server.iteritems():
+					print "\t%s: %s" % (k, v)
+
+			#print "Here: " +  response
+			sys.exit(0)
+
 
 		if args.getserviceslist:
 			response = nitro.get_service("")
