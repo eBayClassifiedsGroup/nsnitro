@@ -1,4 +1,4 @@
-Simple Python Library to control Citrix Netscaler 9.2+ load balancers with NITRO API.
+Complex Python Library to control Citrix Netscaler 9.2+ load balancers with NITRO API.
 
 Proper documentation pending alpha release.
 
@@ -13,5 +13,6 @@ import nsnitro
 nitro = NSNitro('192.168.1.100', 'user', 'password')
 nitro.login()
 nitro.get_service("") // returns an NSResponse object with all configured services
+
 
 
