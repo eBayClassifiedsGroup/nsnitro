@@ -9,29 +9,29 @@ __version__ = "0.0.2"
 class NSNitro:
 	""" Main class """
 
-        __ip          = "1.2.3.4"
-        __user        = "api_user"
-        __password    = "api_user"
-        __baseurl     = "http://1.2.3.4/nitro/v1/config/"
+	__ip	  = "1.2.3.4"
+	__user	= "api_user"
+	__password    = "api_user"
+	__baseurl     = "http://1.2.3.4/nitro/v1/config/"
 	__sessionid   = ""
 	__loggedin    = False
-        __initialized = False
+	__initialized = False
 	__contenttype = "application/x-www-form-urlencoded"
 	__postheaders = {'Cookie' : 'sessionid='+__sessionid, 'Content-type' : __contenttype}
 
-        def __init__(self, ip, user, password):
+	def __init__(self, ip, user, password):
 		""" Contructor: ip - LB ip, user - LB username, pass - LB password """
-                self.__ip = ip
-                self.__user = user
-                self.__password = password
-                self.__baseurl = "http://%s/nitro/v1/config/" % ip
-                self.__initialized = True
+		self.__ip = ip
+		self.__user = user
+		self.__password = password
+		self.__baseurl = "http://%s/nitro/v1/config/" % ip
+		self.__initialized = True
 
-        def get_url(self):
+	def get_url(self):
 		""" Returns base url for nitro API. Mostly useful for debugging """
-                if not self.__initialized:
-                        raise nsresources.NSNitroError("Not initialized.")
-                return self.__baseurl        
+		if not self.__initialized:
+			raise nsresources.NSNitroError("Not initialized.")
+		return self.__baseurl	
 
 	def get_sessionid(self):
 		""" Returns sessionID that LB gave us after logging in """
@@ -40,24 +40,24 @@ class NSNitro:
 
 		return self.__sessionid
 
-        def login(self):
+	def login(self):
 		""" Logins to the LB using the credentials give to constructor """
 		if not self.__initialized:
 			raise nsresources.NSNitroError("Not initialized.")
 
-                payload = {"object":{"login":{"username":self.__user,"password":self.__password}}}
+		payload = {"object":{"login":{"username":self.__user,"password":self.__password}}}
 		try:
 			nsresponse = self.__post(payload)
 			if nsresponse.failed:
 				raise nsresources.NSNitroError(nsresponse.message)
 
-                	self.__sessionid = nsresponse.get_response_field('sessionid')
+			self.__sessionid = nsresponse.get_response_field('sessionid')
 			self.__postheaders = {'Cookie' : 'sessionid='+self.__sessionid, 'Content-type' : self.__contenttype}
-                	self.__loggedin = True
+			self.__loggedin = True
 			return True
 
 		except SyntaxError:
-                	raise nsresources.NSNitroError("Could not parse LB response.")
+			raise nsresources.NSNitroError("Could not parse LB response.")
 
 
 	def rename_lbvserver(self, vserver_name, vserver_new_name):
@@ -70,10 +70,10 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "params" : { "action" : "rename" }, "lbvserver" : { "name" : vserver_name, "newname" : vserver_new_name } } }
+		payload = { "object" : { "params" : { "action" : "rename" }, "lbvserver" : { "name" : vserver_name, "newname" : vserver_new_name } } }
 
 		nsresponse = self.__post(payload)
-        	return nsresponse	
+		return nsresponse	
 
 	def enable_lbvserver(self, vserver_name):
 		""" Enables vserver vserver_name """
@@ -85,9 +85,9 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "params" : { "action" : "enable" }, "lbvserver" : { "name" : vserver_name } } }
+		payload = { "object" : { "params" : { "action" : "enable" }, "lbvserver" : { "name" : vserver_name } } }
 		nsresponse = self.__post(payload)
-        	return nsresponse	
+		return nsresponse	
 
 	def disable_lbvserver(self, vserver_name):
 		""" Disables vserver vserver_name """
@@ -99,9 +99,9 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "params" : { "action" : "disable" }, "lbvserver" : { "name" : vserver_name } } }
+		payload = { "object" : { "params" : { "action" : "disable" }, "lbvserver" : { "name" : vserver_name } } }
 		nsresponse = self.__post(payload)
-        	return nsresponse	
+		return nsresponse	
 
 	def bind_service_to_lbvserver(self, vserver_name, service_name, weight):
 		""" Bind service service_name to lb vserver vserver_name """
@@ -114,7 +114,7 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "lbvserver_service_binding" : { "servicename" : service_name, "weight" : weight, "name" : vserver_name } } }
+		payload = { "object" : { "lbvserver_service_binding" : { "servicename" : service_name, "weight" : weight, "name" : vserver_name } } }
 		nsresponse = self.__put(self, payload)
 		return nsresponse
 
@@ -125,8 +125,8 @@ class NSNitro:
 
 		url = self.__baseurl + "lbvserver/" + vserver_name
 
-		nsresponse = self.__get(url)
-        	return nsresponse	
+		nsresponse = self.get(url)
+		return nsresponse	
 
 
 	def get_service(self, service_name):
@@ -136,8 +136,8 @@ class NSNitro:
 
 		url = self.__baseurl + "service/" + service_name
 
-		nsresponse = self.__get(url)
-        	return nsresponse	
+		nsresponse = self.get(url)
+		return nsresponse	
 
 	def disable_service(self, service_name):
 		""" Disables service service_name """
@@ -149,7 +149,7 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "params" : { "action" : "disable" }, "service" : { "name" : service_name } } }
+		payload = { "object" : { "params" : { "action" : "disable" }, "service" : { "name" : service_name } } }
 		nsresponse = self.__post(self, payload)
 		return nsresponse
 
@@ -163,10 +163,10 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "params" : { "action" : "enable" }, "service" : { "name" : service_name } } }
+		payload = { "object" : { "params" : { "action" : "enable" }, "service" : { "name" : service_name } } }
 
 		nsresponse = self.__post(payload)
-        	return nsresponse	
+		return nsresponse	
 
 	def rename_service(self, service_name, service_new_name):
 		""" Renames service service_name to service_new_name """
@@ -178,7 +178,7 @@ class NSNitro:
 		except nsresources.NSNitroError, e:
 			raise e
 
-        	payload = { "object" : { "params" : { "action" : "rename" }, "service" : { "name" : service_name, "newname" : service_new_name } } }
+		payload = { "object" : { "params" : { "action" : "rename" }, "service" : { "name" : service_name, "newname" : service_new_name } } }
 
 		nsresponse = self.__post(self, payload)
 		return nsresponse
@@ -187,40 +187,40 @@ class NSNitro:
 		try:
 			payload_encoded = urllib.urlencode(payload)
 			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
-        		response = urllib2.urlopen(req)
+			response = urllib2.urlopen(req)
 
-        	except urllib2.HTTPError, e:
-                	raise nsresources.NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
+		except urllib2.HTTPError, e:
+			raise nsresources.NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
 
 		nsresponse = nsresources.NSNitroResponse(response.read())
 		if nsresponse.failed:
 			raise nsresources.NSNitroError(nsresponse.message)
-        	return nsresponse	
+		return nsresponse	
 
 	def __put(self, payload):
 		try:
 			payload_encoded = urllib.urlencode(payload)
 			req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
 			req.get_method = lambda: 'PUT'
-        		response = urllib2.urlopen(req)
+			response = urllib2.urlopen(req)
 
-        	except urllib2.HTTPError, e:
-                	raise nsresources.NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
+		except urllib2.HTTPError, e:
+			raise nsresources.NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
 
 		nsresponse = nsresources.NSNitroResponse(response.read())
 		if nsresponse.failed:
 			raise nsresources.NSNitroError(nsresponse.message)
-        	return nsresponse	
+		return nsresponse	
 
-	def __get(self, url):
+	def get(self, url):
 		try:
 			opener = urllib2.build_opener()
 			opener.addheaders.append(('Cookie', 'sessionid='+self.__sessionid))
 			response = opener.open(url)
 
-        	except urllib2.HTTPError, e:
-                	print "Got reponse code: %s from the server" % e.code
-                	raise nsresources.NSNitroError("Could not get service: %s, %s" % (e.code, e.message))
+		except urllib2.HTTPError, e:
+			print "Got reponse code: %s from the server" % e.code
+			raise nsresources.NSNitroError("Could not get service: %s, %s" % (e.code, e.message))
 
 		nsresponse = nsresources.NSNitroResponse(response.read())
 		if nsresponse.failed:

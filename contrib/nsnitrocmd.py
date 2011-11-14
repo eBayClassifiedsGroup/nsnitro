@@ -71,7 +71,8 @@ if __name__ == "__main__":
 		if args.getserviceslist:
 			response = nitro.get_service("")
 			print "-- Configured services ---"
-			for service in response.get_response_field("service"):
+			services = response.get_response_field("service")
+			for service in sorted(services, key=lambda k: k['name']):
 				print "\t" + service['name']
 			sys.exit(0)
 
