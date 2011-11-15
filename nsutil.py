@@ -41,18 +41,3 @@ class NSNitroResponse:
                 """ Returns field_name of parsed JSON dictionary """
                 return self.__jresponse[field_name]
 
-class NSPayloadFormatter:
-
-        __resourcetype = False
-        __action = False
-        __options = False
-
-        def __init__(self, resourcetype, action, options):
-                self.__resourcetype = resourcetype
-                self.__action = action
-                self.__options = options
-
-        def get_payload(self):
-                json_options = json.JSONEncoder().encode(self.__options)
-                payload = { "object" : { "params" : { "action" : self.__action }, self.__resourcetype : self.__options } }
-                return payload

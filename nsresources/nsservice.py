@@ -1,6 +1,7 @@
 import json
 import urllib
 from nsutil import *
+from nsbaseresource import NSPayloadFormatter
 
 class NSService:
 
