@@ -7,6 +7,7 @@ class NSLBVServer(NSBaseResource):
 
 # Configuration for Load Balancing Virtual Server resource.
 
+        resourcetype="lbvserver"
         def __init__(self,json_data=None):
                 super(NSLBVServer, self).__init__()
                 self.options={
@@ -1006,11 +1007,23 @@ class NSLBVServer(NSBaseResource):
 # Well, lets try list first
         @staticmethod
         def get_all(nitro):
-                json_lbvservers = nitro.get_lbvserver("").get_response_field("lbvserver")
+                __url=nitro.get_url()+NSLBVServer.resourcetype +"/"
+                json_lbvservers =nitro.get(__url).get_response_field(NSLBVServer.resourcetype)
                 lbvservers=[]
                 for json_lbvserver in json_lbvservers:
                         lbvservers.append(NSLBVServer(json_lbvserver))
                 return lbvservers
+# It is als shall be possible to get object if lbservername is known, i mean
+# useing static context
+        @staticmethod
+        def get_instance(nitro, lbvserver_name):
+                __url=nitro.get_url()+NSLBVServer.resourcetype +"/"+lbvserver_name
+                __response=nitro.get(__url).get_response_field(NSLBVServer.resourcetype)[0]
+                return NSLBVServer(__response)
+#Some nice printing
+        def print_resource(self):
+                for key,value in self.options.iteritems():
+                        print "\t",key,": \t\t",value
 
 
 
