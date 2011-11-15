@@ -6,6 +6,8 @@ from nsbaseresource import NSBaseResource
 class NSService(NSBaseResource):
 
         def __init__(self):
+                super(NSService, self).__init__()
+                
                 self.__options = {
                         'cachetype' : '',
                         'servername' : '',
@@ -35,6 +37,7 @@ class NSService(NSBaseResource):
                         'useproxyport' : '',
                         'sc' : '',
                         'cmp' : '',
+                        'tcpb' : '',
                 }
                 # Readonly values
                 self.__options_readonly = {
@@ -53,7 +56,6 @@ class NSService(NSBaseResource):
                         'statechangetimemsec' : '',
                         'failedprobes' : '',
                         'totalprobes' : '',
-                        'tcpb' : '',
                 }
 
                 self.set_resource_type("service")
@@ -79,17 +81,14 @@ class NSService(NSBaseResource):
 
         def disable(self, nitro, service_name):
                 self.__options['name'] = service_name
-                print "Options: %s" % self.__options
                 self.set_options(self.__options)
                 self.set_action("disable")
                 payload = self.get_payload()
-                print payload
                 nsresponse = nitro.post(payload)
                 return nsresponse
 
         def enable(self, nitro, service_name):
                 self.__options['name'] = service_name
-                print self.__options
                 self.set_options(self.__options)
                 self.set_action("enable")
                 payload = self.get_payload()
@@ -97,10 +96,16 @@ class NSService(NSBaseResource):
                 nsresponse = nitro.post(payload)
                 return nsresponse
 
-#                nsresponse = nitro.post(url)
+        def rename(self, nitro, service_name, new_name):
+                self.__options['name'] = service_name
+                self.__options['newname'] = new_name
+                self.set_options(self.__options)
+                self.set_action("rename")
+                payload = self.get_payload()
+                print payload
+                nsresponse = nitro.post(payload)
+                return nsresponse
 
-        def json(self):
-                return json.JSONEncoder().encode(self.__options)
 
         def reset(self):
                 self.__init__()

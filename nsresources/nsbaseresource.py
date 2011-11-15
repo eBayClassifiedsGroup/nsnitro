@@ -18,7 +18,8 @@ class NSBaseResource(object):
 
         def set_options(self, options):
                 self.__baseoptions = options
-                # Filter out empty objects
+
+                # Filter out empty options
                 self.__baseoptions = dict([(k,v) for k,v in self.__baseoptions.items() if (v)])
 
         def get_payload(self):
