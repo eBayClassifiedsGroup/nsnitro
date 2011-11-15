@@ -35,10 +35,16 @@ class NSService(NSBaseResource):
                         'sp' : '',
                         'dup_weight' : '',
                         'cip' : '',
+                        'cipheader' : '',
                         'useproxyport' : '',
                         'sc' : '',
                         'cmp' : '',
                         'tcpb' : '',
+                        'state' : '',
+                        'httpprofilename' : '',
+                        'tcpprofilename' : '',
+                        'comment' : '',
+
                 # Readonly values
                         'policyname' : '',
                         'monstatparam2' : '',
@@ -190,6 +196,12 @@ class NSService(NSBaseResource):
         def set_serverid(self, serverid):
                 self.options['serverid'] = serverid
 
+        def get_state(self):
+                return self.options['state']
+
+        def set_state(self, state):
+                self.options['state'] = state
+
         def get_cka(self):
                 return self.options['cka']
 
@@ -208,12 +220,18 @@ class NSService(NSBaseResource):
         def set_dup_weight(self, dup_weight):
                 self.options['dup_weight'] = dup_weight
 
-
         def get_cip(self):
                 return self.options['cip']
 
         def set_cip(self, cip):
                 self.options['cip'] = cip
+
+        def get_cipheader(self):
+                return self.options['cip']
+
+        def set_cipheader(self, cipheader):
+                self.options['cipheader'] = cipheader
+
 
         def get_useproxyport(self):
                 return self.options['useproxyport']
@@ -238,6 +256,25 @@ class NSService(NSBaseResource):
 
         def set_tcpb(self, tcpb):
                 self.options['tcpb'] = tcpb
+
+        def set_tcpprofilename(self, tcpprofilename):
+                self.options['tcpprofilename'] = tcpprofilename
+
+        def get_tcpprofilename(self):
+                return self.options['tcpprofilename']
+
+        def set_httpprofilename(self, httpprofilename):
+                self.options['httpprofilename'] = httpprofilename
+
+        def get_httpprofilename(self):
+                return self.options['httpprofilename']
+
+        def set_comment(self, comment):
+                self.options['comment'] = comment
+
+        def get_comment(self):
+                return self.options['comment']
+
 
         # Read-only option getters
         def get_svrstate(self):
@@ -312,4 +349,46 @@ class NSService(NSBaseResource):
         @staticmethod
         def get(nitro, service_name):
                 __service = NSService()
-                return __service.get_resource(nitro, service_name)
+                __service.get_resource(nitro, service_name)
+                return __service
+
+        @staticmethod
+        def add(nitro, service):
+                __service = NSService()
+                __service.set_name(service.get_name())
+                __service.set_ipaddress(service.get_ipaddress())
+                __service.set_servername(service.get_servername())
+                __service.set_servicetype(service.get_servicetype())
+                __service.set_port(service.get_port())
+                __service.set_cleartextport(service.get_cleartextport())
+                __service.set_cachetype(service.get_cachetype())
+                __service.set_maxclient(service.get_maxclient())
+                __service.set_maxreq(service.get_maxreq())
+                __service.set_cacheable(service.get_cacheable())
+                __service.set_cip(service.get_cip())
+                __service.set_cipheader(service.get_cipheader())
+                __service.set_usip(service.get_usip())
+                __service.set_useproxyport(service.get_useproxyport())
+                __service.set_sc(service.get_sc())
+                __service.set_sp(service.get_sp())
+                __service.set_rtspsessionidremap(service.get_rtspsessionidremap())
+                __service.set_clttimeout(service.get_clttimeout())
+                __service.set_svrtimeout(service.get_svrtimeout())
+                __service.set_serverid(service.get_serverid())
+                __service.set_cka(service.get_cka())
+                __service.set_tcpb(service.get_tcpb())
+                __service.set_maxbandwidth(service.get_maxbandwidth())
+                __service.set_accessdown(service.get_accessdown())
+                __service.set_monthreshold(service.get_monthreshold())
+                __service.set_state(service.get_state())
+                __service.set_downstateflush(service.get_downstateflush())
+                __service.set_tcpprofilename(service.get_tcpprofilename())
+                __service.set_httpprofilename(service.get_httpprofilename())
+                __service.set_comment(service.get_comment())
+                return __service.add_resource(nitro)
+
+        @staticmethod
+        def delete(nitro, service_name):
+                __service = NSService()
+                nsresponse = __service.delete_resource(nitro, service_name)
+                return nsresponse
