@@ -7,9 +7,8 @@ class NSLBVServer(NSBaseResource):
 
 # Configuration for Load Balancing Virtual Server resource.
 
-        def __init__(self):
-                super(NSService, self).__init__()
-
+        def __init__(self,json_data=None):
+                super(NSLBVServer, self).__init__()
                 self.options={
                         'name' : '',
                         'servicetype' : '',
@@ -89,7 +88,7 @@ class NSLBVServer(NSBaseResource):
                         'ruletype' : '',
                         'groupname' : '',
                         'cookiedomain' : '',
-                       'map' : '',
+                        'map' : '',
                         'gt2gb' : '',
                         'thresholdvalue' : '',
                         'bindpoint' : '',
@@ -104,6 +103,11 @@ class NSLBVServer(NSBaseResource):
                         'tickssincelaststatechange' : '',
                         '__count' : ''
                 }
+                if not (json_data is None):
+                        for key in json_data.keys():
+                                if self.options.has_key(key):
+                                        self.options[key]=json_data[key]
+
 
 # The name of the load balancing virtual server being added.<br> Default value: 0<br> Minimum length =  1.
         def set_name(self, name):
@@ -996,4 +1000,32 @@ class NSLBVServer(NSBaseResource):
 # Time in 10 millisecond ticks since the last state change.<br> Default value: 0
         def get_tickssincelaststatechange(self):
                 return self.options['tickssincelaststatechange']
+
+# Operation metheods
+
+# Well, lets try list first
+        @staticmethod
+        def get_all(nitro):
+                json_lbvservers = nitro.get_lbvserver("").get_response_field("lbvserver")
+                lbvservers=[]
+                for json_lbvserver in json_lbvservers:
+                        lbvservers.append(NSLBVServer(json_lbvserver))
+                return lbvservers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
