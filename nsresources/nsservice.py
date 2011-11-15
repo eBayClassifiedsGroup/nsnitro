@@ -1,9 +1,9 @@
 import json
 import urllib
 from nsutil import *
-from nsbaseresource import NSPayloadFormatter
+from nsbaseresource import NSBaseResource
 
-class NSService:
+class NSService(NSBaseResource):
 
         # Public variables
         __options = {
@@ -83,7 +83,10 @@ class NSService:
 
         def disable(self, nitro, service_name):
                 self.__options['name'] = service_name
-                payload = NSPayloadFormatter(self.__get_resource_type(), "disable", self.__options).get_payload()
+                self.set_options(self.__options)
+                self.set_resource_type(self.__get_resource_type())
+                self.set_action("disable")
+                payload = self.get_payload()
                 print payload
                 nsresponse = nitro.post(payload)
                 print nsresponse.message
