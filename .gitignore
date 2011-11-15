@@ -6,3 +6,4 @@ debian/python-nsnitro.substvars
 debian/python-nsnitro
 dist
 nsnitro.egg-info
+*.pyc

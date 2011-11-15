@@ -15,4 +15,3 @@ nitro.login()
 nitro.get_service("") // returns an NSResponse object with all configured services
 
 
-
