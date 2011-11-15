@@ -1,0 +1,8 @@
+build
+debian/python-nsnitro.debhelper.log
+debian/python-nsnitro.postinst.debhelper
+debian/python-nsnitro.prerm.debhelper
+debian/python-nsnitro.substvars
+debian/python-nsnitro
+dist
+nsnitro.egg-info
