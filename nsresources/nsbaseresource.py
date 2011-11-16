@@ -23,5 +23,19 @@ class NSBaseResource(object):
                 self.__baseoptions = dict([(k,v) for k,v in self.__baseoptions.items() if (v)])
 
         def get_payload(self):
-                payload = { "object" : { "params" : { "action" : self.__baseaction }, self.__baseresourcetype : self.__baseoptions } }
+                options = dict([(k,v) for k,v in self.__baseoptions.items() if (v)])
+                payload = { "object" : { "params" : { "action" : self.__baseaction }, self.__baseresourcetype : options } }
                 return payload
+
+        def perform_operation(self, nitro, action):
+                self.set_action(action)
+                response = nitro.post(self.get_payload())
+                return response
+
+        def get_resource(self, nitro):
+                pass
+
+        def get_resource(self, nitro, service_name):
+                url = nitro.get_url() + self.get_resource_type() + "/" + service_name
+                response = nitro.get(url)
+                return response

@@ -30,6 +30,7 @@ class NSService(NSBaseResource):
                         'serverid' : '',
                         'cka' : '',
                         'name' : '',
+                        'newname' : '',
                         'sp' : '',
                         'dup_weight' : '',
                         'totalfailedprobes' : '',
@@ -60,52 +61,78 @@ class NSService(NSBaseResource):
 
                 self.set_resource_type("service")
 
-        def get(self, nitro, service_name):
-                url = nitro.get_url() + self.get_resource_type() + "/" + service_name
 
-                nsresponse = nitro.get(url)
-                if nsresponse.failed:
-                        raise NSNitroError(nsresponse.message)
 
-                for key in self.__options.iterkeys():
-                        self.__options[key] = nsresponse.get_response_field("service")[0][key]
-
-                for key in self.__options_readonly.iterkeys():
-                        self.__options_readonly[key] = nsresponse.get_response_field("service")[0][key]
-
+        # Getters and setters for configurable options
         def get_name(self):
                 return self.__options['name']
 
+        def set_name(self, name):
+                self.__options['name'] = name
+                self.set_options(self.__options)
+
+        def get_newname(self):
+                return self.__options['newname']
+
+        def set_newname(self, name):
+                self.__options['newname'] = name
+                self.set_options(self.__options)
+
+        def get_cachetype(self):
+                return self.__options['cachetype']
+
+        def set_cachetype(self, cachetype):
+                self.__options['cachetype'] = cachetype
+                self.set_options(self.__options)
+
+        def get_servername(self):
+                return self.__options['servername']
+
+        def set_servername(self, servername):
+                self.__options['servername'] = servername
+                self.set_options(self.__options)
+
+        def get_downstateflush(self):
+                return self.__options['downstateflush']
+
+        def set_downstateflush(self, downstateflush):
+                self.__options['downstateflush'] = downstateflush
+                self.set_options(self.__options)
+
+        def get_maxreq(self):
+                return self.__options['maxreq']
+
+        def set_maxreq(self, maxreq):
+                self.__options['maxreq'] = maxreq
+                self.set_options(self.__options)
+
+
+        # Read-only option getters
         def get_svrstate(self):
                 return self.__options_readonly['svrstate']
 
-        def disable(self, nitro, service_name):
-                self.__options['name'] = service_name
-                self.set_options(self.__options)
-                self.set_action("disable")
-                payload = self.get_payload()
-                nsresponse = nitro.post(payload)
-                return nsresponse
 
-        def enable(self, nitro, service_name):
-                self.__options['name'] = service_name
-                self.set_options(self.__options)
-                self.set_action("enable")
-                payload = self.get_payload()
-                print payload
-                nsresponse = nitro.post(payload)
-                return nsresponse
+        # Operations methods
+        @staticmethod
+        def disable(nitro, service):
+                __service = NSService()
+                __service.set_name(service.get_name())
+                return __service.perform_operation(nitro, "disable")
 
-        def rename(self, nitro, service_name, new_name):
-                self.__options['name'] = service_name
-                self.__options['newname'] = new_name
-                self.set_options(self.__options)
-                self.set_action("rename")
-                payload = self.get_payload()
-                print payload
-                nsresponse = nitro.post(payload)
-                return nsresponse
+        @staticmethod
+        def enable(nitro, service):
+                __service = NSService()
+                __service.set_name(service.get_name())
+                return __service.perform_operation(nitro, "enable")
 
+        @staticmethod
+        def rename(nitro, service):
+                __service = NSService()
+                __service.set_name(service.get_name())
+                __service.set_newname(service.get_newname())
+                return __service.perform_operation(nitro, "rename")
 
-        def reset(self):
-                self.__init__()
+        @staticmethod
+        def get(nitro, service_name):
+                __service = NSService()
+                return __service.get_resource(nitro, service_name)
