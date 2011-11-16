@@ -59,6 +59,8 @@ class NSNitro:
 
                 except SyntaxError:
                         raise NSNitroError("Could not parse LB response.")
+                except urllib2.URLError, ue:
+                        raise NSNitroError("Error logging in!" + ue.message)
 
 
         def rename_lbvserver(self, vserver_name, vserver_new_name):

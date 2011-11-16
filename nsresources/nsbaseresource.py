@@ -32,10 +32,7 @@ class NSBaseResource(object):
                 return response
 
         def get_resource(self, nitro):
-                pass
-
-        def get_resource(self, nitro, resource_name):
-                url = nitro.get_url() + self.resourcetype + "/" + resource_name
+                url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
                 response = nitro.get(url)
 
                 if response.failed:
@@ -49,8 +46,8 @@ class NSBaseResource(object):
                 response = nitro.post(self.get_payload())
                 return response
 
-        def delete_resource(self, nitro, resource_name):
-                url = nitro.get_url() + self.resourcetype + "/" + resource_name
+        def delete_resource(self, nitro):
+                url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
                 response = nitro.delete(url)
 
                 if response.failed:
