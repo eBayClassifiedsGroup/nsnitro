@@ -25,13 +25,17 @@ class NSServer(NSBaseResource):
                         'newname' : ''
                 }
 
-                self.resourcetype = "server"
+                self.resourcetype = NSServer.get_resourcetype()
 
                 if not (json_data is None):
                         for key in json_data.keys():
                                 if self.options.has_key(key):
                                         self.options[key] = json_data[key]
 
+
+        @staticmethod
+        def get_resourcetype():
+                return "server"
 
         def set_name(self, name):
                 """
@@ -262,8 +266,8 @@ class NSServer(NSBaseResource):
                 """
                 Use this API to fetch all configured server resources.
                 """
-                __url = nitro.get_url() + NSServer.resourcetype
-                __json_servers = nitro.get(__url).get_response_field(NSServer.resourcetype)
+                __url = nitro.get_url() + NSServer.get_resourcetype()
+                __json_servers = nitro.get(__url).get_response_field(NSServer.get_resourcetype())
                 __servers = []
                 for json_server in __json_servers:
                         __servers.append(NSServer(json_server))

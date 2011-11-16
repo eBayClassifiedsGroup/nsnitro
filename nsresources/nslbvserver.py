@@ -3,8 +3,7 @@ from nsbaseresource import NSBaseResource
 class NSLBVServer(NSBaseResource):
 
 # Configuration for Load Balancing Virtual Server resource.
-
-        resourcetype="lbvserver"
+        
         def __init__(self,json_data=None):
                 super(NSLBVServer, self).__init__()
                 self.options={
@@ -101,11 +100,17 @@ class NSLBVServer(NSBaseResource):
                         'tickssincelaststatechange' : '',
                         '__count' : ''
                 }
+
+                self.resourcetype = NSLBVServer.get_resourcetype()
+
                 if not (json_data is None):
                         for key in json_data.keys():
                                 if self.options.has_key(key):
                                         self.options[key]=json_data[key]
 
+        @staticmethod
+        def get_resourcetype():
+                return "lbvserver"
 
 # The name of the load balancing virtual server being added.<br> Default value: 0<br> Minimum length =  1.
         def set_name(self, name):
@@ -1045,8 +1050,8 @@ class NSLBVServer(NSBaseResource):
                 """
                 Use this API to fetch all configured lbvserver resources.
                 """
-                __url = nitro.get_url() + NSLBVServer.resourcetype
-                __json_lbvservers = nitro.get(__url).get_response_field(NSLBVServer.resourcetype)
+                __url = nitro.get_url() + NSLBVServer.get_resourcetype()
+                __json_lbvservers = nitro.get(__url).get_response_field(NSLBVServer.get_resourcetype())
                 __lbvservers = []
                 for json_lbvserver in __json_lbvservers:
                         __lbvservers.append(NSLBVServer(json_lbvserver))

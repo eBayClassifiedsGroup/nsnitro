@@ -66,13 +66,16 @@ class NSService(NSBaseResource):
                         'totalprobes' : '',
                 }
 
-                self.resourcetype = "service"
-
                 if not (json_data is None):
                         for key in json_data.keys():
                                 if self.options.has_key(key):
                                         self.options[key]=json_data[key]
 
+                self.resourcetype = NSService.get_resourcetype()
+
+        @staticmethod
+        def get_resourcetype():
+                return "service"
 
 
         # Getters and setters for configurable options
@@ -766,11 +769,11 @@ class NSService(NSBaseResource):
                 """
                 Use this API to fetch all configured service resources.
                 """
-                __url = nitro.get_url() + NSService.resourcetype
-                __json_services = nitro.get(__url).get_response_field(NSService.resourcetype)
+                __url = nitro.get_url() + NSService.get_resourcetype()
+                __json_services = nitro.get(__url).get_response_field(NSService.get_resourcetype())
                 __services = []
                 for json_service in __json_services:
-                        __services.append(NSService(json_lbvserver))
+                        __services.append(NSService(json_service))
                 return __services
 
         @staticmethod

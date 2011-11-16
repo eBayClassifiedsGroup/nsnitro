@@ -38,9 +38,9 @@ class NSBaseResource(object):
                 if response.failed:
                         raise NSNitroError(response.message)
 
-                for key in response.get_response_field(self.resourcetype):
-                                for k, v in key.iteritems():
-                                        self.options[k] = v
+                for resource in response.get_response_field(self.resourcetype):
+                                for k in resource.iterkeys():
+                                        self.options[k] = resource[k]
 
         def add_resource(self, nitro):
                 response = nitro.post(self.get_payload())

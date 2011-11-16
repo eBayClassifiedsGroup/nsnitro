@@ -2,29 +2,38 @@
 #import the necessary libraries
 import argparse
 import sys
-import json
 import nsnitro
 from nsutil import *
+from nsresources.nslbvserver import NSLBVServer
+from nsresources.nsservice import NSService
+from nsresources.nsserver import NSServer
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
         parser.add_argument('--lbip', metavar='IP', required=True, help='lb ip address')
         parser.add_argument('--user', metavar='USERNAME', default='api_user', help='lb username')
         parser.add_argument('--password', metavar='PASSWORD', default='api_user', help='lb password')
-        parser.add_argument('--enablevserver', metavar='VSERVERNAME', help='enable lb vserver')
-        parser.add_argument('--disablevserver', metavar='VSERVERNAME', help='disable lb vserver')
+
+        parser.add_argument('--enablelbvserver', metavar='VSERVERNAME', help='enable lb vserver')
+        parser.add_argument('--disablelbvserver', metavar='VSERVERNAME', help='disable lb vserver')
+        parser.add_argument('--renamelbvserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename lb vserver from NAME to NEWNAME')
+
         parser.add_argument('--enableservice', metavar='SERVICENAME', help='enable service')
         parser.add_argument('--disableservice', metavar='SERVICENAME', help='disable service')
-        parser.add_argument('--getservice', metavar='SERVICENAME', nargs='?', const='list', help='show service')
-        parser.add_argument('--enableserver', metavar='SERVERNAME', help='enable server')
-        parser.add_argument('--disableserver', metavar='SERVERNAME', help='disable server')
-        parser.add_argument('--getserver', metavar='SERVERNAME', nargs='?', const='list', help='show server')
+        parser.add_argument('--renameservice', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename service from NAME to NEWNAME')
+
+        parser.add_argument('--getservice', metavar='SERVICENAME', help='show service')
         parser.add_argument('--getservicestatus', metavar='SERVICENAME', help='show service status')
         parser.add_argument('--getserviceslist', action='store_true', help='show services list')
         parser.add_argument('--getservicesstatus', action='store_true', help='show services status')
-        parser.add_argument('--renamelbvserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename lb vserver from NAME to NEWNAME')
-        parser.add_argument('--renameservice', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename service from NAME to NEWNAME')
-        parser.add_argument('--bindservicetolbvserver', metavar=('VSERVER', 'SERVICE', 'WEIGHT'), nargs=3, help='bind SERVICE to lb VSERVER with WEIGHT')
+
+        parser.add_argument('--getserver', metavar='SERVERNAME', help='show server')
+        parser.add_argument('--getserverslist', action='store_true', help='show servers list')
+        parser.add_argument('--getserversstatus', action='store_true', help='show servers status')
+        parser.add_argument('--enableserver', metavar='SERVERNAME', help='enable server')
+        parser.add_argument('--disableserver', metavar='SERVERNAME', help='disable server')
+        parser.add_argument('--renameserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename server from NAME to NEWNAME')
+        
         parser.add_argument('--dargs', action='store_true', help='show service')
         args = parser.parse_args()
 
@@ -37,103 +46,132 @@ if __name__ == "__main__":
         try:
                 nitro.login()
 
-                if args.enablevserver:
-                        nitro.enable_lbvserver(args.enablevserver)
-                        print "Enabled vserver: %s" % args.enablevserver
+                if args.enablelbvserver:
+                        lbvserver = NSLBVServer()
+                        lbvserver.set_name(args.enablelbvserver)
+                        NSLBVServer.enable(nitro, lbvserver)
+                        print "Enabled vserver: %s" % args.enablelbvserver
                         sys.exit(0)
 
-                if args.disablevserver:
-                        nitro.disable_lbvserver(args.disablevserver)
-                        print "Disabled vserver: %s" % args.disablevserver
+                if args.disablelbvserver:
+                        lbvserver = NSLBVServer()
+                        lbvserver.set_name(args.disablelbvserver)
+                        NSLBVServer.disable(nitro, lbvserver)
+                        print "Disabled vserver: %s" % args.disablelbvserver
                         sys.exit(0)
 
                 if args.enableservice:
-                        nitro.enable_service(args.enableservice)
+                        service = NSService()
+                        service.set_name(args.enableservice)
+                        NSService.enable(nitro, service)
                         print "Enabled service: %s" % args.enableservice
                         sys.exit(0)
 
                 if args.disableservice:
-                        nitro.disable_service(args.disableservice)
+                        service = NSService()
+                        service.set_name(args.disableservice)
+                        NSService.disable(nitro, service)
                         print "Disabled service: %s" % args.disableservice
                         sys.exit(0)
 
                 if args.getservice:
-                        if args.getservice == "list":
-                                response = nitro.get_service("")
-                        else:
-                                response = nitro.get_service(args.getservice)
+                        service = NSService()
+                        service.set_name(args.getservice)
+                        service = service.get(nitro, service)
 
-                        for service in response.get_response_field("service"):
-                                print "--- Service: " + service['name'] + " ---"
-                                for k, v in service.iteritems():
-                                        print "\t%s: %s" % (k, v)
+                        print "--- Service: " + service.get_name() + " ---"
+                        for k in sorted(service.options.iterkeys(), key=lambda k: k):
+                                print "\t%s: %s" % (k, service.options[k])
 
-                        #print "Here: " +  response
                         sys.exit(0)
 
+                if args.getserviceslist:
+                        services = NSService().get_all(nitro)
+                        print "-- Configured services ---"
+                        for service in sorted(services, key=lambda k: k.get_name()):
+                                print "\t" + service.get_name()
+                        sys.exit(0)
+
+                if args.getservicesstatus:
+                        services = NSService().get_all(nitro)
+                        print "-- Configured services (with status) ---"
+                        for service in sorted(services, key=lambda k: k.get_name()):
+                                print "\t" + service.get_name() + ": " + service.get_svrstate()
+                        sys.exit(0)
+
+                if args.getservicestatus:
+                        service = NSService()
+                        service.set_name(args.getservicestatus)
+                        service = service.get(nitro, service)
+                        print service.get_name() + ": " + service.get_svrstate()
+                        sys.exit(0)
+
+
                 if args.enableserver:
-                        nitro.enable_server(args.enableserver)
+                        server = NSServer()
+                        server.set_name(args.enableserver)
+                        NSServer.enable(nitro, server)
                         print "Enabled server: %s" % args.enableserver
                         sys.exit(0)
 
                 if args.disableserver:
-                        nitro.disable_server(args.disableserver)
+                        server = NSServer()
+                        server.set_name(args.disableserver)
+                        NSServer.disable(nitro, server)
                         print "Disabled server: %s" % args.disableserver
                         sys.exit(0)
 
                 if args.getserver:
-                        if args.getserver == "list":
-                                response = nitro.get_server("")
-                        else:
-                                response = nitro.get_server(args.getserver)
-
-                        for server in response.get_response_field("server"):
-                                print "--- Server: " + server['name'] + " ---"
-                                for k, v in server.iteritems():
-                                        print "\t%s: %s" % (k, v)
-
-                        #print "Here: " +  response
+                        server = NSServer()
+                        server.set_name(args.getserver)
+                        server = server.get(nitro, server)
+                        print "--- Server: " + server.get_name() + " ---"
+                        for k in sorted(server.options.iterkeys(), key=lambda k: k):
+                                print "\t%s: %s" % (k, server.options[k])
                         sys.exit(0)
 
 
-                if args.getserviceslist:
-                        response = nitro.get_service("")
-                        print "-- Configured services ---"
-                        services = response.get_response_field("service")
-                        for service in sorted(services, key=lambda k: k['name']):
-                                print "\t" + service['name']
+                if args.getserverslist:
+                        servers = NSServer().get_all(nitro)
+                        print "-- Configured servers ---"
+                        for server in sorted(servers, key=lambda k: k.get_name()):
+                                print "\t" + server.get_name()
                         sys.exit(0)
 
-                if args.getservicesstatus:
-                        response = nitro.get_service("")
-                        print "-- Configured services (with status) ---"
-                        for service in response.get_response_field("service"):
-                                print "\t" + service['name'] + ": " + service['svrstate']
-                        sys.exit(0)
-
-                if args.getservicestatus:
-                        response = nitro.get_service(args.getservicestatus)
-                        for service in response.get_response_field("service"):
-                                print service['name'] + ": " + service['svrstate']
-                        sys.exit(0)
-
-                if args.renamelbvserver:
-                        response = nitro.rename_lbvserver(args.renamelbvserver[0], args.renamelbvserver[1])
-                        print "Renamed '%s' to '%s'." % (args.renamelbvserver[0], args.renamelbvserver[1])
+                if args.getserversstatus:
+                        servers = NSServer().get_all(nitro)
+                        print "-- Configured servers (with status) ---"
+                        for server in sorted(servers, key=lambda k: k.get_name()):
+                                print "\t" + server.get_name() + ": " + server.get_state()
                         sys.exit(0)
 
                 if args.renameservice:
-                        response = nitro.rename_service(args.renameservice[0], args.renameservice[1])
-                        print "Renamed '%s' to '%s'." % (args.renameservice[0], args.renameservice[1])
+                        service = NSService()
+                        service.set_name(args.renameservice[0])
+                        service.set_newname(args.renameservice[1])
+                        NSService.rename(nitro, service)
+                        print "Renamed service from '%s' to '%s'." % (args.renameservice[0], args.renameservice[1])
                         sys.exit(0)
 
-                if args.bindservicetolbvserver:
-                        response = nitro.bind_service_to_lbvserver(args.bindservicetolbvserver[0], args.bindservicetolbvserver[1], args.bindservicetolbvserver[2])
-                        print "Bound service '%s' to lb vserver '%s' with weight '%s'." % (args.bindservicetolbvserver[0], args.bindservicetolbvserver[1], args.bindservicetolbvserver[2]) 
+                if args.renamelbvserver:
+                        lbvserver = NSLBVServer()
+                        lbvserver.set_name(args.renamelbvserver[0])
+                        lbvserver.set_newname(args.renamelbvserver[1])
+                        NSLBVServer.rename(nitro, lbvserver)
+                        print "Renamed LB vserver from '%s' to '%s'." % (args.renamelbvserver[0], args.renamelbvserver[1])
                         sys.exit(0)
+
+                if args.renameserver:
+                        server = NSServer()
+                        server.set_name(args.renameserver[0])
+                        server.set_newname(args.renameserver[1])
+                        NSServer.rename(nitro, server)
+                        print "Renamed server from '%s' to '%s'." % (args.renamelbvserver[0], args.renamelbvserver[1])
+                        sys.exit(0)
+
 
 
                 print "No action specified. Exiting."
                 sys.exit(0)
         except NSNitroError, e:
-                print "Error: %s", e.message
+                print "Error: %s" % e.message
