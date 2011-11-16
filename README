@@ -1,4 +1,5 @@
-Complex Python Library to control Citrix Netscaler 9.2+ load balancers with NITRO API.
+Simple Python Library to control Citrix Netscaler 9.2+ load balancers with NITRO API.
+What we're trying here is implement Citrix NITRO API SDK (that's available for Java and C#) in Python.
 
 Proper documentation pending alpha release.
 
@@ -12,6 +13,69 @@ import nsnitro
 
 nitro = NSNitro('192.168.1.100', 'user', 'password')
 nitro.login()
-nitro.get_service("") // returns an NSResponse object with all configured services
+
+# add service test
+
+addservice = NSService()
+addservice.set_name("testnitroadd")
+addservice.set_servername("existingserver")
+addservice.set_servicetype("HTTP")
+addservice.set_port(11111)
+NSService.add(nitro, addservice)
+
+# get service test
+
+service = NSService()
+service.set_name("testnitroadd")
+service = service.get(nitro, service)
+print service.get_name() + ": " + service.get_svrstate()
+
+# disable service test
+
+disservice = NSService()
+disservice.set_name("testnitroadd")
+NSService.disable(nitro, disservice)
+
+service = NSService()
+service.set_name("testnitroadd")
+service = service.get(nitro, service)
+print service.get_name() + ": " + service.get_svrstate()
+
+# enable service test
+
+enservice = NSService()
+enservice.set_name("testnitroadd")
+NSService.enable(nitro, enservice)
+
+service = NSService()
+service.set_name("testnitroadd")
+service = service.get(nitro, service)
+print service.get_name() + ": " + service.get_svrstate()
+
+
+# rename service test
+
+renservice = NSService()
+renservice.set_name("testnitroadd")
+renservice.set_newname("testnitroadd_rename")
+NSService.rename(nitro, renservice)
+
+# rename service back test
+
+renservice = NSService()
+renservice.set_name("testnitroadd_rename")
+renservice.set_newname("testnitroadd")
+NSService.rename(nitro, renservice)
+
+# delete service test
+
+NSService.delete(nitro, "testnitroadd")
+try:
+        service = NSService()
+        service.set_name("testnitroadd")
+        service = service.get(nitro, service)
+        print service.get_name() + ": " + service.get_svrstate()
+except NSNitroError, e:
+        print e.message
 
 

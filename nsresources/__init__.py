@@ -1,3 +1,1 @@
-import nsservice
-
-__all__ = [ 'NSService' ]
+__all__ = [ 'NSService', 'NSServer', 'NSLBVServer', 'NSBaseResource' ]

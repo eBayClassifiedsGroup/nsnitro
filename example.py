@@ -5,8 +5,6 @@ import json
 nitro = nsnitro.NSNitro('localhost', 'api_user', 'api_user')
 nitro.login()
 
-# add service cas_casbuyside_mp-casfe002 mp-casfe002 HTTP 10460 -gslb NONE -maxClient 0 -maxReq 0 -cip DISABLED -usip NO -useproxyport YES -sp OFF -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP NO
-
 # add service test
 
 addservice = NSService()
@@ -18,7 +16,9 @@ NSService.add(nitro, addservice)
 
 # get service test
 
-service = NSService.get(nitro, "aurora_testnitroadd")
+service = NSService()
+service.set_name("aurora_testnitroadd")
+service = service.get(nitro, service)
 print service.get_name() + ": " + service.get_svrstate()
 
 # disable service test
