@@ -1,7 +1,6 @@
-import json
-import urllib
-from nsutil import *
 from nsbaseresource import NSBaseResource
+
+__author__ = 'vlazarenko'
 
 class NSService(NSBaseResource):
 
@@ -768,11 +767,11 @@ class NSService(NSBaseResource):
                 Use this API to fetch all configured service resources.
                 """
                 __url = nitro.get_url() + NSService.resourcetype
-                json_services = nitro.get(__url).get_response_field(NSService.resourcetype)
-                services = []
-                for json_service in json_services:
-                        services.append(NSService(json_lbvserver))
-                return services
+                __json_services = nitro.get(__url).get_response_field(NSService.resourcetype)
+                __services = []
+                for json_service in __json_services:
+                        __services.append(NSService(json_lbvserver))
+                return __services
 
         @staticmethod
         def add(nitro, service):

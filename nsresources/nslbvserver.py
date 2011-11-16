@@ -1,6 +1,3 @@
-import json
-import urllib
-from nsutil import *
 from nsbaseresource import NSBaseResource
 
 class NSLBVServer(NSBaseResource):
@@ -1004,6 +1001,132 @@ class NSLBVServer(NSBaseResource):
 
 # Operation metheods
 
+        # Operations methods
+        @staticmethod
+        def disable(nitro, lbvserver):
+                """
+                Use this API to disable lbvserver.
+                """
+                __lbvserver = NSLBVServer()
+                __lbvserver.set_name(lbvserver.get_name())
+                return __lbvserver.perform_operation(nitro, "disable")
+
+        @staticmethod
+        def enable(nitro, lbvserver):
+                """
+                Use this API to enable lbvserver.
+                """
+                __lbvserver = NSLBVServer()
+                __lbvserver.set_name(lbvserver.get_name())
+                return __lbvserver.perform_operation(nitro, "enable")
+
+        @staticmethod
+        def rename(nitro, lbvserver):
+                """
+                Use this API to rename lbvserver.
+                """
+                __lbvserver = NSLBVServer()
+                __lbvserver.set_name(lbvserver.get_name())
+                __lbvserver.set_newname(lbvserver.get_newname())
+                return __lbvserver.perform_operation(nitro, "rename")
+
+        @staticmethod
+        def get(nitro, lbvserver):
+                """
+                Use this API to fetch lbvserver resource of given name.
+                """
+                __lbvserver = NSLBVServer()
+                __lbvserver.set_name(lbvserver.get_name())
+                __lbvserver.get_resource(nitro)
+                return __lbvserver
+
+        @staticmethod
+        def get_all(nitro):
+                """
+                Use this API to fetch all configured lbvserver resources.
+                """
+                __url = nitro.get_url() + NSLBVServer.resourcetype
+                __json_lbvservers = nitro.get(__url).get_response_field(NSLBVServer.resourcetype)
+                __lbvservers = []
+                for json_lbvserver in __json_lbvservers:
+                        __lbvservers.append(NSLBVServer(json_lbvserver))
+                return __lbvservers
+
+        @staticmethod
+        def add(nitro, lbvserver):
+                """
+                Use this API to add lbvserver.
+                """
+                __lbvserver = NSLBVServer()
+                __lbvserver.set_name(lbvserver.get_name())
+                __lbvserver.set_servicetype(lbvserver.get_servicetype())
+                __lbvserver.set_ipv46(lbvserver.get_ipv46())
+                __lbvserver.set_ippattern(lbvserver.get_ippattern())
+                __lbvserver.set_ipmask(lbvserver.get_ipmask())
+                __lbvserver.set_port(lbvserver.get_port())
+                __lbvserver.set_range(lbvserver.get_range())
+                __lbvserver.set_persistencetype(lbvserver.get_persistencetype())
+                __lbvserver.set_timeout(lbvserver.get_timeout())
+                __lbvserver.set_persistencebackup(lbvserver.get_persistencebackup())
+                __lbvserver.set_backuppersistencetimeout(lbvserver.get_backuppersistencetimeout())
+                __lbvserver.set_lbmethod(lbvserver.get_lbmethod())
+                __lbvserver.set_hashlength(lbvserver.get_hashlength())
+                __lbvserver.set_netmask(lbvserver.get_netmask())
+                __lbvserver.set_v6netmasklen(lbvserver.get_v6netmasklen())
+                __lbvserver.set_rule(lbvserver.get_rule())
+                __lbvserver.set_listenpolicy(lbvserver.get_listenpolicy())
+                __lbvserver.set_listenpriority(lbvserver.get_listenpriority())
+                __lbvserver.set_resrule(lbvserver.get_resrule())
+                __lbvserver.set_persistmask(lbvserver.get_persistmask())
+                __lbvserver.set_v6persistmasklen(lbvserver.get_v6persistmasklen())
+                __lbvserver.set_pq(lbvserver.get_pq())
+                __lbvserver.set_sc(lbvserver.get_sc())
+                __lbvserver.set_rtspnat(lbvserver.get_rtspnat())
+                __lbvserver.set_m(lbvserver.get_m())
+                __lbvserver.set_tosid(lbvserver.get_tosid())
+                __lbvserver.set_datalength(lbvserver.get_datalength())
+                __lbvserver.set_dataoffset(lbvserver.get_dataoffset())
+                __lbvserver.set_sessionless(lbvserver.get_sessionless())
+                __lbvserver.set_state(lbvserver.get_state())
+                __lbvserver.set_connfailover(lbvserver.get_connfailover())
+                __lbvserver.set_redirurl(lbvserver.get_redirurl())
+                __lbvserver.set_cacheable(lbvserver.get_cacheable())
+                __lbvserver.set_clttimeout(lbvserver.get_clttimeout())
+                __lbvserver.set_somethod(lbvserver.get_somethod())
+                __lbvserver.set_sopersistence(lbvserver.get_sopersistence())
+                __lbvserver.set_sopersistencetimeout(lbvserver.get_sopersistencetimeout())
+                __lbvserver.set_sothreshold(lbvserver.get_sothreshold())
+                __lbvserver.set_redirectportrewrite(lbvserver.get_redirectportrewrite())
+                __lbvserver.set_downstateflush(lbvserver.get_downstateflush())
+                __lbvserver.set_backupvserver(lbvserver.get_backupvserver())
+                __lbvserver.set_disableprimaryondown(lbvserver.get_disableprimaryondown())
+                __lbvserver.set_insertvserveripport(lbvserver.get_insertvserveripport())
+                __lbvserver.set_vipheader(lbvserver.get_vipheader())
+                __lbvserver.set_authenticationhost(lbvserver.get_authenticationhost())
+                __lbvserver.set_authentication(lbvserver.get_authentication())
+                __lbvserver.set_authn401(lbvserver.get_authn401())
+                __lbvserver.set_authnvsname(lbvserver.get_authnvsname())
+                __lbvserver.set_push(lbvserver.get_push())
+                __lbvserver.set_pushvserver(lbvserver.get_pushvserver())
+                __lbvserver.set_pushlabel(lbvserver.get_pushlabel())
+                __lbvserver.set_pushmulticlients(lbvserver.get_pushmulticlients())
+                __lbvserver.set_tcpprofilename(lbvserver.get_tcpprofilename())
+                __lbvserver.set_httpprofilename(lbvserver.get_httpprofilename())
+                __lbvserver.set_comment(lbvserver.get_comment())
+                return __lbvserver.add_resource(nitro)
+
+        @staticmethod
+        def delete(nitro, lbvserver):
+                """
+                Use this API to delete lbvserver of a given name.
+                """
+                __lbvserver = NSLBVServer()
+                __lbvserver.set_name(lbvserver.get_name())
+                nsresponse = __lbvserver.delete_resource(nitro)
+                return nsresponse
+        
+        
+        
 # Well, lets try list first
         @staticmethod
         def get_all(nitro):
