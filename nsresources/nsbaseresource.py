@@ -1,4 +1,5 @@
 import json
+from nsutil import NSNitroError
 
 class NSBaseResource(object):
 
@@ -36,4 +37,10 @@ class NSBaseResource(object):
         def get_resource(self, nitro, service_name):
                 url = nitro.get_url() + self.resourcetype + "/" + service_name
                 response = nitro.get(url)
-                return response
+
+                if response.failed:
+                        raise NSNitroError(response.message)
+
+                for key in response.get_response_field(self.resourcetype):
+                                for k, v in key.iteritems():
+                                        self.options[k] = v

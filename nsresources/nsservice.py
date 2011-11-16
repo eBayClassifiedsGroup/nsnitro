@@ -312,4 +312,6 @@ class NSService(NSBaseResource):
         @staticmethod
         def get(nitro, service_name):
                 __service = NSService()
-                return __service.get_resource(nitro, service_name)
+                __service.get_resource(nitro, service_name)
+                return __service
+
