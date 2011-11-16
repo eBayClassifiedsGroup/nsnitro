@@ -8,7 +8,7 @@ class NSService(NSBaseResource):
         def __init__(self):
                 super(NSService, self).__init__()
                 
-                self.__options = {
+                self.options = {
                         'cachetype' : '',
                         'servername' : '',
                         'downstateflush' : '',
@@ -41,7 +41,7 @@ class NSService(NSBaseResource):
                         'tcpb' : '',
                 }
                 # Readonly values
-                self.__options_readonly = {
+                self.options_readonly = {
                         'policyname' : '',
                         'monstatparam2' : '',
                         'monstatparam3' : '',
@@ -59,57 +59,51 @@ class NSService(NSBaseResource):
                         'totalprobes' : '',
                 }
 
-                self.set_resource_type("service")
+                self.resourcetype = "service"
 
 
 
         # Getters and setters for configurable options
         def get_name(self):
-                return self.__options['name']
+                return self.options['name']
 
         def set_name(self, name):
-                self.__options['name'] = name
-                self.set_options(self.__options)
+                self.options['name'] = name
 
         def get_newname(self):
-                return self.__options['newname']
+                return self.options['newname']
 
         def set_newname(self, name):
-                self.__options['newname'] = name
-                self.set_options(self.__options)
+                self.options['newname'] = name
 
         def get_cachetype(self):
-                return self.__options['cachetype']
+                return self.options['cachetype']
 
         def set_cachetype(self, cachetype):
-                self.__options['cachetype'] = cachetype
-                self.set_options(self.__options)
+                self.options['cachetype'] = cachetype
 
         def get_servername(self):
-                return self.__options['servername']
+                return self.options['servername']
 
         def set_servername(self, servername):
-                self.__options['servername'] = servername
-                self.set_options(self.__options)
+                self.options['servername'] = servername
 
         def get_downstateflush(self):
-                return self.__options['downstateflush']
+                return self.options['downstateflush']
 
         def set_downstateflush(self, downstateflush):
-                self.__options['downstateflush'] = downstateflush
-                self.set_options(self.__options)
+                self.options['downstateflush'] = downstateflush
 
         def get_maxreq(self):
-                return self.__options['maxreq']
+                return self.options['maxreq']
 
         def set_maxreq(self, maxreq):
-                self.__options['maxreq'] = maxreq
-                self.set_options(self.__options)
+                self.options['maxreq'] = maxreq
 
 
         # Read-only option getters
         def get_svrstate(self):
-                return self.__options_readonly['svrstate']
+                return self.options_readonly['svrstate']
 
 
         # Operations methods

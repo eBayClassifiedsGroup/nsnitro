@@ -2,29 +2,27 @@ import json
 
 class NSBaseResource(object):
 
+        options = {}
+        resourcetype = False
+
         def __init__(self):
-                self.__baseresourcetype = False
+                self.options = {}
+                self.resourcetype = False
                 self.__baseaction = False
-                self.__baseoptions = False
-
-        def set_resource_type(self, resourcetype):
-                self.__baseresourcetype = resourcetype
-
-        def get_resource_type(self):
-                return self.__baseresourcetype
 
         def set_action(self, action):
                 self.__baseaction = action
 
         def set_options(self, options):
-                self.__baseoptions = options
+                self.options = options
 
                 # Filter out empty options
-                self.__baseoptions = dict([(k,v) for k,v in self.__baseoptions.items() if (v)])
+                self.options = dict([(k,v) for k,v in self.options.items() if (v)])
 
         def get_payload(self):
-                options = dict([(k,v) for k,v in self.__baseoptions.items() if (v)])
-                payload = { "object" : { "params" : { "action" : self.__baseaction }, self.__baseresourcetype : options } }
+                options = dict([(k,v) for k,v in self.options.items() if (v)])
+                payload = { "object" : { "params" : { "action" : self.__baseaction }, self.resourcetype : options } }
+                print payload
                 return payload
 
         def perform_operation(self, nitro, action):
@@ -36,6 +34,6 @@ class NSBaseResource(object):
                 pass
 
         def get_resource(self, nitro, service_name):
-                url = nitro.get_url() + self.get_resource_type() + "/" + service_name
+                url = nitro.get_url() + self.resourcetype + "/" + service_name
                 response = nitro.get(url)
                 return response
