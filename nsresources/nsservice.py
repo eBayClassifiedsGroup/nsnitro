@@ -386,3 +386,9 @@ class NSService(NSBaseResource):
                 __service.set_httpprofilename(service.get_httpprofilename())
                 __service.set_comment(service.get_comment())
                 return __service.add_resource(nitro)
+
+        @staticmethod
+        def delete(nitro, service_name):
+                __service = NSService()
+                nsresponse = __service.delete_resource(nitro, service_name)
+                return nsresponse

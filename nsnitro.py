@@ -283,6 +283,22 @@ class NSNitro:
 
                 return nsresponse
 
+        def delete(self, url):
+                try:
+                        opener = urllib2.build_opener()
+                        req = urllib2.Request(url)
+                        req.add_header('Cookie', 'sessionid='+self.__sessionid)
+                        req.get_method = lambda: 'DELETE'
+                        response = urllib2.urlopen(req)
+
+                except urllib2.HTTPError, e:
+                        raise NSNitroError("Could not send delete request: %s, %s" % (e.code, e.message))
+
+                nsresponse = NSNitroResponse(response.read())
+                if nsresponse.failed:
+                        raise NSNitroError(nsresponse.message)
+                return nsresponse
+
 
 
         def __ready(self):
