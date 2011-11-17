@@ -69,7 +69,10 @@ NSService.rename(nitro, renservice)
 
 # delete service test
 
-NSService.delete(nitro, "testnitroadd")
+delservice = NSService()
+delservice.set_name("testnitroadd")
+NSService.delete(nitro, delservice)
+
 try:
         service = NSService()
         service.set_name("testnitroadd")

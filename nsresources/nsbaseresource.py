@@ -46,6 +46,10 @@ class NSBaseResource(object):
                 response = nitro.post(self.get_payload())
                 return response
 
+        def update_resource(self, nitro):
+                response = nitro.put(self.get_payload())
+                return response        
+
         def delete_resource(self, nitro):
                 url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
                 response = nitro.delete(url)

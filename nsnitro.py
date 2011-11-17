@@ -76,7 +76,7 @@ class NSNitro:
                         raise NSNitroError(nsresponse.message)
                 return nsresponse
 
-        def __put(self, payload):
+        def put(self, payload):
                 try:
                         payload_encoded = urllib.urlencode(payload)
                         req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)

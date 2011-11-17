@@ -1,4 +1,5 @@
 import nsnitro
+import nsutil
 from nsresources.nsservice import *
 import json
 
@@ -27,8 +28,10 @@ disservice = NSService()
 disservice.set_name("aurora_testnitroadd")
 NSService.disable(nitro, disservice)
 
-service = NSService.get(nitro, "aurora_testnitroadd")
-print service.get_name() + ": " +  service.get_svrstate()
+service = NSService()
+service.set_name("aurora_testnitroadd")
+service = service.get(nitro, service)
+print service.get_name() + ": " + service.get_svrstate()
 
 # enable service test
 
@@ -36,8 +39,10 @@ enservice = NSService()
 enservice.set_name("aurora_testnitroadd")
 NSService.enable(nitro, enservice)
 
-service = NSService.get(nitro, "aurora_testnitroadd")
-print service.get_name() + ": " +  service.get_svrstate()
+service = NSService()
+service.set_name("aurora_testnitroadd")
+service = service.get(nitro, service)
+print service.get_name() + ": " + service.get_svrstate()
 
 
 # rename service test
@@ -56,9 +61,14 @@ NSService.rename(nitro, renservice)
 
 # delete service test
 
-NSService.delete(nitro, "aurora_testnitroadd")
+delservice = NSService()
+delservice.set_name("aurora_testnitroadd")
+NSService.delete(nitro, delservice)
 try:
-        service = NSService.get(nitro, "aurora_testnitroadd")
-except NSNitroError, e:
+        service = NSService()
+        service.set_name("aurora_testnitroadd")
+        service = service.get(nitro, service)
+        print service.get_name() + ": " + service.get_svrstate()
+except nsutil.NSNitroError, e:
         print e.message
 

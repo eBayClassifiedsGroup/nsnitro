@@ -112,16 +112,26 @@ class NSLBVServer(NSBaseResource):
         def get_resourcetype():
                 return "lbvserver"
 
-# The name of the load balancing virtual server being added.<br> Default value: 0<br> Minimum length =  1.
         def set_name(self, name):
+                """
+                The name of the load balancing virtual server being added.
+                Default value: 0
+                Minimum length =  1.
+                """
                 self.options['name'] = name
 
-# The name of the load balancing virtual server being added.<br> Default value: 0<br> Minimum length =  1.
         def get_name(self):
+                """
+                The name of the load balancing virtual server being added.
+                Default value: 0
+                Minimum length =  1.
+                """
                 return self.options['name']
 
-# The service type.<br> Default value: 0
         def set_servicetype(self, servicetype):
+                """
+                # The service type.<br> Default value: 0
+                """
                 self.options['servicetype'] = servicetype
 
 # The service type.<br> Default value: 0
