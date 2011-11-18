@@ -22,8 +22,20 @@ class NSBaseResource(object):
 
         def get_payload(self):
                 options = dict([(k,v) for k,v in self.options.items() if (v)])
-                payload = { "object" : { "params" : { "action" : self.__baseaction }, self.resourcetype : options } }
-                print payload
+                if self.__baseaction:
+                        payload = { "object" : { "params" : { "action" : self.__baseaction }, self.resourcetype : options } }
+                else:
+                        payload = { "object" : { self.resourcetype : options } }
+                #print payload
+                return payload
+
+        def get_put_payload(self, sessionid):
+                options = dict([(k,v) for k,v in self.options.items() if (v)])
+                if self.__baseaction:
+                        payload = { "params" : { "action" : self.__baseaction }, self.resourcetype : options }
+                else:
+                        payload = { "sessionid" : sessionid, self.resourcetype : options }
+                #print payload
                 return payload
 
         def perform_operation(self, nitro, action):
@@ -47,7 +59,7 @@ class NSBaseResource(object):
                 return response
 
         def update_resource(self, nitro):
-                response = nitro.put(self.get_payload())
+                response = nitro.put(self.get_put_payload(nitro.get_sessionid()))
                 return response        
 
         def delete_resource(self, nitro):

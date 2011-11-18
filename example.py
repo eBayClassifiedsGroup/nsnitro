@@ -21,6 +21,23 @@ service = NSService()
 service.set_name("aurora_testnitroadd")
 service = service.get(nitro, service)
 print service.get_name() + ": " + service.get_svrstate()
+print service.get_name() + ": %s %s" % (service.get_port(), service.get_useproxyport())
+# update service test
+
+updateservice = NSService()
+updateservice.set_name("aurora_testnitroadd")
+#updateservice.set_servername("mp-be002")
+updateservice.set_comment("ebanyivrot")
+updateservice.set_useproxyport("NO")
+NSService.update(nitro, updateservice)
+
+# get service test
+
+service = NSService()
+service.set_name("aurora_testnitroadd")
+service = service.get(nitro, service)
+print service.get_name() + ": " + service.get_svrstate()
+print service.get_name() + ": %s %s %s" % (service.get_port(), service.get_comment(), service.get_useproxyport())
 
 # disable service test
 

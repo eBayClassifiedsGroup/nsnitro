@@ -1,7 +1,7 @@
 """ Citrix Netscaler Nitro API accessor """
 
 import urllib, urllib2
-import json
+from json import JSONEncoder
 from nsutil import *
 from nsresources.nsservice import NSService
 
@@ -78,14 +78,16 @@ class NSNitro:
 
         def put(self, payload):
                 try:
-                        payload_encoded = urllib.urlencode(payload)
-                        req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
-                        req.get_method = lambda: 'PUT'
-                        response = urllib2.urlopen(req)
+                        opener = urllib2.build_opener(urllib2.HTTPHandler)
+                        request = urllib2.Request(self.__baseurl, json.dumps(payload))
+                        request.add_header('Cookie', 'sessionid='+self.__sessionid)
+                        request.get_method = lambda: 'PUT'
+                        response = opener.open(request)
 
                 except urllib2.HTTPError, e:
-                        raise NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
+                        raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.message))
 
+                return
                 nsresponse = NSNitroResponse(response.read())
                 if nsresponse.failed:
                         raise NSNitroError(nsresponse.message)
