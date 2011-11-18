@@ -4,6 +4,9 @@ __author__ = 'vlazarenko'
 class NSLBVServerServiceBinding(NSBaseResource):
 
         def __init__(self, json_data=None):
+                """
+                Supplied with json_data the object can be pre-filled
+                """
                 options = {
                         'servicename' : '',
                         'ipv46' : '',
@@ -33,74 +36,118 @@ class NSLBVServerServiceBinding(NSBaseResource):
 
         # Getters and setters for configurable options
         def set_servicename(self, servicename):
+                """
+                The service name bound to the selected load balancing virtual server.
+                Default value: 0
+                Minimum length =  1.
+                """
                 self.options['servicename'] = servicename
 
         def get_servicename(self):
+                """
+                The service name bound to the selected load balancing virtual server.
+                Default value: 0
+                Minimum length =  1.
+                """
                 return self.options['servicename']
 
-        def set_ipv46(self, ipv46):
-                self.options['ipv46'] = ipv46
-
         def get_ipv46(self):
+                """
+                The IP address of the virtual server.
+                Default value: 0
+                """
                 return self.options['ipv46']
 
-        def set_port(self, port):
-                self.options['port'] = port
-
         def get_port(self):
+                """
+                The IP address of the virtual server.
+                Default value: 0
+                """
                 return self.options['port']
 
-        def set_servicetype(self, servicetype):
-                self.options['servicetype'] = servicetype
-
         def get_servicetype(self):
+                """
+                The service type.
+                Default value: 0
+                """
                 return self.options['servicetype']
 
-        def set_curstate(self, curstate):
-                self.options['curstate'] = curstate
-
         def get_curstate(self):
+                """
+                Current LB vserver state.
+                Default value: 0
+                """
                 return self.options['curstate']
 
         def set_weight(self, weight):
+                """
+                The weight for the specified service.
+                Default value: 0
+                Minimum value =  1
+                Maximum value =  100
+                """
                 self.options['weight'] = weight
 
         def get_weight(self):
+                """
+                The weight for the specified service.
+                Default value: 0
+                Minimum value =  1
+                Maximum value =  100
+                """
                 return self.options['weight']
 
-        def set_dynamicweight(self, dynamicweight):
-                self.options['dynamicweight'] = dynamicweight
-
         def get_dynamicweight(self):
+                """
+                Dynamic weight.
+                Default value: 0
+                """
                 return self.options['dynamicweight']
 
-        def set_cookieipport(self, cookieipport):
-                self.options['cookieipport'] = cookieipport
-
         def get_cookieipport(self):
+                """
+                Encryped Ip address and port of the service that is inserted into the set-cookie http header.
+                Default value: 0
+                """
                 return self.options['cookieipport']
 
-        def set_vserverid(self, vserverid):
-                self.options['vserverid'] = vserverid
-
         def get_vserverid(self):
+                """
+                Vserver Id.
+                Default value: 0
+                """
                 return self.options['vserverid']
 
         def set_name(self, name):
+                """
+                The virtual server name to which the service is bound.
+                Default value: 0
+                Minimum length =  1.
+                """
                 self.options['name'] = name
 
         def get_name(self):
+                """
+                The virtual server name to which the service is bound.
+                Default value: 0
+                Minimum length =  1.
+                """
                 return self.options['name']
 
         def set_servicegroupname(self, servicegroupname):
+                """
+                
+                """
                 self.options['servicegroupname'] = servicegroupname
 
         def get_servicegroupname(self):
+                """
+
+                """
                 return self.options['servicegroupname']
 
 
         # Operations methods
-
         @staticmethod
         def get(nitro, vserver_service_binding):
                 """

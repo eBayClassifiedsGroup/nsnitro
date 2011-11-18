@@ -5,6 +5,9 @@ class NSLBVServer(NSBaseResource):
 # Configuration for Load Balancing Virtual Server resource.
         
         def __init__(self,json_data=None):
+                """
+                Supplied with json_data the object can be pre-filled
+                """
                 super(NSLBVServer, self).__init__()
                 self.options={
                         'name' : '',

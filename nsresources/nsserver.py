@@ -209,14 +209,16 @@ class NSServer(NSBaseResource):
 
         def set_newname(self, newname):
                 """
-                The new name of the server.<br> Default value: 0
+                The new name of the server.
+                Default value: 0
                 Minimum length =  1.
                 """
                 self.options['newname'] = newname
 
         def get_newname(self):
                 """
-                The new name of the server.<br> Default value: 0
+                The new name of the server.
+                Default value: 0
                 Minimum length =  1.
                 """
                 return self.options['newname']
