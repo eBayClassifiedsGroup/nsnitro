@@ -11,8 +11,11 @@ class NSBaseResource(object):
                 self.__baseaction = False
                 
         def __str__(self):
+                ret = ""
                 for key,value in self.options.iteritems():
-                        print "\t",key,": \t\t",value
+                        ret += "\t%s: \t\t%s\n" % (key, value)
+
+                return ret
 
         def set_action(self, action):
                 self.__baseaction = action

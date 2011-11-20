@@ -17,6 +17,10 @@ if __name__ == "__main__":
         parser.add_argument('--enablelbvserver', metavar='VSERVERNAME', help='enable lb vserver')
         parser.add_argument('--disablelbvserver', metavar='VSERVERNAME', help='disable lb vserver')
         parser.add_argument('--renamelbvserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename lb vserver from NAME to NEWNAME')
+        parser.add_argument('--getlbvserver', metavar='NAME', help='show lb vserver')
+        parser.add_argument('--getlbvserverslist', action='store_true', help='show lb vservers list')
+        parser.add_argument('--getlbvserverstatus', metavar='NAME', help='show lb vserver status')
+        parser.add_argument('--getlbvserversstatus', action='store_true', help='show lb vservers status')
 
         parser.add_argument('--enableservice', metavar='SERVICENAME', help='enable service')
         parser.add_argument('--disableservice', metavar='SERVICENAME', help='disable service')
@@ -60,6 +64,16 @@ if __name__ == "__main__":
                         print "Disabled vserver: %s" % args.disablelbvserver
                         sys.exit(0)
 
+                if args.getlbvserver:
+                        lbvserver = NSLBVServer()
+                        lbvserver.set_name(args.getlbvserver)
+                        lbvserver = NSLBVServer.get(nitro, lbvserver)
+                        print "--- LB vserver: " + lbvserver.get_name() + " ---"
+                        for k in sorted(lbvserver.options.iterkeys(), key=lambda k: k):
+                                print "\t%s: %s" % (k, lbvserver.options[k])
+
+                        sys.exit(0)
+
                 if args.enableservice:
                         service = NSService()
                         service.set_name(args.enableservice)
@@ -77,7 +91,7 @@ if __name__ == "__main__":
                 if args.getservice:
                         service = NSService()
                         service.set_name(args.getservice)
-                        service = service.get(nitro, service)
+                        service = NSService.get(nitro, service)
 
                         print "--- Service: " + service.get_name() + " ---"
                         for k in sorted(service.options.iterkeys(), key=lambda k: k):
@@ -92,6 +106,13 @@ if __name__ == "__main__":
                                 print "\t" + service.get_name()
                         sys.exit(0)
 
+                if args.getlbvserverslist:
+                        vservers = NSLBVServer().get_all(nitro)
+                        print "-- Configured LB vservers ---"
+                        for vserver in sorted(vservers, key=lambda k: k.get_name()):
+                                print "\t" + vserver.get_name()
+                        sys.exit(0)
+
                 if args.getservicesstatus:
                         services = NSService().get_all(nitro)
                         print "-- Configured services (with status) ---"
@@ -99,10 +120,24 @@ if __name__ == "__main__":
                                 print "\t" + service.get_name() + ": " + service.get_svrstate()
                         sys.exit(0)
 
+                if args.getlbvserversstatus:
+                        vservers = NSLBVServer().get_all(nitro)
+                        print "-- Configured LB vservers (with status) ---"
+                        for vserver in sorted(vservers, key=lambda k: k.get_name()):
+                                print vserver.get_name() + ": " + vserver.get_effectivestate()
+                        sys.exit(0)
+
+                if args.getlbvserverstatus:
+                        vserver = NSLBVServer()
+                        vserver.set_name(args.getlbvserverstatus)
+                        vserver = NSLBVServer().get(nitro, vserver)
+                        print vserver.get_name() + ": " + vserver.get_effectivestate()
+                        sys.exit(0)
+
                 if args.getservicestatus:
                         service = NSService()
                         service.set_name(args.getservicestatus)
-                        service = service.get(nitro, service)
+                        service = NSService.get(nitro, service)
                         print service.get_name() + ": " + service.get_svrstate()
                         sys.exit(0)
 
@@ -124,7 +159,7 @@ if __name__ == "__main__":
                 if args.getserver:
                         server = NSServer()
                         server.set_name(args.getserver)
-                        server = server.get(nitro, server)
+                        server = NSServer.get(nitro, server)
                         print "--- Server: " + server.get_name() + " ---"
                         for k in sorted(server.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, server.options[k])
