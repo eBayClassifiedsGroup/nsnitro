@@ -64,9 +64,7 @@ lbvserver.set_persistencetype("NONE")
 lbvserver.set_servicetype("HTTP")
 NSLBVServer.add(nitro, lbvserver)
 #
-print "LB vserver added, sleeping for 15 seconds.."
-time.sleep(15)
-
+print "LB vserver added"
 
 # bind service to lbvserver test
 lbbinding = NSLBVServerServiceBinding()
@@ -75,8 +73,7 @@ lbbinding.set_servicename("aurora_testnitroadd")
 lbbinding.set_weight(40)
 NSLBVServerServiceBinding.add(nitro, lbbinding)
 
-print "Binding added, sleeping for 15 seconds..."
-time.sleep(15)
+print "Binding added"
 
 lbbinding = NSLBVServerServiceBinding()
 lbbinding.set_name("nitro_lbvserver_test")
@@ -91,8 +88,7 @@ lbbinding.set_name("nitro_lbvserver_test")
 lbbinding.set_servicename("aurora_testnitroadd")
 NSLBVServerServiceBinding.delete(nitro, lbbinding)
 
-print "Binding removed, sleeping for 15 seconds..."
-time.sleep(15)
+print "Binding removed"
 
 # delete lbvserver test
 lbvserver = NSLBVServer()
@@ -110,7 +106,7 @@ print service.get_name() + ": %s %s" % (service.get_port(), service.get_useproxy
 #update service test
 updateservice = NSService()
 updateservice.set_name("aurora_testnitroadd")
-updateservice.set_comment("ebanyivrot")
+updateservice.set_comment("test comment")
 updateservice.set_useproxyport("NO")
 NSService.update(nitro, updateservice)
 
