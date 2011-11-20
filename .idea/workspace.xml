@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b49a0cc-1652-4ccd-a10f-f894177fc529" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nslbvserver.py" afterPath="$PROJECT_DIR$/nsresources/nslbvserver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <ignored path="nsnitro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +38,7 @@
       <file leaf-file-name="nslbvserver.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1598" column="0" selection-start="79912" selection-end="79912" vertical-scroll-proportion="0.8958333">
+            <state line="418" column="23" selection-start="24275" selection-end="24275" vertical-scroll-proportion="0.8958333">
               <folding />
             </state>
           </provider>
@@ -478,7 +479,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1598" column="0" selection-start="79912" selection-end="79912" vertical-scroll-proportion="0.8958333">
+        <state line="418" column="23" selection-start="24275" selection-end="24275" vertical-scroll-proportion="0.8958333">
           <folding />
         </state>
       </provider>

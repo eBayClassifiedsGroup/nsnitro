@@ -374,17 +374,35 @@ class NSLBVServer(NSBaseResource):
         def set_lbmethod(self, lbmethod):
                 """
                 The load balancing method for the virtual server. The valid options for this parameter are:
-                ROUNDROBIN, LEASTCONNECTION, LEASTRESPONSETIME, URLHASH, DOMAINHASH, DESTINATIONIPHASH, SOURCEIPHASH, SRCIPDESTIPHASH,LEASTBANDWIDTH, LEASTPACKETS, TOKEN, SRCIPDESTIPHASH, CUSTOMLOAD, SRCIPSRCPORTHASH, LRTM, CALLIDHASSH.
+                ROUNDROBIN, LEASTCONNECTION, LEASTRESPONSETIME, URLHASH, DOMAINHASH, DESTINATIONIPHASH, SOURCEIPHASH,
+                SRCIPDESTIPHASH,LEASTBANDWIDTH, LEASTPACKETS, TOKEN, SRCIPDESTIPHASH, CUSTOMLOAD, SRCIPSRCPORTHASH, LRTM, CALLIDHASSH.
                 When the load balancing policy is configured as:
-                       ROUNDROBIN - When configured, the system distributes incoming requests to each server in rotation, regardless of the load. When different weights are assigned to services then weighted round robin occurs and requests go to services according to how much weighting has been set.
-                       LEASTCONNECTION (default value)- When configured, the system selects the service that has the least number of connections. For TCP, HTTP, HTTPS and SSL_TCP services the least number of connections includes:
-                       Established, active connections to a service. Connection reuse applies to HTTP and HTTPS. Hence the count includes only those connections which have outstanding HTTP or HTTPS requests, and does not include inactive, reusable connections.
+                       ROUNDROBIN - When configured, the system distributes incoming requests to each server in rotation,
+                       regardless of the load. When different weights are assigned to services then weighted round robin
+                       occurs and requests go to services according to how much weighting has been set.
+
+                       LEASTCONNECTION (default value)- When configured, the system selects the service that has the least
+                       number of connections. For TCP, HTTP, HTTPS and SSL_TCP services the least number of connections includes:
+                       Established, active connections to a service. Connection reuse applies to HTTP and HTTPS. Hence the count
+                       includes only those connections which have outstanding HTTP or HTTPS requests, and does not include inactive,
+                       reusable connections.
                        Connections to a service waiting in the Surge Queue, which exists only if the Surge Protection feature is enabled.
                 For UDP services the least number of connections includes:
-                       The number of sessions between client and a physical service. These sessions are the logical, time-based entities, created on first arriving UDP packet. If configured, weights are taken into account when server selection is performed.
-                       LEASTRESPONSETIME - When configured, the system selects the service with the minimum average response time. The response time is the time interval taken when a request is sent to a service and first response packet comes back from the service, that is Time to First Byte (TTFB).
-                       URLHASH - The system selects the service based on the hashed value of the incoming URL.To specify the number of bytes of the URL that is used to calculate the hash value use the optional argument [-hashLength <positive_integer>] in either the add lb vserver or set lb vserver CLI command. The default value is 80.
-                       DOMAINHASH - When configured with this load balancing method, the system selects the service based on the hashed value of the domain name in the HTTP request. The domain name is taken either from the incoming URL or from the Host header of the HTTP request.
+                       The number of sessions between client and a physical service. These sessions are the logical,
+                       time-based entities, created on first arriving UDP packet. If configured, weights are taken into
+                       account when server selection is performed.
+
+                       LEASTRESPONSETIME - When configured, the system selects the service with the minimum average
+                       response time. The response time is the time interval taken when a request is sent to a service and
+                       first response packet comes back from the service, that is Time to First Byte (TTFB).
+                       URLHASH - The system selects the service based on the hashed value of the incoming URL.
+                       To specify the number of bytes of the URL that is used to calculate the hash value use the optional
+                       argument [-hashLength <positive_integer>] in either the add lb vserver or set lb vserver CLI command.
+                       The default value is 80.
+
+                       DOMAINHASH - When configured with this load balancing method, the system selects the service based on
+                       the hashed value of the domain name in the HTTP request. The domain name is taken either from
+                       the incoming URL or from the Host header of the HTTP request.
                 Note:   The system defaults to LEASTCONNECTION if the request does not contain a domain name.
                 If the domain name appears in both the URL and the host header, the system gives preference to the URL domain.
                 #
@@ -392,11 +410,13 @@ class NSLBVServer(NSBaseResource):
                        SOURCEIPHASH - The system selects the service based on the hashed value of the client's IP address in the IP header.
                        LEASTBANDWIDTH - The system selects the service that is currently serving the least traffic, measured in megabits per second.
                        LEASTPACKETS - The system selects the service that is currently serving the lowest number of packets per second.
-                       Token -The system selects the service based on the value, calculated from a token, extracted from the client's request (location and size of the token is configurable). For subsequent requests with the same token, the systems will select the same physical server.
+                       Token -The system selects the service based on the value, calculated from a token, extracted from the client's request
+                       (location and size of the token is configurable). For subsequent requests with the same token, the systems will select the same physical server.
                        SRCIPDESTIPHASH - The system selects the service based on the hashed value of the client's SOURCE IP and DESTINATION IP address in the TCP IP header.
                        CUSTOMLOAD - The system selects the service based on the it load which was determined by the LOAD monitors bound to the service.
                        SRCIPSRCPORTHASH - The system selects the service based on the hashed value of the client's SOURCE IP and SOURCE PORT in the TCP/UDP+IP header.
-                       LRTM - When configured, the system selects the service with least response time learned through probing(number of active connections taken into account in addition to the response time).
+                       LRTM - When configured, the system selects the service with least response time learned through probing(number of active
+                       connections taken into account in addition to the response time).
                        CALLIDHASSH - The system selects the service based on the hashed value of SIP callid.
                 Default value: LEASTCONNECTION
                 """
