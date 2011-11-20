@@ -41,6 +41,18 @@ class NSBaseResource(object):
                 #print payload
                 return payload
 
+        def get_delete_args(self):
+                options = dict([(k,v) for k,v in self.options.items() if (v)])
+
+                args = "?args="
+
+                for key,value in options.iteritems():
+                        args = args + key + ":" + value + ","
+
+                args = args[:-1] # remove last comma
+
+                return args
+
         def perform_operation(self, nitro, action):
                 self.set_action(action)
                 response = nitro.post(self.get_payload())
@@ -63,10 +75,15 @@ class NSBaseResource(object):
 
         def update_resource(self, nitro):
                 response = nitro.put(self.get_put_payload(nitro.get_sessionid()))
+                if response.failed:
+                        raise NSNitroError(response.message)
                 return response        
 
         def delete_resource(self, nitro):
                 url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
+                urlargs = self.get_delete_args()
+                url = url + urlargs
+
                 response = nitro.delete(url)
 
                 if response.failed:

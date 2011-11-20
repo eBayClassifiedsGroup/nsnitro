@@ -33,7 +33,7 @@ if __name__ == "__main__":
         parser.add_argument('--enableserver', metavar='SERVERNAME', help='enable server')
         parser.add_argument('--disableserver', metavar='SERVERNAME', help='disable server')
         parser.add_argument('--renameserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename server from NAME to NEWNAME')
-        
+
         parser.add_argument('--dargs', action='store_true', help='show service')
         args = parser.parse_args()
 
@@ -166,7 +166,7 @@ if __name__ == "__main__":
                         server.set_name(args.renameserver[0])
                         server.set_newname(args.renameserver[1])
                         NSServer.rename(nitro, server)
-                        print "Renamed server from '%s' to '%s'." % (args.renamelbvserver[0], args.renamelbvserver[1])
+                        print "Renamed server from '%s' to '%s'." % (args.renameserver[0], args.renameserver[1])
                         sys.exit(0)
 
                 print "No action specified. Exiting."

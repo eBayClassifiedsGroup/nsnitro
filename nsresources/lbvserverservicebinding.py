@@ -7,7 +7,8 @@ class NSLBVServerServiceBinding(NSBaseResource):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
-                options = {
+                super(NSLBVServerServiceBinding, self).__init__()
+                self.options = {
                         'servicename' : '',
                         'ipv46' : '',
                         'port' : '',
@@ -18,7 +19,7 @@ class NSLBVServerServiceBinding(NSBaseResource):
                         'cookieipport' : '',
                         'vserverid' : '',
                         'name' : '',
-                        'servicegroupname' : '',
+                        'servicegroupname' : ''
                 }
 
 
@@ -136,39 +137,44 @@ class NSLBVServerServiceBinding(NSBaseResource):
 
         def set_servicegroupname(self, servicegroupname):
                 """
-                
+                The name of the service group that is bound.
+                Default value: 0
+                Minimum length =  1.
                 """
                 self.options['servicegroupname'] = servicegroupname
 
         def get_servicegroupname(self):
                 """
-
+                The name of the service group that is bound.
+                Default value: 0
+                Minimum length =  1.
                 """
                 return self.options['servicegroupname']
 
 
         # Operations methods
+#        @staticmethod
+#        def get(nitro, vserver_service_binding):
+#                """
+#                Use this API to fetch vserver_service_binding resource of given name.
+#                """
+#                __vserver_service_binding = NSLBVServerServiceBinding()
+#                __vserver_service_binding.set_name(vserver_service_binding.get_name())
+#                __vserver_service_binding.get_resource(nitro)
+#                return __vserver_service_binding
+
         @staticmethod
         def get(nitro, vserver_service_binding):
                 """
-                Use this API to fetch vserver_service_binding resource of given name.
-                """
-                __vserver_service_binding = NSLBVServerServiceBinding()
-                __vserver_service_binding.set_name(vserver_service_binding.get_name())
-                __vserver_service_binding.get_resource(nitro)
-                return __vserver_service_binding
-
-        @staticmethod
-        def get_all(nitro):
-                """
                 Use this API to fetch all configured vserver_service_binding resources.
                 """
-                __url = nitro.get_url() + NSLBVServerServiceBinding.get_resourcetype()
-                __json_vserver_service_bindings = nitro.get(__url).get_response_field(NSLBVServerServiceBinding.get_resourcetype())
-                __vserver_service_bindings = []
-                for json_vserver_service_binding in __json_vserver_service_bindings:
-                        __vserver_service_bindings.append(NSLBVServerServiceBinding(json_vserver_service_binding))
-                return __vserver_service_bindings
+                __url = nitro.get_url() + NSLBVServerServiceBinding.get_resourcetype() + "/" + vserver_service_binding.get_name()
+                __json_services = nitro.get(__url).get_response_field(NSLBVServerServiceBinding.get_resourcetype())
+                __services = []
+                for json_service in __json_services:
+                        __services.append(NSLBVServerServiceBinding(json_service))
+                return __services
+
 
         @staticmethod
         def add(nitro, vserver_service_binding):
@@ -189,5 +195,7 @@ class NSLBVServerServiceBinding(NSBaseResource):
                 """
                 __vserver_service_binding = NSLBVServerServiceBinding()
                 __vserver_service_binding.set_name(vserver_service_binding.get_name())
+                __vserver_service_binding.set_servicename(vserver_service_binding.get_servicename())
+                __vserver_service_binding.set_servicegroupname(vserver_service_binding.get_servicegroupname())
                 nsresponse = __vserver_service_binding.delete_resource(nitro)
                 return nsresponse

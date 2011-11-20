@@ -87,7 +87,6 @@ class NSNitro:
                 except urllib2.HTTPError, e:
                         raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.message))
 
-                return
                 nsresponse = NSNitroResponse(response.read())
                 if nsresponse.failed:
                         raise NSNitroError(nsresponse.message)
