@@ -301,3 +301,18 @@ class NSServer(NSBaseResource):
                 __server.set_name(server.get_name())
                 nsresponse = __server.delete_resource(nitro)
                 return nsresponse
+
+        @staticmethod
+        def update(nitro, server):
+                """
+                Use this API to update a server of a given name.
+                """
+                __server = NSServer()
+                __server.set_name(server.get_name())
+                __server.set_ipaddress(server.get_ipaddress())
+                __server.set_domainresolveretry(server.get_domainresolveretry())
+                __server.set_translationip(server.get_translationip())
+                __server.set_translationmask(server.get_translationmask())
+                __server.set_domainresolvenow(server.get_domainresolvenow())
+                __server.set_comment(server.get_comment())
+                return __server.update_resource(nitro)

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b49a0cc-1652-4ccd-a10f-f894177fc529" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/lbvserverservicebinding.py" afterPath="$PROJECT_DIR$/nsresources/lbvserverservicebinding.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contrib/nsnitrocmd.py" afterPath="$PROJECT_DIR$/contrib/nsnitrocmd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nsbaseresource.py" afterPath="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nslbvserver.py" afterPath="$PROJECT_DIR$/nsresources/nslbvserver.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nsserver.py" afterPath="$PROJECT_DIR$/nsresources/nsserver.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nsservice.py" afterPath="$PROJECT_DIR$/nsresources/nsservice.py" />
@@ -31,7 +32,7 @@
       <file leaf-file-name="nsbaseresource.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="17" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -40,7 +41,7 @@
       <file leaf-file-name="nslbvserver.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="19" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+            <state line="1205" column="0" selection-start="67864" selection-end="67864" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,7 +59,7 @@
       <file leaf-file-name="nsservice.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nsservice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="43" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0">
+            <state line="862" column="52" selection-start="34233" selection-end="34233" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,16 +68,16 @@
       <file leaf-file-name="nsserver.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nsserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="19" selection-start="164" selection-end="256" vertical-scroll-proportion="0.0">
+            <state line="317" column="53" selection-start="11507" selection-end="11507" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="example.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="example.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.41450778">
+            <state line="21" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nsnitrocmd.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nsnitrocmd.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="89" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0">
+            <state line="170" column="0" selection-start="8548" selection-end="8548" vertical-scroll-proportion="2.805017">
               <folding />
             </state>
           </provider>
@@ -132,17 +133,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/contrib/nsnitrocmd.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/nsresources/__init__.py" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/example.py" />
-        <option value="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
         <option value="$PROJECT_DIR$/nsnitro.py" />
-        <option value="$PROJECT_DIR$/nsresources/nsservice.py" />
-        <option value="$PROJECT_DIR$/nsresources/nsserver.py" />
-        <option value="$PROJECT_DIR$/nsresources/nslbvserver.py" />
         <option value="$PROJECT_DIR$/nsresources/lbvserverservicebinding.py" />
+        <option value="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
+        <option value="$PROJECT_DIR$/nsresources/nsservice.py" />
+        <option value="$PROJECT_DIR$/nsresources/nslbvserver.py" />
+        <option value="$PROJECT_DIR$/nsresources/nsserver.py" />
+        <option value="$PROJECT_DIR$/contrib/nsnitrocmd.py" />
       </list>
     </option>
   </component>
@@ -191,6 +192,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -240,16 +242,15 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Errors" />
-    <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Python.test">
     <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -340,31 +341,32 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="8b49a0cc-1652-4ccd-a10f-f894177fc529" name="Default" comment="" />
       <created>1321465090787</created>
       <updated>1321465090787</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1680" height="1024" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1680" height="1024" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14855072" sideWeight="0.67108166" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14794686" sideWeight="0.67108166" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289183" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -418,63 +420,29 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/nsutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="89" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
+    <entry file="file://$PROJECT_DIR$/nsnitro.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="21" selection-start="1795" selection-end="1795" vertical-scroll-proportion="0.0">
+        <state line="101" column="44" selection-start="4272" selection-end="4272" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="17" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsnitro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="44" selection-start="4272" selection-end="4272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="19" selection-start="164" selection-end="256" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsservice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="43" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -486,9 +454,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example.py">
+    <entry file="file://$PROJECT_DIR$/nsresources/nsservice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.41450778">
+        <state line="862" column="52" selection-start="34233" selection-end="34233" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1205" column="0" selection-start="67864" selection-end="67864" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nsserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="317" column="53" selection-start="11507" selection-end="11507" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="21" selection-start="1795" selection-end="1795" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="170" column="0" selection-start="8548" selection-end="8548" vertical-scroll-proportion="2.805017">
           <folding />
         </state>
       </provider>

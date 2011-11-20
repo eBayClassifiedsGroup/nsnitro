@@ -882,7 +882,7 @@ class NSService(NSBaseResource):
                 __service.set_tcpprofilename(service.get_tcpprofilename())
                 __service.set_httpprofilename(service.get_httpprofilename())
                 __service.set_comment(service.get_comment())
-                return service.update_resource(nitro)
+                return __service.update_resource(nitro)
 
 
         @staticmethod

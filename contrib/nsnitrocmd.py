@@ -169,8 +169,6 @@ if __name__ == "__main__":
                         print "Renamed server from '%s' to '%s'." % (args.renamelbvserver[0], args.renamelbvserver[1])
                         sys.exit(0)
 
-
-
                 print "No action specified. Exiting."
                 sys.exit(0)
         except NSNitroError, e:

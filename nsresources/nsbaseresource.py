@@ -1,4 +1,3 @@
-import json
 from nsutil import NSNitroError
 
 class NSBaseResource(object):
@@ -10,6 +9,10 @@ class NSBaseResource(object):
                 self.options = {}
                 self.resourcetype = False
                 self.__baseaction = False
+                
+        def __str__(self):
+                for key,value in self.options.iteritems():
+                        print "\t",key,": \t\t",value
 
         def set_action(self, action):
                 self.__baseaction = action
