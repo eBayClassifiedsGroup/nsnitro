@@ -1,3 +1,16 @@
+nsnitro (1.0.0) oneiric; urgency=low
+
+  * First release.
+
+ -- vlazarenko <vlazarenko@squeeze.local>  Fri, 04 Nov 2011 18:01:24 +0100
+
+nsnitro (0.0.2) oneiric; urgency=low
+
+  * Tryout for new structure.
+  * 
+
+ -- vlazarenko <vlazarenko@squeeze.local>  Fri, 04 Nov 2011 13:46:11 +0100
+
 nsnitro (0.0.1) oneiric; urgency=low
 
   * Initial release.
