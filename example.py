@@ -1,5 +1,5 @@
 import time
-from nsresources.lbvserverservicebinding import NSLBVServerServiceBinding
+from nsresources.nslbvserverservicebinding import NSLBVServerServiceBinding
 from nsresources.nslbvserver import NSLBVServer
 from nsresources.nsserver import NSServer
 import nsnitro
