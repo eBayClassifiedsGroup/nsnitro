@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b49a0cc-1652-4ccd-a10f-f894177fc529" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nsresources/nscspolicy.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nsresources/nsrewritepolicy.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nscsvserver.py" afterPath="$PROJECT_DIR$/nsresources/nscsvserver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nscspolicy.py" afterPath="$PROJECT_DIR$/nsresources/nscspolicy.py" />
     </list>
     <ignored path="nsnitro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,16 +57,25 @@
       <file leaf-file-name="nsserver.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nsserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="317" column="54" selection-start="7777" selection-end="11508" vertical-scroll-proportion="0.0">
+            <state line="253" column="66" selection-start="8423" selection-end="8775" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nscspolicy.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="nscspolicy.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nscspolicy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="41" selection-start="8397" selection-end="8397" vertical-scroll-proportion="0.8704663">
+            <state line="134" column="24" selection-start="4822" selection-end="4822" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nsrewritepolicy.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nsresources/nsrewritepolicy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="245" column="52" selection-start="8240" selection-end="8240" vertical-scroll-proportion="0.9481865">
               <folding />
             </state>
           </provider>
@@ -117,6 +126,7 @@
         <option value="$PROJECT_DIR$/nsresources/nscsvserver.py" />
         <option value="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
         <option value="$PROJECT_DIR$/nsresources/nscspolicy.py" />
+        <option value="$PROJECT_DIR$/nsresources/nsrewritepolicy.py" />
       </list>
     </option>
   </component>
@@ -367,7 +377,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished documentation on NSCSVserver." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added NSCSPolicy." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -389,6 +399,7 @@
     <MESSAGE value="Added NSCSVServer, without documentation yet." />
     <MESSAGE value="Fixed read-only options." />
     <MESSAGE value="Finished documentation on NSCSVserver." />
+    <MESSAGE value="Added NSCSPolicy." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -453,9 +464,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="0" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="54" selection-start="7777" selection-end="11508" vertical-scroll-proportion="0.0">
+        <state line="253" column="66" selection-start="8423" selection-end="8775" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nscspolicy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="24" selection-start="4822" selection-end="4822" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -467,16 +492,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
+    <entry file="file://$PROJECT_DIR$/nsresources/nsrewritepolicy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nscspolicy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="41" selection-start="8397" selection-end="8397" vertical-scroll-proportion="0.8704663">
+        <state line="245" column="52" selection-start="8240" selection-end="8240" vertical-scroll-proportion="0.9481865">
           <folding />
         </state>
       </provider>

@@ -190,7 +190,7 @@ class NSCSPolicy(NSBaseResource):
         @staticmethod
         def get(nitro, cspolicy):
                 """
-                Use this API to fetch server resource of given name.
+                Use this API to fetch cspolicy resource of given name.
                 """
                 __cspolicy = NSCSPolicy()
                 __cspolicy.set_policyname(cspolicy.get_policyname())
@@ -200,19 +200,19 @@ class NSCSPolicy(NSBaseResource):
         @staticmethod
         def get_all(nitro):
                 """
-                Use this API to fetch all configured server resources.
+                Use this API to fetch all configured cspolicy resources.
                 """
                 __url = nitro.get_url() + NSCSPolicy.get_resourcetype()
                 __json_cspolicies = nitro.get(__url).get_response_field(NSCSPolicy.get_resourcetype())
-                __cspolicys = []
+                __cspolicies = []
                 for json_cspolicy in __json_cspolicies:
-                        __cspolicys.append(NSCSPolicy(json_server))
-                return __cspolicys
+                        __cspolicies.append(NSCSPolicy(json_cspolicy))
+                return __cspolicies
 
         @staticmethod
         def add(nitro, cspolicy):
                 """
-                Use this API to add server.
+                Use this API to add cspolicy.
                 """
                 __cspolicy = NSCSPolicy()
                 __cspolicy.set_policyname(cspolicy.get_policyname())
@@ -224,7 +224,7 @@ class NSCSPolicy(NSBaseResource):
         @staticmethod
         def delete(nitro, cspolicy):
                 """
-                Use this API to delete server of a given name.
+                Use this API to delete cspolicy of a given name.
                 """
                 __cspolicy = NSCSPolicy()
                 __cspolicy.set_policyname(cspolicy.get_policyname())
@@ -232,9 +232,9 @@ class NSCSPolicy(NSBaseResource):
                 return nsresponse
 
         @staticmethod
-        def update(nitro, server):
+        def update(nitro, cspolicy):
                 """
-                Use this API to update a server of a given name.
+                Use this API to update a cspolicy of a given name.
                 """
                 __cspolicy = NSCSPolicy()
                 __cspolicy.set_policyname(cspolicy.get_policyname())
