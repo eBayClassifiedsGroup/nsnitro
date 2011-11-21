@@ -33,45 +33,76 @@ class NSRewritePolicyCSVServerBinding(NSBaseResource):
                 return "rewritepolicy_csvserver_binding"
 
         def set_boundto(self, boundto):
+                """
+                Location where policy is bound.
+
+                Default value: 0
+                """
                 self.options['boundto'] = boundto
 
         def get_boundto(self):
+                """
+                Location where policy is bound.
+
+                Default value: 0
+                """
                 return self.options['boundto']
 
-        def set_priority(self, priority):
-                self.options['priority'] = priority
-
         def get_priority(self):
+                """
+                Specifies the priority of the policy.
+
+                Default value: 0
+                """
                 return self.options['priority']
 
-        def set_activepolicy(self, activepolicy):
-                self.options['activepolicy'] = activepolicy
-
         def get_activepolicy(self):
+                """
+                Indicates whether policy is bound or not.
+
+                Default value: 0
+                """
                 return self.options['activepolicy']
 
-        def set_gotopriorityexpression(self, gotopriorityexpression):
-                self.options['gotopriorityexpression'] = gotopriorityexpression
-
         def get_gotopriorityexpression(self):
+                """
+                Expression specifying the priority of the next policy which will get evaluated if the current policy
+                rule evaluates to TRUE.
+
+                Default value: 0
+                """
                 return self.options['gotopriorityexpression']
 
-        def set_labeltype(self, labeltype):
-                self.options['labeltype'] = labeltype
-
         def get_labeltype(self):
+                """
+                Type of policy label invocation.
+
+                Default value: 0
+                """
                 return self.options['labeltype']
 
-        def set_labelname(self, labelname):
-                self.options['labelname'] = labelname
-
         def get_labelname(self):
+                """
+                Name of the label to invoke if the current policy rule evaluates to TRUE.
+
+                Default value: 0
+                """
                 return self.options['labelname']
 
         def set_name(self, name):
+                """
+                Name of the rewrite policy.
+
+                Default value: 0
+                """
                 self.options['name'] = name
 
         def get_name(self):
+                """
+                Name of the rewrite policy.
+
+                Default value: 0
+                """
                 return self.options['name']
 
         @staticmethod

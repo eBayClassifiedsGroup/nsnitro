@@ -153,16 +153,6 @@ class NSLBVServerServiceBinding(NSBaseResource):
 
 
         # Operations methods
-#        @staticmethod
-#        def get(nitro, vserver_service_binding):
-#                """
-#                Use this API to fetch vserver_service_binding resource of given name.
-#                """
-#                __vserver_service_binding = NSLBVServerServiceBinding()
-#                __vserver_service_binding.set_name(vserver_service_binding.get_name())
-#                __vserver_service_binding.get_resource(nitro)
-#                return __vserver_service_binding
-
         @staticmethod
         def get(nitro, vserver_service_binding):
                 """
