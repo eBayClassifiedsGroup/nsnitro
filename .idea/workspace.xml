@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b49a0cc-1652-4ccd-a10f-f894177fc529" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nsresources/nscsvservercspolicybinding.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/nsresources/lbvserverservicebinding.py" afterPath="$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example.py" afterPath="$PROJECT_DIR$/example.py" />
     </list>
     <ignored path="nsnitro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,19 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nscsvservercspolicybinding.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nsresources/nscsvservercspolicybinding.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="32" selection-start="76" selection-end="102" vertical-scroll-proportion="0.103626944">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nsnitrocmd.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nsnitrocmd.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="24" selection-start="7013" selection-end="7013" vertical-scroll-proportion="0.0">
+            <state line="55" column="0" selection-start="3705" selection-end="3705" vertical-scroll-proportion="1.4248705">
               <folding />
             </state>
           </provider>
@@ -85,7 +73,7 @@
       <file leaf-file-name="nscsvserver.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="34" selection-start="3234" selection-end="3610" vertical-scroll-proportion="0.0">
+            <state line="77" column="41" selection-start="3000" selection-end="3000" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -112,7 +100,6 @@
         <option value="$PROJECT_DIR$/nsresources/nslbvserver.py" />
         <option value="$PROJECT_DIR$/nsnitro.py" />
         <option value="$PROJECT_DIR$/example.py" />
-        <option value="$PROJECT_DIR$/contrib/nsnitrocmd.py" />
         <option value="$PROJECT_DIR$/nsresources/nscsvserver.py" />
         <option value="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
         <option value="$PROJECT_DIR$/nsresources/nscspolicy.py" />
@@ -121,6 +108,7 @@
         <option value="$PROJECT_DIR$/nsresources/lbvserverservicebinding.py" />
         <option value="$PROJECT_DIR$/nsresources/nscsvserverrewritepolicybinding.py" />
         <option value="$PROJECT_DIR$/nsresources/nscsvservercspolicybinding.py" />
+        <option value="$PROJECT_DIR$/contrib/nsnitrocmd.py" />
       </list>
     </option>
   </component>
@@ -371,7 +359,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added NSCSVServerRewritePolicyBinding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated nsnitrocmd to handle simple CS vserver tasks." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -397,6 +385,8 @@
     <MESSAGE value="Added NSRewritePolicy." />
     <MESSAGE value="Added NSRewritePolicyCSVServerBinding" />
     <MESSAGE value="Added NSCSVServerRewritePolicyBinding" />
+    <MESSAGE value="Added NSCSVServerCSPolicyBinding" />
+    <MESSAGE value="Updated nsnitrocmd to handle simple CS vserver tasks." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -435,13 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="24" selection-start="7013" selection-end="7013" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="0" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.0">
@@ -470,13 +453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="34" selection-start="3234" selection-end="3610" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsrewritepolicycsvserverbinding.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="117" column="34" selection-start="3942" selection-end="3942" vertical-scroll-proportion="0.0">
@@ -491,13 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="29" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nscsvserverrewritepolicybinding.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="207" column="33" selection-start="1071" selection-end="8037" vertical-scroll-proportion="0.0">
@@ -507,7 +476,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nscsvservercspolicybinding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="32" selection-start="76" selection-end="102" vertical-scroll-proportion="0.103626944">
+        <state line="14" column="40" selection-start="502" selection-end="502" vertical-scroll-proportion="0.3626943">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="29" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="41" selection-start="3000" selection-end="3000" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="3705" selection-end="3705" vertical-scroll-proportion="1.4248705">
           <folding />
         </state>
       </provider>
