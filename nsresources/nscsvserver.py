@@ -13,7 +13,7 @@ class NSCSVServer(NSBaseResource):
                 """
                 super(NSCSVServer, self).__init__()
 
-                options = {
+                self.options = {
                         'name' : '',
                         'servicetype' : '',
                         'ipv46' : '',
