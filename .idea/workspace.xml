@@ -38,7 +38,7 @@
       <file leaf-file-name="nslbvserver.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1618" column="0" selection-start="69669" selection-end="80300" vertical-scroll-proportion="-18.846153">
+            <state line="4" column="42" selection-start="79" selection-end="139" vertical-scroll-proportion="-2.3076923">
               <folding />
             </state>
           </provider>
@@ -101,7 +101,7 @@
       <file leaf-file-name="nscsvserver.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="56" selection-start="3128" selection-end="3128" vertical-scroll-proportion="0.8035714">
+            <state line="1002" column="16" selection-start="35265" selection-end="35265" vertical-scroll-proportion="0.94633275">
               <folding />
             </state>
           </provider>
@@ -392,7 +392,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added NSCSVServer, without documentation yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed read-only options." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -412,6 +412,7 @@
     <MESSAGE value="NSLBVServerServiceBinding added. &#10;update_resource added to NSBaseResource&#10;Documentation formatting for NSLBVServer started." />
     <MESSAGE value="update_resource and PUT were fixed to actually work." />
     <MESSAGE value="Added NSCSVServer, without documentation yet." />
+    <MESSAGE value="Fixed read-only options." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -434,37 +435,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsservice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="812" column="0" selection-start="31187" selection-end="31528" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/lbvserverservicebinding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="31" selection-start="5984" selection-end="5984" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsnitro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="20" selection-start="4678" selection-end="4678" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="326" selection-end="1953" vertical-scroll-proportion="-6.3461537">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="26" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -476,6 +449,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="42" selection-start="79" selection-end="139" vertical-scroll-proportion="-2.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="26" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsnitro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="20" selection-start="4678" selection-end="4678" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nsservice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="812" column="0" selection-start="31187" selection-end="31528" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsserver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="31" selection-start="922" selection-end="1292" vertical-scroll-proportion="0.0">
@@ -483,16 +484,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nslbvserver.py">
+    <entry file="file://$PROJECT_DIR$/nsresources/lbvserverservicebinding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1618" column="0" selection-start="69669" selection-end="80300" vertical-scroll-proportion="-18.846153">
+        <state line="172" column="31" selection-start="5984" selection-end="5984" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="56" selection-start="3128" selection-end="3128" vertical-scroll-proportion="0.8035714">
+        <state line="1002" column="16" selection-start="35265" selection-end="35265" vertical-scroll-proportion="0.94633275">
           <folding />
         </state>
       </provider>
