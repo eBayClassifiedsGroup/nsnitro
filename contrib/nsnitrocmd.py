@@ -3,6 +3,7 @@
 import argparse
 import sys
 import nsnitro
+from nsresources.nsconfig import NSConfig
 from nsutil import *
 from nsresources.nslbvserver import NSLBVServer
 from nsresources.nsservice import NSService
@@ -47,6 +48,8 @@ if __name__ == "__main__":
         parser.add_argument('--disableserver', metavar='SERVERNAME', help='disable server')
         parser.add_argument('--renameserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename server from NAME to NEWNAME')
 
+        parser.add_argument('--saveconfig', action='store_true', help='save loadbalancer config')
+
         parser.add_argument('--dargs', action='store_true', help='show service')
         args = parser.parse_args()
 
@@ -64,6 +67,11 @@ if __name__ == "__main__":
                         lbvserver.set_name(args.enablelbvserver)
                         NSLBVServer.enable(nitro, lbvserver)
                         print "Enabled lb vserver: %s" % args.enablelbvserver
+                        sys.exit(0)
+
+                if args.saveconfig:
+                        NSConfig.save(nitro)
+                        print "Saved Netscaler configuration"
                         sys.exit(0)
 
                 if args.disablelbvserver:
