@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b49a0cc-1652-4ccd-a10f-f894177fc529" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nsbaseresource.py" afterPath="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nsconfig.py" afterPath="$PROJECT_DIR$/nsresources/nsconfig.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py" afterPath="$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <ignored path="nsnitro.iws" />
@@ -37,16 +41,25 @@
       <file leaf-file-name="nsconfig.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nsconfig.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="233" column="17" selection-start="7465" selection-end="7465" vertical-scroll-proportion="0.0">
+            <state line="607" column="60" selection-start="19704" selection-end="19704" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="nsbaseresource.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="0" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="20" selection-start="790" selection-end="790" vertical-scroll-proportion="0.40076336">
+            <state line="11" column="6" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -64,16 +77,16 @@
       <file leaf-file-name="nsrewritepolicy.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nsresources/nsrewritepolicy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="245" column="52" selection-start="8240" selection-end="8240" vertical-scroll-proportion="0.0">
+            <state line="187" column="38" selection-start="5268" selection-end="5652" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nslbvserverservicebinding.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nslbvserverservicebinding.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="33" selection-start="5010" selection-end="7063" vertical-scroll-proportion="0.0">
+            <state line="165" column="33" selection-start="5689" selection-end="5689" vertical-scroll-proportion="0.5610687">
               <folding />
             </state>
           </provider>
@@ -102,12 +115,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/nsresources/nsservice.py" />
         <option value="$PROJECT_DIR$/nsresources/nsserver.py" />
         <option value="$PROJECT_DIR$/nsresources/nslbvserver.py" />
         <option value="$PROJECT_DIR$/example.py" />
         <option value="$PROJECT_DIR$/nsresources/nscsvserver.py" />
-        <option value="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
         <option value="$PROJECT_DIR$/nsresources/nscspolicy.py" />
         <option value="$PROJECT_DIR$/nsresources/nsrewritepolicy.py" />
         <option value="$PROJECT_DIR$/nsresources/nsrewritepolicycsvserverbinding.py" />
@@ -116,8 +127,10 @@
         <option value="$PROJECT_DIR$/nsresources/nscsvservercspolicybinding.py" />
         <option value="$PROJECT_DIR$/nsnitro.py" />
         <option value="$PROJECT_DIR$/contrib/nsnitrocmd.py" />
-        <option value="$PROJECT_DIR$/nsresources/nsconfig.py" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/nsresources/nsbaseresource.py" />
+        <option value="$PROJECT_DIR$/nsresources/nsconfig.py" />
+        <option value="$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py" />
       </list>
     </option>
   </component>
@@ -166,7 +179,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,16 +241,17 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.General" />
     <property name="recentsLimit" value="5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="preferences.sourceCode.General" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Python.test">
     <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -337,13 +350,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="154" y="61" width="1538" height="933" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1994716" sideWeight="0.998773" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1994716" sideWeight="0.998773" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281787" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -440,21 +453,9 @@
         <state line="14" column="40" selection-start="502" selection-end="502" vertical-scroll-proportion="0.3626943" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsrewritepolicy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="52" selection-start="8240" selection-end="8240" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="33" selection-start="5010" selection-end="7063" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsservice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="835" column="59" selection-start="32752" selection-end="32752" vertical-scroll-proportion="0.47808766">
-          <folding />
-        </state>
+        <state line="835" column="59" selection-start="32752" selection-end="32752" vertical-scroll-proportion="0.47808766" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example.py">
@@ -462,51 +463,57 @@
         <state line="14" column="29" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsnitro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="16" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="16" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nscsvserverrewritepolicybinding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="8" selection-start="7188" selection-end="7188" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="196" column="8" selection-start="7188" selection-end="7188" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
+    <entry file="file://$PROJECT_DIR$/nsnitro.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1033" column="69" selection-start="36129" selection-end="36440" vertical-scroll-proportion="0.0">
+        <state line="18" column="16" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="6" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/contrib/nsnitrocmd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="35" selection-start="4471" selection-end="4471" vertical-scroll-proportion="0.0">
+        <state line="74" column="35" selection-start="4471" selection-end="4471" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nscsvserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1033" column="69" selection-start="36129" selection-end="36440" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nsrewritepolicy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="187" column="38" selection-start="5268" selection-end="5652" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nsresources/nsconfig.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="17" selection-start="7465" selection-end="7465" vertical-scroll-proportion="0.0">
+        <state line="607" column="60" selection-start="19704" selection-end="19704" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
+    <entry file="file://$PROJECT_DIR$/nsresources/nsbaseresource.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="790" selection-end="790" vertical-scroll-proportion="0.40076336">
+        <state line="54" column="0" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nsresources/nslbvserverservicebinding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="33" selection-start="5689" selection-end="5689" vertical-scroll-proportion="0.5610687">
           <folding />
         </state>
       </provider>

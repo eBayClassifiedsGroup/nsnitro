@@ -156,7 +156,7 @@ class NSLBVServerServiceBinding(NSBaseResource):
         @staticmethod
         def get(nitro, vserver_service_binding):
                 """
-                Use this API to fetch all configured vserver_service_binding resources.
+                Use this API to fetch configured vserver_service_binding resources of a given name.
                 """
                 __url = nitro.get_url() + NSLBVServerServiceBinding.get_resourcetype() + "/" + vserver_service_binding.get_name()
                 __json_services = nitro.get(__url).get_response_field(NSLBVServerServiceBinding.get_resourcetype())
