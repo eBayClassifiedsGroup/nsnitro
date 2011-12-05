@@ -590,13 +590,13 @@ class NSConfig(NSBaseResource):
                 """
                 __config = NSConfig()
                 return __config.perform_operation(nitro, "save")
-        
+
         @staticmethod
         def clear(nitro, config):
                 __config = NSConfig()
                 __config.set_force(config.get_force())
                 __config.set_level(config.get_level())
-                return __config.perform_operation(nitro, "clear") 
+                return __config.perform_operation(nitro, "clear")
 
         @staticmethod
         def update(nitro, config):

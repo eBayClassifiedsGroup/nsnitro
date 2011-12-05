@@ -123,6 +123,3 @@ class NSNitro:
                 if nsresponse.failed:
                         raise NSNitroError(nsresponse.message)
                 return nsresponse
-
-        def save_config(self):
-            pass

@@ -9,7 +9,7 @@ class NSBaseResource(object):
                 self.options = {}
                 self.resourcetype = False
                 self.__baseaction = False
-                
+
         def __str__(self):
                 ret = ""
                 for key,value in self.options.iteritems():
@@ -80,7 +80,7 @@ class NSBaseResource(object):
                 response = nitro.put(self.get_put_payload(nitro.get_sessionid()))
                 if response.failed:
                         raise NSNitroError(response.message)
-                return response        
+                return response
 
         def delete_resource(self, nitro):
                 url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
