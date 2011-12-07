@@ -3,12 +3,12 @@
 import argparse
 import sys
 import nsnitro
-from nsresources.nsconfig import NSConfig
-from nsutil import *
-from nsresources.nslbvserver import NSLBVServer
-from nsresources.nsservice import NSService
-from nsresources.nsserver import NSServer
-from nsresources.nscsvserver import NSCSVServer
+from nsnitro.nsresources.nsconfig import NSConfig
+from nsnitro.nsutil import *
+from nsnitro.nsresources.nslbvserver import NSLBVServer
+from nsnitro.nsresources.nsservice import NSService
+from nsnitro.nsresources.nsserver import NSServer
+from nsnitro.nsresources.nscsvserver import NSCSVServer
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Netscaler NITRO controller')

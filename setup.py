@@ -16,10 +16,10 @@ setup(
     author_email = "vllazarenko@ebay.com",
     description = ("A simple library to control Citrix Netscaler 9.2+ with NITRO API."),
     license = "GPL",
-    keywords = "citrix netscaler nitro api",
+    keywords = "citrix netscaler nitro api nsnitro",
     url = "http://packages.python.org/nsnitro",
-    py_modules=['nsnitro', 'nsutil'],
-    packages=['nsresources'],
+    py_modules=['nsnitro'],
+    packages=['nsnitro'],
     long_description=read('README'),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
