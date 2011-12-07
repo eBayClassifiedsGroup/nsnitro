@@ -124,21 +124,3 @@ class NSNitro:
                         raise NSNitroError(nsresponse.message)
                 return nsresponse
 
-        def save_config(self):
-            try:
-                payload =urllib.urlencode({"object":
-                            { "params":
-                                {
-                                    "action":"save"
-                                },
-                             "sessionid":self.__sessionid,
-                             "nsconfig":{}
-                             }
-                        })
-                nsresponse = self.post(payload)
-
-            except Exception,e:
-                raise e
-
-            if nsresponse.failed:           #Todo: write a decorator to do this part and wrap the functions
-                raise NSNitroError(nsresponse.message)
