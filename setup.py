@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup,find_packages
 
 # Utility function to read the README file.
 # Used for the long_description.  It's nice, because now 1) we have a top level
@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "nsnitro",
-    version = "1.0.2",
+    version = "1.0.3",
     author = "Vladimir Lazarenko",
     author_email = "vllazarenko@ebay.com",
     description = ("A simple library to control Citrix Netscaler 9.2+ with NITRO API."),
@@ -19,7 +19,8 @@ setup(
     keywords = "citrix netscaler nitro api nsnitro",
     url = "http://packages.python.org/nsnitro",
     py_modules=['nsnitro'],
-    packages=['nsnitro'],
+    namespace_packages = ["nsnitro"],
+    packages=['nsnitro',] + [os.path.join("nsnitro",a) for a in find_packages("nsnitro")],
     long_description=read('README'),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
