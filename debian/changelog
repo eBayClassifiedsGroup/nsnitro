@@ -1,3 +1,9 @@
+nsnitro (1.0.4) oneiric; urgency=low
+
+  * Adapting for new package structure
+
+ -- vlazarenko <vlazarenko@squeeze.local>  Sat, 26 Nov 2011 15:40:17 +0100
+
 nsnitro (1.0.2) oneiric; urgency=low
 
   * Version bump
