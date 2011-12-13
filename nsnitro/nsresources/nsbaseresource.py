@@ -1,4 +1,4 @@
-from nsutil import NSNitroError
+from nsnitro.nsutil import NSNitroError
 
 class NSBaseResource(object):
 
