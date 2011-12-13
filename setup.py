@@ -11,15 +11,15 @@ def read(fname):
 
 setup(
     name = "nsnitro",
-    version = "1.0.4",
+    version = "1.0.5",
     author = "Vladimir Lazarenko",
     author_email = "vllazarenko@ebay.com",
     description = ("A simple library to control Citrix Netscaler 9.2+ with NITRO API."),
     license = "GPL",
     keywords = "citrix netscaler nitro api nsnitro",
-    url = "http://packages.python.org/nsnitro",
+    url = "http://pypi.python.org/pypi/nsnitro",
     namespace_packages = ["nsnitro"],
-    packages=['nsnitro',] + [os.path.join("nsnitro",a) for a in find_packages("nsnitro")],
+    packages=["nsnitro",] + [os.path.join("nsnitro",a) for a in find_packages("nsnitro")],
     long_description=read('README'),
     classifiers=[
         "Development Status :: 4 - Beta",
