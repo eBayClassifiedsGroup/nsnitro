@@ -3,6 +3,7 @@
 import argparse
 import sys
 import nsnitro
+from nsnitro.nsnitro import *
 from nsnitro.nsresources.nsconfig import NSConfig
 from nsnitro.nsutil import *
 from nsnitro.nsresources.nslbvserver import NSLBVServer
@@ -57,7 +58,7 @@ if __name__ == "__main__":
                 print(args)
                 sys.exit(0)
 
-        nitro = nsnitro.NSNitro(args.lbip, args.user, args.password)
+        nitro = NSNitro(args.lbip, args.user, args.password)
 
         try:
                 nitro.login()
