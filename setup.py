@@ -23,9 +23,9 @@ setup(
     packages=['nsnitro',] + [os.path.join("nsnitro",a) for a in find_packages("nsnitro")],
     long_description=read('README'),
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 4 - Beta",
         "Topic :: Utilities",
-        "License :: OSI Approved :: GPL License",
+        "License :: OSI Approved :: Python Software Foundation License",
     ],
     install_requires=[
         "httplib2",
