@@ -1,41 +1,41 @@
-nsnitro (1.0.7) oneiric; urgency=low
+nsnitro (1.0.7) unstable; urgency=low
 
   * Working version bump
 
-nsnitro (1.0.6) oneiric; urgency=low
+nsnitro (1.0.6) unstable; urgency=low
 
   * Fixed python imports, maybe be backwards-incompatible
 
-nsnitro (1.0.5) oneiric; urgency=low
+nsnitro (1.0.5) unstable; urgency=low
 
   * Addded servicegroup support, refactored some code with help of co-contributors
 
-nsnitro (1.0.4) oneiric; urgency=low
+nsnitro (1.0.4) unstable; urgency=low
 
   * Adapting for new package structure
 
  -- vlazarenko <vlazarenko@squeeze.local>  Sat, 26 Nov 2011 15:40:17 +0100
 
-nsnitro (1.0.2) oneiric; urgency=low
+nsnitro (1.0.2) unstable; urgency=low
 
   * Version bump
 
  -- vlazarenko <vlazarenko@squeeze.local>  Sat, 26 Nov 2011 15:40:17 +0100
 
-nsnitro (1.0.0) oneiric; urgency=low
+nsnitro (1.0.0) unstable; urgency=low
 
   * First release.
 
  -- vlazarenko <vlazarenko@squeeze.local>  Fri, 04 Nov 2011 18:01:24 +0100
 
-nsnitro (0.0.2) oneiric; urgency=low
+nsnitro (0.0.2) unstable; urgency=low
 
   * Tryout for new structure.
   * 
 
  -- vlazarenko <vlazarenko@squeeze.local>  Fri, 04 Nov 2011 13:46:11 +0100
 
-nsnitro (0.0.1) oneiric; urgency=low
+nsnitro (0.0.1) unstable; urgency=low
 
   * Initial release.
 
