@@ -175,8 +175,8 @@ class NSServiceGroup(NSBaseResource):
     def get_tcpb(self):
         return self.options['tcpb']
     
-    def set_cmp(self, cmp):
-        self.options['cmp'] = cmp
+    def set_cmp(self, scmp):
+        self.options['cmp'] = scmp
     
     def get_cmp(self):
         return self.options['cmp']
