@@ -322,6 +322,19 @@ class NSServiceGroup(NSBaseResource):
     def get_groupcount(self):
         return self.options['groupcount']
 
+
+
+    def delete_resource(self, nitro):
+        url = nitro.get_url() + self.resourcetype + "/" + self.options['servicegroupname']
+        urlargs = self.get_delete_args()
+        url = url + urlargs
+
+        response = nitro.delete(url)
+        if response.failed:
+            raise NSNitroError(response.message)
+        
+        return response
+
     # Operations methods
     @staticmethod
     def disable(nitro, servicegroup):
