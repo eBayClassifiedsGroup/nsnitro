@@ -1,3 +1,11 @@
+nsnitro (1.0.6) oneiric; urgency=low
+
+  * Version bump
+
+nsnitro (1.0.5) oneiric; urgency=low
+
+  * Addded servicegroup support, refactored some code with help of co-contributors
+
 nsnitro (1.0.4) oneiric; urgency=low
 
   * Adapting for new package structure
