@@ -50,7 +50,7 @@ class NSBaseResource(object):
                 args = "?args="
 
                 for key,value in options.iteritems():
-                        args = args + key + ":" + value + ","
+                        args = "%s%s:%s%s" % (args, key, value, ",")
 
                 args = args[:-1] # remove last comma
 
@@ -61,8 +61,8 @@ class NSBaseResource(object):
                 response = nitro.post(self.get_payload())
                 return response
 
-        def get_resource(self, nitro):
-                url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
+        def get_resource(self, nitro, object_name = None):
+                url = "%s%s/%s" % (nitro.get_url(), self.resourcetype, object_name if object_name else self.options['name'])
                 response = nitro.get(url)
 
                 if response.failed:
@@ -82,10 +82,10 @@ class NSBaseResource(object):
                         raise NSNitroError(response.message)
                 return response
 
-        def delete_resource(self, nitro):
-                url = nitro.get_url() + self.resourcetype + "/" + self.options['name']
+        def delete_resource(self, nitro, object_name = None):
+                url = "%s%s/%s" % (nitro.get_url(), self.resourcetype, object_name if object_name else self.options['name'])
                 urlargs = self.get_delete_args()
-                url = url + urlargs
+                url += urlargs
 
                 response = nitro.delete(url)
 

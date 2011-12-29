@@ -324,16 +324,16 @@ class NSServiceGroup(NSBaseResource):
 
 
 
-    def delete_resource(self, nitro):
-        url = nitro.get_url() + self.resourcetype + "/" + self.options['servicegroupname']
-        urlargs = self.get_delete_args()
-        url = url + urlargs
-
-        response = nitro.delete(url)
-        if response.failed:
-            raise NSNitroError(response.message)
-        
-        return response
+#    def delete_resource(self, nitro):
+#        url = nitro.get_url() + self.resourcetype + "/" + self.options['servicegroupname']
+#        urlargs = self.get_delete_args()
+#        url = url + urlargs
+#
+#        response = nitro.delete(url)
+#        if response.failed:
+#            raise NSNitroError(response.message)
+#
+#        return response
 
     # Operations methods
     @staticmethod
@@ -371,7 +371,7 @@ class NSServiceGroup(NSBaseResource):
         """
         __servicegroup = NSServiceGroup()
         __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
-        __servicegroup.get_resource(nitro)
+        __servicegroup.get_resource(nitro, servicegroup.get_servicegroupname())
         return __servicegroup
     
     @staticmethod
@@ -464,5 +464,5 @@ class NSServiceGroup(NSBaseResource):
         """
         __servicegroup = NSServiceGroup()
         __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
-        nsresponse = __servicegroup.delete_resource(nitro)
+        nsresponse = __servicegroup.delete_resource(nitro, servicegroup.get_servicegroupname())
         return nsresponse
