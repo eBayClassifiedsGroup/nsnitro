@@ -6,6 +6,7 @@ from nsnitro.nsresources.nsbaseresource import NSBaseResource
 from nsnitro.nsnitro import *
 import nsnitro.nsutil
 from nsnitro.nsresources.nsservice import NSService
+from nsnitro.nsresources.nsservicegroup import NSServiceGroup
 
 
 class test_nitro:
@@ -25,6 +26,13 @@ class test_nitro:
         server.set_name("nitro_example_server")
         server = server.get(self.nitro, server)
         print server.get_name() + ": " + server.get_state()
+
+
+    def add_servicegroup(self):
+        # add servicegroup test
+        servicegroup = NSServiceGroup()
+        servicegroup.set_name('Test-SG-192.168.8.139')
+        servicegroup.add()
 
     def disable_server(self):
 
@@ -230,7 +238,7 @@ class test_nitro:
 
 
 def main():
-    a = test_nitro({'ip':'10.11.254.30','user':'ddosadmin','password':'ddosAdmin'})
+    a = test_nitro({'ip':'','user':'','password':''})
 
     a.add_server()
 
@@ -240,19 +248,22 @@ def main():
     a.add_service()
     a.add_lbvserver()
 
-#    a.bind_lbvserver()    
-#    a.print_lbvserver_binding()
-#    a.delete_binding()
-#    a.delete_lbvserver()
-#    a.print_lbvserver_binding()
+    a.bind_lbvserver()    
+    a.print_lbvserver_binding()
+    
+    a.add_servicegroup()
 
-#    a.update_service()
-#    a.disable_service()
-#    a.enable_service()
-#    a.rename_service()
-#    a.delete_service()
-    a.delete_resource()
-#    a.delete_server()
+    a.delete_binding()
+    a.delete_lbvserver()
+    a.print_lbvserver_binding()
+
+    a.update_service()
+    a.disable_service()
+    a.enable_service()
+    a.rename_service()
+    a.delete_service()
+#    a.delete_resource()
+    a.delete_server()
 
 if __name__ == '__main__':
     main()
