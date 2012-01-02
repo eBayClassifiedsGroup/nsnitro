@@ -4,7 +4,7 @@ What we're trying here is to implement Citrix NITRO API SDK (that's available fo
 You can find a simple command-line interface using this library in contrib/.
 Feedback/comments welcome.
 
-Very basic usage:
+Very basic usage::
 
 import time
 from nsnitro import *
