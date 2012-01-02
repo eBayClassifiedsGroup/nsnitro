@@ -1,14 +1,8 @@
-###############################################################################
-# 				TODO
-# 1. Right now setup.py install creates an extra nsnitro.py along with the folder nsnitro. This creates trouble when running from nsnitro import *
-###############################################################################
-
 Simple Python Library to control Citrix Netscaler 9.2+ load balancers with NITRO API.
-What we're trying here is implement Citrix NITRO API SDK (that's available for Java and C#) in Python.
+What we're trying here is to implement Citrix NITRO API SDK (that's available for Java and C#) in Python.
 
-You can find simple command-line interface using this library in contrib/.
+You can find a simple command-line interface using this library in contrib/.
 Feedback/comments welcome.
-
 
 Very basic usage:
 
