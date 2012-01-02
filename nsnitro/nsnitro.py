@@ -3,7 +3,7 @@
 import urllib, urllib2
 from json import JSONEncoder
 from nsutil import *
-from nsresources.nsservice import NSService
+from nsresources import *
 
 __version__ = "0.0.2"
 

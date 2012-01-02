@@ -1,4 +1,4 @@
-from nsresources.nsbaseresource import NSBaseResource
+from nsbaseresource import NSBaseResource
 __author__ = 'vlazarenko'
 
 class NSLBVServerServiceBinding(NSBaseResource):

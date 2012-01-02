@@ -1,10 +1,5 @@
 import time
-from nsnitro.nsresources.nslbvserverservicebinding import NSLBVServerServiceBinding
-from nsnitro.nsresources.nslbvserver import NSLBVServer
-from nsnitro.nsresources.nsserver import NSServer
-from nsnitro.nsnitro import *
-import nsnitro.nsutil
-from nsnitro.nsresources.nsservice import NSService
+from nsnitro import *
 
 nitro = NSNitro('localhost', 'api_user', 'api_user')
 nitro.login()
@@ -166,7 +161,7 @@ try:
         service.set_name("aurora_testnitroadd")
         service = service.get(nitro, service)
         print service.get_name() + ": " + service.get_svrstate()
-except nsnitro.nsutil.NSNitroError, e:
+except NSNitroError, e:
         print e.message
 
 
@@ -180,5 +175,5 @@ try:
         server.set_name("mp-nitroserver")
         server = server.get(nitro, server)
         print server.get_name() + ": " + server.get_state()
-except nsnitro.nsutil.NSNitroError, e:
+except NSNitroError, e:
         print e.message

@@ -1,13 +1,5 @@
 import time
-from nsnitro.nsresources.nslbvserverservicebinding import NSLBVServerServiceBinding
-from nsnitro.nsresources.nslbvserver import NSLBVServer
-from nsnitro.nsresources.nsserver import NSServer
-from nsnitro.nsresources.nsbaseresource import NSBaseResource
-from nsnitro.nsnitro import *
-import nsnitro.nsutil
-from nsnitro.nsresources.nsservice import NSService
-from nsnitro.nsresources.nsservicegroup import NSServiceGroup
-
+from nsnitro import *
 
 class test_nitro:
     def __init__(self,args):
@@ -31,8 +23,14 @@ class test_nitro:
     def add_servicegroup(self):
         # add servicegroup test
         servicegroup = NSServiceGroup()
-        servicegroup.set_name('Test-SG-192.168.8.139')
-        servicegroup.add()
+        servicegroup.set_servicegroupname('nitro_example_servicegroup')
+        NSServiceGroup.add(self.nitro, servicegroup)
+
+    def delete_servicegroup(self):
+        # add servicegroup test
+        servicegroup = NSServiceGroup()
+        servicegroup.set_servicegroupname('nitro_example_servicegroup')
+        NSServiceGroup.delete(self.nitro, servicegroup)
 
     def disable_server(self):
 
@@ -88,12 +86,12 @@ class test_nitro:
         # bind service to lbvserver test
 
 
-        lbbinding = NSLBVServerServiceBinding({'name':'nitro_lbvserver_test','servicename':'Test-SG-192.168.8.139','weight':50})
+        lbbinding = NSLBVServerServiceBinding()
         #{'serviceGroupName':'Test-SG-192.168.8.139','policyName':'http','name':'Test-SG-192.168.8.139' })
         #lbbinding.set_name('Test-SG-192.168.8.139')
-#        lbbinding.set_name('nitro_lbvserver_test')
-#        lbbinding.set_servicename("service_nitro_test")
-#        lbbinding.set_weight(40)
+        lbbinding.set_name('nitro_lbvserver_test')
+        lbbinding.set_servicename("service_nitro_test")
+        lbbinding.set_weight(40)
         NSLBVServerServiceBinding.add(self.nitro, lbbinding)
 
         print "Binding added"
@@ -203,7 +201,7 @@ class test_nitro:
                 service.set_name("service_nitro_test")
                 service = service.get(self.nitro, service)
                 print service.get_name() + ": " + service.get_svrstate()
-        except nsnitro.nsutil.NSNitroError, e:
+        except NSNitroError, e:
                 print e.message
 
     def delete_server(self):
@@ -217,28 +215,11 @@ class test_nitro:
                 server.set_name("nitro_example_server")
                 server = server.get(self.nitro, server)
                 print server.get_name() + ": " + server.get_state()
-        except nsnitro.nsutil.NSNitroError, e:
+        except NSNitroError, e:
                 print e.message
 
-
-
-    def delete_resource(self):
-        try:
-
-            nsb = NSBaseResource()
-            nsb.resourcetype = 'serviceGroup'
-            nsb.set_action('delete')
-            nsb.set_options({'name':'Test-SG-192.168.8.140'})
-            nsb.delete_resource(self.nitro)
-            print "resource deleted"
-            print nsb.get_name() + ":" + nsb.get_state()
-
-        except nsnitro.nsutil.NSNitroError,e:
-            print e.message
-
-
 def main():
-    a = test_nitro({'ip':'','user':'','password':''})
+    a = test_nitro({'ip':'localhost','user':'api_user','password':'api_user'})
 
     a.add_server()
 
@@ -248,21 +229,19 @@ def main():
     a.add_service()
     a.add_lbvserver()
 
-    a.bind_lbvserver()    
+    a.bind_lbvserver()
     a.print_lbvserver_binding()
-    
+
     a.add_servicegroup()
+    a.delete_servicegroup()
 
     a.delete_binding()
     a.delete_lbvserver()
-    a.print_lbvserver_binding()
-
     a.update_service()
     a.disable_service()
     a.enable_service()
     a.rename_service()
     a.delete_service()
-#    a.delete_resource()
     a.delete_server()
 
 if __name__ == '__main__':
