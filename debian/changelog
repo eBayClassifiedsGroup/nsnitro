@@ -1,6 +1,6 @@
 nsnitro (1.0.6) oneiric; urgency=low
 
-  * Version bump
+  * Fixed python imports, maybe be backwards-incompatible
 
 nsnitro (1.0.5) oneiric; urgency=low
 
