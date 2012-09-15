@@ -1,14 +1,26 @@
+nsnitro (1.0.8) unstable; urgency=low
+
+  * Added delayed service shutdowns
+
+ -- vlazarenko <vlazarenko@squeeze.local>  Sat, 15 Sep 2012 05:08:16 +0200
+
 nsnitro (1.0.7) unstable; urgency=low
 
   * Working version bump
+
+ -- vlazarenko <vlazarenko@squeeze.local>  Sat, 26 Nov 2011 15:40:17 +0100
 
 nsnitro (1.0.6) unstable; urgency=low
 
   * Fixed python imports, maybe be backwards-incompatible
 
+ -- vlazarenko <vlazarenko@squeeze.local>  Sat, 26 Nov 2011 15:40:17 +0100
+
 nsnitro (1.0.5) unstable; urgency=low
 
   * Addded servicegroup support, refactored some code with help of co-contributors
+
+ -- vlazarenko <vlazarenko@squeeze.local>  Sat, 26 Nov 2011 15:40:17 +0100
 
 nsnitro (1.0.4) unstable; urgency=low
 
