@@ -340,6 +340,28 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup = NSServiceGroup()
         __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
         return __servicegroup.perform_operation(nitro, "enable")
+
+    @staticmethod
+    def disable_server(nitro, servicegroup):
+        """
+        Use this API to disable server within servicegroup (Not globally).
+        """
+        __servicegroup = NSServiceGroup()
+        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servername(servicegroup.get_servername())
+        __servicegroup.set_port(servicegroup.get_port())
+        return __servicegroup.perform_operation(nitro, "disable")
+
+    @staticmethod
+    def enable_server(nitro, servicegroup):
+        """
+        Use this API to enable server within servicegroup (Not globally).
+        """
+        __servicegroup = NSServiceGroup()
+        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servername(servicegroup.get_servername())
+        __servicegroup.set_port(servicegroup.get_port())
+        return __servicegroup.perform_operation(nitro, "enable")
     
     @staticmethod
     def rename(nitro, servicegroup):
