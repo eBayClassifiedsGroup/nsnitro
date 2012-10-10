@@ -768,6 +768,7 @@ class NSService(NSBaseResource):
                 """
                 __service = NSService()
                 __service.set_name(service.get_name())
+                __service.set_delay(service.get_delay())
                 return __service.perform_operation(nitro, "disable")
 
         @staticmethod
