@@ -20,7 +20,7 @@ class NSNitro:
         __contenttype = "application/x-www-form-urlencoded"
         __postheaders = {'Cookie' : 'sessionid='+__sessionid, 'Content-type' : __contenttype}
 
-        def __init__(self, ip, user, password, useSSL):
+        def __init__(self, ip, user, password, useSSL=False):
                 """ Contructor: ip - LB ip, user - LB username, pass - LB password """
                 self.__ip = ip
                 self.__user = user
