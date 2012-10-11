@@ -396,6 +396,18 @@ class NSServiceGroup(NSBaseResource):
         return __servicegroups
     
     @staticmethod
+    def get_servers(nitro, servicegroup):
+        """
+        Use this API to fetch all configured servicegroup members.
+        """
+        __url = nitro.get_url() + 'servicegroup_servicegroupmember_binding' + '/' + servicegroup.get_servicegroupname()
+        __json_services = nitro.get(__url).get_response_field('servicegroup_servicegroupmember_binding')
+        __servicegroupmembers = []
+        for json_service in __json_services:
+            __servicegroupmembers.append(NSServiceGroup(json_service))
+        return __servicegroupmembers
+
+    @staticmethod
     def add(nitro, servicegroup):
         """
         Use this API to add service.
