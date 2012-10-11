@@ -20,12 +20,12 @@ class NSNitro:
         __contenttype = "application/x-www-form-urlencoded"
         __postheaders = {'Cookie' : 'sessionid='+__sessionid, 'Content-type' : __contenttype}
 
-        def __init__(self, ip, user, password):
+        def __init__(self, ip, user, password, useSSL):
                 """ Contructor: ip - LB ip, user - LB username, pass - LB password """
                 self.__ip = ip
                 self.__user = user
                 self.__password = password
-                self.__baseurl = "http://%s/nitro/v1/config/" % ip
+                self.__baseurl = "%s://%s/nitro/v1/config/" % ('https' if useSSL else 'http',ip)
                 self.__initialized = True
 
         def get_url(self):
