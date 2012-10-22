@@ -183,7 +183,7 @@ class NSRewritePolicy(NSBaseResource):
                 Use this API to fetch rewritepolicy resource of given name.
                 """
                 __rewritepolicy = NSRewritePolicy()
-                __rewritepolicy.set_name(rewritepolicy.get_policyname())
+                __rewritepolicy.set_name(rewritepolicy.get_name())
                 __rewritepolicy.get_resource(nitro)
                 return __rewritepolicy
 
