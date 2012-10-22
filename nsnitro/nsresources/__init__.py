@@ -9,6 +9,7 @@ from nslbvserver import NSLBVServer
 from nslbvserverservicebinding import NSLBVServerServiceBinding
 from nsresponderpolicy import NSResponderPolicy
 from nsresponderpolicylabel import NSResponderPolicyLabel
+from nsresponderpolicylabelbinding import NSResponderPolicyLabelBinding
 from nsresponderpolicycsvserverbinding import NSResponderPolicyCSVServerBinding
 from nsrewritepolicy import NSRewritePolicy
 from nsrewritepolicycsvserverbinding import NSRewritePolicyCSVServerBinding
@@ -27,6 +28,7 @@ __all__ = [ 'NSBaseResource',
     'NSLBVServerServiceBinding',
     'NSResponderPolicy',
     'NSResponderPolicyLabel',
+    'NSResponderPolicyLabelBinding',
     'NSResponderPolicyCSVServerBinding',
     'NSRewritePolicy',
     'NSRewritePolicyCSVServerBinding',
