@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+#
+# Netscaler NITRO controller
+#
 #import the necessary libraries
 import argparse
 import sys
@@ -17,9 +20,11 @@ if __name__ == "__main__":
         parser.add_argument('--user', metavar='USERNAME', default='api_user', help='lb username')
         parser.add_argument('--password', metavar='PASSWORD', default='api_user', help='lb password')
 
+        parser.add_argument('--addlbvserver', metavar='LBVSERVERNAME', help='enable lb vserver')
         parser.add_argument('--enablelbvserver', metavar='LBVSERVERNAME', help='enable lb vserver')
         parser.add_argument('--disablelbvserver', metavar='LBVSERVERNAME', help='disable lb vserver')
         parser.add_argument('--renamelbvserver', metavar=('LBVSERVERNAME', 'NEWNAME'), nargs=2, help='rename lb vserver from NAME to NEWNAME')
+        
         parser.add_argument('--getlbvserver', metavar='LBVSERVERNAME', help='show lb vserver')
         parser.add_argument('--getlbvserverslist', action='store_true', help='show lb vservers list')
         parser.add_argument('--getlbvserverstatus', metavar='LBVSERVERNAME', help='show lb vserver status')
@@ -33,6 +38,7 @@ if __name__ == "__main__":
         parser.add_argument('--getcsvserverstatus', metavar='CSVSERVERNAME', help='show cs vserver status')
         parser.add_argument('--getcsvserversstatus', action='store_true', help='show cs vservers status')
 
+        parser.add_argument('--addservice', metavar=('SERVICENAME', 'LBVSERVERNAME'), nargs=2, help='add service SERVICENAME to lb vserver LBVSERVERNAME (ip and port also requires)')
         parser.add_argument('--enableservice', metavar='SERVICENAME', help='enable service')
         parser.add_argument('--disableservice', metavar='SERVICENAME', help='disable service')
         parser.add_argument('--renameservice', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename service from NAME to NEWNAME')
@@ -41,6 +47,7 @@ if __name__ == "__main__":
         parser.add_argument('--getservicestatus', metavar='SERVICENAME', help='show service status')
         parser.add_argument('--getserviceslist', action='store_true', help='show services list')
         parser.add_argument('--getservicesstatus', action='store_true', help='show services status')
+        parser.add_argument('--bindservice', metavar=('SERVICENAME', 'LBVSERVERNAME'), nargs=2, help='bind service SERVICENAME to lb vserver LBVSERVERNAME ')
 
         parser.add_argument('--getserver', metavar='SERVERNAME', help='show server')
         parser.add_argument('--getserverslist', action='store_true', help='show servers list')
@@ -52,6 +59,16 @@ if __name__ == "__main__":
         parser.add_argument('--saveconfig', action='store_true', help='save loadbalancer config')
 
         parser.add_argument('--dargs', action='store_true', help='show service')
+        # additional arguments
+        parser.add_argument('--port', metavar='PORT', help='port number')
+        parser.add_argument('--ip', metavar='IP', help='IP address')
+        parser.add_argument('--servicetype', metavar='SERVICETYPE', choices=['TCP','HTTP'], default='TCP', help='Service type')
+        parser.add_argument('--clttimeout', metavar='CLTTIMEOUT', default=9000, help='Clt timeout')
+        parser.add_argument('--svrtimeout', metavar='SRVTIMEOUT', default=9000, help='service timeout')
+        parser.add_argument('--persistencetype', metavar='PERSISTENCETYPE', default='NONE', help='persistence type')
+        parser.add_argument('--bindingweight', metavar='BINDINGWIIGHT', default=40, help='weight parameter for binding service')
+                    
+        
         args = parser.parse_args()
 
         if args.dargs:
@@ -62,6 +79,21 @@ if __name__ == "__main__":
 
         try:
                 nitro.login()
+
+                if args.addlbvserver:
+                        if not args.port or not args.ip:
+                          print "--ip and --port are required for adding LB Vserver"
+                          sys.exit(0)
+                        lbvserver = NSLBVServer()
+                        lbvserver.set_name(args.addlbvserver)
+                        lbvserver.set_ipv46(args.ip)
+                        lbvserver.set_port(args.port)
+                        lbvserver.set_clttimeout(args.clttimeout)
+                        lbvserver.set_persistencetype(args.persistencetype)
+                        lbvserver.set_servicetype(args.servicetype)
+                        NSLBVServer.add(nitro, lbvserver)
+                        print "lb vserver %s (%s:%d/%s) was added" % (args.addlbvserver, args.ip, args.port, args.servicetype)
+                        sys.exit(0)
 
                 if args.enablelbvserver:
                         lbvserver = NSLBVServer()
@@ -114,6 +146,30 @@ if __name__ == "__main__":
                         for k in sorted(csvserver.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, csvserver.options[k])
 
+                        sys.exit(0)
+
+                if args.addservice:
+                        if not args.port:
+                          print "--port is required for adding service"
+                          sys.exit(0)
+                        service = NSService()
+                        service.set_port(args.port)
+                        service.set_servicetype(args.servicetype)
+                        service.set_clttimeout(args.clttimeout)
+                        service.set_svrtimeout(args.svrtimeout)
+                        service.set_name(args.addservice[0])
+                        service.set_servername(args.addservice[1])
+                        NSService.add(nitro, addservice)
+                        print "Service '%s:%d/%s' was added to '%s'." % (args.addservice[0], args.port, args.servicetype, args.addservice[1])
+                        sys.exit(0)
+
+                if args.bindservice:
+                        binding = NSLBVServerServiceBinding()
+                        binding.set_weight(args.bindingweight)
+                        binding.set_servicename(args.bindservice[0])
+                        binding.set_name(args.bindservice[1])
+                        NSLBVServerServiceBinding.add(nitro, binding)
+                        print "Service '%s' was binded to LB vserver '%s' with weight %d." % (args.bindservice[0], args.bindservice[1], args.bindingweight)
                         sys.exit(0)
 
                 if args.enableservice:
