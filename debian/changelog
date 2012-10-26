@@ -1,3 +1,12 @@
+nsnitro (1.0.9) unstable; urgency=low
+
+  * Latest contributor's patches
+  *    Add responder actions, cs vserver <-> responder policy bindings, add responder policy support etc [timl]
+  *    Added default of False to the useSSL option in NSNitro Class. [James Boylan]
+  *    LB vserver and service can be added using nsnitrocmd.py [dzhdanov]
+
+ -- root <root@debian.localdomain>  Fri, 26 Oct 2012 07:58:59 -0400
+
 nsnitro (1.0.8) unstable; urgency=low
 
   * Added delayed service shutdowns
