@@ -39,5 +39,8 @@ class NSNitroResponse:
 
         def get_response_field(self, field_name):
                 """ Returns field_name of parsed JSON dictionary """
-                return self.__jresponse[field_name]
+                if field_name in self.__jresponse:
+                    return self.__jresponse[field_name]
+                else:
+                    return []
 
