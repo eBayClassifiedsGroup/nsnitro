@@ -69,7 +69,6 @@ class NSLBVServer(NSBaseResource):
                         'servicename' : '',
                         'redirurlflags' : '',
                         'newname' : '',
-       # ------- Read only Parameter ---------' : '',
                         'value' : '',
                         'ipmapping' : '',
                         'type' : '',

@@ -17,6 +17,7 @@ from nsrewritepolicycsvserverbinding import NSRewritePolicyCSVServerBinding
 from nsservice import NSService
 from nsserver import NSServer
 from nsservicegroup import NSServiceGroup
+from nshanode import NSHANode
 
 __all__ = [ 'NSBaseResource',
     'NSConfig',
@@ -36,5 +37,6 @@ __all__ = [ 'NSBaseResource',
     'NSRewritePolicyCSVServerBinding',
     'NSServer',
     'NSService',
-    'NSServiceGroup'
+    'NSServiceGroup',
+    'NSHANode'
  ]

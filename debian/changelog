@@ -1,3 +1,17 @@
+nsnitro (1.0.14) unstable; urgency=low
+
+  * Added NSHANode
+  * 
+
+ -- Vladimir Lazarenko <vllazarenko@ebay.com>  Tue, 02 Oct 2012 17:59:36 +0200
+
+nsnitro (1.0.9) unstable; urgency=low
+
+  * Fixed pypi packaging, moved nsnitrocmd.py from contrib to bin and from
+    data_files to scripts in setup.py
+
+ -- root <root@debian.localdomain>  Fri, 26 Oct 2012 07:58:59 -0400
+
 nsnitro (1.0.9) unstable; urgency=low
 
   * Latest contributor's patches
