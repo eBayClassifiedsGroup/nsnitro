@@ -20,6 +20,13 @@ nsnitro (1.0.9) unstable; urgency=low
 
 nsnitro (1.0.9) unstable; urgency=low
 
+  * Fixed pypi packaging, moved nsnitrocmd.py from contrib to bin and from
+    data_files to scripts in setup.py
+
+ -- root <root@debian.localdomain>  Fri, 26 Oct 2012 07:58:59 -0400
+
+nsnitro (1.0.9) unstable; urgency=low
+
   * Latest contributor's patches
   *    Add responder actions, cs vserver <-> responder policy bindings, add responder policy support etc [timl]
   *    Added default of False to the useSSL option in NSNitro Class. [James Boylan]
