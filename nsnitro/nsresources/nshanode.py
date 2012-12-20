@@ -146,8 +146,7 @@ class NSHANode(NSBaseResource):
                 Use this API to fetch hanode resource of given name.
                 """
                 __hanode = NSHANode()
-                __hanode.set_id(hanode.get_id())
-                __hanode.get_resource(nitro)
+                __hanode.get_resource(nitro, hanode.get_id())
                 return __hanode
 
         @staticmethod
@@ -179,8 +178,7 @@ class NSHANode(NSBaseResource):
                 Use this API to delete hanode of a given name.
                 """
                 __hanode = NSHANode()
-                __hanode.set_id(hanode.get_id())
-                nsresponse = __hanode.delete_resource(nitro)
+                nsresponse = __hanode.delete_resource(nitro, hanode.get_id())
                 return nsresponse
 
         @staticmethod
