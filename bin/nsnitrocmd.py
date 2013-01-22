@@ -24,10 +24,11 @@ if __name__ == "__main__":
         parser.add_argument('--enablelbvserver', metavar='LBVSERVERNAME', help='enable lb vserver')
         parser.add_argument('--disablelbvserver', metavar='LBVSERVERNAME', help='disable lb vserver')
         parser.add_argument('--renamelbvserver', metavar=('LBVSERVERNAME', 'NEWNAME'), nargs=2, help='rename lb vserver from NAME to NEWNAME')
-        
+
         parser.add_argument('--getlbvserver', metavar='LBVSERVERNAME', help='show lb vserver')
         parser.add_argument('--getlbvserverslist', action='store_true', help='show lb vservers list')
         parser.add_argument('--getlbvserverstatus', metavar='LBVSERVERNAME', help='show lb vserver status')
+        parser.add_argument('--getlbvserverstatusfull', metavar='LBVSERVERNAME', help='show lb vserver status with bound services')
         parser.add_argument('--getlbvserversstatus', action='store_true', help='show lb vservers status')
 
         parser.add_argument('--enablecsvserver', metavar='CSVSERVERNAME', help='enable cs vserver')
@@ -244,6 +245,17 @@ if __name__ == "__main__":
                         vserver.set_name(args.getlbvserverstatus)
                         vserver = NSLBVServer().get(nitro, vserver)
                         print vserver.get_name() + ": " + vserver.get_effectivestate()
+                        sys.exit(0)
+
+                if args.getlbvserverstatusfull:
+                        binding = NSLBVServerServiceBinding()
+                        binding.set_name(args.getlbvserverstatusfull)
+                        binded_services = NSLBVServerServiceBinding().get(nitro, binding)
+                        print "-- | VServerName | Servicename | State | Type | IP | Port | Weight | ---"
+                        for s in binded_services:
+                            print ' | ', s.get_name(),        ' | ', s.get_servicename(), ' | ', s.get_curstate(),
+                            print ' | ', s.get_servicetype(), ' | ', s.get_ipv46(),       ' | ', s.get_port(),
+                            print ' | ', s.get_weight()
                         sys.exit(0)
 
                 if args.getcsvserverstatus:
