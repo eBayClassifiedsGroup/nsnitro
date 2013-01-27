@@ -18,6 +18,8 @@ from nsservice import NSService
 from nsserver import NSServer
 from nsservicegroup import NSServiceGroup
 from nshanode import NSHANode
+from nsip import NSIP
+from nsvlan import NSVLAN
 
 __all__ = [ 'NSBaseResource',
     'NSConfig',
@@ -38,5 +40,7 @@ __all__ = [ 'NSBaseResource',
     'NSServer',
     'NSService',
     'NSServiceGroup',
-    'NSHANode'
+    'NSHANode',
+    'NSIP',
+    'NSVLAN'
  ]

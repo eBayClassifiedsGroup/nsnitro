@@ -225,9 +225,43 @@ class test_nitro:
                 for node in hanodes:
                         print node.get_id() + " " + node.get_state() + " " + node.get_hastatus() + " " + node.get_failsafe() + " " + node.get_haprop() + " " + str(node.get_masterstatetime())
 
+        def list_vlans(self):
+                vlans = NSVLAN.get_all(self.nitro)
+                for vlan in vlans:
+                        print vlan.get_id()
+
+        def add_vlan(self):
+                vlan = NSVLAN()
+                vlan.set_id(115)
+                NSVLAN.add(self.nitro, vlan)
+
+        def delete_vlan(self):
+                vlan = NSVLAN()
+                vlan.set_id(115)
+                NSVLAN.delete(self.nitro, vlan)
+
+        def list_ips(self):
+                ips = NSIP.get_all(self.nitro)
+                for ip in ips:
+                        print ip.get_ipaddress()
+
+        def add_ip(self):
+                ip = NSIP()
+                ip.set_ipaddress('10.40.11.174')
+                ip.set_netmask('255.255.255.224')
+                ip.set_type('MIP')
+                ip.set_mgmtaccess('enabled')
+                ip.set_vserver('disabled')
+                NSIP.add(self.nitro, ip)
+
+        def delete_ip(self):
+                ip = NSIP()
+                ip.set_ipaddress('10.40.11.174')
+                NSIP.delete(self.nitro, ip)
+
 
 def main():
-        a = test_nitro({'ip':'localhost','user':'user','password':'password'})
+        a = test_nitro({'ip':'10.40.11.173','user':'nsroot','password':'nsroot'})
 
 #    a.add_server()
 
@@ -251,7 +285,14 @@ def main():
 #    a.rename_service()
 #    a.delete_service()
 #    a.delete_server()
-        a.list_hanodes()
+#    a.list_hanodes()
+#    a.add_vlan()
+#    a.list_vlans()
+#    a.delete_vlan()
+#    a.list_vlans()
+
+        a.delete_ip()
+        a.list_ips()
 
 if __name__ == '__main__':
         main()
