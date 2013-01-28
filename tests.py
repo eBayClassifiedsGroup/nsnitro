@@ -232,12 +232,12 @@ class test_nitro:
 
         def add_vlan(self):
                 vlan = NSVLAN()
-                vlan.set_id(115)
+                vlan.set_id(125)
                 NSVLAN.add(self.nitro, vlan)
 
         def delete_vlan(self):
                 vlan = NSVLAN()
-                vlan.set_id(115)
+                vlan.set_id(125)
                 NSVLAN.delete(self.nitro, vlan)
 
         def list_ips(self):
@@ -245,19 +245,60 @@ class test_nitro:
                 for ip in ips:
                         print ip.get_ipaddress()
 
+        def list_vlan_if_bindings(self):
+                b = NSVLANInterfaceBinding()
+                b.set_id(125)
+                vib = NSVLANInterfaceBinding.get(self.nitro, b)
+                print vib.get_id(), vib.get_ifnum(), vib.get_tagged()
+
+        def list_vlan_ip_bindings(self):
+                b = NSVLANNSIPBinding()
+                b.set_id(125)
+                vib = NSVLANNSIPBinding.get(self.nitro, b)
+
+                print vib.get_id(), vib.get_ipaddress(), vib.get_netmask()
+
+
         def add_ip(self):
                 ip = NSIP()
-                ip.set_ipaddress('10.40.11.174')
+                ip.set_ipaddress('10.40.12.181')
                 ip.set_netmask('255.255.255.224')
-                ip.set_type('MIP')
-                ip.set_mgmtaccess('enabled')
                 ip.set_vserver('disabled')
                 NSIP.add(self.nitro, ip)
 
         def delete_ip(self):
                 ip = NSIP()
-                ip.set_ipaddress('10.40.11.174')
+                ip.set_ipaddress('10.40.12.181')
                 NSIP.delete(self.nitro, ip)
+
+        def delete_vipb(self):
+                ip = NSVLANNSIPBinding()
+                ip.set_id(125)
+                ip.set_ipaddress('10.40.12.181')
+                ip.set_netmask('255.255.255.224')
+                NSVLANNSIPBinding.delete(self.nitro, ip)
+
+        def delete_vifb(self):
+                ip = NSVLANInterfaceBinding()
+                ip.set_id(125)
+                ip.set_ifnum("1/1")
+                #ip.set_tagged(True)
+                NSVLANInterfaceBinding.delete(self.nitro, ip)
+
+
+        def bind_vlan_to_if(self):
+                b = NSVLANInterfaceBinding()
+                b.set_id(125)
+                b.set_ifnum("1/1")
+                b.set_tagged(True)
+                NSVLANInterfaceBinding.add(self.nitro, b)
+
+        def bind_vlan_to_ip(self):
+                b = NSVLANNSIPBinding()
+                b.set_id(125)
+                b.set_ipaddress('10.40.12.181')
+                b.set_netmask('255.255.255.224')
+                NSVLANNSIPBinding.add(self.nitro, b)
 
 
 def main():
@@ -286,13 +327,21 @@ def main():
 #    a.delete_service()
 #    a.delete_server()
 #    a.list_hanodes()
-#    a.add_vlan()
+        #a.add_vlan()
+        #a.bind_vlan_to_if()
+        #a.add_ip()
+        #a.bind_vlan_to_ip()
+        a.list_vlan_ip_bindings()
+        a.list_vlan_if_bindings()
+        a.delete_vifb()
+        a.delete_vipb()
+        a.delete_vlan()
 #    a.list_vlans()
 #    a.delete_vlan()
 #    a.list_vlans()
 
-        a.delete_ip()
-        a.list_ips()
+#        a.delete_ip()
+#        a.list_ips()
 
 if __name__ == '__main__':
         main()

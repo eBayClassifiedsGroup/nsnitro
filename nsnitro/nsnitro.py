@@ -1,9 +1,7 @@
 """ Citrix Netscaler Nitro API accessor """
 
 import urllib, urllib2
-from json import JSONEncoder
 from nsutil import *
-from nsresources import *
 
 __version__ = "0.0.2"
 
@@ -65,6 +63,7 @@ class NSNitro:
         def post(self, payload):
                 try:
                         payload_encoded = urllib.urlencode(payload)
+
                         req = urllib2.Request(self.__baseurl, payload_encoded, self.__postheaders)
                         response = urllib2.urlopen(req)
 

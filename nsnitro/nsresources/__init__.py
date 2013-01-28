@@ -20,6 +20,8 @@ from nsservicegroup import NSServiceGroup
 from nshanode import NSHANode
 from nsip import NSIP
 from nsvlan import NSVLAN
+from nsvlaninterfacebinding import NSVLANInterfaceBinding
+from nsvlannsipbinding import NSVLANNSIPBinding
 
 __all__ = [ 'NSBaseResource',
     'NSConfig',
@@ -42,5 +44,7 @@ __all__ = [ 'NSBaseResource',
     'NSServiceGroup',
     'NSHANode',
     'NSIP',
-    'NSVLAN'
+    'NSVLAN',
+    'NSVLANInterfaceBinding',
+    'NSVLANNSIPBinding'
  ]

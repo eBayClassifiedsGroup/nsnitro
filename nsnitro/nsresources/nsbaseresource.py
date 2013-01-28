@@ -1,4 +1,5 @@
 from nsnitro.nsutil import NSNitroError
+import urllib
 
 class NSBaseResource(object):
 
@@ -12,7 +13,7 @@ class NSBaseResource(object):
 
         def __str__(self):
                 ret = ""
-                for key,value in self.options.iteritems():
+                for key,value in self.options.items():
                         ret += "\t%s: \t\t%s\n" % (key, value)
 
                 return ret
@@ -50,7 +51,7 @@ class NSBaseResource(object):
                 args = "?args="
 
                 for key,value in options.iteritems():
-                        args = "%s%s:%s%s" % (args, key, value, ",")
+                        args = "%s%s:%s%s" % (args, key, urllib.quote_plus(value) if type(value) is str else value, ",")
 
                 args = args[:-1] # remove last comma
 
