@@ -310,6 +310,12 @@ class test_nitro:
                 b.set_feature(['CS', 'LB'])
                 NSFeature.enable(self.nitro, b)
 
+        def add_cspolicy(self):
+                asdf = NSCSPolicy()
+                asdf.set_rule("asdf")
+                asdf.set_policyname("foobar")
+                NSCSPolicy.add(self.nitro, asdf)
+
 
 def main():
         a = test_nitro({'ip':'10.40.11.163','user':'nsroot','password':'nsroot'})
@@ -346,7 +352,8 @@ def main():
         #a.delete_vifb()
         #a.delete_vipb()
         #a.delete_vlan()
-        a.enable_feature()
+        #a.enable_feature()
+        a.add_cspolicy()
         #a.disable_feature()
 #    a.list_vlans()
 #    a.delete_vlan()

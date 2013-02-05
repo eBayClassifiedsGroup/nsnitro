@@ -11,7 +11,7 @@ class NSCSPolicy(NSBaseResource):
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSCSPolicy, self).__init__()
-                options = {
+                self.options = {
                         'policyname' : '',
                         'url' : '',
                         'rule' : '',
