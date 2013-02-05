@@ -22,6 +22,7 @@ from nsip import NSIP
 from nsvlan import NSVLAN
 from nsvlaninterfacebinding import NSVLANInterfaceBinding
 from nsvlannsipbinding import NSVLANNSIPBinding
+from nsfeature import NSFeature
 
 __all__ = [ 'NSBaseResource',
     'NSConfig',
@@ -46,5 +47,6 @@ __all__ = [ 'NSBaseResource',
     'NSIP',
     'NSVLAN',
     'NSVLANInterfaceBinding',
-    'NSVLANNSIPBinding'
+    'NSVLANNSIPBinding',
+    'NSFeature'
  ]

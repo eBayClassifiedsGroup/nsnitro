@@ -300,9 +300,19 @@ class test_nitro:
                 b.set_netmask('255.255.255.224')
                 NSVLANNSIPBinding.add(self.nitro, b)
 
+        def disable_feature(self):
+                b = NSFeature()
+                b.set_feature(['CS', 'LB'])
+                NSFeature.disable(self.nitro, b)
+
+        def enable_feature(self):
+                b = NSFeature()
+                b.set_feature(['CS', 'LB'])
+                NSFeature.enable(self.nitro, b)
+
 
 def main():
-        a = test_nitro({'ip':'10.40.11.173','user':'nsroot','password':'nsroot'})
+        a = test_nitro({'ip':'10.40.11.163','user':'nsroot','password':'nsroot'})
 
 #    a.add_server()
 
@@ -331,11 +341,13 @@ def main():
         #a.bind_vlan_to_if()
         #a.add_ip()
         #a.bind_vlan_to_ip()
-        a.list_vlan_ip_bindings()
-        a.list_vlan_if_bindings()
-        a.delete_vifb()
-        a.delete_vipb()
-        a.delete_vlan()
+        #a.list_vlan_ip_bindings()
+        #a.list_vlan_if_bindings()
+        #a.delete_vifb()
+        #a.delete_vipb()
+        #a.delete_vlan()
+        a.enable_feature()
+        #a.disable_feature()
 #    a.list_vlans()
 #    a.delete_vlan()
 #    a.list_vlans()
