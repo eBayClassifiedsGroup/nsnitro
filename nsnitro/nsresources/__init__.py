@@ -23,6 +23,7 @@ from nsvlan import NSVLAN
 from nsvlaninterfacebinding import NSVLANInterfaceBinding
 from nsvlannsipbinding import NSVLANNSIPBinding
 from nsfeature import NSFeature
+from nsrewriteaction import NSRewriteAction
 
 __all__ = [ 'NSBaseResource',
     'NSConfig',
@@ -48,5 +49,6 @@ __all__ = [ 'NSBaseResource',
     'NSVLAN',
     'NSVLANInterfaceBinding',
     'NSVLANNSIPBinding',
-    'NSFeature'
+    'NSFeature',
+    'NSRewriteAction'
  ]

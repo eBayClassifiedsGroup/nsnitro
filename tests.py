@@ -316,9 +316,17 @@ class test_nitro:
                 asdf.set_policyname("foobar")
                 NSCSPolicy.add(self.nitro, asdf)
 
+        def add_rewriteaction(self):
+                asdf = NSRewriteAction()
+                asdf.set_name("insert-X-eBay-Client-IP")
+                asdf.set_type("insert_http_header")
+                asdf.set_target("X-eBay-Client-IP")
+                asdf.set_stringbuilderexpr("CLIENT.IP.SRC")
+                NSRewriteAction.add(self.nitro, asdf)
+
 
 def main():
-        a = test_nitro({'ip':'10.40.11.163','user':'nsroot','password':'nsroot'})
+        a = test_nitro({'ip':'10.40.11.162','user':'nsroot','password':'nsroot'})
 
 #    a.add_server()
 
@@ -353,7 +361,8 @@ def main():
         #a.delete_vipb()
         #a.delete_vlan()
         #a.enable_feature()
-        a.add_cspolicy()
+        #a.add_cspolicy()
+        a.add_rewriteaction()
         #a.disable_feature()
 #    a.list_vlans()
 #    a.delete_vlan()
