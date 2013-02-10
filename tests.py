@@ -324,6 +324,19 @@ class test_nitro:
                 asdf.set_stringbuilderexpr("CLIENT.IP.SRC")
                 NSRewriteAction.add(self.nitro, asdf)
 
+        def add_lbmonitor(self):
+                asdf = NSLBMonitorServiceBinding()
+                asdf.set_servicename("supermario_rbs-frontend_fe001")
+                asdf.set_monitorname("http-web1")
+                NSLBMonitorServiceBinding.add(self.nitro, asdf)
+
+        def delete_lbmonitor(self):
+                asdf = NSLBMonitorServiceBinding()
+                asdf.set_servicename("supermario_rbs-frontend_fe001")
+                asdf.set_monitorname("http-web1")
+                NSLBMonitorServiceBinding.delete(self.nitro, asdf)
+
+
 
 def main():
         a = test_nitro({'ip':'10.40.11.162','user':'nsroot','password':'nsroot'})
@@ -362,7 +375,9 @@ def main():
         #a.delete_vlan()
         #a.enable_feature()
         #a.add_cspolicy()
-        a.add_rewriteaction()
+        #a.add_rewriteaction()
+        #a.add_lbmonitor()
+        a.delete_lbmonitor()
         #a.disable_feature()
 #    a.list_vlans()
 #    a.delete_vlan()
