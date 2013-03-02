@@ -2,57 +2,56 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSIP(NSBaseResource):
 
         # General Netscaler configuration object
 
-        def __init__(self, json_data = None):
+        def __init__(self, json_data=None):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
 
                 super(NSIP, self).__init__()
 
-                self.options = {
-                        'ipaddress' : '',
-                        'netmask' : '',
-                        'type' : '',
-                        'arp' : '',
-                        'icmp' : '',
-                        'vserver' : '',
-                        'telnet' : '',
-                        'ftp' : '',
-                        'gui' : '',
-                        'ssh' : '',
-                        'snmp' : '',
-                        'mgmtaccess' : '',
-                        'restrictaccess' : '',
-                        'dynamicrouting' : '',
-                        'ospf' : '',
-                        'bgp' : '',
-                        'rip' : '',
-                        'hostroute' : '',
-                        'hostrtgw' : '',
-                        'metric' : '',
-                        'vserverrhilevel' : '',
-                        'ospflsatype' : '',
-                        'ospfarea' : '',
-                        'state' : '',
-                        'vrid' : '',
-                        'flags' : '',
-                        'ospfareaval' : '',
-                        'viprtadv2bsd' : '',
-                        'vipvsercount' : '',
-                        'vipvserdowncount' : '',
-                        'freeports' : '',
-                        'iptype' : '',
-                        'count' : '',
-                }
+                self.options = {'ipaddress': '',
+                                'netmask': '',
+                                'type': '',
+                                'arp': '',
+                                'icmp': '',
+                                'vserver': '',
+                                'telnet': '',
+                                'ftp': '',
+                                'gui': '',
+                                'ssh': '',
+                                'snmp': '',
+                                'mgmtaccess': '',
+                                'restrictaccess': '',
+                                'dynamicrouting': '',
+                                'ospf': '',
+                                'bgp': '',
+                                'rip': '',
+                                'hostroute': '',
+                                'hostrtgw': '',
+                                'metric': '',
+                                'vserverrhilevel': '',
+                                'ospflsatype': '',
+                                'ospfarea': '',
+                                'state': '',
+                                'vrid': '',
+                                'flags': '',
+                                'ospfareaval': '',
+                                'viprtadv2bsd': '',
+                                'vipvsercount': '',
+                                'vipvserdowncount': '',
+                                'freeports': '',
+                                'iptype': '',
+                                'count': ''}
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
-                                        self.options[key]=json_data[key]
+                                if key in self.options.keys():
+                                        self.options[key] = json_data[key]
 
                 self.resourcetype = NSIP.get_resourcetype()
 
@@ -72,8 +71,8 @@ class NSIP(NSBaseResource):
         def get_netmask(self):
                 return self.options['netmask']
 
-        def set_type(self, type):
-                self.options['type'] = type
+        def set_type(self, mytype):
+                self.options['type'] = mytype
 
         def get_type(self):
                 return self.options['type']

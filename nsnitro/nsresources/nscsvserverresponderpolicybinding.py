@@ -1,6 +1,7 @@
 from nsbaseresource import NSBaseResource
 __author__ = 'timl'
 
+
 class NSCSVServerResponderPolicyBinding(NSBaseResource):
 
         def __init__(self, json_data=None):
@@ -8,21 +9,19 @@ class NSCSVServerResponderPolicyBinding(NSBaseResource):
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSCSVServerResponderPolicyBinding, self).__init__()
-                self.options = {
-                        'policyname' : '',
-                        'priority' : '',
-                        'gotopriorityexpression' : '',
-                        'bindpoint' : '',
-                        'invoke' : '',
-                        'labeltype' : '',
-                        'labelname' : '',
-                        'name' : '',
-                }
+                self.options = {'policyname': '',
+                                'priority': '',
+                                'gotopriorityexpression': '',
+                                'bindpoint': '',
+                                'invoke': '',
+                                'labeltype': '',
+                                'labelname': '',
+                                'name': ''}
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
-                                        self.options[key]=json_data[key]
+                                if key in self.options.keys():
+                                        self.options[key] = json_data[key]
 
                 self.resourcetype = NSCSVServerResponderPolicyBinding.get_resourcetype()
 
@@ -64,7 +63,8 @@ class NSCSVServerResponderPolicyBinding(NSBaseResource):
 
         def set_gotopriorityexpression(self, gotopriorityexpression):
                 """
-                Expression specifying the priority of the next policy which will get evaluated if the current policy rule
+                Expression specifying the priority of the next policy
+                which will get evaluated if the current policy rule
                 evaluates to TRUE.
 
                 Default value: 0
@@ -73,7 +73,8 @@ class NSCSVServerResponderPolicyBinding(NSBaseResource):
 
         def get_gotopriorityexpression(self):
                 """
-                Expression specifying the priority of the next policy which will get evaluated if the current policy rule
+                Expression specifying the priority of the next policy
+                which will get evaluated if the current policy rule
                 evaluates to TRUE.
 
                 Default value: 0
@@ -146,8 +147,8 @@ class NSCSVServerResponderPolicyBinding(NSBaseResource):
 
         def set_name(self, name):
                 """
-                The virtual server name (created with the add cs vserver or add cr vserver command) for which the content
-                switching policy will be set.
+                The virtual server name (created with the add cs vserver or add cr vserver command)
+                for which the content switching policy will be set.
 
                 Default value: 0
                 Minimum length =  1.
@@ -156,8 +157,8 @@ class NSCSVServerResponderPolicyBinding(NSBaseResource):
 
         def get_name(self):
                 """
-                The virtual server name (created with the add cs vserver or add cr vserver command) for which the content
-                switching policy will be set.
+                The virtual server name (created with the add cs vserver or add cr vserver command)
+                for which the content switching policy will be set.
 
                 Default value: 0
                 Minimum length =  1.
@@ -170,13 +171,15 @@ class NSCSVServerResponderPolicyBinding(NSBaseResource):
                 """
                 Use this API to fetch all configured csvserver_responderpolicy_binding resources.
                 """
-                __url = nitro.get_url() + NSCSVServerResponderPolicyBinding.get_resourcetype() + "/" + csvserver_responderpolicy_binding.get_name()
+                __url = (nitro.get_url() +
+                         NSCSVServerResponderPolicyBinding.get_resourcetype() +
+                         "/" +
+                         csvserver_responderpolicy_binding.get_name())
                 __json_resources = nitro.get(__url).get_response_field(NSCSVServerResponderPolicyBinding.get_resourcetype())
                 __resources = []
                 for json_resource in __json_resources:
                         __resources.append(NSCSVServerResponderPolicyBinding(json_resource))
                 return __resources
-
 
         @staticmethod
         def add(nitro, csvserver_responderpolicy_binding):

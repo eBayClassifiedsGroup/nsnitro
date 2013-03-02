@@ -2,37 +2,35 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSCSPolicy(NSBaseResource):
 
         # Configuration for content-switching policy resource.
 
-        def __init__(self, json_data = None):
+        def __init__(self, json_data=None):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSCSPolicy, self).__init__()
-                self.options = {
-                        'policyname' : '',
-                        'url' : '',
-                        'rule' : '',
-                        'domain' : '',
-                        'vstype' : '',
-                        'hits' : '',
-                        'bindhits' : '',
-                        'labelname' : '',
-                        'labeltype' : '',
-                        'target' : '',
-                        'priority' : '',
-                        '__count' : '',
-                }
+                self.options = {'policyname': '',
+                                'url': '',
+                                'rule': '',
+                                'domain': '',
+                                'vstype': '',
+                                'hits': '',
+                                'bindhits': '',
+                                'labelname': '',
+                                'labeltype': '',
+                                'target': '',
+                                'priority': '',
+                                '__count': ''}
 
                 self.resourcetype = NSCSPolicy.get_resourcetype()
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
+                                if key in self.options.keys():
                                         self.options[key] = json_data[key]
-
 
         @staticmethod
         def get_resourcetype():

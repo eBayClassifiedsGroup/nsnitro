@@ -17,8 +17,7 @@ class NSLBMonitorServiceBinding(NSBaseResource):
                                 'dup_weight': '',
                                 'servicegroupname': '',
                                 'state': '',
-                                'weight': '',
-                                }
+                                'weight': ''}
 
                 self.resourcetype = NSLBMonitorServiceBinding.get_resourcetype()
 

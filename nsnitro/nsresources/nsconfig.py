@@ -2,56 +2,55 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSConfig(NSBaseResource):
 
         # General Netscaler configuration object
 
-        def __init__(self, json_data = None):
+        def __init__(self, json_data=None):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
 
                 super(NSConfig, self).__init__()
 
-                self.options = {
-                        'force' : '',
-                        'level' : '',
-                        'ipaddress' : '',
-                        'netmask' : '',
-                        'nsvlan' : '',
-                        'ifnum' : '',
-                        'httpport' : '',
-                        'maxconn' : '',
-                        'maxreq' : '',
-                        'cip' : '',
-                        'cipheader' : '',
-                        'cookieversion' : '',
-                        'securecookie' : '',
-                        'pmtumin' : '',
-                        'pmtutimeout' : '',
-                        'ftpportrange' : '',
-                        'timezone' : '',
-                        'grantquotamaxclient' : '',
-                        'exclusivequotamaxclient' : '',
-                        'grantquotaspillover' : '',
-                        'exclusivequotaspillover' : '',
-                        'config1' : '',
-                        'config2' : '',
-                        'outtype' : '',
-                        'template' : '',
-                        'message' : '',
-                        'range' : '',
-                        'failover' : '',
-                        'primaryip' : '',
-                        'flags' : '',
-                        'lastconfigchangedtime' : '',
-                        'systemtime' : '',
-                }
+                self.options = {'force': '',
+                                'level': '',
+                                'ipaddress': '',
+                                'netmask': '',
+                                'nsvlan': '',
+                                'ifnum': '',
+                                'httpport': '',
+                                'maxconn': '',
+                                'maxreq': '',
+                                'cip': '',
+                                'cipheader': '',
+                                'cookieversion': '',
+                                'securecookie': '',
+                                'pmtumin': '',
+                                'pmtutimeout': '',
+                                'ftpportrange': '',
+                                'timezone': '',
+                                'grantquotamaxclient': '',
+                                'exclusivequotamaxclient': '',
+                                'grantquotaspillover': '',
+                                'exclusivequotaspillover': '',
+                                'config1': '',
+                                'config2': '',
+                                'outtype': '',
+                                'template': '',
+                                'message': '',
+                                'range': '',
+                                'failover': '',
+                                'primaryip': '',
+                                'flags': '',
+                                'lastconfigchangedtime': '',
+                                'systemtime': ''}
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
-                                        self.options[key]=json_data[key]
+                                if key in self.options.keys():
+                                        self.options[key] = json_data[key]
 
                 self.resourcetype = NSConfig.get_resourcetype()
 

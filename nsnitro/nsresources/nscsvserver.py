@@ -2,98 +2,95 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSCSVServer(NSBaseResource):
 
 # Configuration for Content Switching Virtual Server resource.
 
-        def __init__(self, json_data = None):
+        def __init__(self, json_data=None):
 
                 """
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSCSVServer, self).__init__()
 
-                self.options = {
-                        'name' : '',
-                        'servicetype' : '',
-                        'ipv46' : '',
-                        'ippattern' : '',
-                        'ipmask' : '',
-                        'range' : '',
-                        'port' : '',
-                        'state' : '',
-                        'stateupdate' : '',
-                        'cacheable' : '',
-                        'redirecturl' : '',
-                        'clttimeout' : '',
-                        'precedence' : '',
-                        'casesensitive' : '',
-                        'somethod' : '',
-                        'sopersistence' : '',
-                        'sopersistencetimeout' : '',
-                        'sothreshold' : '',
-                        'redirectportrewrite' : '',
-                        'downstateflush' : '',
-                        'backupvserver' : '',
-                        'disableprimaryondown' : '',
-                        'insertvserveripport' : '',
-                        'vipheader' : '',
-                        'rtspnat' : '',
-                        'authenticationhost' : '',
-                        'authentication' : '',
-                        'listenpolicy' : '',
-                        'listenpriority' : '',
-                        'authn401' : '',
-                        'authnvsname' : '',
-                        'push' : '',
-                        'pushvserver' : '',
-                        'pushlabel' : '',
-                        'pushmulticlients' : '',
-                        'tcpprofilename' : '',
-                        'httpprofilename' : '',
-                        'comment' : '',
-                        'newname' : '',
+                self.options = {'name': '',
+                                'servicetype': '',
+                                'ipv46': '',
+                                'ippattern': '',
+                                'ipmask': '',
+                                'range': '',
+                                'port': '',
+                                'state': '',
+                                'stateupdate': '',
+                                'cacheable': '',
+                                'redirecturl': '',
+                                'clttimeout': '',
+                                'precedence': '',
+                                'casesensitive': '',
+                                'somethod': '',
+                                'sopersistence': '',
+                                'sopersistencetimeout': '',
+                                'sothreshold': '',
+                                'redirectportrewrite': '',
+                                'downstateflush': '',
+                                'backupvserver': '',
+                                'disableprimaryondown': '',
+                                'insertvserveripport': '',
+                                'vipheader': '',
+                                'rtspnat': '',
+                                'authenticationhost': '',
+                                'authentication': '',
+                                'listenpolicy': '',
+                                'listenpriority': '',
+                                'authn401': '',
+                                'authnvsname': '',
+                                'push': '',
+                                'pushvserver': '',
+                                'pushlabel': '',
+                                'pushmulticlients': '',
+                                'tcpprofilename': '',
+                                'httpprofilename': '',
+                                'comment': '',
+                                'newname': '',
 
-                # --- Read-only options ---
+                                # --- Read-only options ---
 
-                        'ip' : '',
-                        'value' : '',
-                        'type' : '',
-                        'curstate' : '',
-                        'status' : '',
-                        'cachetype' : '',
-                        'redirect' : '',
-                        'homepage' : '',
-                        'dnsvservername' : '',
-                        'domain' : '',
-                        'servicename' : '',
-                        'weight' : '',
-                        'cachevserver' : '',
-                        'targetvserver' : '',
-                        'url' : '',
-                        'gotopriorityexpression' : '',
-                        'bindpoint' : '',
-                        'invoke' : '',
-                        'labeltype' : '',
-                        'labelname' : '',
-                        'gt2gb' : '',
-                        'statechangetimesec' : '',
-                        'statechangetimemsec' : '',
-                        'tickssincelaststatechange' : ''
-                }
+                                'ip': '',
+                                'value': '',
+                                'type': '',
+                                'curstate': '',
+                                'status': '',
+                                'cachetype': '',
+                                'redirect': '',
+                                'homepage': '',
+                                'dnsvservername': '',
+                                'domain': '',
+                                'servicename': '',
+                                'weight': '',
+                                'cachevserver': '',
+                                'targetvserver': '',
+                                'url': '',
+                                'gotopriorityexpression': '',
+                                'bindpoint': '',
+                                'invoke': '',
+                                'labeltype': '',
+                                'labelname': '',
+                                'gt2gb': '',
+                                'statechangetimesec': '',
+                                'statechangetimemsec': '',
+                                'tickssincelaststatechange': ''}
 
                 self.resourcetype = NSCSVServer.get_resourcetype()
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
+                                if key in self.options.keys():
                                         self.options[key] = json_data[key]
-
 
         @staticmethod
         def get_resourcetype():
                 return "csvserver"
-
 
         def set_name(self, name):
                 """
@@ -167,13 +164,13 @@ class NSCSVServer(NSBaseResource):
                 """
                 return self.options['ipmask']
 
-        def set_range(self, range):
+        def set_range(self, myrange):
                 """
                 An IP address range.
                 Default value: 1
                 Minimum value =  1
                 """
-                self.options['range'] = range
+                self.options['range'] = myrange
 
         def get_range(self):
                 """
@@ -252,7 +249,7 @@ class NSCSVServer(NSBaseResource):
 
                 WARNING!
 
-                Make sure that the domain you specify in the URL does not match the domain specified in the -d domainName
+                Make sure that the domain you specify in URL does not match the domain specified in the -d domainName
                 argument of the add cs policy CLI command. If the same domain is specified in both arguments,
                 the request will be continuously redirected to the same unavailable virtual server in the system  -
                 then the user may not get the requested content.
@@ -269,7 +266,7 @@ class NSCSVServer(NSBaseResource):
 
                 WARNING!
 
-                Make sure that the domain you specify in the URL does not match the domain specified in the -d domainName
+                Make sure that the domain you specify in URL does not match the domain specified in the -d domainName
                 argument of the add cs policy CLI command. If the same domain is specified in both arguments,
                 the request will be continuously redirected to the same unavailable virtual server in the system  -
                 then the user may not get the requested content.
@@ -723,7 +720,8 @@ class NSCSVServer(NSBaseResource):
 
         def set_pushmulticlients(self, pushmulticlients):
                 """
-                Specify if multiple web 2.0 connections from the same client can connect to this vserver and expect updates.
+                Specify if multiple web 2.0 connections from the same client can connect
+                to this vserver and expect updates.
 
                 Default value: NO
                 """
@@ -731,7 +729,8 @@ class NSCSVServer(NSBaseResource):
 
         def get_pushmulticlients(self):
                 """
-                Specify if multiple web 2.0 connections from the same client can connect to this vserver and expect updates.
+                Specify if multiple web 2.0 connections from the same client can connect
+                to this vserver and expect updates.
 
                 Default value: NO
                 """
@@ -1152,5 +1151,3 @@ class NSCSVServer(NSBaseResource):
                 __csvserver.set_httpprofilename(csvserver.get_httpprofilename())
                 __csvserver.set_comment(csvserver.get_comment())
                 return __csvserver.update_resource(nitro)
-        
-

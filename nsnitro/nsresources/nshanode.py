@@ -1,53 +1,51 @@
 from nsbaseresource import NSBaseResource
 
+
 class NSHANode(NSBaseResource):
 
 # Configuration for HA node resource.
 
-        def __init__(self,json_data=None):
+        def __init__(self, json_data=None):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSHANode, self).__init__()
-                self.options = {
-                        'id' : '',
-                        'ipaddress' : '',
-                        'inc' : '',
-                        'hastatus' : '',
-                        'hasync' : '',
-                        'haprop' : '',
-                        'hellointerval' : '',
-                        'deadinterval' : '',
-                        'failsafe' : '',
-                        'name' : '',
-                        'flags' : '',
-                        'state' : '',
-                        'enaifaces' : '',
-                        'disifaces' : '',
-                        'hamonifaces' : '',
-                        'pfifaces' : '',
-                        'ifaces' : '',
-                        'network' : '',
-                        'netmask' : '',
-                        'ssl2' : '',
-                        'masterstatetime' : '',
-                        'routemonitor' : '',
-                        }
+                self.options = {'id': '',
+                                'ipaddress': '',
+                                'inc': '',
+                                'hastatus': '',
+                                'hasync': '',
+                                'haprop': '',
+                                'hellointerval': '',
+                                'deadinterval': '',
+                                'failsafe': '',
+                                'name': '',
+                                'flags': '',
+                                'state': '',
+                                'enaifaces': '',
+                                'disifaces': '',
+                                'hamonifaces': '',
+                                'pfifaces': '',
+                                'ifaces': '',
+                                'network': '',
+                                'netmask': '',
+                                'ssl2': '',
+                                'masterstatetime': '',
+                                'routemonitor': ''}
 
                 self.resourcetype = NSHANode.get_resourcetype()
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
-                                        self.options[key]=json_data[key]
+                                if key in self.options.keys():
+                                        self.options[key] = json_data[key]
 
         @staticmethod
         def get_resourcetype():
                 return "hanode"
 
-
-        def set_id(self, id):
-                self.options['id'] = id
+        def set_id(self, myid):
+                self.options['id'] = myid
 
         def get_id(self):
                 return self.options['id']
@@ -198,4 +196,3 @@ class NSHANode(NSBaseResource):
 
 
         # No unset functionality for now.
-

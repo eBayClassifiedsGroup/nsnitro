@@ -1,114 +1,113 @@
 from nsbaseresource import NSBaseResource
 
+
 class NSLBVServer(NSBaseResource):
 
 # Configuration for Load Balancing Virtual Server resource.
 
-        def __init__(self,json_data=None):
+        def __init__(self, json_data=None):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSLBVServer, self).__init__()
-                self.options={
-                        'name' : '',
-                        'servicetype' : '',
-                        'ipv46' : '',
-                        'ippattern' : '',
-                        'ipmask' : '',
-                        'port' : '',
-                        'range' : '',
-                        'persistencetype' : '',
-                        'timeout' : '',
-                        'persistencebackup' : '',
-                        'backuppersistencetimeout' : '',
-                        'lbmethod' : '',
-                        'hashlength' : '',
-                        'netmask' : '',
-                        'v6netmasklen' : '',
-                        'rule' : '',
-                        'listenpolicy' : '',
-                        'listenpriority' : '',
-                        'resrule' : '',
-                        'persistmask' : '',
-                        'v6persistmasklen' : '',
-                        'pq' : '',
-                        'sc' : '',
-                        'rtspnat' : '',
-                        'm' : '',
-                        'tosid' : '',
-                        'datalength' : '',
-                        'dataoffset' : '',
-                        'sessionless' : '',
-                        'state' : '',
-                        'connfailover' : '',
-                        'redirurl' : '',
-                        'cacheable' : '',
-                        'clttimeout' : '',
-                        'somethod' : '',
-                        'sopersistence' : '',
-                        'sopersistencetimeout' : '',
-                        'sothreshold' : '',
-                        'redirectportrewrite' : '',
-                        'downstateflush' : '',
-                        'backupvserver' : '',
-                        'disableprimaryondown' : '',
-                        'insertvserveripport' : '',
-                        'vipheader' : '',
-                        'authenticationhost' : '',
-                        'authentication' : '',
-                        'authn401' : '',
-                        'authnvsname' : '',
-                        'push' : '',
-                        'pushvserver' : '',
-                        'pushlabel' : '',
-                        'pushmulticlients' : '',
-                        'tcpprofilename' : '',
-                        'httpprofilename' : '',
-                        'comment' : '',
-                        'weight' : '',
-                        'servicename' : '',
-                        'redirurlflags' : '',
-                        'newname' : '',
-                        'value' : '',
-                        'ipmapping' : '',
-                        'type' : '',
-                        'curstate' : '',
-                        'effectivestate' : '',
-                        'status' : '',
-                        'lbrrreason' : '',
-                        'redirect' : '',
-                        'precedence' : '',
-                        'homepage' : '',
-                        'dnsvservername' : '',
-                        'domain' : '',
-                        'cachevserver' : '',
-                        'health' : '',
-                        'gotopriorityexpression' : '',
-                        'ruletype' : '',
-                        'groupname' : '',
-                        'cookiedomain' : '',
-                        'map' : '',
-                        'gt2gb' : '',
-                        'thresholdvalue' : '',
-                        'bindpoint' : '',
-                        'invoke' : '',
-                        'labeltype' : '',
-                        'labelname' : '',
-                        'version' : '',
-                        'totalservices' : '',
-                        'activeservices' : '',
-                        'statechangetimeseconds' : '',
-                        'statechangetimemsec' : '',
-                        'tickssincelaststatechange' : '',
-                        '__count' : ''
-                }
+                self.options = {'name': '',
+                                'servicetype': '',
+                                'ipv46': '',
+                                'ippattern': '',
+                                'ipmask': '',
+                                'port': '',
+                                'range': '',
+                                'persistencetype': '',
+                                'timeout': '',
+                                'persistencebackup': '',
+                                'backuppersistencetimeout': '',
+                                'lbmethod': '',
+                                'hashlength': '',
+                                'netmask': '',
+                                'v6netmasklen': '',
+                                'rule': '',
+                                'listenpolicy': '',
+                                'listenpriority': '',
+                                'resrule': '',
+                                'persistmask': '',
+                                'v6persistmasklen': '',
+                                'pq': '',
+                                'sc': '',
+                                'rtspnat': '',
+                                'm': '',
+                                'tosid': '',
+                                'datalength': '',
+                                'dataoffset': '',
+                                'sessionless': '',
+                                'state': '',
+                                'connfailover': '',
+                                'redirurl': '',
+                                'cacheable': '',
+                                'clttimeout': '',
+                                'somethod': '',
+                                'sopersistence': '',
+                                'sopersistencetimeout': '',
+                                'sothreshold': '',
+                                'redirectportrewrite': '',
+                                'downstateflush': '',
+                                'backupvserver': '',
+                                'disableprimaryondown': '',
+                                'insertvserveripport': '',
+                                'vipheader': '',
+                                'authenticationhost': '',
+                                'authentication': '',
+                                'authn401': '',
+                                'authnvsname': '',
+                                'push': '',
+                                'pushvserver': '',
+                                'pushlabel': '',
+                                'pushmulticlients': '',
+                                'tcpprofilename': '',
+                                'httpprofilename': '',
+                                'comment': '',
+                                'weight': '',
+                                'servicename': '',
+                                'redirurlflags': '',
+                                'newname': '',
+                                'value': '',
+                                'ipmapping': '',
+                                'type': '',
+                                'curstate': '',
+                                'effectivestate': '',
+                                'status': '',
+                                'lbrrreason': '',
+                                'redirect': '',
+                                'precedence': '',
+                                'homepage': '',
+                                'dnsvservername': '',
+                                'domain': '',
+                                'cachevserver': '',
+                                'health': '',
+                                'gotopriorityexpression': '',
+                                'ruletype': '',
+                                'groupname': '',
+                                'cookiedomain': '',
+                                'map': '',
+                                'gt2gb': '',
+                                'thresholdvalue': '',
+                                'bindpoint': '',
+                                'invoke': '',
+                                'labeltype': '',
+                                'labelname': '',
+                                'version': '',
+                                'totalservices': '',
+                                'activeservices': '',
+                                'statechangetimeseconds': '',
+                                'statechangetimemsec': '',
+                                'tickssincelaststatechange': '',
+                                '__count': ''}
 
                 self.resourcetype = NSLBVServer.get_resourcetype()
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
-                                        self.options[key]=json_data[key]
+                                if key in self.options.keys():
+                                        self.options[key] = json_data[key]
 
         @staticmethod
         def get_resourcetype():
@@ -178,13 +177,11 @@ class NSLBVServer(NSBaseResource):
                 """
                 self.options['ipmask'] = ipmask
 
-
         def get_ipmask(self):
                 """
                 The IP Mask of the virtual server IP Pattern.
                 """
                 return self.options['ipmask']
-
 
         def set_port(self, port):
                 """
@@ -194,7 +191,6 @@ class NSLBVServer(NSBaseResource):
                 """
                 self.options['port'] = port
 
-
         def get_port(self):
                 """
                 A port number for the virtual server.
@@ -203,16 +199,14 @@ class NSLBVServer(NSBaseResource):
                 """
                 return self.options['port']
 
-
-
-        def set_range(self, range):
+        def set_range(self, myrange):
                 """
                 The IP range for the network vserver.
                 Default value: 1
                 Minimum value =  1
                 Maximum value =  254
                 """
-                self.options['range'] = range
+                self.options['range'] = myrange
 
         def get_range(self):
                 """
@@ -224,105 +218,25 @@ class NSLBVServer(NSBaseResource):
                 return self.options['range']
 
         def set_persistencetype(self, persistencetype):
-                """
-                Persistence type for the virtual server.
-                Note:
-                The <persistenceType> parameter can take one of the following options:
-                       SOURCEIP - When configured, the system selects a physical service based on the Load Balancing method,
-                and then directs all the subsequent requests arriving from the same IP as the first request to the same
-                physical service.
-                       COOKIEINSERT - When configured, the system inserts an HTTP cookie into the client responses. The cookie
-                is inserted into the "Cookie" header field of the HTTP response. The client stores the cookie (if enabled) and
-                includes it in all the subsequent requests, which then match the cookie criteria. The cookie contains
-                information about the service where the requests have to be sent.
-                       SSLSESSION ID - When configured, the system creates a persistence that is session based on the arriving
-                SSL Session ID, which is part of the SSL handshake process. All requests with the same SSL session ID are
-                directed to the initially selected physical service.
-                       CUSTOM SERVER ID -This mode of Persistence requires the server to provide its Server-ID in such a way
-                that it can be extracted from subsequent requests. The system extracts the Server-ID from subsequent client
-                requests and uses it to select a server. The server embeds the Server-ID into the URL query of the HTML links,
-                accessible from the initial page that has to generate persistent HTTP requests.
-                       RULE - When configured, the system maintains persistence based on the contents of the matched rule. This
-                persistence requires an expression to be configured. The expression is created using the add expression CLI
-                command and is configured on a virtual server, using the -rule option of the add lb vserver or set lb vserver CLI
-                command.After successful evaluation of the expression, a persistence session is created and all subsequent
-                matching client requests are directed to the previously selected server.
-                       URLPASSIVE - This mode of Persistence requires the server to provide its Server-ID in such a way that it
-                can be extracted from subsequent requests.The system extracts the Server-ID from subsequent client requests and uses
-                it to select a server. The servers which require persistence, embed the Server-ID into the URL query of the HTML
-                links, accessible from the initial page. The Server-ID is its IP address and port specified as a hexadecimal number.
-                URL Passive persistence type requires an expression to be configured that specifies the location of the Server-ID
-                in the client's requests. The expression is created using the CLI command add expression. This expression is
-                configured on a virtual server, using option -rule of the add lb vserver or set lb vserver CLI command.
-                       DESTIP -When configured, the system selects a physical service based on the Load Balancing method, and then
-                directs all the subsequent requests with the same destination as the first packet to the same physical service. This
-                will be used in LLB deployment scenarios.
-                       SRCIPDESTIP - When configured, the system selects a physical service based on the Load Balancing method, and
-                then directs all the subsequent requests with the same Source IP and Destination IP as the first packet to the same
-                physical service. This will be used in IDS LB depolyments.
-                       CALLID - When configured, the system maintains persistence based on CALLID used in the SIP transactions. All
-                the SIP transactions with same CALLID are directed to the same server.
-                       RTSPSID - When configured, the system maintains persistence based on RTSP sessionID provided by the server.
-                The client also sends the same RTSP sessionID in the subsequent requests which are then directed to the same server.
-                """
                 self.options['persistencetype'] = persistencetype
 
         def get_persistencetype(self):
-                """
-                Persistence type for the virtual server.
-                Note:
-                The <persistenceType> parameter can take one of the following options:
-                       SOURCEIP - When configured, the system selects a physical service based on the Load Balancing method, and then
-                directs all the subsequent requests arriving from the same IP as the first request to the same physical service.
-                       COOKIEINSERT - When configured, the system inserts an HTTP cookie into the client responses. The cookie is
-                inserted into the "Cookie" header field of the HTTP response. The client stores the cookie (if enabled) and includes
-                it in all the subsequent requests, which then match the cookie criteria. The cookie contains information about the
-                service where the requests have to be sent.
-                       SSLSESSION ID - When configured, the system creates a persistence that is session based on the arriving SSL
-                Session ID, which is part of the SSL handshake process. All requests with the same SSL session ID are directed to the
-                initially selected physical service.
-                       CUSTOM SERVER ID -This mode of Persistence requires the server to provide its Server-ID in such a way that it
-                can be extracted from subsequent requests. The system extracts the Server-ID from subsequent client requests and uses
-                it to select a server. The server embeds the Server-ID into the URL query of the HTML links, accessible from the initial
-                page that has to generate persistent HTTP requests.
-                       RULE - When configured, the system maintains persistence based on the contents of the matched rule. This
-                persistence requires an expression to be configured. The expression is created using the add expression CLI command and
-                is configured on a virtual server, using the -rule option of the add lb vserver or set lb vserver CLI command. After
-                successful evaluation of the expression, a persistence session is created and all subsequent matching client requests
-                are directed to the previously selected server.
-                       URLPASSIVE - This mode of Persistence requires the server to provide its Server-ID in such a way that it can be
-                extracted from subsequent requests.The system extracts the Server-ID from subsequent client requests and uses it to
-                select a server. The servers which require persistence, embed the Server-ID into the URL query of the HTML links,
-                accessible from the initial page. The Server-ID is its IP address and port specified as a hexadecimal number.URL Passive
-                persistence type requires an expression to be configured that specifies the location of the Server-ID in the client's
-                requests. The expression is created using the CLI command add expression. This expression is configured on a virtual
-                server, using option -rule of the add lb vserver or set lb vserver CLI command.
-                       DESTIP -When configured, the system selects a physical service based on the Load Balancing method, and then
-                directs all the subsequent requests with the same destination as the first packet to the same physical service. This
-                will be used in LLB deployment scenarios.
-                       SRCIPDESTIP - When configured, the system selects a physical service based on the Load Balancing method, and
-                then directs all the subsequent requests with the same Source IP and Destination IP as the first packet to the same
-                physical service. This will be used in IDS LB depolyments.
-                       CALLID - When configured, the system maintains persistence based on CALLID used in the SIP transactions. All
-                the SIP transactions with same CALLID are directed to the same server.
-                       RTSPSID - When configured, the system maintains persistence based on RTSP sessionID provided by the server.
-                The client also sends the same RTSP sessionID in the subsequent requests which are then directed to the same server.
-                """
                 return self.options['persistencetype']
 
         def set_timeout(self, timeout):
                 """
-                The time period for which the persistence is in effect for a specific client. The value ranges from 2 to 1440 minutes.
+                The time period for which the persistence is in effect for a specific client.
+                The value ranges from 2 to 1440 minutes.
                 Default value: 2
                 Minimum value =  0
                 Maximum value =  1440
                 """
                 self.options['timeout'] = timeout
 
-
         def get_timeout(self):
                 """
-                The time period for which the persistence is in effect for a specific client. The value ranges from 2 to 1440 minutes.
+                The time period for which the persistence is in effect for a specific client.
+                The value ranges from 2 to 1440 minutes.
                 Default value: 2
                 Minimum value =  0
                 Maximum value =  1440
@@ -332,7 +246,8 @@ class NSLBVServer(NSBaseResource):
         def set_persistencebackup(self, persistencebackup):
                 """
                 Use this parameter to specify a backup persistence type for the virtual server.
-                The Backup persistence option is used when the primary configured persistence mechanism on virtual server fails.
+                The Backup persistence option is used when the primary configured persistence
+                mechanism on virtual server fails.
                 The <persistenceBacup> parameter can take one of the following options:
                    SOURCEIP
                    NONE.
@@ -343,7 +258,8 @@ class NSLBVServer(NSBaseResource):
         def get_persistencebackup(self):
                 """
                 Use this parameter to specify a backup persistence type for the virtual server.
-                The Backup persistence option is used when the primary configured persistence mechanism on virtual server fails.
+                The Backup persistence option is used when the primary configured persistence
+                mechanism on virtual server fails.
                 The <persistenceBacup> parameter can take one of the following options:
                    SOURCEIP
                    NONE.
@@ -360,7 +276,6 @@ class NSLBVServer(NSBaseResource):
                 """
                 self.options['backuppersistencetimeout'] = backuppersistencetimeout
 
-
         def get_backuppersistencetimeout(self):
                 """
                 The maximum time backup persistence is in effect for a specific client.
@@ -374,47 +289,66 @@ class NSLBVServer(NSBaseResource):
                 """
                 The load balancing method for the virtual server. The valid options for this parameter are:
                 ROUNDROBIN, LEASTCONNECTION, LEASTRESPONSETIME, URLHASH, DOMAINHASH, DESTINATIONIPHASH, SOURCEIPHASH,
-                SRCIPDESTIPHASH,LEASTBANDWIDTH, LEASTPACKETS, TOKEN, SRCIPDESTIPHASH, CUSTOMLOAD, SRCIPSRCPORTHASH, LRTM, CALLIDHASSH.
+                SRCIPDESTIPHASH,LEASTBANDWIDTH, LEASTPACKETS, TOKEN, SRCIPDESTIPHASH, CUSTOMLOAD, SRCIPSRCPORTHASH,
+                LRTM, CALLIDHASSH.
                 When the load balancing policy is configured as:
-                       ROUNDROBIN - When configured, the system distributes incoming requests to each server in rotation,
+                     ROUNDROBIN - When configured, the system distributes incoming requests to each server in rotation,
                        regardless of the load. When different weights are assigned to services then weighted round robin
                        occurs and requests go to services according to how much weighting has been set.
 
-                       LEASTCONNECTION (default value)- When configured, the system selects the service that has the least
-                       number of connections. For TCP, HTTP, HTTPS and SSL_TCP services the least number of connections includes:
-                       Established, active connections to a service. Connection reuse applies to HTTP and HTTPS. Hence the count
-                       includes only those connections which have outstanding HTTP or HTTPS requests, and does not include inactive,
-                       reusable connections.
-                       Connections to a service waiting in the Surge Queue, which exists only if the Surge Protection feature is enabled.
+                     LEASTCONNECTION (default value)- When configured, the system selects the service that has the least
+                       number of connections. For TCP, HTTP, HTTPS and SSL_TCP services the least number of connections
+                        includes:
+                       Established, active connections to a service. Connection reuse applies to HTTP and HTTPS.
+                       Hence the count
+                       includes only those connections which have outstanding HTTP or HTTPS requests, and does
+                       not include inactive, reusable connections.
+                       Connections to a service waiting in the Surge Queue, which exists only if the Surge Protection
+                        feature is enabled.
                 For UDP services the least number of connections includes:
                        The number of sessions between client and a physical service. These sessions are the logical,
                        time-based entities, created on first arriving UDP packet. If configured, weights are taken into
                        account when server selection is performed.
 
-                       LEASTRESPONSETIME - When configured, the system selects the service with the minimum average
-                       response time. The response time is the time interval taken when a request is sent to a service and
+                     LEASTRESPONSETIME - When configured, the system selects the service with the minimum average
+                       response time. The response time is the time interval taken when a request is sent to a service
+                        and
                        first response packet comes back from the service, that is Time to First Byte (TTFB).
-                       URLHASH - The system selects the service based on the hashed value of the incoming URL.
-                       To specify the number of bytes of the URL that is used to calculate the hash value use the optional
-                       argument [-hashLength <positive_integer>] in either the add lb vserver or set lb vserver CLI command.
+                     URLHASH - The system selects the service based on the hashed value of the incoming URL.
+                       To specify the number of bytes of the URL that is used to calculate the hash value use the
+                        optional
+                       argument [-hashLength <positive_integer>] in either the add lb vserver or set lb vserver CLI
+                        command.
                        The default value is 80.
 
-                       DOMAINHASH - When configured with this load balancing method, the system selects the service based on
+                     DOMAINHASH - When configured with this load balancing method, the system selects the service
+                        based on
                        the hashed value of the domain name in the HTTP request. The domain name is taken either from
                        the incoming URL or from the Host header of the HTTP request.
                 Note:   The system defaults to LEASTCONNECTION if the request does not contain a domain name.
-                If the domain name appears in both the URL and the host header, the system gives preference to the URL domain.
+                If the domain name appears in both the URL and the host header, the system gives preference to
+                 the URL domain.
                 #
-                       DESTINATIONIPHASH - The system selects the service based on the hashed value of the destination IP address in the TCP IP header.
-                       SOURCEIPHASH - The system selects the service based on the hashed value of the client's IP address in the IP header.
-                       LEASTBANDWIDTH - The system selects the service that is currently serving the least traffic, measured in megabits per second.
-                       LEASTPACKETS - The system selects the service that is currently serving the lowest number of packets per second.
-                       Token -The system selects the service based on the value, calculated from a token, extracted from the client's request
-                       (location and size of the token is configurable). For subsequent requests with the same token, the systems will select the same physical server.
-                       SRCIPDESTIPHASH - The system selects the service based on the hashed value of the client's SOURCE IP and DESTINATION IP address in the TCP IP header.
-                       CUSTOMLOAD - The system selects the service based on the it load which was determined by the LOAD monitors bound to the service.
-                       SRCIPSRCPORTHASH - The system selects the service based on the hashed value of the client's SOURCE IP and SOURCE PORT in the TCP/UDP+IP header.
-                       LRTM - When configured, the system selects the service with least response time learned through probing(number of active
+                       DESTINATIONIPHASH - The system selects the service based on the hashed value of the destination
+                        IP address in the TCP IP header.
+                       SOURCEIPHASH - The system selects the service based on the hashed value of the client's
+                        IP address in the IP header.
+                       LEASTBANDWIDTH - The system selects the service that is currently serving the least traffic,
+                        measured in megabits per second.
+                       LEASTPACKETS - The system selects the service that is currently serving the lowest
+                        number of packets per second.
+                       Token -The system selects the service based on the value, calculated from a token, extracted
+                        from the client's request
+                       (location and size of the token is configurable). For subsequent requests with the same token,
+                        the systems will select the same physical server.
+                       SRCIPDESTIPHASH - The system selects the service based on the hashed value of the client's
+                        SOURCE IP and DESTINATION IP address in the TCP IP header.
+                       CUSTOMLOAD - The system selects the service based on the it load which was determined by the
+                        LOAD monitors bound to the service.
+                       SRCIPSRCPORTHASH - The system selects the service based on the hashed value of the client's
+                       SOURCE IP and SOURCE PORT in the TCP/UDP+IP header.
+                       LRTM - When configured, the system selects the service with least response time learned through
+                        probing(number of active
                        connections taken into account in addition to the response time).
                        CALLIDHASSH - The system selects the service based on the hashed value of SIP callid.
                 Default value: LEASTCONNECTION
@@ -424,29 +358,59 @@ class NSLBVServer(NSBaseResource):
         def get_lbmethod(self):
                 """
                 The load balancing method for the virtual server. The valid options for this parameter are:
-                ROUNDROBIN, LEASTCONNECTION, LEASTRESPONSETIME, URLHASH, DOMAINHASH, DESTINATIONIPHASH, SOURCEIPHASH, SRCIPDESTIPHASH,LEASTBANDWIDTH, LEASTPACKETS, TOKEN, SRCIPDESTIPHASH, CUSTOMLOAD, SRCIPSRCPORTHASH, LRTM, CALLIDHASSH.
+                ROUNDROBIN, LEASTCONNECTION, LEASTRESPONSETIME, URLHASH, DOMAINHASH, DESTINATIONIPHASH, SOURCEIPHASH,
+                SRCIPDESTIPHASH,LEASTBANDWIDTH, LEASTPACKETS, TOKEN, SRCIPDESTIPHASH, CUSTOMLOAD, SRCIPSRCPORTHASH,
+                LRTM, CALLIDHASSH.
                 When the load balancing policy is configured as:
-                       ROUNDROBIN - When configured, the system distributes incoming requests to each server in rotation, regardless of the load. When different weights are assigned to services then weighted round robin occurs and requests go to services according to how much weighting has been set.
-                       LEASTCONNECTION (default value)- When configured, the system selects the service that has the least number of connections. For TCP, HTTP, HTTPS and SSL_TCP services the least number of connections includes:
-                       Established, active connections to a service. Connection reuse applies to HTTP and HTTPS. Hence the count includes only those connections which have outstanding HTTP or HTTPS requests, and does not include inactive, reusable connections.
-                       Connections to a service waiting in the Surge Queue, which exists only if the Surge Protection feature is enabled.
+                       ROUNDROBIN - When configured, the system distributes incoming requests to each server
+                       in rotation, regardless of the load. When different weights are assigned to services then
+                       weighted round robin occurs and requests go to services according to how much
+                       weighting has been set.
+                       LEASTCONNECTION (default value)- When configured, the system selects the service that has the
+                       least number of connections. For TCP, HTTP, HTTPS and SSL_TCP services the least number of
+                       connections includes:
+                       Established, active connections to a service. Connection reuse applies to HTTP and HTTPS. Hence
+                       the count includes only those connections which have outstanding HTTP or HTTPS requests,
+                       and does not include inactive, reusable connections.
+                       Connections to a service waiting in the Surge Queue, which exists only if the Surge Protection
+                        feature is enabled.
                 For UDP services the least number of connections includes:
-                       The number of sessions between client and a physical service. These sessions are the logical, time-based entities, created on first arriving UDP packet. If configured, weights are taken into account when server selection is performed.
-                       LEASTRESPONSETIME - When configured, the system selects the service with the minimum average response time. The response time is the time interval taken when a request is sent to a service and first response packet comes back from the service, that is Time to First Byte (TTFB).
-                       URLHASH - The system selects the service based on the hashed value of the incoming URL.To specify the number of bytes of the URL that is used to calculate the hash value use the optional argument [-hashLength <positive_integer>] in either the add lb vserver or set lb vserver CLI command. The default value is 80.
-                       DOMAINHASH - When configured with this load balancing method, the system selects the service based on the hashed value of the domain name in the HTTP request. The domain name is taken either from the incoming URL or from the Host header of the HTTP request.
+                       The number of sessions between client and a physical service. These sessions are the logical,
+                        time-based entities, created on first arriving UDP packet. If configured, weights are taken
+                         into account when server selection is performed.
+                       LEASTRESPONSETIME - When configured, the system selects the service with the minimum average
+                        response time. The response time is the time interval taken when a request is sent to a service
+                         and first response packet comes back from the service, that is Time to First Byte (TTFB).
+                       URLHASH - The system selects the service based on the hashed value of the incoming URL.To specify
+                        the number of bytes of the URL that is used to calculate the hash value use the optional
+                        argument [-hashLength <positive_integer>] in either the add lb vserver or set lb vserver
+                        CLI command. The default value is 80.
+                       DOMAINHASH - When configured with this load balancing method, the system selects the service
+                       based on the hashed value of the domain name in the HTTP request. The domain name is taken
+                       either from the incoming URL or from the Host header of the HTTP request.
                 Note:   The system defaults to LEASTCONNECTION if the request does not contain a domain name.
-                If the domain name appears in both the URL and the host header, the system gives preference to the URL domain.
+                If the domain name appears in both the URL and the host header, the system gives preference to
+                the URL domain.
                 #
-                       DESTINATIONIPHASH - The system selects the service based on the hashed value of the destination IP address in the TCP IP header.
-                       SOURCEIPHASH - The system selects the service based on the hashed value of the client's IP address in the IP header.
-                       LEASTBANDWIDTH - The system selects the service that is currently serving the least traffic, measured in megabits per second.
-                       LEASTPACKETS - The system selects the service that is currently serving the lowest number of packets per second.
-                       Token -The system selects the service based on the value, calculated from a token, extracted from the client's request (location and size of the token is configurable). For subsequent requests with the same token, the systems will select the same physical server.
-                       SRCIPDESTIPHASH - The system selects the service based on the hashed value of the client's SOURCE IP and DESTINATION IP address in the TCP IP header.
-                       CUSTOMLOAD - The system selects the service based on the it load which was determined by the LOAD monitors bound to the service.
-                       SRCIPSRCPORTHASH - The system selects the service based on the hashed value of the client's SOURCE IP and SOURCE PORT in the TCP/UDP+IP header.
-                       LRTM - When configured, the system selects the service with least response time learned through probing(number of active connections taken into account in addition to the response time).
+                       DESTINATIONIPHASH - The system selects the service based on the hashed value of the destination
+                        IP address in the TCP IP header.
+                       SOURCEIPHASH - The system selects the service based on the hashed value of the client's IP
+                       address in the IP header.
+                       LEASTBANDWIDTH - The system selects the service that is currently serving the least traffic,
+                       measured in megabits per second.
+                       LEASTPACKETS - The system selects the service that is currently serving the lowest number of
+                       packets per second.
+                       Token -The system selects the service based on the value, calculated from a token, extracted
+                       from the client's request (location and size of the token is configurable). For subsequent
+                       requests with the same token, the systems will select the same physical server.
+                       SRCIPDESTIPHASH - The system selects the service based on the hashed value of the client's
+                       SOURCE IP and DESTINATION IP address in the TCP IP header.
+                       CUSTOMLOAD - The system selects the service based on the it load which was determined by
+                       the LOAD monitors bound to the service.
+                       SRCIPSRCPORTHASH - The system selects the service based on the hashed value of
+                       the client's SOURCE IP and SOURCE PORT in the TCP/UDP+IP header.
+                       LRTM - When configured, the system selects the service with least response time learned through
+                       probing(number of active connections taken into account in addition to the response time).
                        CALLIDHASSH - The system selects the service based on the hashed value of SIP callid.
                 Default value: LEASTCONNECTION
                 """
@@ -454,7 +418,8 @@ class NSLBVServer(NSBaseResource):
 
         def set_hashlength(self, hashlength):
                 """
-                This parameter is used when the URLHASH or DOMAINHASH policy is set. Enter the number of bytes that will be hashed in the URL or DOMAIN name. Valid values are from 1 to 4096 bytes.
+                This parameter is used when the URLHASH or DOMAINHASH policy is set. Enter the number of bytes
+                that will be hashed in the URL or DOMAIN name. Valid values are from 1 to 4096 bytes.
                 Default value: 80
                 Minimum value =  1
                 Maximum value =  4096
@@ -463,7 +428,8 @@ class NSLBVServer(NSBaseResource):
 
         def get_hashlength(self):
                 """
-                This parameter is used when the URLHASH or DOMAINHASH policy is set. Enter the number of bytes that will be hashed in the URL or DOMAIN name. Valid values are from 1 to 4096 bytes.
+                This parameter is used when the URLHASH or DOMAINHASH policy is set. Enter the number of bytes
+                that will be hashed in the URL or DOMAIN name. Valid values are from 1 to 4096 bytes.
                 Default value: 80
                 Minimum value =  1
                 Maximum value =  4096
@@ -488,7 +454,8 @@ class NSLBVServer(NSBaseResource):
 
         def set_v6netmasklen(self, v6netmasklen):
                 """
-                The Network mask. Use this parameter if you are setting the DESTINATIONIPHASH or SOURCEIPHASH policy. Enter the netmask to be used in modifying the destination or source IP address or network.
+                The Network mask. Use this parameter if you are setting the DESTINATIONIPHASH or SOURCEIPHASH policy.
+                Enter the netmask to be used in modifying the destination or source IP address or network.
                 Default value: 128
                 Minimum value =  1
                 Maximum value =  128
@@ -497,7 +464,8 @@ class NSLBVServer(NSBaseResource):
 
         def get_v6netmasklen(self):
                 """
-                The Network mask. Use this parameter if you are setting the DESTINATIONIPHASH or SOURCEIPHASH policy. Enter the netmask to be used in modifying the destination or source IP address or network.
+                The Network mask. Use this parameter if you are setting the DESTINATIONIPHASH or SOURCEIPHASH policy.
+                Enter the netmask to be used in modifying the destination or source IP address or network.
                 Default value: 128
                 Minimum value =  1
                 Maximum value =  128
@@ -507,7 +475,8 @@ class NSLBVServer(NSBaseResource):
         def set_rule(self, rule):
                 """
                 Use this parameter to specify the string value used to set the RULE persistence type.
-                The string can be either an existing rule name (configured using add rule command) or else it can be an in-line expression with a maximum of 256 characters.
+                The string can be either an existing rule name (configured using add rule command) or else it can be
+                an in-line expression with a maximum of 256 characters.
                 Default value: "none"
                 """
                 self.options['rule'] = rule
@@ -515,7 +484,8 @@ class NSLBVServer(NSBaseResource):
         def get_rule(self):
                 """
                 Use this parameter to specify the string value used to set the RULE persistence type.
-                The string can be either an existing rule name (configured using add rule command) or else it can be an in-line expression with a maximum of 256 characters.
+                The string can be either an existing rule name (configured using add rule command) or else it can be
+                an in-line expression with a maximum of 256 characters.
                 Default value: "none"
                 """
                 return self.options['rule']
@@ -523,7 +493,8 @@ class NSLBVServer(NSBaseResource):
         def set_listenpolicy(self, listenpolicy):
                 """
                 Use this parameter to specify the listen policy for LB Vserver.
-                The string can be either an existing expression name (configured using add policy expression command) or else it can be an in-line expression with a maximum of 1500 characters.
+                The string can be either an existing expression name (configured using add policy expression command)
+                or else it can be an in-line expression with a maximum of 1500 characters.
                 Default value: "none"
                 """
                 self.options['listenpolicy'] = listenpolicy
@@ -531,7 +502,8 @@ class NSLBVServer(NSBaseResource):
         def get_listenpolicy(self):
                 """
                 Use this parameter to specify the listen policy for LB Vserver.
-                The string can be either an existing expression name (configured using add policy expression command) or else it can be an in-line expression with a maximum of 1500 characters.
+                The string can be either an existing expression name (configured using add policy expression command)
+                or else it can be an in-line expression with a maximum of 1500 characters.
                 Default value: "none"
                 """
                 return self.options['listenpolicy']
@@ -646,14 +618,22 @@ class NSLBVServer(NSBaseResource):
 
         def set_m(self, m):
                 """
-                Use this parameter to specify the LB mode. If the value is specified as IP then the traffic is sent to the physical servers by changing the destination IP address to that of the physical server. If the value is MAC then the traffic is sent to the physical servers , by changing the destination MAC address to that of one of the physical servers, the destination IP is not changed. MAC mode is used mostly in Firewall Load Balancing scenario.
+                Use this parameter to specify the LB mode. If the value is specified as IP then the traffic
+                is sent to the physical servers by changing the destination IP address to that of the physical server.
+                If the value is MAC then the traffic is sent to the physical servers , by changing
+                the destination MAC address to that of one of the physical servers, the destination IP is not changed.
+                MAC mode is used mostly in Firewall Load Balancing scenario.
                 Default value: IP
                 """
                 self.options['m'] = m
 
         def get_m(self):
                 """
-                Use this parameter to specify the LB mode. If the value is specified as IP then the traffic is sent to the physical servers by changing the destination IP address to that of the physical server. If the value is MAC then the traffic is sent to the physical servers , by changing the destination MAC address to that of one of the physical servers, the destination IP is not changed. MAC mode is used mostly in Firewall Load Balancing scenario.
+                Use this parameter to specify the LB mode. If the value is specified as IP then the traffic
+                is sent to the physical servers by changing the destination IP address to that of the physical server.
+                If the value is MAC then the traffic is sent to the physical servers , by changing
+                the destination MAC address to that of one of the physical servers, the destination IP is not changed.
+                MAC mode is used mostly in Firewall Load Balancing scenario.
                 Default value: IP
                 """
                 return self.options['m']
@@ -678,7 +658,9 @@ class NSLBVServer(NSBaseResource):
 
         def set_datalength(self, datalength):
                 """
-                Use this parameter to specify the length of the token in bytes. Applicable to TCP virtual servers, when Token Load Balancing method is selected. The datalength should not be more than 24k.
+                Use this parameter to specify the length of the token in bytes. Applicable to
+                TCP virtual servers, when Token Load Balancing method is selected.
+                The datalength should not be more than 24k.
                 Default value: 0
                 Minimum value =  0
                 Maximum value =  100
@@ -687,7 +669,9 @@ class NSLBVServer(NSBaseResource):
 
         def get_datalength(self):
                 """
-                Use this parameter to specify the length of the token in bytes. Applicable to TCP virtual servers, when Token Load Balancing method is selected. The datalength should not be more than 24k.
+                Use this parameter to specify the length of the token in bytes. Applicable to
+                TCP virtual servers, when Token Load Balancing method is selected.
+                The datalength should not be more than 24k.
                 Default value: 0
                 Minimum value =  0
                 Maximum value =  100
@@ -696,7 +680,9 @@ class NSLBVServer(NSBaseResource):
 
         def set_dataoffset(self, dataoffset):
                 """
-                Use this parameter to specifies offset of the data to be taken as token. Applicable to the TCP type virtual servers, when Token load balancing method is used.  Must be within the first 24k of the client TCP data.
+                Use this parameter to specifies offset of the data to be taken as token. Applicable to
+                the TCP type virtual servers, when Token load balancing method is used.
+                Must be within the first 24k of the client TCP data.
                 Default value: 0
                 Minimum value =  0
                 Maximum value =  25400
@@ -705,7 +691,9 @@ class NSLBVServer(NSBaseResource):
 
         def get_dataoffset(self):
                 """
-                Use this parameter to specifies offset of the data to be taken as token. Applicable to the TCP type virtual servers, when Token load balancing method is used.  Must be within the first 24k of the client TCP data.
+                Use this parameter to specifies offset of the data to be taken as token. Applicable to
+                the TCP type virtual servers, when Token load balancing method is used.
+                Must be within the first 24k of the client TCP data.
                 Default value: 0
                 Minimum value =  0
                 Maximum value =  25400
@@ -756,9 +744,13 @@ class NSLBVServer(NSBaseResource):
 
         def set_redirurl(self, redirurl):
                 """
-                The URL where traffic is redirected if the virtual server in the system becomes unavailable. You can enter up to 127 characters as the URL argument.
-                WARNING!        Make sure that the domain you specify in the URL does not match the domain specified in the -d domainName argument of the add cs policy CLI command. If the same domain is specified in both arguments, the request will be
-                continuously redirected to the same unavailable virtual server in the system  -  then the user may not get the requested content.
+                The URL where traffic is redirected if the virtual server in the system becomes unavailable.
+                You can enter up to 127 characters as the URL argument.
+                WARNING!        Make sure that the domain you specify in the URL does not match the domain specified
+                in the -d domainName argument of the add cs policy CLI command. If the same domain is specified
+                in both arguments, the request will be
+                continuously redirected to the same unavailable virtual server in the system  -  then the user
+                may not get the requested content.
                 Default value: 0
                 Minimum length =  1.
                 """
@@ -766,9 +758,13 @@ class NSLBVServer(NSBaseResource):
 
         def get_redirurl(self):
                 """
-                The URL where traffic is redirected if the virtual server in the system becomes unavailable. You can enter up to 127 characters as the URL argument.
-                WARNING!        Make sure that the domain you specify in the URL does not match the domain specified in the -d domainName argument of the add cs policy CLI command. If the same domain is specified in both arguments, the request will be
-                continuously redirected to the same unavailable virtual server in the system  -  then the user may not get the requested content.
+                The URL where traffic is redirected if the virtual server in the system becomes unavailable.
+                You can enter up to 127 characters as the URL argument.
+                WARNING!        Make sure that the domain you specify in the URL does not match the domain specified
+                in the -d domainName argument of the add cs policy CLI command. If the same domain is specified
+                in both arguments, the request will be
+                continuously redirected to the same unavailable virtual server in the system  -  then the user
+                may not get the requested content.
                 Default value: 0
                 Minimum length =  1.
                 """
@@ -776,14 +772,16 @@ class NSLBVServer(NSBaseResource):
 
         def set_cacheable(self, cacheable):
                 """
-                Use this option to specify whether a virtual server, used for load balancing or content switching, routes requests to the cache redirection virtual server before sending it to the configured servers.
+                Use this option to specify whether a virtual server, used for load balancing or content switching,
+                routes requests to the cache redirection virtual server before sending it to the configured servers.
                 Default value: NO
                 """
                 self.options['cacheable'] = cacheable
 
         def get_cacheable(self):
                 """
-                Use this option to specify whether a virtual server, used for load balancing or content switching, routes requests to the cache redirection virtual server before sending it to the configured servers.
+                Use this option to specify whether a virtual server, used for load balancing or content switching,
+                routes requests to the cache redirection virtual server before sending it to the configured servers.
                 Default value: NO
                 """
                 return self.options['cacheable']
@@ -808,14 +806,16 @@ class NSLBVServer(NSBaseResource):
 
         def set_somethod(self, somethod):
                 """
-                The spillover factor based on which the traffic will be given to the backupvserver once the main virtual server reaches the spillover threshold.
+                The spillover factor based on which the traffic will be given to the backupvserver
+                once the main virtual server reaches the spillover threshold.
                 Default value: 0
                 """
                 self.options['somethod'] = somethod
 
         def get_somethod(self):
                 """
-                The spillover factor based on which the traffic will be given to the backupvserver once the main virtual server reaches the spillover threshold.
+                The spillover factor based on which the traffic will be given to the backupvserver
+                once the main virtual server reaches the spillover threshold.
                 Default value: 0
                 """
                 return self.options['somethod']
@@ -854,7 +854,12 @@ class NSLBVServer(NSBaseResource):
 
         def set_sothreshold(self, sothreshold):
                 """
-                In case of CONNECTION (or) DYNAMICCONNECTION type spillover method this value is treated as Maximum number of connections an lb vserver will handle before spillover takes place. In case of BANDWIDTH type spillover method this value is treated as the amount of incoming and outgoing traffic (in Kbps) a Vserver will handle before spillover takes place. In case of HEALTH type spillover method if the percentage of active services (by weight) becomes lower than this value, spillover takes place .
+                In case of CONNECTION (or) DYNAMICCONNECTION type spillover method this value is treated
+                as Maximum number of connections an lb vserver will handle before spillover takes place.
+                In case of BANDWIDTH type spillover method this value is treated as the amount
+                of incoming and outgoing traffic (in Kbps) a Vserver will handle before spillover takes place.
+                In case of HEALTH type spillover method if the percentage of active services
+                (by weight) becomes lower than this value, spillover takes place .
                 Default value: 0
                 Minimum value =  1
                 Maximum value =  4294967287
@@ -863,7 +868,12 @@ class NSLBVServer(NSBaseResource):
 
         def get_sothreshold(self):
                 """
-                In case of CONNECTION (or) DYNAMICCONNECTION type spillover method this value is treated as Maximum number of connections an lb vserver will handle before spillover takes place. In case of BANDWIDTH type spillover method this value is treated as the amount of incoming and outgoing traffic (in Kbps) a Vserver will handle before spillover takes place. In case of HEALTH type spillover method if the percentage of active services (by weight) becomes lower than this value, spillover takes place .
+                In case of CONNECTION (or) DYNAMICCONNECTION type spillover method this value is treated
+                as Maximum number of connections an lb vserver will handle before spillover takes place.
+                In case of BANDWIDTH type spillover method this value is treated as the amount
+                of incoming and outgoing traffic (in Kbps) a Vserver will handle before spillover takes place.
+                In case of HEALTH type spillover method if the percentage of active services
+                (by weight) becomes lower than this value, spillover takes place .
                 Default value: 0
                 Minimum value =  1
                 Maximum value =  4294967287
@@ -916,14 +926,16 @@ class NSLBVServer(NSBaseResource):
 
         def set_disableprimaryondown(self, disableprimaryondown):
                 """
-                When this argument is enabled, traffic will continue reaching backup vservers even after primary comes UP from DOWN state.
+                When this argument is enabled, traffic will continue reaching backup vservers
+                even after primary comes UP from DOWN state.
                 Default value: DISABLED
                 """
                 self.options['disableprimaryondown'] = disableprimaryondown
 
         def get_disableprimaryondown(self):
                 """
-                When this argument is enabled, traffic will continue reaching backup vservers even after primary comes UP from DOWN state.
+                When this argument is enabled, traffic will continue reaching backup vservers
+                even after primary comes UP from DOWN state.
                 Default value: DISABLED
                 """
                 return self.options['disableprimaryondown']
@@ -931,9 +943,11 @@ class NSLBVServer(NSBaseResource):
         def set_insertvserveripport(self, insertvserveripport):
                 """
                 The virtual IP and port header insertion option for the vserver.
-                       VIPADDR         - Header contains the vserver's IP address and port number without any translation.
+                       VIPADDR      - Header contains the vserver's IP address and port number without any translation.
                        OFF             - The virtual IP and port header insertion option is disabled.
-                       V6TOV4MAPPING   - Header contains the mapped IPv4 address corresponding to the IPv6 address of the vserver and the port number. An IPv6 address can be mapped to a user-specified IPv4 address using the set ns ip6 command.
+                       V6TOV4MAPPING   - Header contains the mapped IPv4 address corresponding to the IPv6 address
+                       of the vserver and the port number. An IPv6 address can be mapped to
+                       a user-specified IPv4 address using the set ns ip6 command.
                 Default value: OFF
                 """
                 self.options['insertvserveripport'] = insertvserveripport
@@ -941,9 +955,11 @@ class NSLBVServer(NSBaseResource):
         def get_insertvserveripport(self):
                 """
                 The virtual IP and port header insertion option for the vserver.
-                       VIPADDR         - Header contains the vserver's IP address and port number without any translation.
+                       VIPADDR      - Header contains the vserver's IP address and port number without any translation.
                        OFF             - The virtual IP and port header insertion option is disabled.
-                       V6TOV4MAPPING   - Header contains the mapped IPv4 address corresponding to the IPv6 address of the vserver and the port number. An IPv6 address can be mapped to a user-specified IPv4 address using the set ns ip6 command.
+                       V6TOV4MAPPING   - Header contains the mapped IPv4 address corresponding to the IPv6 address
+                       of the vserver and the port number. An IPv6 address can be mapped to
+                a user-specified IPv4 address using the set ns ip6 command.
                 Default value: OFF
                 """
                 return self.options['insertvserveripport']
@@ -1044,7 +1060,8 @@ class NSLBVServer(NSBaseResource):
 
         def set_pushvserver(self, pushvserver):
                 """
-                The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received on the client facing non-push lb vserver.
+                The lb vserver of type PUSH/SSL_PUSH to which server pushes
+                the updates received on the client facing non-push lb vserver.
                 Default value: 0
                 Minimum length =  1.
                 """
@@ -1052,7 +1069,8 @@ class NSLBVServer(NSBaseResource):
 
         def get_pushvserver(self):
                 """
-                The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received on the client facing non-push lb vserver.
+                The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received
+                on the client facing non-push lb vserver.
                 Default value: 0
                 Minimum length =  1.
                 """
@@ -1061,7 +1079,8 @@ class NSLBVServer(NSBaseResource):
         def set_pushlabel(self, pushlabel):
                 """
                 Use this parameter to specify the expression to extract the label in response from server.
-                The string can be either a named expression (configured using add policy expression command) or else it can be an in-line expression with a maximum of 63 characters.
+                The string can be either a named expression (configured using add policy expression command) or
+                else it can be an in-line expression with a maximum of 63 characters.
                 Default value: "none"
                 """
                 self.options['pushlabel'] = pushlabel
@@ -1069,21 +1088,24 @@ class NSLBVServer(NSBaseResource):
         def get_pushlabel(self):
                 """
                 Use this parameter to specify the expression to extract the label in response from server.
-                The string can be either a named expression (configured using add policy expression command) or else it can be an in-line expression with a maximum of 63 characters.
+                The string can be either a named expression (configured using add policy expression command) or
+                else it can be an in-line expression with a maximum of 63 characters.
                 Default value: "none"
                 """
                 return self.options['pushlabel']
 
         def set_pushmulticlients(self, pushmulticlients):
                 """
-                Specify if multiple web 2.0 connections from the same client can connect to this vserver and expect updates.
+                Specify if multiple web 2.0 connections from the same client can connect
+                to this vserver and expect updates.
                 Default value: NO
                 """
                 self.options['pushmulticlients'] = pushmulticlients
 
         def get_pushmulticlients(self):
                 """
-                Specify if multiple web 2.0 connections from the same client can connect to this vserver and expect updates.
+                Specify if multiple web 2.0 connections from the same client can connect
+                to this vserver and expect updates.
                 Default value: NO
                 """
                 return self.options['pushmulticlients']
@@ -1237,7 +1259,9 @@ class NSLBVServer(NSBaseResource):
 
         def get_status(self):
                 """
-                Current status of the lb vserver. During the initial phase if the configured lb method is not round robin , the vserver will adopt round robin to distribute traffic for a predefined number of requests.
+                Current status of the lb vserver. During the initial phase if the configured lb method is not
+                round robin , the vserver will adopt round robin to distribute
+                traffic for a predefined number of requests.
                 Default value: 0
                 """
                 return self.options['status']
@@ -1307,14 +1331,16 @@ class NSLBVServer(NSBaseResource):
 
         def get_health(self):
                 """
-                Health of vserver based on percentage of weights of active svcs/all svcs. This does not consider administratively disabled svcs.
+                Health of vserver based on percentage of weights of active svcs/all svcs.
+                This does not consider administratively disabled svcs.
                 Default value: 0
                 """
                 return self.options['health']
 
         def get_gotopriorityexpression(self):
                 """
-                Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
+                Expression specifying the priority of the next policy which will get evaluated
+                if the current policy rule evaluates to TRUE.
                 Default value: 0
                 """
                 return self.options['gotopriorityexpression']

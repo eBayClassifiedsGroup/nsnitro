@@ -1,6 +1,7 @@
 from nsnitro.nsutil import NSNitroError
 import urllib
 
+
 class NSBaseResource(object):
 
         options = {}
@@ -13,7 +14,7 @@ class NSBaseResource(object):
 
         def __str__(self):
                 ret = ""
-                for key,value in self.options.items():
+                for key, value in self.options.items():
                         ret += "\t%s: \t\t%s\n" % (key, value)
 
                 return ret
@@ -25,35 +26,35 @@ class NSBaseResource(object):
                 self.options = options
 
                 # Filter out empty options
-                self.options = dict([(k,v) for k,v in self.options.items() if v])
+                self.options = dict([(k, v) for k, v in self.options.items() if v])
 
         def get_payload(self):
-                options = dict([(k,v) for k,v in self.options.items() if v])
+                options = dict([(k, v) for k, v in self.options.items() if v])
                 if self.__baseaction:
-                        payload = { "object" : { "params" : { "action" : self.__baseaction }, self.resourcetype : options } }
+                        payload = {"object": {"params": {"action": self.__baseaction}, self.resourcetype: options}}
                 else:
-                        payload = { "object" : { self.resourcetype : options } }
+                        payload = {"object": {self.resourcetype: options}}
                 #print payload
                 return payload
 
         def get_put_payload(self, sessionid):
-                options = dict([(k,v) for k,v in self.options.items() if v])
+                options = dict([(k, v) for k, v in self.options.items() if v])
                 if self.__baseaction:
-                        payload = { "params" : { "action" : self.__baseaction }, self.resourcetype : options }
+                        payload = {"params": {"action": self.__baseaction}, self.resourcetype: options}
                 else:
-                        payload = { "sessionid" : sessionid, self.resourcetype : options }
+                        payload = {"sessionid": sessionid, self.resourcetype: options}
                 #print payload
                 return payload
 
         def get_delete_args(self):
-                options = dict([(k,v) for k,v in self.options.items() if v])
+                options = dict([(k, v) for k, v in self.options.items() if v])
 
                 args = "?args="
 
-                for key,value in options.iteritems():
+                for key, value in options.iteritems():
                         args = "%s%s:%s%s" % (args, key, urllib.quote_plus(value) if type(value) is str else value, ",")
 
-                args = args[:-1] # remove last comma
+                args = args[:-1]  # remove last comma
 
                 return args
 
@@ -62,8 +63,10 @@ class NSBaseResource(object):
                 response = nitro.post(self.get_payload())
                 return response
 
-        def get_resource(self, nitro, object_name = None):
-                url = "%s%s/%s" % (nitro.get_url(), self.resourcetype, object_name if object_name else self.options['name'])
+        def get_resource(self, nitro, object_name=None):
+                url = "%s%s/%s" % (nitro.get_url(),
+                                   self.resourcetype,
+                                   object_name if object_name else self.options['name'])
                 response = nitro.get(url)
 
                 if response.failed:
@@ -83,8 +86,10 @@ class NSBaseResource(object):
                         raise NSNitroError(response.message)
                 return response
 
-        def delete_resource(self, nitro, object_name = None):
-                url = "%s%s/%s" % (nitro.get_url(), self.resourcetype, object_name if object_name else self.options['name'])
+        def delete_resource(self, nitro, object_name=None):
+                url = "%s%s/%s" % (nitro.get_url(),
+                                   self.resourcetype,
+                                   object_name if object_name else self.options['name'])
                 urlargs = self.get_delete_args()
                 url += urlargs
 

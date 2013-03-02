@@ -2,49 +2,49 @@ __author__ = 'vllazarenko'
 
 from nsbaseresource import NSBaseResource
 
+
 class NSFeature(NSBaseResource):
 
 # Configuration for NS Features.
 
-        def __init__(self,json_data=None):
+        def __init__(self, json_data=None):
                 """
                 Supplied with json_data the object can be pre-filled
                 """
                 super(NSFeature, self).__init__()
-                self.options = {
-                        'feature' : '',
-                        'reqfeature' : '',
-                        'wl' : '',
-                        'sp' : '',
-                        'lb' : '',
-                        'cs' : '',
-                        'cr' : '',
-                        'sc' : '',
-                        'cmp' : '',
-                        'pq' : '',
-                        'ssl' : '',
-                        'gslb' : '',
-                        'hdosp' : '',
-                        'cf' : '',
-                        'ic' : '',
-                        'sslvpn' : '',
-                        'aaa' : '',
-                        'ospf' : '',
-                        'rip' : '',
-                        'bgp' : '',
-                        'rewrite' : '',
-                        'ipv6pt' : '',
-                        'appfw' : '',
-                        'responder' : '',
-                        'htmlinjection' : '',
-                        'push' : '',
-                }
+                self.options = {'feature': '',
+                                'reqfeature': '',
+                                'wl': '',
+                                'sp': '',
+                                'lb': '',
+                                'cs': '',
+                                'cr': '',
+                                'sc': '',
+                                'cmp': '',
+                                'pq': '',
+                                'ssl': '',
+                                'gslb': '',
+                                'hdosp': '',
+                                'cf': '',
+                                'ic': '',
+                                'sslvpn': '',
+                                'aaa': '',
+                                'ospf': '',
+                                'rip': '',
+                                'bgp': '',
+                                'rewrite': '',
+                                'ipv6pt': '',
+                                'appfw': '',
+                                'responder': '',
+                                'htmlinjection': '',
+                                'push': ''}
+
                 self.resourcetype = NSFeature.get_resourcetype()
 
                 if not (json_data is None):
                         for key in json_data.keys():
-                                if self.options.has_key(key):
-                                        self.options[key]=json_data[key]
+                                if key in self.options.keys():
+                                        self.options[key] = json_data[key]
 
         @staticmethod
         def get_resourcetype():
