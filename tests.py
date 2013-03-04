@@ -121,9 +121,10 @@ class test_nitro:
                 lbvserver = NSLBVServer()
                 lbvserver.set_name("nitro_lbvserver_test")
                 NSLBVServer.delete(self.nitro, lbvserver)
+                print "LB vserver deleted"
 
                 # get service test
-
+        def get_service(self):
                 service = NSService()
                 service.set_name("service_nitro_test")
                 service = service.get(self.nitro, service)
@@ -347,7 +348,7 @@ def main():
 #    a.enable_server()
 
 #    a.add_service()
-#    a.add_lbvserver()
+        a.add_lbvserver()
 
 #    a.bind_lbvserver()
 #    a.print_lbvserver_binding()
@@ -356,7 +357,7 @@ def main():
 #    a.delete_servicegroup()
 
 #    a.delete_binding()
-#    a.delete_lbvserver()
+        a.delete_lbvserver()
 #    a.update_service()
 #    a.disable_service()
 #    a.enable_service()
@@ -377,7 +378,7 @@ def main():
         #a.add_cspolicy()
         #a.add_rewriteaction()
         #a.add_lbmonitor()
-        a.delete_lbmonitor()
+        #a.delete_lbmonitor()
         #a.disable_feature()
 #    a.list_vlans()
 #    a.delete_vlan()

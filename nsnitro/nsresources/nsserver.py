@@ -223,7 +223,6 @@ class NSServer(NSBaseResource):
                 """
                 return self.options['newname']
 
-
         # Operations methods
         @staticmethod
         def disable(nitro, server):
