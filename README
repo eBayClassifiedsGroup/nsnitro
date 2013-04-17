@@ -178,6 +178,7 @@ delserver = NSServer()
 delserver.set_name("mp-nitroserver")
 NSServer.delete(nitro, delserver)
 
+
 try:
         server = NSServer()
         server.set_name("mp-nitroserver")
@@ -186,4 +187,21 @@ try:
 except NSNitroError, e:
         print e.message
 
+#add system cmd policy
+cmdpol = NSSystemCMDPolicy()
+cmdpol.set_action('ALLOW')
+cmdpol.set_policyname('nitro-cmd-policy')
+cmdpol.set_cmdspec('show hardware')
+NSSystemCMDPolicy.add(nitro,cmdpol)
 
+#update system cmd policy
+cmdpol = NSSystemCMDPolicy()
+cmdpol.set_action('DENY')
+cmdpol.set_policyname('nitro-cmd-policy')
+cmdpol.set_cmdspec('show hardware')
+NSSystemCMDPolicy.update(nitro,cmdpol)
+
+#delete system cmd policy
+cmdpol = NSSystemCMDPolicy()
+cmdpol.set_policyname('nitro-cmd-policy')
+NSSystemCMDPolicy.delete(nitro,cmdpol)

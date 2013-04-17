@@ -3,7 +3,7 @@ from nsnitro import *
 
 class test_nitro:
         def __init__(self,args):
-                self.nitro = NSNitro(args.get('ip'),args.get('user'),args.get('password'))
+                self.nitro = NSNitro(args.get('ip'),args.get('user'),args.get('password'),args.get('ssl'))
                 self.nitro.login()
 
         def add_server(self):
@@ -333,22 +333,43 @@ class test_nitro:
 
         def delete_lbmonitor(self):
                 asdf = NSLBMonitorServiceBinding()
-                asdf.set_servicename("supermario_rbs-frontend_fe001")
+                asdf.set_servicename("supermario_rbs-frontend_fe003")
                 asdf.set_monitorname("http-web1")
                 NSLBMonitorServiceBinding.delete(self.nitro, asdf)
+
+        def add_cmdpol(self):
+                cmdpol = NSSystemCMDPolicy()
+                cmdpol.set_action('ALLOW')
+                cmdpol.set_policyname('nitro-cmdpol-test')
+                cmdpol.set_cmdspec('show hardware')
+                NSSystemCMDPolicy.add(self.nitro,cmdpol)
+
+        def update_cmdpol(self):
+                cmdpol = NSSystemCMDPolicy()
+                cmdpol.set_action('DENY')
+                cmdpol.set_policyname('nitro-cmdpol-test')
+                cmdpol.set_cmdspec('show lb vserver')
+                NSSystemCMDPolicy.update(self.nitro,cmdpol)
+
+        def delete_cmdpol(self):
+                cmdpol = NSSystemCMDPolicy()
+                cmdpol.set_policyname('nitro-cmdpol-test')
+                NSSystemCMDPolicy.delete(self.nitro,cmdpol)
 
 
 
 def main():
-        a = test_nitro({'ip':'10.40.11.162','user':'nsroot','password':'nsroot'})
-
+        #a = test_nitro({'ip':'10.40.11.162','user':'nsroot','password':'nsroot','ssl':False})
+  #a.add_cmdpol()
+  #a.update_cmdpol()
+  a.delete_cmdpol()
 #    a.add_server()
 
 #    a.disable_server()
 #    a.enable_server()
 
 #    a.add_service()
-        a.add_lbvserver()
+# a.add_lbvserver()
 
 #    a.bind_lbvserver()
 #    a.print_lbvserver_binding()
@@ -357,7 +378,7 @@ def main():
 #    a.delete_servicegroup()
 
 #    a.delete_binding()
-        a.delete_lbvserver()
+#        a.delete_lbvserver()
 #    a.update_service()
 #    a.disable_service()
 #    a.enable_service()
