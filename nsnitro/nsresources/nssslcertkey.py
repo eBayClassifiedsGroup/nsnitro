@@ -222,3 +222,24 @@ class NSSSLCertKey(NSBaseResource):
                 __resource.set_expirymonitor(resource.get_expirymonitor())
                 __resource.set_notificationperiod(resource.get_notificationperiod())
                 return __resource.update_resource(nitro)
+
+        @staticmethod
+        def link(nitro, resource):
+                """
+                Use this API to link resource of a given name
+                """
+                __resource = NSSSLCertKey()
+                __resource.set_certkey(resource.get_certkey())
+                __resource.set_linkcertkeyname(resource.get_linkcertkeyname())
+                nsresponse = __resource.perform_operation(nitro, "link")
+                return nsresponse
+
+        @staticmethod
+        def unlink(nitro, resource):
+                """
+                Use this API to link resource of a given name
+                """
+                __resource = NSSSLCertKey()
+                __resource.set_certkey(resource.get_certkey())
+                nsresponse = __resource.perform_operation(nitro, "unlink")
+                return nsresponse
