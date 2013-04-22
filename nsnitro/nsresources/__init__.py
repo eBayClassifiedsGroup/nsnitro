@@ -26,6 +26,8 @@ from nsfeature import NSFeature
 from nsrewriteaction import NSRewriteAction
 from nslbmonitorservicebinding import NSLBMonitorServiceBinding
 from nssystemcmdpolicy import NSSystemCMDPolicy
+from nsacl import NSAcl
+from nsacls import NSAcls
 
 __all__ = ['NSBaseResource',
            'NSConfig',
@@ -54,5 +56,7 @@ __all__ = ['NSBaseResource',
            'NSFeature',
            'NSRewriteAction',
            'NSLBMonitorServiceBinding',
-           'NSSystemCMDPolicy'
+           'NSSystemCMDPolicy',
+           'NSAcl',
+           'NSAcls'
            ]

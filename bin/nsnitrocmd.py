@@ -13,6 +13,8 @@ from nsnitro.nsresources.nslbvserver import NSLBVServer
 from nsnitro.nsresources.nsservice import NSService
 from nsnitro.nsresources.nsserver import NSServer
 from nsnitro.nsresources.nscsvserver import NSCSVServer
+from nsnitro.nsresources.nsacl import NSAcl
+from nsnitro.nsresources.nsacls import NSAcls
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
@@ -68,8 +70,16 @@ if __name__ == "__main__":
         parser.add_argument('--svrtimeout', metavar='SRVTIMEOUT', default=9000, help='service timeout')
         parser.add_argument('--persistencetype', metavar='PERSISTENCETYPE', default='NONE', help='persistence type')
         parser.add_argument('--bindingweight', metavar='BINDINGWIIGHT', default=40, help='weight parameter for binding service')
-                    
-        
+
+        # ACL related arguments
+        parser.add_argument('--getacl', metavar='ACLNAME', help='show acl')
+        parser.add_argument('--getaclslist', action='store_true', help='show acl list')
+        parser.add_argument('--addacl', metavar='ACLNAME', help='add acl')
+        parser.add_argument('--delacl', metavar='ACLNAME', help='del acl')
+        parser.add_argument('--applyacls', action='store_true', help='apply acls to kernel')
+        parser.add_argument('--clearacls', action='store_true', help='clear acls')
+        parser.add_argument('--renumberacls', action='store_true', help='renumber acls')
+
         args = parser.parse_args()
 
         if args.dargs:
@@ -341,6 +351,46 @@ if __name__ == "__main__":
                         server.set_newname(args.renameserver[1])
                         NSServer.rename(nitro, server)
                         print "Renamed server from '%s' to '%s'." % (args.renameserver[0], args.renameserver[1])
+                        sys.exit(0)
+
+                if args.getacl:
+                        acl = NSAcl()
+                        acl.set_aclname(args.getacl)
+                        acl = NSAcl.get(nitro, acl)
+
+                        print "--- ACL: " + acl.get_aclname() + " ---"
+                        for k in sorted(acl.options.iterkeys(), key=lambda k: k):
+                                print "\t%s: %s" % (k, acl.options[k])
+
+                        sys.exit(0)
+
+                if args.getaclslist:
+                        acls = NSAcl().get_all(nitro)
+                        print "-- Configured ACLs ---"
+                        for acl in sorted(acls, key=lambda k: k.get_aclname()):
+                                print "\t" + acl.get_aclname()
+                        sys.exit(0)
+
+                if args.applyacls:
+                        NSAcls.apply(nitro)
+                        print "Applied all ACLs to netscaler kernel."
+                        sys.exit(0)
+
+                if args.clearacls:
+                        NSAcls.clear(nitro)
+                        print "Cleared ACLs on the netscaler."
+                        sys.exit(0)
+
+                if args.renumberacls:
+                        NSAcls.renumber(nitro)
+                        print "Renumbered ACLs on the netscaler."
+                        sys.exit(0)
+
+                if args.delacl:
+                        acl = NSAcl()
+                        acl.set_aclname(args.delacl)
+                        acl = NSAcl.delete(nitro, acl)
+                        print "ACL '%s' was deleted. Do not forget to run --applyacls to activate it." % (args.delacl)
                         sys.exit(0)
 
                 print "No action specified. Exiting."
