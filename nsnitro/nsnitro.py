@@ -44,7 +44,7 @@ class NSNitro:
                 if not self.__initialized:
                         raise NSNitroError("Not initialized.")
 
-                payload = {"object":{"login":{"username":self.__user,"password":self.__password}}}
+                payload = {"object":json.dumps({"login":{"username":self.__user,"password":self.__password}})}
                 try:
                         nsresponse = self.post(payload)
                         if nsresponse.failed:
