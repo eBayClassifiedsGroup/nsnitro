@@ -169,8 +169,7 @@ class NSSSLCertKey(NSBaseResource):
                 Use this API to fetch SSL certkey resource of given name.
                 """
                 __resource = NSSSLCertKey()
-                __resource.set_certkey(resource.get_certkey())
-                __resource.get_resource(nitro)
+                __resource.get_resource(nitro, resource.get_certkey())
                 return __resource
 
         @staticmethod

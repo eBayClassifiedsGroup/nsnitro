@@ -81,8 +81,7 @@ class NSSSLVServerSSLCertKeyBinding(NSBaseResource):
                 Use this API to fetch SSL certkey resource of given name.
                 """
                 __resource = NSSSLVServerSSLCertKeyBinding()
-                __resource.set_vservername(resource.get_vservername())
-                __resource.get_resource(nitro)
+                __resource.get_resource(nitro, resource.get_vservername())
                 return __resource
 
         @staticmethod
