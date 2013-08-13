@@ -124,18 +124,19 @@ class NSNitro:
                 return nsresponse
 
         def logout(self):
+                payload = {
+                    "object": json.dumps( 
+                        { "logout": {}, }
+                    )
+                }
                 try:
-                    opener = urllib2.build_opener()
-                    req = urllib2.Request(self.__baseurl)
-                    req.add_header('Cookie','sessionid='+self.__sessionid)
-                    req.add_header('logout','{}')
-                    response = urllib2.urlopen(req)
-                except urllib2.HTTPError,e:
-                    raise NSNitroError("Could not send logout request: %s, %s" % (e.code, e.message))
+                    nsresponse = self.post(payload)
 
-                nsresponse = NSNitroResponse(response.read())
-                if nsresponse.failed:
+                    if nsresponse.failed:
                         raise NSNitroError(nsresponse.message)
-                del self.__sessionid
 
-                return nsresponse.get_json_response()
+                    del self.__sessionid
+                    return nsresponse.get_json_response()
+
+                except NSNitroError, e:
+                    raise NSNitroError(nsresponse.message)
