@@ -25,6 +25,7 @@ from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nshanode import NSHANode
 from nsip import NSIP
+from nsroute import NSRoute
 from nsvlan import NSVLAN
 from nsvlaninterfacebinding import NSVLANInterfaceBinding
 from nsvlannsipbinding import NSVLANNSIPBinding
@@ -34,6 +35,8 @@ from nslbmonitorservicebinding import NSLBMonitorServiceBinding
 from nssystemcmdpolicy import NSSystemCMDPolicy
 from nsacl import NSAcl
 from nsacls import NSAcls
+from nspbr import NSPbr
+from nspbrs import NSPbrs
 
 __all__ = ['NSBaseResource',
            'NSConfig',
@@ -62,6 +65,7 @@ __all__ = ['NSBaseResource',
            'NSSSLVServerSSLCertKeyBinding',
            'NSHANode',
            'NSIP',
+           'NSRoute',
            'NSVLAN',
            'NSVLANInterfaceBinding',
            'NSVLANNSIPBinding',
@@ -70,5 +74,7 @@ __all__ = ['NSBaseResource',
            'NSLBMonitorServiceBinding',
            'NSSystemCMDPolicy',
            'NSAcl',
-           'NSAcls'
+           'NSAcls',
+           'NSPbr',
+           'NSPbrs'
            ]
