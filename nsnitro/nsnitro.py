@@ -58,7 +58,7 @@ class NSNitro:
                 except SyntaxError:
                         raise NSNitroError("Could not parse LB response.")
                 except urllib2.URLError, ue:
-                        raise NSNitroError("Error logging in!" + ue.message)
+                        raise NSNitroError("Error logging in!" + str(ue))
 
         def post(self, payload):
                 try:
@@ -125,7 +125,7 @@ class NSNitro:
 
         def logout(self):
                 payload = {
-                    "object": json.dumps( 
+                    "object": json.dumps(
                         { "logout": {}, }
                     )
                 }
