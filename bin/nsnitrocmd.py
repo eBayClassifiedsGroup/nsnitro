@@ -94,6 +94,7 @@ if __name__ == "__main__":
                 if args.addlbvserver:
                         if not args.port or not args.ip:
                           print "--ip and --port are required for adding LB Vserver"
+                          nitro.logout()
                           sys.exit(0)
                         lbvserver = NSLBVServer()
                         lbvserver.set_name(args.addlbvserver)
@@ -104,6 +105,7 @@ if __name__ == "__main__":
                         lbvserver.set_servicetype(args.servicetype)
                         NSLBVServer.add(nitro, lbvserver)
                         print "lb vserver %s (%s:%d/%s) was added" % (args.addlbvserver, args.ip, args.port, args.servicetype)
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.enablelbvserver:
@@ -111,11 +113,13 @@ if __name__ == "__main__":
                         lbvserver.set_name(args.enablelbvserver)
                         NSLBVServer.enable(nitro, lbvserver)
                         print "Enabled lb vserver: %s" % args.enablelbvserver
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.saveconfig:
                         NSConfig.save(nitro)
                         print "Saved Netscaler configuration"
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.disablelbvserver:
@@ -123,6 +127,7 @@ if __name__ == "__main__":
                         lbvserver.set_name(args.disablelbvserver)
                         NSLBVServer.disable(nitro, lbvserver)
                         print "Disabled lb vserver: %s" % args.disablelbvserver
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getlbvserver:
@@ -133,6 +138,7 @@ if __name__ == "__main__":
                         for k in sorted(lbvserver.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, lbvserver.options[k])
 
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.enablecsvserver:
@@ -140,6 +146,7 @@ if __name__ == "__main__":
                         csvserver.set_name(args.enablecsvserver)
                         NSCSVServer.enable(nitro, csvserver)
                         print "Enabled cs vserver: %s" % args.enablecsvserver
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.disablecsvserver:
@@ -147,6 +154,7 @@ if __name__ == "__main__":
                         csvserver.set_name(args.disablecsvserver)
                         NSCSVServer.disable(nitro, csvserver)
                         print "Disabled cs vserver: %s" % args.disablecsvserver
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getcsvserver:
@@ -157,11 +165,13 @@ if __name__ == "__main__":
                         for k in sorted(csvserver.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, csvserver.options[k])
 
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.addservice:
                         if not args.port:
                           print "--port is required for adding service"
+                          nitro.logout()
                           sys.exit(0)
                         service = NSService()
                         service.set_port(args.port)
@@ -172,6 +182,7 @@ if __name__ == "__main__":
                         service.set_servername(args.addservice[1])
                         NSService.add(nitro, addservice)
                         print "Service '%s:%d/%s' was added to '%s'." % (args.addservice[0], args.port, args.servicetype, args.addservice[1])
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.bindservice:
@@ -181,6 +192,7 @@ if __name__ == "__main__":
                         binding.set_name(args.bindservice[1])
                         NSLBVServerServiceBinding.add(nitro, binding)
                         print "Service '%s' was binded to LB vserver '%s' with weight %d." % (args.bindservice[0], args.bindservice[1], args.bindingweight)
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.enableservice:
@@ -188,6 +200,7 @@ if __name__ == "__main__":
                         service.set_name(args.enableservice)
                         NSService.enable(nitro, service)
                         print "Enabled service: %s" % args.enableservice
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.disableservice:
@@ -195,6 +208,7 @@ if __name__ == "__main__":
                         service.set_name(args.disableservice)
                         NSService.disable(nitro, service)
                         print "Disabled service: %s" % args.disableservice
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getservice:
@@ -206,6 +220,7 @@ if __name__ == "__main__":
                         for k in sorted(service.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, service.options[k])
 
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getserviceslist:
@@ -213,6 +228,7 @@ if __name__ == "__main__":
                         print "-- Configured services ---"
                         for service in sorted(services, key=lambda k: k.get_name()):
                                 print "\t" + service.get_name()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getlbvserverslist:
@@ -220,6 +236,7 @@ if __name__ == "__main__":
                         print "-- Configured LB vservers ---"
                         for vserver in sorted(vservers, key=lambda k: k.get_name()):
                                 print "\t" + vserver.get_name()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getcsvserverslist:
@@ -227,6 +244,7 @@ if __name__ == "__main__":
                         print "-- Configured CS vservers ---"
                         for vserver in sorted(vservers, key=lambda k: k.get_name()):
                                 print "\t" + vserver.get_name()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getservicesstatus:
@@ -234,6 +252,7 @@ if __name__ == "__main__":
                         print "-- Configured services (with status) ---"
                         for service in sorted(services, key=lambda k: k.get_name()):
                                 print "\t" + service.get_name() + ": " + service.get_svrstate()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getlbvserversstatus:
@@ -241,6 +260,7 @@ if __name__ == "__main__":
                         print "-- Configured LB vservers (with status) ---"
                         for vserver in sorted(vservers, key=lambda k: k.get_name()):
                                 print vserver.get_name() + ": " + vserver.get_effectivestate()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getcsvserversstatus:
@@ -248,6 +268,7 @@ if __name__ == "__main__":
                         print "-- Configured CS vservers (with status) ---"
                         for vserver in sorted(vservers, key=lambda k: k.get_name()):
                                 print vserver.get_name() + ": " + vserver.get_curstate()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getlbvserverstatus:
@@ -255,6 +276,7 @@ if __name__ == "__main__":
                         vserver.set_name(args.getlbvserverstatus)
                         vserver = NSLBVServer().get(nitro, vserver)
                         print vserver.get_name() + ": " + vserver.get_effectivestate()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getlbvserverstatusfull:
@@ -266,6 +288,7 @@ if __name__ == "__main__":
                             print ' | ', s.get_name(),        ' | ', s.get_servicename(), ' | ', s.get_curstate(),
                             print ' | ', s.get_servicetype(), ' | ', s.get_ipv46(),       ' | ', s.get_port(),
                             print ' | ', s.get_weight()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getcsvserverstatus:
@@ -273,6 +296,7 @@ if __name__ == "__main__":
                         vserver.set_name(args.getcsvserverstatus)
                         vserver = NSCSVServer().get(nitro, vserver)
                         print vserver.get_name() + ": " + vserver.get_curstate()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getservicestatus:
@@ -280,6 +304,7 @@ if __name__ == "__main__":
                         service.set_name(args.getservicestatus)
                         service = NSService.get(nitro, service)
                         print service.get_name() + ": " + service.get_svrstate()
+                        nitro.logout()
                         sys.exit(0)
 
 
@@ -288,6 +313,7 @@ if __name__ == "__main__":
                         server.set_name(args.enableserver)
                         NSServer.enable(nitro, server)
                         print "Enabled server: %s" % args.enableserver
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.disableserver:
@@ -295,6 +321,7 @@ if __name__ == "__main__":
                         server.set_name(args.disableserver)
                         NSServer.disable(nitro, server)
                         print "Disabled server: %s" % args.disableserver
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getserver:
@@ -304,6 +331,7 @@ if __name__ == "__main__":
                         print "--- Server: " + server.get_name() + " ---"
                         for k in sorted(server.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, server.options[k])
+                        nitro.logout()
                         sys.exit(0)
 
 
@@ -312,6 +340,7 @@ if __name__ == "__main__":
                         print "-- Configured servers ---"
                         for server in sorted(servers, key=lambda k: k.get_name()):
                                 print "\t" + server.get_name()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getserversstatus:
@@ -319,6 +348,7 @@ if __name__ == "__main__":
                         print "-- Configured servers (with status) ---"
                         for server in sorted(servers, key=lambda k: k.get_name()):
                                 print "\t" + server.get_name() + ": " + server.get_state()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.renameservice:
@@ -327,6 +357,7 @@ if __name__ == "__main__":
                         service.set_newname(args.renameservice[1])
                         NSService.rename(nitro, service)
                         print "Renamed service from '%s' to '%s'." % (args.renameservice[0], args.renameservice[1])
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.renamelbvserver:
@@ -335,6 +366,7 @@ if __name__ == "__main__":
                         lbvserver.set_newname(args.renamelbvserver[1])
                         NSLBVServer.rename(nitro, lbvserver)
                         print "Renamed LB vserver from '%s' to '%s'." % (args.renamelbvserver[0], args.renamelbvserver[1])
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.renamecsvserver:
@@ -343,6 +375,7 @@ if __name__ == "__main__":
                         csvserver.set_newname(args.renamecsvserver[1])
                         NSCSVServer.rename(nitro, csvserver)
                         print "Renamed CS vserver from '%s' to '%s'." % (args.renamecsvserver[0], args.renamecsvserver[1])
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.renameserver:
@@ -351,6 +384,7 @@ if __name__ == "__main__":
                         server.set_newname(args.renameserver[1])
                         NSServer.rename(nitro, server)
                         print "Renamed server from '%s' to '%s'." % (args.renameserver[0], args.renameserver[1])
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getacl:
@@ -362,6 +396,7 @@ if __name__ == "__main__":
                         for k in sorted(acl.options.iterkeys(), key=lambda k: k):
                                 print "\t%s: %s" % (k, acl.options[k])
 
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.getaclslist:
@@ -369,21 +404,25 @@ if __name__ == "__main__":
                         print "-- Configured ACLs ---"
                         for acl in sorted(acls, key=lambda k: k.get_aclname()):
                                 print "\t" + acl.get_aclname()
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.applyacls:
                         NSAcls.apply(nitro)
                         print "Applied all ACLs to netscaler kernel."
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.clearacls:
                         NSAcls.clear(nitro)
                         print "Cleared ACLs on the netscaler."
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.renumberacls:
                         NSAcls.renumber(nitro)
                         print "Renumbered ACLs on the netscaler."
+                        nitro.logout()
                         sys.exit(0)
 
                 if args.delacl:
@@ -391,6 +430,7 @@ if __name__ == "__main__":
                         acl.set_aclname(args.delacl)
                         acl = NSAcl.delete(nitro, acl)
                         print "ACL '%s' was deleted. Do not forget to run --applyacls to activate it." % (args.delacl)
+                        nitro.logout()
                         sys.exit(0)
 
                 print "No action specified. Exiting."
