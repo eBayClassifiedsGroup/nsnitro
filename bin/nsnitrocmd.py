@@ -94,6 +94,7 @@ if __name__ == "__main__":
                 if args.addlbvserver:
                         if not args.port or not args.ip:
                           print "--ip and --port are required for adding LB Vserver"
+                          nitro.logout()
                           sys.exit(0)
                         lbvserver = NSLBVServer()
                         lbvserver.set_name(args.addlbvserver)
@@ -170,7 +171,7 @@ if __name__ == "__main__":
                 if args.addservice:
                         if not args.port:
                           print "--port is required for adding service"
-                        nitro.logout()
+                          nitro.logout()
                           sys.exit(0)
                         service = NSService()
                         service.set_port(args.port)
