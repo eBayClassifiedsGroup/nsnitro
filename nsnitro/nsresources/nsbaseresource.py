@@ -1,5 +1,6 @@
 from nsnitro.nsutil import NSNitroError
 import urllib
+import json
 
 
 class NSBaseResource(object):
@@ -31,9 +32,9 @@ class NSBaseResource(object):
         def get_payload(self):
                 options = dict([(k, v) for k, v in self.options.items() if v])
                 if self.__baseaction:
-                        payload = {"object": {"params": {"action": self.__baseaction}, self.resourcetype: options}}
+                        payload = {"object": json.dumps({"params": {"action": self.__baseaction}, self.resourcetype: options})}
                 else:
-                        payload = {"object": {self.resourcetype: options}}
+                        payload = {"object": json.dumps({self.resourcetype: options})}
                 #print payload
                 return payload
 
