@@ -25,6 +25,7 @@ from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nshanode import NSHANode
 from nsip import NSIP
+from nsiptunnel import NSIPTunnel
 from nsroute import NSRoute
 from nsvlan import NSVLAN
 from nsvlaninterfacebinding import NSVLANInterfaceBinding
@@ -65,6 +66,7 @@ __all__ = ['NSBaseResource',
            'NSSSLVServerSSLCertKeyBinding',
            'NSHANode',
            'NSIP',
+           'NSIPTunnel',
            'NSRoute',
            'NSVLAN',
            'NSVLANInterfaceBinding',
