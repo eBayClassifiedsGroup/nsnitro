@@ -120,7 +120,7 @@ class NSIPTunnel(NSBaseResource):
             return self.options['secure']
 
         # Read only properties
-        def get_sysname
+        def get_sysname(self):
             '''
             The name of the ip tunnel.
             '''
