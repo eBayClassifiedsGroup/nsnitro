@@ -1,11 +1,6 @@
 import json
+from nsexceptions import *
 
-class NSNitroError(Exception):
-        """ Custom exception class """
-        def __init__(self, value):
-                self.message = value
-        def __str__(self):
-                return repr(self.message)
 
 class NSNitroResponse:
         """ Generic class for accessing LB response dictionary. Can provide string response back and a parsed dictionary """
@@ -21,7 +16,6 @@ class NSNitroResponse:
                 self.__jresponse = json.loads(response)
                 self.__parse_response()
 
-
         def get_json_response(self):
                 """ Returns LB response as parsed dictionary """
                 return self.__jresponse
@@ -30,11 +24,11 @@ class NSNitroResponse:
                 """ Returns LB response as a string """
                 return self.__sresponse
 
-
         def __parse_response(self):
                 self.errorcode = self.__jresponse['errorcode']
                 self.message   = self.__jresponse['message']
                 if self.errorcode != 0:
+                        self._raise_exception()
                         self.failed = True
 
         def get_response_field(self, field_name):
@@ -44,3 +38,7 @@ class NSNitroResponse:
                 else:
                     return []
 
+        def _raise_exception(self):
+                '''Raises exceptions, if it has a more specific mapping if not it raises NSNitroError'''
+                exception_class = NSNitroExceptionsMap[self.errorcode]
+                raise exception_class(self.message, self.errorcode)
