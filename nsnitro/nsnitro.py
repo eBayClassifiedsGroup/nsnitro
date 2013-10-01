@@ -2,6 +2,7 @@
 
 import urllib, urllib2
 from nsutil import *
+from nsexceptions import *
 
 __version__ = "0.0.2"
 
@@ -47,8 +48,6 @@ class NSNitro:
                 payload = {"object":json.dumps({"login":{"username":self.__user,"password":self.__password}})}
                 try:
                         nsresponse = self.post(payload)
-                        if nsresponse.failed:
-                                raise NSNitroError(nsresponse.message)
 
                         self.__sessionid = nsresponse.get_response_field('sessionid')
                         self.__postheaders = {'Cookie' : 'sessionid='+self.__sessionid, 'Content-type' : self.__contenttype}
@@ -71,8 +70,6 @@ class NSNitro:
                         raise NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
 
                 nsresponse = NSNitroResponse(response.read())
-                if nsresponse.failed:
-                        raise NSNitroError(nsresponse.message)
                 return nsresponse
 
         def put(self, payload):
@@ -87,8 +84,6 @@ class NSNitro:
                         raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.message))
 
                 nsresponse = NSNitroResponse(response.read())
-                if nsresponse.failed:
-                        raise NSNitroError(nsresponse.message)
                 return nsresponse
 
         def get(self, url):
@@ -102,9 +97,6 @@ class NSNitro:
                         raise NSNitroError("Could not get resource: %s, %s" % (e.code, e.message))
 
                 nsresponse = NSNitroResponse(response.read())
-                if nsresponse.failed:
-                        raise NSNitroError(nsresponse.message)
-
                 return nsresponse
 
         def delete(self, url):
@@ -119,8 +111,6 @@ class NSNitro:
                         raise NSNitroError("Could not send delete request: %s, %s" % (e.code, e.message))
 
                 nsresponse = NSNitroResponse(response.read())
-                if nsresponse.failed:
-                        raise NSNitroError(nsresponse.message)
                 return nsresponse
 
         def logout(self):
@@ -131,9 +121,6 @@ class NSNitro:
                 }
                 try:
                     nsresponse = self.post(payload)
-
-                    if nsresponse.failed:
-                        raise NSNitroError(nsresponse.message)
 
                     del self.__sessionid
                     return nsresponse.get_json_response()
