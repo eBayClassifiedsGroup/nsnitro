@@ -1,5 +1,6 @@
 from nsbaseresource import NSBaseResource
 
+__author__ = 'Aleksandar Topuzovic'
 
 class NSVServer(NSBaseResource):
 
