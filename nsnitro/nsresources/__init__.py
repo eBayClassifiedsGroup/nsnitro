@@ -30,6 +30,7 @@ from nsroute import NSRoute
 from nsvlan import NSVLAN
 from nsvlaninterfacebinding import NSVLANInterfaceBinding
 from nsvlannsipbinding import NSVLANNSIPBinding
+from nsvserver import NSVServer
 from nsfeature import NSFeature
 from nsrewriteaction import NSRewriteAction
 from nslbmonitorservicebinding import NSLBMonitorServiceBinding
@@ -71,6 +72,7 @@ __all__ = ['NSBaseResource',
            'NSVLAN',
            'NSVLANInterfaceBinding',
            'NSVLANNSIPBinding',
+           'NSVServer',
            'NSFeature',
            'NSRewriteAction',
            'NSLBMonitorServiceBinding',
