@@ -99,7 +99,9 @@ class NSLBVServerCSVserverBinding(NSBaseResource):
                 """
                 Use this API to fetch lb vserver cs vserver binding resource of given name.
                 """
-                __lbvservercsvserverbinding = NSLBVServerCSVserverBinding()
-                __lbvservercsvserverbinding.set_name(lbvservercsvserverbinding.get_name())
-                __lbvservercsvserverbinding.get_resource(nitro)
-                return __lbvservercsvserverbinding
+                __url = nitro.get_url() + NSLBVServerCSVserverBinding.get_resourcetype() + "/" + lbvservercsvserverbinding.get_name()
+                __json_csvservers = nitro.get(__url).get_response_field(NSLBVServerCSVserverBinding.get_resourcetype())
+                __csvservers = []
+                for json_csvserver in __json_csvservers:
+                        __csvservers.append(NSLBVServerCSVserverBinding(json_csvserver))
+                return __csvservers
