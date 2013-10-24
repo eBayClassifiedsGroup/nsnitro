@@ -479,7 +479,7 @@ class NSAcl(NSBaseResource):
         # Operations methods
 
         @staticmethod
-        def add(nsnitro, nsacl):
+        def add(nitro, nsacl):
             """
             Use this API to add nsacl resources.
             """
@@ -519,8 +519,8 @@ class NSAcl(NSBaseResource):
             Use this API to delete nsacl resources.
             """
             __nsacl = NSAcl()
-            __nsacl.set_name(nsacl.get_name())
-            nsresponse = __nsacl.delete_resource(nitro)
+            __nsacl.set_aclname(nsacl.get_aclname())
+            nsresponse = __nsacl.delete_resource(nitro, nsacl.get_aclname())
             return nsresponse
 
         @staticmethod
