@@ -351,6 +351,7 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
         __servicegroup.set_servername(servicegroup.get_servername())
         __servicegroup.set_port(servicegroup.get_port())
+        __servicegroup.set_delay(servicegroup.get_delay())
         return __servicegroup.perform_operation(nitro, "disable")
 
     @staticmethod
