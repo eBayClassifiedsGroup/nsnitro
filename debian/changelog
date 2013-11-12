@@ -1,3 +1,9 @@
+nsnitro (1.0.25) unstable; urgency=low
+
+  * Multiple contributions from various authors
+
+ -- Vladimir Lazarenko <favoretti@gmail.com>  Tue, 12 Nov 2013 01:10:24 +0200
+
 nsnitro (1.0.24) unstable; urgency=low
 
   * Added ACL resources
@@ -42,7 +48,7 @@ nsnitro (1.0.17) unstable; urgency=low
 
 nsnitro (1.0.16) unstable; urgency=low
 
-  * Fix nshanode 
+  * Fix nshanode
 
  -- Vladimir Lazarenko <vllazarenko@ebay.com>  Wed, 03 Oct 2012 03:26:35 +0200
 
@@ -55,7 +61,7 @@ nsnitro (1.0.15) unstable; urgency=low
 nsnitro (1.0.14) unstable; urgency=low
 
   * Added NSHANode
-  * 
+  *
 
  -- Vladimir Lazarenko <vllazarenko@ebay.com>  Tue, 02 Oct 2012 17:59:36 +0200
 
@@ -127,7 +133,7 @@ nsnitro (1.0.0) unstable; urgency=low
 nsnitro (0.0.2) unstable; urgency=low
 
   * Tryout for new structure.
-  * 
+  *
 
  -- vlazarenko <vlazarenko@squeeze.local>  Fri, 04 Nov 2011 13:46:11 +0100
 
