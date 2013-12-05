@@ -151,7 +151,9 @@ class NSServiceLBMonitorBinding(NSBaseResource):
                 """
                 Use this API to fetch service monitor binding resource of given name.
                 """
-                __servicelbmonitorbinding = NSServiceLBMonitorBinding()
-                __servicelbmonitorbinding.set_name(servicelbmonitorbinding.get_name())
-                __servicelbmonitorbinding.get_resource(nitro)
-                return __servicelbmonitorbinding
+                __url = nitro.get_url() + NSServiceLBMonitorBinding.get_resourcetype() + "/" + servicelbmonitorbinding.get_name()
+                __json_servicelbmonitorbindings = nitro.get(__url).get_response_field(NSServiceLBMonitorBinding.get_resourcetype())
+                __servicelbmonitorbindings = []
+                for json_servicelbmonitorbinding in __json_servicelbmonitorbindings:
+                        __servicelbmonitorbindings.append(NSServiceLBMonitorBinding(json_servicelbmonitorbinding))
+                return __servicelbmonitorbindings
