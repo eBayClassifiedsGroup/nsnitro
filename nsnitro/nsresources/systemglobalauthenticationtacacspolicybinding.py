@@ -56,7 +56,7 @@ class SystemGlobalAuthTacacsPolicyBinding(NSBaseResource):
 
         # Operations methods
         @staticmethod
-        def get(nitro):
+        def get_all(nitro):
                 """
                 Use this API to fetch the configured systemglobal_authenticationtacacspolicy_binding resources.
                 """
