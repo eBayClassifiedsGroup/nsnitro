@@ -40,6 +40,9 @@ from nsacl import NSAcl
 from nsacls import NSAcls
 from nspbr import NSPbr
 from nspbrs import NSPbrs
+from authenticationtacacsaction import AuthTacacsAction
+from authenticationtacacspolicy import AuthTacacsPolicy
+from systemglobalauthenticationtacacspolicybinding import SystemGlobalAuthTacacsPolicyBinding
 
 __all__ = ['NSBaseResource',
            'NSConfig',
@@ -82,5 +85,8 @@ __all__ = ['NSBaseResource',
            'NSAcl',
            'NSAcls',
            'NSPbr',
-           'NSPbrs'
+           'NSPbrs',
+           'AuthTacacsAction',
+           'AuthTacacsPolicy',
+           'SystemGlobalAuthTacacsPolicyBinding'
            ]
