@@ -15,6 +15,7 @@ from nsnitro.nsresources.nsserver import NSServer
 from nsnitro.nsresources.nscsvserver import NSCSVServer
 from nsnitro.nsresources.nsacl import NSAcl
 from nsnitro.nsresources.nsacls import NSAcls
+from nsnitro.nsresources.nshanode import NSHANode
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
@@ -60,6 +61,8 @@ if __name__ == "__main__":
         parser.add_argument('--renameserver', metavar=('NAME', 'NEWNAME'), nargs=2, help='rename server from NAME to NEWNAME')
 
         parser.add_argument('--saveconfig', action='store_true', help='save loadbalancer config')
+
+        parser.add_argument('--getprimarylb', action='store_true', help='If you netscaler is in a cluster show the node that is primary')
 
         parser.add_argument('--dargs', action='store_true', help='show service')
         # additional arguments
@@ -119,6 +122,16 @@ if __name__ == "__main__":
                 if args.saveconfig:
                         NSConfig.save(nitro)
                         print "Saved Netscaler configuration"
+                        nitro.logout()
+                        sys.exit(0)
+
+                if args.getprimarylb:
+                        ha_node = NSHANode()
+                        for node in ha_node.get_all(nitro):
+                            state = node.get_state().lower()
+                            if state == 'primary':
+                                print(node.get_ipaddress())
+                                break
                         nitro.logout()
                         sys.exit(0)
 
