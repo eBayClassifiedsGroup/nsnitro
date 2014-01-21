@@ -73,9 +73,9 @@ class SystemGlobalAuthTacacsPolicyBinding(NSBaseResource):
                 Use this API to add systemglobal_authenticationtacacspolicy_binding.
                 """
                 __polycibinding = SystemGlobalAuthTacacsPolicyBinding()
-                __polycibinding.set_name(polycibinding.get_name())
-                __polycibinding.set_rule(polycibinding.get_rule())
-                __polycibinding.set_reqaction(polycibinding.get_reqaction())
+                __polycibinding.set_policyname(polycibinding.get_policyname())
+                __polycibinding.set_priority(polycibinding.get_priority())
+                __polycibinding.set_builtin(polycibinding.get_builtin())
                 return __polycibinding.add_resource(nitro)
 
         @staticmethod
@@ -84,7 +84,7 @@ class SystemGlobalAuthTacacsPolicyBinding(NSBaseResource):
                 Use this API to delete systemglobal_authenticationtacacspolicy_binding of a given name.
                 """
                 __policybinding = SystemGlobalAuthTacacsPolicyBinding()
-                __policybinding.set_name(policybinding.get_name())
+                __policybinding.set_policyname(policybinding.get_policyname())
                 nsresponse = __policybinding.delete_resource(nitro)
                 return nsresponse
 

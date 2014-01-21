@@ -88,9 +88,13 @@ class NSBaseResource(object):
                 return response
 
         def delete_resource(self, nitro, object_name=None):
-                url = "%s%s/%s" % (nitro.get_url(),
-                                   self.resourcetype,
-                                   object_name if object_name else self.options['name'])
+                url = "%s%s" % (nitro.get_url(), self.resourcetype)
+
+                if object_name is not None:
+                    url += "/%s" % object_name
+                elif 'name' in self.options and self.options['name'] is not None:
+                    url += "/%s" % self.options['name']
+
                 urlargs = self.get_delete_args()
                 url += urlargs
 
