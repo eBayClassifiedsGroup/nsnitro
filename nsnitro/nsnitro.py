@@ -67,10 +67,12 @@ class NSNitro:
                         response = urllib2.urlopen(req)
 
                 except urllib2.HTTPError, e:
-                        raise NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
+                        try:
+                            NSNitroResponse(e.read())
+                        except AttributeError:
+                            raise NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
 
-                nsresponse = NSNitroResponse(response.read())
-                return nsresponse
+                return NSNitroResponse(response.read())
 
         def put(self, payload):
                 try:
@@ -81,10 +83,12 @@ class NSNitro:
                         response = opener.open(request)
 
                 except urllib2.HTTPError, e:
-                        raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.message))
+                        try:
+                            NSNitroResponse(e.read())
+                        except AttributeError:
+                            raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.message))
 
-                nsresponse = NSNitroResponse(response.read())
-                return nsresponse
+                return NSNitroResponse(response.read())
 
         def get(self, url):
                 try:
@@ -93,11 +97,12 @@ class NSNitro:
                         response = opener.open(url)
 
                 except urllib2.HTTPError, e:
-                        print "Got reponse code: %s from the server" % e.code
-                        raise NSNitroError("Could not get resource: %s, %s" % (e.code, e.message))
+                        try:
+                            NSNitroResponse(e.read())
+                        except AttributeError:
+                            raise NSNitroError("Could not get resource: %s, %s" % (e.code, e.message))
 
-                nsresponse = NSNitroResponse(response.read())
-                return nsresponse
+                return NSNitroResponse(response.read())
 
         def delete(self, url):
                 try:
@@ -108,10 +113,12 @@ class NSNitro:
                         response = urllib2.urlopen(req)
 
                 except urllib2.HTTPError, e:
-                        raise NSNitroError("Could not send delete request: %s, %s" % (e.code, e.message))
+                        try:
+                            NSNitroResponse(e.read())
+                        except AttributeError:
+                            raise NSNitroError("Could not send delete request: %s, %s" % (e.code, e.message))
 
-                nsresponse = NSNitroResponse(response.read())
-                return nsresponse
+                return NSNitroResponse(response.read())
 
         def logout(self):
                 payload = {
