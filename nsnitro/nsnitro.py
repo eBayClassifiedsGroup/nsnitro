@@ -70,7 +70,7 @@ class NSNitro:
                         try:
                             NSNitroResponse(e.read())
                         except AttributeError:
-                            raise NSNitroError("Could not send post request: %s, %s" % (e.code, e.message))
+                            raise NSNitroError("Could not send post request: %s, %s" % (e.code, e.reason))
 
                 return NSNitroResponse(response.read())
 
@@ -86,7 +86,7 @@ class NSNitro:
                         try:
                             NSNitroResponse(e.read())
                         except AttributeError:
-                            raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.message))
+                            raise NSNitroError("Could not send put request: %s, %s" % (e.code, e.reason))
 
                 return NSNitroResponse(response.read())
 
@@ -100,7 +100,7 @@ class NSNitro:
                         try:
                             NSNitroResponse(e.read())
                         except AttributeError:
-                            raise NSNitroError("Could not get resource: %s, %s" % (e.code, e.message))
+                            raise NSNitroError("Could not get resource: %s, %s" % (e.code, e.reason))
 
                 return NSNitroResponse(response.read())
 
@@ -116,7 +116,7 @@ class NSNitro:
                         try:
                             NSNitroResponse(e.read())
                         except AttributeError:
-                            raise NSNitroError("Could not send delete request: %s, %s" % (e.code, e.message))
+                            raise NSNitroError("Could not send delete request: %s, %s" % (e.code, e.reason))
 
                 return NSNitroResponse(response.read())
 
