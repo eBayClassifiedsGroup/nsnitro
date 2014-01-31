@@ -39,6 +39,9 @@ class NSNitroResponse:
                     return []
 
         def _raise_exception(self):
-                '''Raises exceptions, if it has a more specific mapping if not it raises NSNitroError'''
-                exception_class = NSNitroExceptionsMap[self.errorcode]
+                """
+                    Lookup specific exception based on errorcode in response,
+                    if that fails raises NSNitroError.
+                """
+                exception_class = NSNitroExceptionClassMap[self.errorcode]
                 raise exception_class(self.message, self.errorcode)

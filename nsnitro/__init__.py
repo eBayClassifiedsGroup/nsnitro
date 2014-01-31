@@ -1,6 +1,9 @@
 from nsnitro import NSNitro
-from nsutil import NSNitroError, NSNitroResponse
+from nsutil import NSNitroResponse
 from nsresources import *
+from nsexceptions import *
 import nsresources
-__all__ = ['NSNitro', 'NSNitroError', 'NSNitroResponse' ] + nsresources.__all__
+import nsexceptions
+
+__all__ = ['NSNitro', 'NSNitroResponse' ] + nsresources.__all__ + nsexceptions.__all__
 __import__("pkg_resources").declare_namespace(__name__)
