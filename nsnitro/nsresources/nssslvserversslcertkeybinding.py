@@ -80,9 +80,12 @@ class NSSSLVServerSSLCertKeyBinding(NSBaseResource):
                 """
                 Use this API to fetch SSL certkey resource of given name.
                 """
-                __resource = NSSSLVServerSSLCertKeyBinding()
-                __resource.get_resource(nitro, resource.get_vservername())
-                return __resource
+                __url = nitro.get_url() + NSSSLVServerSSLCertKeyBinding.get_resourcetype() + "/" + resource.get_vservername()
+                __json_resources = nitro.get(__url).get_response_field(NSSSLVServerSSLCertKeyBinding.get_resourcetype())
+                __resources = []
+                for json_resource in __json_resources:
+                        __resources.append(NSSSLVServerSSLCertKeyBinding(json_resource))
+                return __resources
 
         @staticmethod
         def add(nitro, resource):
