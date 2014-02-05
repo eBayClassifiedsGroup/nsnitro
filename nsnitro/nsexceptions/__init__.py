@@ -286,6 +286,7 @@ from nsexceptions import NSNitroNserrActionInval
 from nsexceptions import NSNitroNserrExprDefSetInval
 from nsexceptions import NSNitroNserrCachegroupResszMinGtMax
 from nsexceptions import NSNitroNserrFiltacionInvalrespcode
+from nsexceptions import NSNitroNserrSvpnCertChallenge
 from nsexceptions import NSNitroNserrCachegroupHostReq
 from nsexceptions import NSNitroNserrCachegroupHostNreq
 from nsexceptions import NSNitroNserrCachegroupDyngrpNexp
@@ -551,6 +552,7 @@ from nsexceptions import NSNitroNserrEof
 from nsexceptions import NSNitroNserrInterrupt
 from nsexceptions import NSNitroNserrInternal
 from nsexceptions import NSNitroNserrNotClip
+from nsexceptions import NSNitroNserrEulaNotaccepted
 from nsexceptions import NSNitroNserrStrmaxlen255
 from nsexceptions import NSNitroNserrStrmaxlen32
 from nsexceptions import NSNitroNserrNoprefixLength
@@ -991,6 +993,9 @@ from nsexceptions import NSNitroNserrSslIssuerMismatch
 from nsexceptions import NSNitroNserrSslSetPolicyActionType
 from nsexceptions import NSNitroNserrSslDtlsNotsupp
 from nsexceptions import NSNitroNserrSslInvalidCnName
+from nsexceptions import NSNitroNserrSslEccNotSupported
+from nsexceptions import NSNitroNserrSslDh2048Insw
+from nsexceptions import NSNitroNserrSslNoProtocolEnabled
 from nsexceptions import NSNitroNserrSslConffile
 from nsexceptions import NSNitroNserrSslNoconffile
 from nsexceptions import NSNitroNserrSslSigfail
@@ -1252,6 +1257,10 @@ from nsexceptions import NSNitroNserrGslbBackupPersDepricated
 from nsexceptions import NSNitroNserrDnsSignfail
 from nsexceptions import NSNitroNserrDnsNeedProxy
 from nsexceptions import NSNitroNserrDnssecOffloadNosupport
+from nsexceptions import NSNitroNserrDns64ActInval
+from nsexceptions import NSNitroNserrDns64NotSupportedVs
+from nsexceptions import NSNitroNserrDns64InvalPrefix
+from nsexceptions import NSNitroNserrGslbDbRepeatRequest
 from nsexceptions import NSNitroNscfgInfo
 from nsexceptions import NSNitroNscsInfo
 from nsexceptions import NSNitroNscsprobeInfo
@@ -1455,6 +1464,8 @@ from nsexceptions import NSNitroNserrIpv6ToomanyPrefixes
 from nsexceptions import NSNitroNserrRaprefixBoundtovlan
 from nsexceptions import NSNitroNserrLbVserverNotBound
 from nsexceptions import NSNitroNserrVserverBoundToNg
+from nsexceptions import NSNitroNserrVpathDestipNotdirect
+from nsexceptions import NSNitroNserrLronlacponly
 from nsexceptions import NSNitroNserrClnotexist
 from nsexceptions import NSNitroNserrToomanycls
 from nsexceptions import NSNitroNserrRmlocalnode
@@ -1587,6 +1598,10 @@ from nsexceptions import NSNitroNserrSamlFormConflict
 from nsexceptions import NSNitroNserrMaxloginFailloginConflict
 from nsexceptions import NSNitroNserrKcdAccountExist
 from nsexceptions import NSNitroNserrKcdAccountNotconfigured
+from nsexceptions import NSNitroNserrNegactionKeytabConflict
+from nsexceptions import NSNitroNserrKeytabInvalidEnc
+from nsexceptions import NSNitroNserrKcdaccountKeytab
+from nsexceptions import NSNitroNserrKcdaccountRealm
 from nsexceptions import NSNitroNserrRwActInval
 from nsexceptions import NSNitroNserrRwUndefactInval
 from nsexceptions import NSNitroNserrActflowmismatch
@@ -1929,6 +1944,8 @@ from nsexceptions import NSNitroNserrAsSigMissingMaxMatchLen
 from nsexceptions import NSNitroNserrAsNotAllowedContentType
 from nsexceptions import NSNitroNserrAsTotalImportSizeLimitExceeded
 from nsexceptions import NSNitroNserrAsMaxTotalImportLimitExceeded
+from nsexceptions import NSNitroNserrAsSqlwildcharInvalidAttribute
+from nsexceptions import NSNitroNserrAsWildcharLiteralExceedMaxlen
 from nsexceptions import NSNitroNserrNoSuchProfile
 from nsexceptions import NSNitroNserrProfileInUse
 from nsexceptions import NSNitroNserrInterfaceBound
@@ -1994,6 +2011,8 @@ from nsexceptions import NSNitroNserrBandwidthlimit
 from nsexceptions import NSNitroNserr10gdacSpeedlimit
 from nsexceptions import NSNitroNserrKvmLacpCaution
 from nsexceptions import NSNitroNserrLaSlaveLimit
+from nsexceptions import NSNitroNserrVpathIncompatibleIp
+from nsexceptions import NSNitroNserrVpathGwNa
 
 __all__ = ['NSNitroError',
            'NSNitroExceptionClassMap',
@@ -2283,6 +2302,7 @@ __all__ = ['NSNitroError',
            'NSNitroNserrExprDefSetInval',
            'NSNitroNserrCachegroupResszMinGtMax',
            'NSNitroNserrFiltacionInvalrespcode',
+           'NSNitroNserrSvpnCertChallenge',
            'NSNitroNserrCachegroupHostReq',
            'NSNitroNserrCachegroupHostNreq',
            'NSNitroNserrCachegroupDyngrpNexp',
@@ -2548,6 +2568,7 @@ __all__ = ['NSNitroError',
            'NSNitroNserrInterrupt',
            'NSNitroNserrInternal',
            'NSNitroNserrNotClip',
+           'NSNitroNserrEulaNotaccepted',
            'NSNitroNserrStrmaxlen255',
            'NSNitroNserrStrmaxlen32',
            'NSNitroNserrNoprefixLength',
@@ -2988,6 +3009,9 @@ __all__ = ['NSNitroError',
            'NSNitroNserrSslSetPolicyActionType',
            'NSNitroNserrSslDtlsNotsupp',
            'NSNitroNserrSslInvalidCnName',
+           'NSNitroNserrSslEccNotSupported',
+           'NSNitroNserrSslDh2048Insw',
+           'NSNitroNserrSslNoProtocolEnabled',
            'NSNitroNserrSslConffile',
            'NSNitroNserrSslNoconffile',
            'NSNitroNserrSslSigfail',
@@ -3249,6 +3273,10 @@ __all__ = ['NSNitroError',
            'NSNitroNserrDnsSignfail',
            'NSNitroNserrDnsNeedProxy',
            'NSNitroNserrDnssecOffloadNosupport',
+           'NSNitroNserrDns64ActInval',
+           'NSNitroNserrDns64NotSupportedVs',
+           'NSNitroNserrDns64InvalPrefix',
+           'NSNitroNserrGslbDbRepeatRequest',
            'NSNitroNscfgInfo',
            'NSNitroNscsInfo',
            'NSNitroNscsprobeInfo',
@@ -3452,6 +3480,8 @@ __all__ = ['NSNitroError',
            'NSNitroNserrRaprefixBoundtovlan',
            'NSNitroNserrLbVserverNotBound',
            'NSNitroNserrVserverBoundToNg',
+           'NSNitroNserrVpathDestipNotdirect',
+           'NSNitroNserrLronlacponly',
            'NSNitroNserrClnotexist',
            'NSNitroNserrToomanycls',
            'NSNitroNserrRmlocalnode',
@@ -3584,6 +3614,10 @@ __all__ = ['NSNitroError',
            'NSNitroNserrMaxloginFailloginConflict',
            'NSNitroNserrKcdAccountExist',
            'NSNitroNserrKcdAccountNotconfigured',
+           'NSNitroNserrNegactionKeytabConflict',
+           'NSNitroNserrKeytabInvalidEnc',
+           'NSNitroNserrKcdaccountKeytab',
+           'NSNitroNserrKcdaccountRealm',
            'NSNitroNserrRwActInval',
            'NSNitroNserrRwUndefactInval',
            'NSNitroNserrActflowmismatch',
@@ -3926,6 +3960,8 @@ __all__ = ['NSNitroError',
            'NSNitroNserrAsNotAllowedContentType',
            'NSNitroNserrAsTotalImportSizeLimitExceeded',
            'NSNitroNserrAsMaxTotalImportLimitExceeded',
+           'NSNitroNserrAsSqlwildcharInvalidAttribute',
+           'NSNitroNserrAsWildcharLiteralExceedMaxlen',
            'NSNitroNserrNoSuchProfile',
            'NSNitroNserrProfileInUse',
            'NSNitroNserrInterfaceBound',
@@ -3991,4 +4027,6 @@ __all__ = ['NSNitroError',
            'NSNitroNserr10gdacSpeedlimit',
            'NSNitroNserrKvmLacpCaution',
            'NSNitroNserrLaSlaveLimit',
+           'NSNitroNserrVpathIncompatibleIp',
+           'NSNitroNserrVpathGwNa',
           ]

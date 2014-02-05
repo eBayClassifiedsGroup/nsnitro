@@ -2338,6 +2338,14 @@ class NSNitroNserrFiltacionInvalrespcode(NSNitroCrErrors):
     pass
 
 
+class NSNitroNserrSvpnCertChallenge(NSNitroCrErrors):
+    """
+        Nitro error code 571
+        Destination Server challenged for a client certificate
+    """
+    pass
+
+
 class NSNitroNserrCachegroupHostReq(NSNitroCrErrors):
     """
         Nitro error code 576
@@ -4566,6 +4574,15 @@ class NSNitroNserrNotClip(NSNitroCliErrors):
         You are connected to NSIP of a cluster node; configuration
         changes made in this session will not be propagated to,  or
         saved on,  other cluster nodes
+    """
+    pass
+
+
+class NSNitroNserrEulaNotaccepted(NSNitroCliErrors):
+    """
+        Nitro error code 1045
+        End User License Agreement not accepted. Login from CLI/GUI to
+        accept it.
     """
     pass
 
@@ -8232,6 +8249,32 @@ class NSNitroNserrSslInvalidCnName(NSNitroSsl2Errors):
     pass
 
 
+class NSNitroNserrSslEccNotSupported(NSNitroSsl2Errors):
+    """
+        Nitro error code 3673
+        ECDHE ciphers supported only on FE SSL entities on N3 MPX.
+    """
+    pass
+
+
+class NSNitroNserrSslDh2048Insw(NSNitroSsl2Errors):
+    """
+        Nitro error code 3674
+        DH-2048bit with TLS is not accelerated in crypto hardware on
+        this platform. It is not recommended to configure DH-2048bit on
+        this platform.
+    """
+    pass
+
+
+class NSNitroNserrSslNoProtocolEnabled(NSNitroSsl2Errors):
+    """
+        Nitro error code 3675
+        SSL or TLS protocols not enabled on the service.
+    """
+    pass
+
+
 class NSNitroGentoolErrors(NSNitroError):
     """
         Base exception class NSNitroGentoolErrors
@@ -10379,6 +10422,39 @@ class NSNitroNserrDnssecOffloadNosupport(NSNitroGslbErrors):
     pass
 
 
+class NSNitroNserrDns64ActInval(NSNitroGslbErrors):
+    """
+        Nitro error code 2014
+        Invalid DNS64 action.
+    """
+    pass
+
+
+class NSNitroNserrDns64NotSupportedVs(NSNitroGslbErrors):
+    """
+        Nitro error code 2015
+        Specified policy can be bound only to DNS/DNS_TCP vserver.
+    """
+    pass
+
+
+class NSNitroNserrDns64InvalPrefix(NSNitroGslbErrors):
+    """
+        Nitro error code 2016
+        Specified Prefix is either not allowed or Prefix length is not
+        96.
+    """
+    pass
+
+
+class NSNitroNserrGslbDbRepeatRequest(NSNitroGslbErrors):
+    """
+        Nitro error code 2017
+        Location database request need to be repeated
+    """
+    pass
+
+
 class NSNitroSvpnErrors(NSNitroError):
     """
         Base exception class NSNitroSvpnErrors
@@ -12081,6 +12157,22 @@ class NSNitroNserrVserverBoundToNg(NSNitro0x900Errors):
     pass
 
 
+class NSNitroNserrVpathDestipNotdirect(NSNitro0x900Errors):
+    """
+        Nitro error code 2381
+        Destination IPaddress should be directly connected
+    """
+    pass
+
+
+class NSNitroNserrLronlacponly(NSNitro0x900Errors):
+    """
+        Nitro error code 2382
+        Link Redundancy can be set only on LACP Channels
+    """
+    pass
+
+
 class NSNitroClusterErrors(NSNitroError):
     """
         Base exception class NSNitroClusterErrors
@@ -12164,7 +12256,7 @@ class NSNitroNserrBkplanedisabled(NSNitroClusterErrors):
 class NSNitroNserrClagthroughput(NSNitroClusterErrors):
     """
         Nitro error code 2457
-        Currently throughput setting is not allowed on CLAG
+        Currently throughput settings are not allowed on CLAG
     """
     pass
 
@@ -13187,6 +13279,41 @@ class NSNitroNserrKcdAccountNotconfigured(NSNitroSslvpnAaaErrors):
     pass
 
 
+class NSNitroNserrNegactionKeytabConflict(NSNitroSslvpnAaaErrors):
+    """
+        Nitro error code 2711
+        Action should have either keytab file or both username and
+        password
+    """
+    pass
+
+
+class NSNitroNserrKeytabInvalidEnc(NSNitroSslvpnAaaErrors):
+    """
+        Nitro error code 2712
+        Unsupported encryption type in keytab file
+    """
+    pass
+
+
+class NSNitroNserrKcdaccountKeytab(NSNitroSslvpnAaaErrors):
+    """
+        Nitro error code 2713
+        Keytab file cannot be specified along with other parameters in
+        kcdaccount
+    """
+    pass
+
+
+class NSNitroNserrKcdaccountRealm(NSNitroSslvpnAaaErrors):
+    """
+        Nitro error code 2714
+        Realm is a mandatory argument. When specified,  it should not be
+        present in delegated username
+    """
+    pass
+
+
 class NSNitroRewriteErrors(NSNitroError):
     """
         Base exception class NSNitroRewriteErrors
@@ -13959,7 +14086,7 @@ class NSNitroNserrPolicyFlowtypeNone(NSNitroPiErrors):
 class NSNitroNserrInvalPriority(NSNitroPiErrors):
     """
         Nitro error code 3090
-        Priority should be non-zero
+        Priority should be in the range from 1 to 2147483647
     """
     pass
 
@@ -16032,6 +16159,23 @@ class NSNitroNserrAsMaxTotalImportLimitExceeded(NSNitroAsErrors):
     pass
 
 
+class NSNitroNserrAsSqlwildcharInvalidAttribute(NSNitroAsErrors):
+    """
+        Nitro error code 3339
+        Imported signatures has invalid wild char attributes.
+    """
+    pass
+
+
+class NSNitroNserrAsWildcharLiteralExceedMaxlen(NSNitroAsErrors):
+    """
+        Nitro error code 3340
+        Maximum allowed length for type \"LITERAL\" for wild char
+        exceeded.
+    """
+    pass
+
+
 class NSNitroCvpnErrors(NSNitroError):
     """
         Base exception class NSNitroCvpnErrors
@@ -16658,6 +16802,29 @@ class NSNitroSpottedConfigErrors(NSNitroError):
     pass
 
 
+class NSNitroVpathErrors(NSNitroError):
+    """
+        Base exception class NSNitroVpathErrors
+    """
+    pass
+
+
+class NSNitroNserrVpathIncompatibleIp(NSNitroVpathErrors):
+    """
+        Nitro error code 4032
+        Destination and Gateway ip should be of same type
+    """
+    pass
+
+
+class NSNitroNserrVpathGwNa(NSNitroVpathErrors):
+    """
+        Nitro error code 4033
+        Gateway not applicable with this encap mode
+    """
+    pass
+
+
 class NSNitroWarningErrors(NSNitroError):
     """
         Base exception class NSNitroWarningErrors
@@ -16953,6 +17120,7 @@ NSNitroExceptions = {
     568: NSNitroNserrExprDefSetInval,
     569: NSNitroNserrCachegroupResszMinGtMax,
     570: NSNitroNserrFiltacionInvalrespcode,
+    571: NSNitroNserrSvpnCertChallenge,
     576: NSNitroNserrCachegroupHostReq,
     577: NSNitroNserrCachegroupHostNreq,
     578: NSNitroNserrCachegroupDyngrpNexp,
@@ -17218,6 +17386,7 @@ NSNitroExceptions = {
     1042: NSNitroNserrInterrupt,
     1043: NSNitroNserrInternal,
     1044: NSNitroNserrNotClip,
+    1045: NSNitroNserrEulaNotaccepted,
     1048: NSNitroNserrStrmaxlen255,
     1049: NSNitroNserrStrmaxlen32,
     1050: NSNitroNserrNoprefixLength,
@@ -17658,6 +17827,9 @@ NSNitroExceptions = {
     3670: NSNitroNserrSslSetPolicyActionType,
     3671: NSNitroNserrSslDtlsNotsupp,
     3672: NSNitroNserrSslInvalidCnName,
+    3673: NSNitroNserrSslEccNotSupported,
+    3674: NSNitroNserrSslDh2048Insw,
+    3675: NSNitroNserrSslNoProtocolEnabled,
     1601: NSNitroNserrSslConffile,
     1602: NSNitroNserrSslNoconffile,
     1603: NSNitroNserrSslSigfail,
@@ -17919,6 +18091,10 @@ NSNitroExceptions = {
     2011: NSNitroNserrDnsSignfail,
     2012: NSNitroNserrDnsNeedProxy,
     2013: NSNitroNserrDnssecOffloadNosupport,
+    2014: NSNitroNserrDns64ActInval,
+    2015: NSNitroNserrDns64NotSupportedVs,
+    2016: NSNitroNserrDns64InvalPrefix,
+    2017: NSNitroNserrGslbDbRepeatRequest,
     2049: NSNitroNscfgInfo,
     2050: NSNitroNscsInfo,
     2051: NSNitroNscsprobeInfo,
@@ -18122,6 +18298,8 @@ NSNitroExceptions = {
     2378: NSNitroNserrRaprefixBoundtovlan,
     2379: NSNitroNserrLbVserverNotBound,
     2380: NSNitroNserrVserverBoundToNg,
+    2381: NSNitroNserrVpathDestipNotdirect,
+    2382: NSNitroNserrLronlacponly,
     2448: NSNitroNserrClnotexist,
     2449: NSNitroNserrToomanycls,
     2450: NSNitroNserrRmlocalnode,
@@ -18254,6 +18432,10 @@ NSNitroExceptions = {
     2708: NSNitroNserrMaxloginFailloginConflict,
     2709: NSNitroNserrKcdAccountExist,
     2710: NSNitroNserrKcdAccountNotconfigured,
+    2711: NSNitroNserrNegactionKeytabConflict,
+    2712: NSNitroNserrKeytabInvalidEnc,
+    2713: NSNitroNserrKcdaccountKeytab,
+    2714: NSNitroNserrKcdaccountRealm,
     2817: NSNitroNserrRwActInval,
     2818: NSNitroNserrRwUndefactInval,
     2819: NSNitroNserrActflowmismatch,
@@ -18596,6 +18778,8 @@ NSNitroExceptions = {
     3334: NSNitroNserrAsNotAllowedContentType,
     3335: NSNitroNserrAsTotalImportSizeLimitExceeded,
     3336: NSNitroNserrAsMaxTotalImportLimitExceeded,
+    3339: NSNitroNserrAsSqlwildcharInvalidAttribute,
+    3340: NSNitroNserrAsWildcharLiteralExceedMaxlen,
     3248: NSNitroNserrNoSuchProfile,
     3249: NSNitroNserrProfileInUse,
     3329: NSNitroNserrInterfaceBound,
@@ -18661,5 +18845,7 @@ NSNitroExceptions = {
     3981: NSNitroNserr10gdacSpeedlimit,
     3982: NSNitroNserrKvmLacpCaution,
     3983: NSNitroNserrLaSlaveLimit,
+    4032: NSNitroNserrVpathIncompatibleIp,
+    4033: NSNitroNserrVpathGwNa,
 }
 NSNitroExceptionClassMap.update(NSNitroExceptions)
