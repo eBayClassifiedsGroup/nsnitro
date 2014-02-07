@@ -118,6 +118,12 @@ class NSSSLCertKey(NSBaseResource):
         def get_nodomaincheck(self):
                 return self.options['nodomaincheck']
 
+        def set_passcrypt(self, passcrypt):
+                self.options['passcrypt'] = passcrypt
+
+        def get_passcrypt(self):
+                return self.options['passcrypt']
+
         def get_signaturealg(self):
                 return self.options['signaturealg']
 
@@ -153,9 +159,6 @@ class NSSSLCertKey(NSBaseResource):
 
         def get_status(self):
                 return self.options['status']
-
-        def get_passcrypt(self):
-                return self.options['passcrypt']
 
         def get_data(self):
                 return self.options['data']
@@ -197,6 +200,7 @@ class NSSSLCertKey(NSBaseResource):
                 __resource.set_fipskey(resource.get_fipskey())
                 __resource.set_inform(resource.get_inform())
                 __resource.set_passplain(resource.get_passplain())
+                __resource.set_passcrypt(resource.get_passcrypt())
                 __resource.set_expirymonitor(resource.get_expirymonitor())
                 __resource.set_notificationperiod(resource.get_notificationperiod())
                 return __resource.add_resource(nitro)
