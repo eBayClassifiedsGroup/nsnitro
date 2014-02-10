@@ -16,6 +16,7 @@ from nsnitro.nsresources.nscsvserver import NSCSVServer
 from nsnitro.nsresources.nsacl import NSAcl
 from nsnitro.nsresources.nsacls import NSAcls
 from nsnitro.nsresources.nshanode import NSHANode
+from nsnitro.nsresources.nsservicegroupserverbinding import NSServiceGroupServerBinding
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
