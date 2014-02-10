@@ -83,6 +83,10 @@ if __name__ == "__main__":
         parser.add_argument('--clearacls', action='store_true', help='clear acls')
         parser.add_argument('--renumberacls', action='store_true', help='renumber acls')
 
+        parser.add_argument('--bindservertoservicegroup', action='store_true', help='bind a server to a service group')
+        parser.add_argument('--servername', action='store', help='server object to manipulate')
+        parser.add_argument('--servicegroupname', action='store', help='service group object to manipulate')
+
         args = parser.parse_args()
 
         if args.dargs:
@@ -93,6 +97,13 @@ if __name__ == "__main__":
 
         try:
                 nitro.login()
+
+                if args.bindservertoservicegroup:
+                  if not args.servername or not args.servicegroupname:
+                    print "--servername and --servicename are required for binding a server to a service group"
+                  else:
+                    print "STUB - bound server %s to service group %s" % (args.servername, args.servicegroupname)
+  
 
                 if args.addlbvserver:
                         if not args.port or not args.ip:
