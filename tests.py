@@ -319,9 +319,9 @@ class test_nitro:
 
         def add_rewriteaction(self):
                 asdf = NSRewriteAction()
-                asdf.set_name("insert-X-eBay-Client-IP")
+                asdf.set_name("bla")
                 asdf.set_type("insert_http_header")
-                asdf.set_target("X-eBay-Client-IP")
+                asdf.set_target("ble")
                 asdf.set_stringbuilderexpr("CLIENT.IP.SRC")
                 NSRewriteAction.add(self.nitro, asdf)
 
