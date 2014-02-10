@@ -86,6 +86,7 @@ if __name__ == "__main__":
         parser.add_argument('--bindservertoservicegroup', action='store_true', help='bind a server to a service group')
         parser.add_argument('--servername', action='store', help='server object to manipulate')
         parser.add_argument('--servicegroupname', action='store', help='service group object to manipulate')
+        parser.add_argument('--serviceport', action='store', help='service port')
 
         args = parser.parse_args()
 
@@ -99,11 +100,19 @@ if __name__ == "__main__":
                 nitro.login()
 
                 if args.bindservertoservicegroup:
-                  if not args.servername or not args.servicegroupname:
-                    print "--servername and --servicename are required for binding a server to a service group"
+                  if not args.servername or not args.servicegroupname or not args.serviceport: 
+                    print "--servername, --servicename, and --serviceport are required for binding a server to a service group"
+                    nitro.logout()
+                    sys.exit(0)
                   else:
-                    print "STUB - bound server %s to service group %s" % (args.servername, args.servicegroupname)
-  
+                    #print "STUB - bound server %s to service group %s" % (args.servername, args.servicegroupname)
+                    svcgrpbinding=NSServiceGroupServerBinding()
+                    svcgrpbinding.set_servername(args.servername)
+                    svcgrpbinding.set_servicegroupname(args.servicegroupname)
+                    svcgrpbinding.set_port(args.serviceport)
+                    NSServiceGroupServerBinding.add(nitro, svcgrpbinding)
+                    print "bound server %s to service group %s" % (args.servername, args.servicegroupname)
+                    
 
                 if args.addlbvserver:
                         if not args.port or not args.ip:
