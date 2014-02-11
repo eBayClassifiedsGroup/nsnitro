@@ -177,3 +177,40 @@ try:
         print server.get_name() + ": " + server.get_state()
 except NSNitroError, e:
         print e.message
+
+
+# add a snmp community string
+addsnmpstring = SNMPCommunity()
+addsnmpstring.set_communityname('nitroExample')
+addsnmpstring.set_permissions('GET')
+
+SNMPCommunity.add(nitro, addsnmpstring)
+
+# get the community string
+snmpstring = SNMPCommunity.get(nitro, 'nitroExample')
+
+# get all the community strings
+snmpstrings = SNMPCommunity.get_all(nitro)
+
+# delete the community string that was initially added
+SNMPCommunity.delete(nitro, addsnmpstring)
+
+# Add a test user
+test_user = SystemUser({'username' : 'nsnitro-example', 'password' : 'test123'})
+SystemUser.add(nitro, test_user)
+
+# Get all the users
+users = SystemUser.get_all(nitro)
+
+# Get a user
+user = SystemUser.get(nitro, test_user)
+
+# Update the password of a user
+SystemUser.update(nitro, SystemUser({'username' : 'nsnitro-example', 'password' :'321test'}))
+
+# Delete the test user
+SystemUser.delete(nitro, test_user)
+
+
+# Get the ns version
+nsversion = NSVersion().get(nitro)

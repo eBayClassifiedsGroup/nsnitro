@@ -28,6 +28,7 @@ from nshanode import NSHANode
 from nsip import NSIP
 from nsiptunnel import NSIPTunnel
 from nsroute import NSRoute
+from nsversion import NSVersion
 from nsvlan import NSVLAN
 from nsvlaninterfacebinding import NSVLANInterfaceBinding
 from nsvlannsipbinding import NSVLANNSIPBinding
@@ -42,6 +43,8 @@ from nspbr import NSPbr
 from nspbrs import NSPbrs
 from authenticationtacacsaction import AuthTacacsAction
 from authenticationtacacspolicy import AuthTacacsPolicy
+from snmpcommunity import SNMPCommunity
+from systemuser import SystemUser
 from systemglobalauthenticationtacacspolicybinding import SystemGlobalAuthTacacsPolicyBinding
 
 __all__ = ['NSBaseResource',
@@ -74,6 +77,7 @@ __all__ = ['NSBaseResource',
            'NSIP',
            'NSIPTunnel',
            'NSRoute',
+           'NSVersion',
            'NSVLAN',
            'NSVLANInterfaceBinding',
            'NSVLANNSIPBinding',
@@ -88,5 +92,7 @@ __all__ = ['NSBaseResource',
            'NSPbrs',
            'AuthTacacsAction',
            'AuthTacacsPolicy',
-           'SystemGlobalAuthTacacsPolicyBinding'
+           'SNMPCommunity',
+           'SystemGlobalAuthTacacsPolicyBinding',
+           'SystemUser'
            ]
