@@ -206,7 +206,7 @@ users = SystemUser.get_all(nitro)
 user = SystemUser.get(nitro, test_user)
 
 # Update the password of a user
-updated_user = SystemUser.update(nitro, SystemUser({'username' : 'nsnitro-example', 'password' :'321test'}))
+SystemUser.update(nitro, SystemUser({'username' : 'nsnitro-example', 'password' :'321test'}))
 
 # Delete the test user
 SystemUser.delete(nitro, test_user)
