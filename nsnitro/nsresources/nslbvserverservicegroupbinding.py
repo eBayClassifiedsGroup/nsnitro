@@ -1,5 +1,4 @@
-
-m nsbaseresource import NSBaseResource
+from nsbaseresource import NSBaseResource
 __author__ = 'ptravers'
 
 class NSLBVServerServiceGroupBinding(NSBaseResource):
