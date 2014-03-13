@@ -311,6 +311,11 @@ class NSIP(NSBaseResource):
                 return __ip.perform_operation(nitro, "disable")
 
         @staticmethod
+        def get(nitro, ip):
+                __url = nitro.get_url() + NSIP.get_resourcetype() + "/" + ip.get_ipaddress()
+                return nitro.get(__url).get_response_field(NSIP.get_resourcetype())[0]
+
+        @staticmethod
         def get_all(nitro):
                 """
                 Use this API to fetch all nsip resources that are configured on netscaler.
