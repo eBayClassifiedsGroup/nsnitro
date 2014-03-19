@@ -237,7 +237,7 @@ class NSSSLVServer(NSBaseResource):
                 """
                 self.options['cipherurl'] = cipherurl
 
-        def get_cipherurl(self, cipherurl):
+        def get_cipherurl(self):
                 """
                 The redirect URL to be used with the Cipher Redirect feature.
                 """
