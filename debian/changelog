@@ -1,3 +1,9 @@
+nsnitro (1.0.32) unstable; urgency=low
+
+  * Removed namespace declaration to prevent import warnings.
+
+ -- vlazarenko <vlazarenko@squeeze.par>  Wed, 19 Mar 2014 09:53:05 +0100
+
 nsnitro (1.0.31) unstable; urgency=low
 
   * NSLBVserverServiceBinding fix
