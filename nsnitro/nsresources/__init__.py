@@ -5,6 +5,7 @@ from nscsvserver import NSCSVServer
 from nscsvservercspolicybinding import NSCSVServerCSPolicyBinding
 from nscsvserverresponderpolicybinding import NSCSVServerResponderPolicyBinding
 from nscsvserverrewritepolicybinding import NSCSVServerRewritePolicyBinding
+from nslbmonitor import NSLBMonitor
 from nslbvserver import NSLBVServer
 from nslbvserverservicebinding import NSLBVServerServiceBinding
 from nslbvserverservicegroupbinding import NSLBVServerServiceGroupBinding
@@ -55,6 +56,7 @@ __all__ = ['NSBaseResource',
            'NSCSVServerCSPolicyBinding',
            'NSCSVServerResponderPolicyBinding',
            'NSCSVServerRewritePolicyBinding',
+           'NSLBMonitor',
            'NSLBVServer',
            'NSLBVServerServiceBinding',
            'NSLBVServerServiceGroupBinding',
