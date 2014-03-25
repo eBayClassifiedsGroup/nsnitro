@@ -10,3 +10,5 @@ nsnitro.egg-info
 *.pyc
 moo.py
 *.swp
+
+*.sublime-workspace
