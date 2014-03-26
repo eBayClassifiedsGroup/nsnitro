@@ -75,7 +75,7 @@ lbbinding.set_name("nitro_lbvserver_test")
 lbbindings = NSLBVServerServiceBinding.get(nitro, lbbinding)
 
 for lbb in lbbindings:
-        print "sgn: " + lbb.get_servicegroupname()
+    print "sgn: " + lbb.get_servicegroupname()
 
 # delete binding test
 lbbinding = NSLBVServerServiceBinding()
@@ -98,7 +98,7 @@ service = service.get(nitro, service)
 print service.get_name() + ": " + service.get_svrstate()
 print service.get_name() + ": %s %s" % (service.get_port(), service.get_useproxyport())
 
-#update service test
+# update service test
 updateservice = NSService()
 updateservice.set_name("aurora_testnitroadd")
 updateservice.set_comment("test comment")
@@ -157,12 +157,12 @@ delservice.set_name("aurora_testnitroadd")
 NSService.delete(nitro, delservice)
 
 try:
-        service = NSService()
-        service.set_name("aurora_testnitroadd")
-        service = service.get(nitro, service)
-        print service.get_name() + ": " + service.get_svrstate()
+    service = NSService()
+    service.set_name("aurora_testnitroadd")
+    service = service.get(nitro, service)
+    print service.get_name() + ": " + service.get_svrstate()
 except NSNitroError, e:
-        print e.message
+    print e.message
 
 
 # delete server test
@@ -171,12 +171,12 @@ delserver.set_name("mp-nitroserver")
 NSServer.delete(nitro, delserver)
 
 try:
-        server = NSServer()
-        server.set_name("mp-nitroserver")
-        server = server.get(nitro, server)
-        print server.get_name() + ": " + server.get_state()
+    server = NSServer()
+    server.set_name("mp-nitroserver")
+    server = server.get(nitro, server)
+    print server.get_name() + ": " + server.get_state()
 except NSNitroError, e:
-        print e.message
+    print e.message
 
 
 # add a snmp community string
@@ -196,7 +196,7 @@ snmpstrings = SNMPCommunity.get_all(nitro)
 SNMPCommunity.delete(nitro, addsnmpstring)
 
 # Add a test user
-test_user = SystemUser({'username' : 'nsnitro-example', 'password' : 'test123'})
+test_user = SystemUser({'username': 'nsnitro-example', 'password': 'test123'})
 SystemUser.add(nitro, test_user)
 
 # Get all the users
@@ -206,7 +206,8 @@ users = SystemUser.get_all(nitro)
 user = SystemUser.get(nitro, test_user)
 
 # Update the password of a user
-SystemUser.update(nitro, SystemUser({'username' : 'nsnitro-example', 'password' :'321test'}))
+SystemUser.update(
+    nitro, SystemUser({'username': 'nsnitro-example', 'password': '321test'}))
 
 # Delete the test user
 SystemUser.delete(nitro, test_user)

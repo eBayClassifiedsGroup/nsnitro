@@ -2,70 +2,71 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSServiceGroup(NSBaseResource):
 
-    def __init__(self, json_data = None):
+    def __init__(self, json_data=None):
         """
         Supplied with json_data the object can be pre-filled
         """
         super(NSServiceGroup, self).__init__()
 
         self.options = {
-            'servicegroupname' : '',
-            'servicetype' : '',
-            'cachetype' : '',
-            'maxclient' : '',
-            'maxreq' : '',
-            'cacheable' : '',
-            'cip' : '',
-            'cipheader' : '',
-            'usip' : '',
-            'useproxyport' : '',
-            'sc' : '',
-            'sp' : '',
-            'rtspsessionidremap' : '',
-            'clttimeout' : '',
-            'svrtimeout' : '',
-            'cka' : '',
-            'tcpb' : '',
-            'cmp' : '',
-            'maxbandwidth' : '',
-            'monthreshold' : '',
-            'state' : '',
-            'downstateflush' : '',
-            'tcpprofilename' : '',
-            'httpprofilename' : '',
-            'comment' : '',
-            'servername' : '',
-            'port' : '',
-            'weight' : '',
-            'serverid' : '',
-            'monitor_name_svc' : '',
-            'dup_weight' : '',
-            'delay' : '',
-            'includemembers' : '',
-            'newname' : '',
-            'serviceconftype' : '',
-            'value' : '',
-            'svrstate' : '',
-            'ip' : '',
-            'monitostate' : '',
-            'monstatcode' : '',
-            'monstatparam1' : '',
-            'monstatparam2' : '',
-            'monstatparam3' : '',
-            'statechangetimesec' : '',
-            'statechangetimemsec' : '',
-            'timesincelaststatechange' : '',
-            'tickssincelaststatechange' : '',
-            'stateupdatereason' : '',
-            'groupcount' : '',
-            }
+            'servicegroupname': '',
+            'servicetype': '',
+            'cachetype': '',
+            'maxclient': '',
+            'maxreq': '',
+            'cacheable': '',
+            'cip': '',
+            'cipheader': '',
+            'usip': '',
+            'useproxyport': '',
+            'sc': '',
+            'sp': '',
+            'rtspsessionidremap': '',
+            'clttimeout': '',
+            'svrtimeout': '',
+            'cka': '',
+            'tcpb': '',
+            'cmp': '',
+            'maxbandwidth': '',
+            'monthreshold': '',
+            'state': '',
+            'downstateflush': '',
+            'tcpprofilename': '',
+            'httpprofilename': '',
+            'comment': '',
+            'servername': '',
+            'port': '',
+            'weight': '',
+            'serverid': '',
+            'monitor_name_svc': '',
+            'dup_weight': '',
+            'delay': '',
+            'includemembers': '',
+            'newname': '',
+            'serviceconftype': '',
+            'value': '',
+            'svrstate': '',
+            'ip': '',
+            'monitostate': '',
+            'monstatcode': '',
+            'monstatparam1': '',
+            'monstatparam2': '',
+            'monstatparam3': '',
+            'statechangetimesec': '',
+            'statechangetimemsec': '',
+            'timesincelaststatechange': '',
+            'tickssincelaststatechange': '',
+            'stateupdatereason': '',
+            'groupcount': '',
+        }
 
         if not (json_data is None):
             for key in json_data.keys():
                 if self.options.has_key(key):
-                    self.options[key]=json_data[key]
+                    self.options[key] = json_data[key]
 
         self.resourcetype = NSServiceGroup.get_resourcetype()
 
@@ -329,7 +330,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to disable servicegroup.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.set_delay(servicegroup.get_delay())
         return __servicegroup.perform_operation(nitro, "disable")
 
@@ -339,7 +341,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to enable servicegroup.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         return __servicegroup.perform_operation(nitro, "enable")
 
     @staticmethod
@@ -348,7 +351,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to disable server within servicegroup (Not globally).
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.set_servername(servicegroup.get_servername())
         __servicegroup.set_port(servicegroup.get_port())
         __servicegroup.set_delay(servicegroup.get_delay())
@@ -360,7 +364,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to enable server within servicegroup (Not globally).
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.set_servername(servicegroup.get_servername())
         __servicegroup.set_port(servicegroup.get_port())
         return __servicegroup.perform_operation(nitro, "enable")
@@ -371,7 +376,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to rename servicegroup.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.set_newname(servicegroup.get_newname())
         return __servicegroup.perform_operation(nitro, "rename")
 
@@ -381,7 +387,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to fetch servicegroup resource of given name.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.get_resource(nitro, servicegroup.get_servicegroupname())
         return __servicegroup
 
@@ -391,7 +398,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to fetch all configured servicegroup resources.
         """
         __url = nitro.get_url() + NSServiceGroup.get_resourcetype()
-        __json_services = nitro.get(__url).get_response_field(NSServiceGroup.get_resourcetype())
+        __json_services = nitro.get(__url).get_response_field(
+            NSServiceGroup.get_resourcetype())
         __servicegroups = []
         for json_service in __json_services:
             __servicegroups.append(NSServiceGroup(json_service))
@@ -402,8 +410,10 @@ class NSServiceGroup(NSBaseResource):
         """
         Use this API to fetch all configured servicegroup members.
         """
-        __url = nitro.get_url() + 'servicegroup_servicegroupmember_binding' + '/' + servicegroup.get_servicegroupname()
-        __json_services = nitro.get(__url).get_response_field('servicegroup_servicegroupmember_binding')
+        __url = nitro.get_url() + 'servicegroup_servicegroupmember_binding' + \
+            '/' + servicegroup.get_servicegroupname()
+        __json_services = nitro.get(__url).get_response_field(
+            'servicegroup_servicegroupmember_binding')
         __servicegroupmembers = []
         for json_service in __json_services:
             __servicegroupmembers.append(NSServiceGroup(json_service))
@@ -415,7 +425,8 @@ class NSServiceGroup(NSBaseResource):
         Use this API to add service.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.set_servicetype(servicegroup.get_servicetype())
         __servicegroup.set_cachetype(servicegroup.get_cachetype())
         __servicegroup.set_maxclient(servicegroup.get_maxclient())
@@ -427,7 +438,8 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup.set_useproxyport(servicegroup.get_useproxyport())
         __servicegroup.set_sc(servicegroup.get_sc())
         __servicegroup.set_sp(servicegroup.get_sp())
-        __servicegroup.set_rtspsessionidremap(servicegroup.get_rtspsessionidremap())
+        __servicegroup.set_rtspsessionidremap(
+            servicegroup.get_rtspsessionidremap())
         __servicegroup.set_clttimeout(servicegroup.get_clttimeout())
         __servicegroup.set_svrtimeout(servicegroup.get_svrtimeout())
         __servicegroup.set_cka(servicegroup.get_cka())
@@ -448,13 +460,14 @@ class NSServiceGroup(NSBaseResource):
         Use this API to update servicegroup.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
         __servicegroup.set_servername(servicegroup.get_servername())
         __servicegroup.set_port(servicegroup.get_port())
         __servicegroup.set_serverid(servicegroup.get_serverid())
-        __servicegroup.set_monitor_name_svc(servicegroup.get_monitor_name_svc())
+        __servicegroup.set_monitor_name_svc(
+            servicegroup.get_monitor_name_svc())
         __servicegroup.set_dup_weight(servicegroup.get_dup_weight())
-
 
         __servicegroup.set_maxclient(servicegroup.get_maxclient())
         __servicegroup.set_maxreq(servicegroup.get_maxreq())
@@ -465,7 +478,8 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup.set_useproxyport(servicegroup.get_useproxyport())
         __servicegroup.set_sc(servicegroup.get_sc())
         __servicegroup.set_sp(servicegroup.get_sp())
-        __servicegroup.set_rtspsessionidremap(servicegroup.get_rtspsessionidremap())
+        __servicegroup.set_rtspsessionidremap(
+            servicegroup.get_rtspsessionidremap())
         __servicegroup.set_clttimeout(servicegroup.get_clttimeout())
         __servicegroup.set_svrtimeout(servicegroup.get_svrtimeout())
         __servicegroup.set_cka(servicegroup.get_cka())
@@ -479,13 +493,14 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup.set_comment(servicegroup.get_comment())
         return __servicegroup.update_resource(nitro)
 
-
     @staticmethod
     def delete(nitro, servicegroup):
         """
         Use this API to delete service of a given name.
         """
         __servicegroup = NSServiceGroup()
-        __servicegroup.set_servicegroupname(servicegroup.get_servicegroupname())
-        nsresponse = __servicegroup.delete_resource(nitro, servicegroup.get_servicegroupname())
+        __servicegroup.set_servicegroupname(
+            servicegroup.get_servicegroupname())
+        nsresponse = __servicegroup.delete_resource(
+            nitro, servicegroup.get_servicegroupname())
         return nsresponse
