@@ -3,7 +3,7 @@ from nsnitro.nsresources.nsservicegroup import NSServiceGroup
 
 __author__ = 'vlazarenko'
 
-nitro = nsnitro.NSNitro("localhost", "api_user", "api_user")
+nitro = nsnitro.NSNitro("localhost","api_user","api_user")
 nitro.login()
 
 svcg = NSServiceGroup()

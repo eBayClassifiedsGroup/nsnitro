@@ -2,9 +2,7 @@ from collections import defaultdict
 
 
 class NSNitroError(Exception):
-
     """ Custom exception class """
-
     def __init__(self, value, code=0):
         self.message = value
         self.code = code
@@ -14,7 +12,6 @@ class NSNitroError(Exception):
 
 
 class NSNitroBaseErrors(NSNitroError):
-
     """
         Base exception class NSNitroBaseErrors
     """
@@ -22,7 +19,6 @@ class NSNitroBaseErrors(NSNitroError):
 
 
 class NSNitroNserrNotrunning(NSNitroBaseErrors):
-
     """
         Nitro error code 256
         NetScaler not running
@@ -31,7 +27,6 @@ class NSNitroNserrNotrunning(NSNitroBaseErrors):
 
 
 class NSNitroNserrPerm(NSNitroBaseErrors):
-
     """
         Nitro error code 257
         Operation not permitted
@@ -40,7 +35,6 @@ class NSNitroNserrPerm(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoent(NSNitroBaseErrors):
-
     """
         Nitro error code 258
         No such resource
@@ -49,7 +43,6 @@ class NSNitroNserrNoent(NSNitroBaseErrors):
 
 
 class NSNitroNserrSrch(NSNitroBaseErrors):
-
     """
         Nitro error code 259
         No such process
@@ -58,7 +51,6 @@ class NSNitroNserrSrch(NSNitroBaseErrors):
 
 
 class NSNitroNserrIntr(NSNitroBaseErrors):
-
     """
         Nitro error code 260
         Interrupted system call
@@ -67,7 +59,6 @@ class NSNitroNserrIntr(NSNitroBaseErrors):
 
 
 class NSNitroNserrIo(NSNitroBaseErrors):
-
     """
         Nitro error code 261
         Input/output error
@@ -76,7 +67,6 @@ class NSNitroNserrIo(NSNitroBaseErrors):
 
 
 class NSNitroNserrNxio(NSNitroBaseErrors):
-
     """
         Nitro error code 262
         Device not configured
@@ -85,7 +75,6 @@ class NSNitroNserrNxio(NSNitroBaseErrors):
 
 
 class NSNitroNserr2big(NSNitroBaseErrors):
-
     """
         Nitro error code 263
         Argument list too long
@@ -94,7 +83,6 @@ class NSNitroNserr2big(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoexec(NSNitroBaseErrors):
-
     """
         Nitro error code 264
         Exec format error
@@ -103,7 +91,6 @@ class NSNitroNserrNoexec(NSNitroBaseErrors):
 
 
 class NSNitroNserrBadf(NSNitroBaseErrors):
-
     """
         Nitro error code 265
         Bad file descriptor
@@ -112,7 +99,6 @@ class NSNitroNserrBadf(NSNitroBaseErrors):
 
 
 class NSNitroNserrChild(NSNitroBaseErrors):
-
     """
         Nitro error code 266
         No child processes
@@ -121,7 +107,6 @@ class NSNitroNserrChild(NSNitroBaseErrors):
 
 
 class NSNitroNserrDeadlk(NSNitroBaseErrors):
-
     """
         Nitro error code 267
         Resource deadlock avoided
@@ -130,7 +115,6 @@ class NSNitroNserrDeadlk(NSNitroBaseErrors):
 
 
 class NSNitroNserrNomem(NSNitroBaseErrors):
-
     """
         Nitro error code 268
         Cannot allocate memory
@@ -139,7 +123,6 @@ class NSNitroNserrNomem(NSNitroBaseErrors):
 
 
 class NSNitroNserrAcces(NSNitroBaseErrors):
-
     """
         Nitro error code 269
         Permission denied
@@ -148,7 +131,6 @@ class NSNitroNserrAcces(NSNitroBaseErrors):
 
 
 class NSNitroNserrFault(NSNitroBaseErrors):
-
     """
         Nitro error code 270
         Bad address
@@ -157,7 +139,6 @@ class NSNitroNserrFault(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotblk(NSNitroBaseErrors):
-
     """
         Nitro error code 271
         Block device required
@@ -166,7 +147,6 @@ class NSNitroNserrNotblk(NSNitroBaseErrors):
 
 
 class NSNitroNserrBusy(NSNitroBaseErrors):
-
     """
         Nitro error code 272
         Device busy
@@ -175,7 +155,6 @@ class NSNitroNserrBusy(NSNitroBaseErrors):
 
 
 class NSNitroNserrExist(NSNitroBaseErrors):
-
     """
         Nitro error code 273
         Resource already exists
@@ -184,7 +163,6 @@ class NSNitroNserrExist(NSNitroBaseErrors):
 
 
 class NSNitroNserrXdev(NSNitroBaseErrors):
-
     """
         Nitro error code 274
         Cross-device link
@@ -193,7 +171,6 @@ class NSNitroNserrXdev(NSNitroBaseErrors):
 
 
 class NSNitroNserrNodev(NSNitroBaseErrors):
-
     """
         Nitro error code 275
         Operation not supported by device
@@ -202,7 +179,6 @@ class NSNitroNserrNodev(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotdir(NSNitroBaseErrors):
-
     """
         Nitro error code 276
         Not a directory
@@ -211,7 +187,6 @@ class NSNitroNserrNotdir(NSNitroBaseErrors):
 
 
 class NSNitroNserrIsdir(NSNitroBaseErrors):
-
     """
         Nitro error code 277
         Is a directory
@@ -220,7 +195,6 @@ class NSNitroNserrIsdir(NSNitroBaseErrors):
 
 
 class NSNitroNserrInval(NSNitroBaseErrors):
-
     """
         Nitro error code 278
         Invalid argument
@@ -229,7 +203,6 @@ class NSNitroNserrInval(NSNitroBaseErrors):
 
 
 class NSNitroNserrNfile(NSNitroBaseErrors):
-
     """
         Nitro error code 279
         Too many open files in system
@@ -238,7 +211,6 @@ class NSNitroNserrNfile(NSNitroBaseErrors):
 
 
 class NSNitroNserrMfile(NSNitroBaseErrors):
-
     """
         Nitro error code 280
         Too many open files
@@ -247,7 +219,6 @@ class NSNitroNserrMfile(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotty(NSNitroBaseErrors):
-
     """
         Nitro error code 281
         Inappropriate ioctl for device
@@ -256,7 +227,6 @@ class NSNitroNserrNotty(NSNitroBaseErrors):
 
 
 class NSNitroNserrTxtbsy(NSNitroBaseErrors):
-
     """
         Nitro error code 282
         Text file busy
@@ -265,7 +235,6 @@ class NSNitroNserrTxtbsy(NSNitroBaseErrors):
 
 
 class NSNitroNserrFbig(NSNitroBaseErrors):
-
     """
         Nitro error code 283
         File too large
@@ -274,7 +243,6 @@ class NSNitroNserrFbig(NSNitroBaseErrors):
 
 
 class NSNitroNserrNospace(NSNitroBaseErrors):
-
     """
         Nitro error code 284
         No space left on device
@@ -283,7 +251,6 @@ class NSNitroNserrNospace(NSNitroBaseErrors):
 
 
 class NSNitroNserrSpipe(NSNitroBaseErrors):
-
     """
         Nitro error code 285
         Illegal seek
@@ -292,7 +259,6 @@ class NSNitroNserrSpipe(NSNitroBaseErrors):
 
 
 class NSNitroNserrRofs(NSNitroBaseErrors):
-
     """
         Nitro error code 286
         Read-only file system
@@ -301,7 +267,6 @@ class NSNitroNserrRofs(NSNitroBaseErrors):
 
 
 class NSNitroNserrMlink(NSNitroBaseErrors):
-
     """
         Nitro error code 287
         Too many links
@@ -310,7 +275,6 @@ class NSNitroNserrMlink(NSNitroBaseErrors):
 
 
 class NSNitroNserrPipe(NSNitroBaseErrors):
-
     """
         Nitro error code 288
         Broken pipe
@@ -319,7 +283,6 @@ class NSNitroNserrPipe(NSNitroBaseErrors):
 
 
 class NSNitroNserrDom(NSNitroBaseErrors):
-
     """
         Nitro error code 289
         Numerical argument out of domain
@@ -328,7 +291,6 @@ class NSNitroNserrDom(NSNitroBaseErrors):
 
 
 class NSNitroNserrRange(NSNitroBaseErrors):
-
     """
         Nitro error code 290
         Result too large
@@ -337,7 +299,6 @@ class NSNitroNserrRange(NSNitroBaseErrors):
 
 
 class NSNitroNserrAgain(NSNitroBaseErrors):
-
     """
         Nitro error code 291
         Resource temporarily unavailable
@@ -346,7 +307,6 @@ class NSNitroNserrAgain(NSNitroBaseErrors):
 
 
 class NSNitroNserrInprogress(NSNitroBaseErrors):
-
     """
         Nitro error code 292
         Operation now in progress
@@ -355,7 +315,6 @@ class NSNitroNserrInprogress(NSNitroBaseErrors):
 
 
 class NSNitroNserrAlready(NSNitroBaseErrors):
-
     """
         Nitro error code 293
         Operation already in progress
@@ -364,7 +323,6 @@ class NSNitroNserrAlready(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotsock(NSNitroBaseErrors):
-
     """
         Nitro error code 294
         Socket operation on non-socket
@@ -373,7 +331,6 @@ class NSNitroNserrNotsock(NSNitroBaseErrors):
 
 
 class NSNitroNserrDestaddrreq(NSNitroBaseErrors):
-
     """
         Nitro error code 295
         Destination address required
@@ -382,7 +339,6 @@ class NSNitroNserrDestaddrreq(NSNitroBaseErrors):
 
 
 class NSNitroNserrMsgsize(NSNitroBaseErrors):
-
     """
         Nitro error code 296
         Message too long
@@ -391,7 +347,6 @@ class NSNitroNserrMsgsize(NSNitroBaseErrors):
 
 
 class NSNitroNserrPrototype(NSNitroBaseErrors):
-
     """
         Nitro error code 297
         Protocol wrong type for socket
@@ -400,7 +355,6 @@ class NSNitroNserrPrototype(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoprotoopt(NSNitroBaseErrors):
-
     """
         Nitro error code 298
         Protocol not available
@@ -409,7 +363,6 @@ class NSNitroNserrNoprotoopt(NSNitroBaseErrors):
 
 
 class NSNitroNserrProtonosupport(NSNitroBaseErrors):
-
     """
         Nitro error code 299
         Protocol not supported
@@ -418,7 +371,6 @@ class NSNitroNserrProtonosupport(NSNitroBaseErrors):
 
 
 class NSNitroNserrSocktnosupport(NSNitroBaseErrors):
-
     """
         Nitro error code 300
         Socket type not supported
@@ -427,7 +379,6 @@ class NSNitroNserrSocktnosupport(NSNitroBaseErrors):
 
 
 class NSNitroNserrOpnotsupp(NSNitroBaseErrors):
-
     """
         Nitro error code 301
         Operation not supported
@@ -436,7 +387,6 @@ class NSNitroNserrOpnotsupp(NSNitroBaseErrors):
 
 
 class NSNitroNserrPfnosupport(NSNitroBaseErrors):
-
     """
         Nitro error code 302
         Protocol family not supported
@@ -445,7 +395,6 @@ class NSNitroNserrPfnosupport(NSNitroBaseErrors):
 
 
 class NSNitroNserrAfnosupport(NSNitroBaseErrors):
-
     """
         Nitro error code 303
         Address family not supported by protocol family
@@ -454,7 +403,6 @@ class NSNitroNserrAfnosupport(NSNitroBaseErrors):
 
 
 class NSNitroNserrAddrinuse(NSNitroBaseErrors):
-
     """
         Nitro error code 304
         Address already in use
@@ -463,7 +411,6 @@ class NSNitroNserrAddrinuse(NSNitroBaseErrors):
 
 
 class NSNitroNserrAddrnotavail(NSNitroBaseErrors):
-
     """
         Nitro error code 305
         Can't assign requested address
@@ -472,7 +419,6 @@ class NSNitroNserrAddrnotavail(NSNitroBaseErrors):
 
 
 class NSNitroNserrNetdown(NSNitroBaseErrors):
-
     """
         Nitro error code 306
         Network is down
@@ -481,7 +427,6 @@ class NSNitroNserrNetdown(NSNitroBaseErrors):
 
 
 class NSNitroNserrNetunreach(NSNitroBaseErrors):
-
     """
         Nitro error code 307
         Network is unreachable
@@ -490,7 +435,6 @@ class NSNitroNserrNetunreach(NSNitroBaseErrors):
 
 
 class NSNitroNserrNetreset(NSNitroBaseErrors):
-
     """
         Nitro error code 308
         Network dropped connection on reset
@@ -499,7 +443,6 @@ class NSNitroNserrNetreset(NSNitroBaseErrors):
 
 
 class NSNitroNserrConnaborted(NSNitroBaseErrors):
-
     """
         Nitro error code 309
         Software caused connection abort
@@ -508,7 +451,6 @@ class NSNitroNserrConnaborted(NSNitroBaseErrors):
 
 
 class NSNitroNserrConnreset(NSNitroBaseErrors):
-
     """
         Nitro error code 310
         Connection reset by peer
@@ -517,7 +459,6 @@ class NSNitroNserrConnreset(NSNitroBaseErrors):
 
 
 class NSNitroNserrNobufs(NSNitroBaseErrors):
-
     """
         Nitro error code 311
         No buffer space available
@@ -526,7 +467,6 @@ class NSNitroNserrNobufs(NSNitroBaseErrors):
 
 
 class NSNitroNserrIsconn(NSNitroBaseErrors):
-
     """
         Nitro error code 312
         Socket is already connected
@@ -535,7 +475,6 @@ class NSNitroNserrIsconn(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotconn(NSNitroBaseErrors):
-
     """
         Nitro error code 313
         Socket is not connected
@@ -544,7 +483,6 @@ class NSNitroNserrNotconn(NSNitroBaseErrors):
 
 
 class NSNitroNserrShutdown(NSNitroBaseErrors):
-
     """
         Nitro error code 314
         Can't send after socket shutdown
@@ -553,7 +491,6 @@ class NSNitroNserrShutdown(NSNitroBaseErrors):
 
 
 class NSNitroNserrToomanyrefs(NSNitroBaseErrors):
-
     """
         Nitro error code 315
         Resource in use
@@ -562,7 +499,6 @@ class NSNitroNserrToomanyrefs(NSNitroBaseErrors):
 
 
 class NSNitroNserrTimedout(NSNitroBaseErrors):
-
     """
         Nitro error code 316
         Operation timed out
@@ -571,7 +507,6 @@ class NSNitroNserrTimedout(NSNitroBaseErrors):
 
 
 class NSNitroNserrConnrefused(NSNitroBaseErrors):
-
     """
         Nitro error code 317
         Connection refused
@@ -580,7 +515,6 @@ class NSNitroNserrConnrefused(NSNitroBaseErrors):
 
 
 class NSNitroNserrLoop(NSNitroBaseErrors):
-
     """
         Nitro error code 318
         Too many levels of symbolic links
@@ -589,7 +523,6 @@ class NSNitroNserrLoop(NSNitroBaseErrors):
 
 
 class NSNitroNserrNametoolong(NSNitroBaseErrors):
-
     """
         Nitro error code 319
         File name too long
@@ -598,7 +531,6 @@ class NSNitroNserrNametoolong(NSNitroBaseErrors):
 
 
 class NSNitroNserrHostdown(NSNitroBaseErrors):
-
     """
         Nitro error code 320
         Host is down
@@ -607,7 +539,6 @@ class NSNitroNserrHostdown(NSNitroBaseErrors):
 
 
 class NSNitroNserrHostunreach(NSNitroBaseErrors):
-
     """
         Nitro error code 321
         No route to host
@@ -616,7 +547,6 @@ class NSNitroNserrHostunreach(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotempty(NSNitroBaseErrors):
-
     """
         Nitro error code 322
         Directory not empty
@@ -625,7 +555,6 @@ class NSNitroNserrNotempty(NSNitroBaseErrors):
 
 
 class NSNitroNserrProclim(NSNitroBaseErrors):
-
     """
         Nitro error code 323
         Too many processes
@@ -634,7 +563,6 @@ class NSNitroNserrProclim(NSNitroBaseErrors):
 
 
 class NSNitroNserrUsers(NSNitroBaseErrors):
-
     """
         Nitro error code 324
         Too many users
@@ -643,7 +571,6 @@ class NSNitroNserrUsers(NSNitroBaseErrors):
 
 
 class NSNitroNserrDquot(NSNitroBaseErrors):
-
     """
         Nitro error code 325
         Disc quota exceeded
@@ -652,7 +579,6 @@ class NSNitroNserrDquot(NSNitroBaseErrors):
 
 
 class NSNitroNserrStale(NSNitroBaseErrors):
-
     """
         Nitro error code 326
         Stale NFS file handle
@@ -661,7 +587,6 @@ class NSNitroNserrStale(NSNitroBaseErrors):
 
 
 class NSNitroNserrRemote(NSNitroBaseErrors):
-
     """
         Nitro error code 327
         Too many levels of remote in path
@@ -670,7 +595,6 @@ class NSNitroNserrRemote(NSNitroBaseErrors):
 
 
 class NSNitroNserrBadrpc(NSNitroBaseErrors):
-
     """
         Nitro error code 328
         RPC struct is bad
@@ -679,7 +603,6 @@ class NSNitroNserrBadrpc(NSNitroBaseErrors):
 
 
 class NSNitroNserrRpcmismatch(NSNitroBaseErrors):
-
     """
         Nitro error code 329
         RPC version wrong
@@ -688,7 +611,6 @@ class NSNitroNserrRpcmismatch(NSNitroBaseErrors):
 
 
 class NSNitroNserrProgunavail(NSNitroBaseErrors):
-
     """
         Nitro error code 330
         RPC prog. not avail
@@ -697,7 +619,6 @@ class NSNitroNserrProgunavail(NSNitroBaseErrors):
 
 
 class NSNitroNserrProgmismatch(NSNitroBaseErrors):
-
     """
         Nitro error code 331
         Program version wrong
@@ -706,7 +627,6 @@ class NSNitroNserrProgmismatch(NSNitroBaseErrors):
 
 
 class NSNitroNserrProcunavail(NSNitroBaseErrors):
-
     """
         Nitro error code 332
         Bad procedure for program
@@ -715,7 +635,6 @@ class NSNitroNserrProcunavail(NSNitroBaseErrors):
 
 
 class NSNitroNserrNolck(NSNitroBaseErrors):
-
     """
         Nitro error code 333
         No locks available
@@ -724,7 +643,6 @@ class NSNitroNserrNolck(NSNitroBaseErrors):
 
 
 class NSNitroNserrNosys(NSNitroBaseErrors):
-
     """
         Nitro error code 334
         System Call not supported; Possible Reason: NetScaler is not
@@ -734,7 +652,6 @@ class NSNitroNserrNosys(NSNitroBaseErrors):
 
 
 class NSNitroNserrFtype(NSNitroBaseErrors):
-
     """
         Nitro error code 335
         Inappropriate file type or format
@@ -743,7 +660,6 @@ class NSNitroNserrFtype(NSNitroBaseErrors):
 
 
 class NSNitroNserrAuth(NSNitroBaseErrors):
-
     """
         Nitro error code 336
         Authentication error
@@ -752,7 +668,6 @@ class NSNitroNserrAuth(NSNitroBaseErrors):
 
 
 class NSNitroNserrNeedauth(NSNitroBaseErrors):
-
     """
         Nitro error code 337
         Need authenticator
@@ -761,7 +676,6 @@ class NSNitroNserrNeedauth(NSNitroBaseErrors):
 
 
 class NSNitroNserrWouldblock(NSNitroBaseErrors):
-
     """
         Nitro error code 338
         Operation would block
@@ -770,7 +684,6 @@ class NSNitroNserrWouldblock(NSNitroBaseErrors):
 
 
 class NSNitroNserrNocode(NSNitroBaseErrors):
-
     """
         Nitro error code 339
         Feature is not implemented
@@ -779,7 +692,6 @@ class NSNitroNserrNocode(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotsuser(NSNitroBaseErrors):
-
     """
         Nitro error code 340
         Not super-user
@@ -788,7 +700,6 @@ class NSNitroNserrNotsuser(NSNitroBaseErrors):
 
 
 class NSNitroNserrBigdata(NSNitroBaseErrors):
-
     """
         Nitro error code 341
         Data size is too big
@@ -797,7 +708,6 @@ class NSNitroNserrBigdata(NSNitroBaseErrors):
 
 
 class NSNitroNserrSmalldata(NSNitroBaseErrors):
-
     """
         Nitro error code 342
         Data size is too small
@@ -806,7 +716,6 @@ class NSNitroNserrSmalldata(NSNitroBaseErrors):
 
 
 class NSNitroNserrNomorent(NSNitroBaseErrors):
-
     """
         Nitro error code 343
         No more entry in table
@@ -815,7 +724,6 @@ class NSNitroNserrNomorent(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoservice(NSNitroBaseErrors):
-
     """
         Nitro error code 344
         No Service
@@ -824,7 +732,6 @@ class NSNitroNserrNoservice(NSNitroBaseErrors):
 
 
 class NSNitroNserrOserror(NSNitroBaseErrors):
-
     """
         Nitro error code 345
         Operating system error
@@ -833,7 +740,6 @@ class NSNitroNserrOserror(NSNitroBaseErrors):
 
 
 class NSNitroNserrNonexpcmd(NSNitroBaseErrors):
-
     """
         Nitro error code 346
         Unexpected command
@@ -842,7 +748,6 @@ class NSNitroNserrNonexpcmd(NSNitroBaseErrors):
 
 
 class NSNitroNserrCmdpropfail(NSNitroBaseErrors):
-
     """
         Nitro error code 347
         Command propagation failed
@@ -851,7 +756,6 @@ class NSNitroNserrCmdpropfail(NSNitroBaseErrors):
 
 
 class NSNitroNserrToomanynodes(NSNitroBaseErrors):
-
     """
         Nitro error code 348
         Too many nodes
@@ -860,7 +764,6 @@ class NSNitroNserrToomanynodes(NSNitroBaseErrors):
 
 
 class NSNitroNserrSecondaryfail(NSNitroBaseErrors):
-
     """
         Nitro error code 349
         Command failed on secondary node,  but succeeded on primary
@@ -871,7 +774,6 @@ class NSNitroNserrSecondaryfail(NSNitroBaseErrors):
 
 
 class NSNitroNserrInvalbackup(NSNitroBaseErrors):
-
     """
         Nitro error code 350
         Invalid backup vserver
@@ -880,7 +782,6 @@ class NSNitroNserrInvalbackup(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoserver(NSNitroBaseErrors):
-
     """
         Nitro error code 351
         No such server
@@ -889,7 +790,6 @@ class NSNitroNserrNoserver(NSNitroBaseErrors):
 
 
 class NSNitroNserrLoginreqd(NSNitroBaseErrors):
-
     """
         Nitro error code 352
         Login is required
@@ -898,7 +798,6 @@ class NSNitroNserrLoginreqd(NSNitroBaseErrors):
 
 
 class NSNitroNserrRpcinval(NSNitroBaseErrors):
-
     """
         Nitro error code 353
         RPC invalid argument
@@ -907,7 +806,6 @@ class NSNitroNserrRpcinval(NSNitroBaseErrors):
 
 
 class NSNitroNserrNouser(NSNitroBaseErrors):
-
     """
         Nitro error code 354
         Invalid username or password
@@ -916,7 +814,6 @@ class NSNitroNserrNouser(NSNitroBaseErrors):
 
 
 class NSNitroNserrInvalpasswd(NSNitroBaseErrors):
-
     """
         Nitro error code 355
         Invalid username or password
@@ -925,7 +822,6 @@ class NSNitroNserrInvalpasswd(NSNitroBaseErrors):
 
 
 class NSNitroNserrLicense(NSNitroBaseErrors):
-
     """
         Nitro error code 356
         Feature(s) not licensed
@@ -934,7 +830,6 @@ class NSNitroNserrLicense(NSNitroBaseErrors):
 
 
 class NSNitroNserrDeferred(NSNitroBaseErrors):
-
     """
         Nitro error code 357
         The command is stored for later execution
@@ -943,7 +838,6 @@ class NSNitroNserrDeferred(NSNitroBaseErrors):
 
 
 class NSNitroNserrPropauthfail(NSNitroBaseErrors):
-
     """
         Nitro error code 358
         Command propagation failed due to user authentication problems
@@ -952,7 +846,6 @@ class NSNitroNserrPropauthfail(NSNitroBaseErrors):
 
 
 class NSNitroNserrNodelsuser(NSNitroBaseErrors):
-
     """
         Nitro error code 359
         The superuser cannot be removed
@@ -961,7 +854,6 @@ class NSNitroNserrNodelsuser(NSNitroBaseErrors):
 
 
 class NSNitroNserrNomodsuser(NSNitroBaseErrors):
-
     """
         Nitro error code 360
         Permissions for the superuser cannot be modified
@@ -970,7 +862,6 @@ class NSNitroNserrNomodsuser(NSNitroBaseErrors):
 
 
 class NSNitroNserrInvalnodeid(NSNitroBaseErrors):
-
     """
         Nitro error code 362
         Invalid node ID specified
@@ -979,7 +870,6 @@ class NSNitroNserrInvalnodeid(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotopha(NSNitroBaseErrors):
-
     """
         Nitro error code 363
         Operation not permitted on stand-alone node
@@ -988,7 +878,6 @@ class NSNitroNserrNotopha(NSNitroBaseErrors):
 
 
 class NSNitroNserrNooppeerbad(NSNitroBaseErrors):
-
     """
         Nitro error code 364
         Operation not possible due to invalid peer state. Rectify and
@@ -998,7 +887,6 @@ class NSNitroNserrNooppeerbad(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoopbad(NSNitroBaseErrors):
-
     """
         Nitro error code 365
         Operation not possible as system state is invalid. Use show node
@@ -1008,7 +896,6 @@ class NSNitroNserrNoopbad(NSNitroBaseErrors):
 
 
 class NSNitroNserrNopnow(NSNitroBaseErrors):
-
     """
         Nitro error code 366
         Operation not possible now. Please wait for system to stabilize
@@ -1018,7 +905,6 @@ class NSNitroNserrNopnow(NSNitroBaseErrors):
 
 
 class NSNitroNserrNooppri(NSNitroBaseErrors):
-
     """
         Nitro error code 367
         Operation permitted only on secondary node.
@@ -1027,7 +913,6 @@ class NSNitroNserrNooppri(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoopsec(NSNitroBaseErrors):
-
     """
         Nitro error code 368
         Operation permitted only on primary node.
@@ -1036,7 +921,6 @@ class NSNitroNserrNoopsec(NSNitroBaseErrors):
 
 
 class NSNitroNserrRedirect(NSNitroBaseErrors):
-
     """
         Nitro error code 369
         Redirect request (VIP down)
@@ -1045,7 +929,6 @@ class NSNitroNserrRedirect(NSNitroBaseErrors):
 
 
 class NSNitroNserrBufoverflow(NSNitroBaseErrors):
-
     """
         Nitro error code 370
         Buffer overflow occurred
@@ -1054,7 +937,6 @@ class NSNitroNserrBufoverflow(NSNitroBaseErrors):
 
 
 class NSNitroNserrNouserpolicy(NSNitroBaseErrors):
-
     """
         Nitro error code 371
         No command policy defined,  permission denied
@@ -1063,7 +945,6 @@ class NSNitroNserrNouserpolicy(NSNitroBaseErrors):
 
 
 class NSNitroNserrNosysgroup(NSNitroBaseErrors):
-
     """
         Nitro error code 372
         System group does not exist
@@ -1072,7 +953,6 @@ class NSNitroNserrNosysgroup(NSNitroBaseErrors):
 
 
 class NSNitroNserrNosyscmdpol(NSNitroBaseErrors):
-
     """
         Nitro error code 373
         System command policy does not exist
@@ -1081,7 +961,6 @@ class NSNitroNserrNosyscmdpol(NSNitroBaseErrors):
 
 
 class NSNitroNserrHaipv6pt(NSNitroBaseErrors):
-
     """
         Nitro error code 374
         IPV6 Feature cannot be disabled while HA is running over IPv6.
@@ -1090,7 +969,6 @@ class NSNitroNserrHaipv6pt(NSNitroBaseErrors):
 
 
 class NSNitroNserrHansipv6(NSNitroBaseErrors):
-
     """
         Nitro error code 375
         IPv6 NSIP cannot be changed while HA is running over IPv6.
@@ -1099,7 +977,6 @@ class NSNitroNserrHansipv6(NSNitroBaseErrors):
 
 
 class NSNitroNserrNsipv6active(NSNitroBaseErrors):
-
     """
         Nitro error code 376
         IPv6 NSIP is not in ACTIVE state,  rectify and retry.
@@ -1108,7 +985,6 @@ class NSNitroNserrNsipv6active(NSNitroBaseErrors):
 
 
 class NSNitroNserrRtmonStandalone(NSNitroBaseErrors):
-
     """
         Nitro error code 377
         Unbind all route monitors before making node standalone.
@@ -1117,7 +993,6 @@ class NSNitroNserrRtmonStandalone(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpv6featDisabled(NSNitroBaseErrors):
-
     """
         Nitro error code 378
         IPv6 Feature Disabled
@@ -1126,7 +1001,6 @@ class NSNitroNserrIpv6featDisabled(NSNitroBaseErrors):
 
 
 class NSNitroNserrDhcpPbrDependent(NSNitroBaseErrors):
-
     """
         Nitro error code 379
         PBR rule present with nexthop dependent on released DHCP lease
@@ -1135,7 +1009,6 @@ class NSNitroNserrDhcpPbrDependent(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpsecprofPerm(NSNitroBaseErrors):
-
     """
         Nitro error code 380
         Tunnel protocol IPSEC must have ipsec profile set to 'none'.
@@ -1144,7 +1017,6 @@ class NSNitroNserrIpsecprofPerm(NSNitroBaseErrors):
 
 
 class NSNitroNserrIprangenotallowd(NSNitroBaseErrors):
-
     """
         Nitro error code 394
         Range not allowed for wildcard IP
@@ -1153,7 +1025,6 @@ class NSNitroNserrIprangenotallowd(NSNitroBaseErrors):
 
 
 class NSNitroNserrIvalidiprange(NSNitroBaseErrors):
-
     """
         Nitro error code 395
         Invalid range value
@@ -1162,7 +1033,6 @@ class NSNitroNserrIvalidiprange(NSNitroBaseErrors):
 
 
 class NSNitroNserrIprangemaxlimit(NSNitroBaseErrors):
-
     """
         Nitro error code 396
         Range value greater than maximum limit 254
@@ -1171,7 +1041,6 @@ class NSNitroNserrIprangemaxlimit(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpNotExist(NSNitroBaseErrors):
-
     """
         Nitro error code 397
         IP does not exist for default or specified td
@@ -1180,7 +1049,6 @@ class NSNitroNserrIpNotExist(NSNitroBaseErrors):
 
 
 class NSNitroNserrToomanyrules(NSNitroBaseErrors):
-
     """
         Nitro error code 398
         Maximum number of ACLs on the system has been exceeded
@@ -1189,7 +1057,6 @@ class NSNitroNserrToomanyrules(NSNitroBaseErrors):
 
 
 class NSNitroNserrPasswdLenMin8(NSNitroBaseErrors):
-
     """
         Nitro error code 399
         Password too short - minimum length is 8 characters
@@ -1198,7 +1065,6 @@ class NSNitroNserrPasswdLenMin8(NSNitroBaseErrors):
 
 
 class NSNitroNserrSyncDisabled(NSNitroBaseErrors):
-
     """
         Nitro error code 410
         Synchronization disabled
@@ -1207,7 +1073,6 @@ class NSNitroNserrSyncDisabled(NSNitroBaseErrors):
 
 
 class NSNitroNserrNodeDisabled(NSNitroBaseErrors):
-
     """
         Nitro error code 411
         Node disabled
@@ -1216,7 +1081,6 @@ class NSNitroNserrNodeDisabled(NSNitroBaseErrors):
 
 
 class NSNitroNserrSyncProgress(NSNitroBaseErrors):
-
     """
         Nitro error code 412
         Synchronization is in progress
@@ -1225,7 +1089,6 @@ class NSNitroNserrSyncProgress(NSNitroBaseErrors):
 
 
 class NSNitroNserrAdnsPerm(NSNitroBaseErrors):
-
     """
         Nitro error code 413
         Operation not permitted on ADNS service
@@ -1234,7 +1097,6 @@ class NSNitroNserrAdnsPerm(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoincIpsamesubnet(NSNitroBaseErrors):
-
     """
         Nitro error code 414
         Peer IP should be on the NSIP subnet if INC mode is disabled
@@ -1243,7 +1105,6 @@ class NSNitroNserrNoincIpsamesubnet(NSNitroBaseErrors):
 
 
 class NSNitroNserrInvalidPeerip(NSNitroBaseErrors):
-
     """
         Nitro error code 415
         Not a valid peer IP
@@ -1252,7 +1113,6 @@ class NSNitroNserrInvalidPeerip(NSNitroBaseErrors):
 
 
 class NSNitroNserrRedirect307(NSNitroBaseErrors):
-
     """
         Nitro error code 416
         Redirect request (send 307 temporary redirect
@@ -1261,7 +1121,6 @@ class NSNitroNserrRedirect307(NSNitroBaseErrors):
 
 
 class NSNitroNserrInvalhostname(NSNitroBaseErrors):
-
     """
         Nitro error code 417
         Invalid hostname
@@ -1270,7 +1129,6 @@ class NSNitroNserrInvalhostname(NSNitroBaseErrors):
 
 
 class NSNitroNserrRewriteNotSupported(NSNitroBaseErrors):
-
     """
         Nitro error code 418
         Port rewrite not supported on this vserver type
@@ -1279,7 +1137,6 @@ class NSNitroNserrRewriteNotSupported(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpchgDeny(NSNitroBaseErrors):
-
     """
         Nitro error code 419
         IP address change not permitted on this entity
@@ -1288,7 +1145,6 @@ class NSNitroNserrIpchgDeny(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpchgGslb(NSNitroBaseErrors):
-
     """
         Nitro error code 420
         GSLB local service IP cannot be changed. Please change the
@@ -1298,7 +1154,6 @@ class NSNitroNserrIpchgGslb(NSNitroBaseErrors):
 
 
 class NSNitroNserrGslbIpchg(NSNitroBaseErrors):
-
     """
         Nitro error code 421
         corresponding GSLB service IP has also been changed.
@@ -1307,7 +1162,6 @@ class NSNitroNserrGslbIpchg(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoauditsrvc(NSNitroBaseErrors):
-
     """
         Nitro error code 422
         No audit service running on the specified port
@@ -1316,7 +1170,6 @@ class NSNitroNserrNoauditsrvc(NSNitroBaseErrors):
 
 
 class NSNitroNserrLacpkeyNotset(NSNitroBaseErrors):
-
     """
         Nitro error code 423
         LACP key not set
@@ -1325,7 +1178,6 @@ class NSNitroNserrLacpkeyNotset(NSNitroBaseErrors):
 
 
 class NSNitroNserrChannelInusebylacp(NSNitroBaseErrors):
-
     """
         Nitro error code 424
         Channel in use by LACP
@@ -1334,7 +1186,6 @@ class NSNitroNserrChannelInusebylacp(NSNitroBaseErrors):
 
 
 class NSNitroNserrLacpenabled(NSNitroBaseErrors):
-
     """
         Nitro error code 425
         LACP enabled interface cannot be bound manually to a channel
@@ -1343,7 +1194,6 @@ class NSNitroNserrLacpenabled(NSNitroBaseErrors):
 
 
 class NSNitroNserrIfacemanuallybound(NSNitroBaseErrors):
-
     """
         Nitro error code 426
         LACP cannot be enabled,  interface manually bound to a channel
@@ -1352,7 +1202,6 @@ class NSNitroNserrIfacemanuallybound(NSNitroBaseErrors):
 
 
 class NSNitroNserrIntrecinuse(NSNitroBaseErrors):
-
     """
         Nitro error code 427
         Domain name for the reverse domain name already exists
@@ -1361,7 +1210,6 @@ class NSNitroNserrIntrecinuse(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpportVipConflict(NSNitroBaseErrors):
-
     """
         Nitro error code 428
         IP,  port conflict with another entity bound to the same vserver
@@ -1370,7 +1218,6 @@ class NSNitroNserrIpportVipConflict(NSNitroBaseErrors):
 
 
 class NSNitroNserrIpportVipBound(NSNitroBaseErrors):
-
     """
         Nitro error code 429
         IP,  port conflict with an entity already bound to the vserver
@@ -1379,7 +1226,6 @@ class NSNitroNserrIpportVipBound(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoBackupVip(NSNitroBaseErrors):
-
     """
         Nitro error code 430
         No such backup vserver
@@ -1388,7 +1234,6 @@ class NSNitroNserrNoBackupVip(NSNitroBaseErrors):
 
 
 class NSNitroNserrReqSetArgs(NSNitroBaseErrors):
-
     """
         Nitro error code 431
         No arguments to set
@@ -1397,7 +1242,6 @@ class NSNitroNserrReqSetArgs(NSNitroBaseErrors):
 
 
 class NSNitroNserrSvcgrpMemberNameconflict(NSNitroBaseErrors):
-
     """
         Nitro error code 432
         Name conflicts with an existing service or service group member
@@ -1407,7 +1251,6 @@ class NSNitroNserrSvcgrpMemberNameconflict(NSNitroBaseErrors):
 
 
 class NSNitroNserrServerNameExist(NSNitroBaseErrors):
-
     """
         Nitro error code 433
         Server name already exists
@@ -1416,7 +1259,6 @@ class NSNitroNserrServerNameExist(NSNitroBaseErrors):
 
 
 class NSNitroNserrMaxServiceBindingOnVserver(NSNitroBaseErrors):
-
     """
         Nitro error code 434
         Maximum services bound to vserver exceeded
@@ -1425,7 +1267,6 @@ class NSNitroNserrMaxServiceBindingOnVserver(NSNitroBaseErrors):
 
 
 class NSNitroNserrMaxSvcEntityBindingOnSvcgroup(NSNitroBaseErrors):
-
     """
         Nitro error code 435
         Maximum services bound to service group exceeded
@@ -1434,7 +1275,6 @@ class NSNitroNserrMaxSvcEntityBindingOnSvcgroup(NSNitroBaseErrors):
 
 
 class NSNitroNserrFsmall(NSNitroBaseErrors):
-
     """
         Nitro error code 436
         File too small
@@ -1443,7 +1283,6 @@ class NSNitroNserrFsmall(NSNitroBaseErrors):
 
 
 class NSNitroNserrIntoflow(NSNitroBaseErrors):
-
     """
         Nitro error code 437
         Integer overflow
@@ -1452,7 +1291,6 @@ class NSNitroNserrIntoflow(NSNitroBaseErrors):
 
 
 class NSNitroNserrAsyncBlocked(NSNitroBaseErrors):
-
     """
         Nitro error code 438
         PI has blocked for body accumulation
@@ -1461,7 +1299,6 @@ class NSNitroNserrAsyncBlocked(NSNitroBaseErrors):
 
 
 class NSNitroNserrSaclClearpending(NSNitroBaseErrors):
-
     """
         Nitro error code 439
         Clear in progress
@@ -1470,7 +1307,6 @@ class NSNitroNserrSaclClearpending(NSNitroBaseErrors):
 
 
 class NSNitroNserrSaclNameExists(NSNitroBaseErrors):
-
     """
         Nitro error code 440
         An ACL with the same name exists
@@ -1479,7 +1315,6 @@ class NSNitroNserrSaclNameExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrSaclSupersetExists(NSNitroBaseErrors):
-
     """
         Nitro error code 441
         Operation not permitted. (An overlapping rule already exists)
@@ -1488,7 +1323,6 @@ class NSNitroNserrSaclSupersetExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrSaclSubsetExists(NSNitroBaseErrors):
-
     """
         Nitro error code 442
         Operation not permitted. (A rule which is subset of this rule
@@ -1498,7 +1332,6 @@ class NSNitroNserrSaclSubsetExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoincRoutemonitor(NSNitroBaseErrors):
-
     """
         Nitro error code 443
         Route monitors should be added only if INC mode is enabled
@@ -1507,7 +1340,6 @@ class NSNitroNserrNoincRoutemonitor(NSNitroBaseErrors):
 
 
 class NSNitroNserrSessionExpired(NSNitroBaseErrors):
-
     """
         Nitro error code 444
         Session expired or killed. Please login again
@@ -1516,7 +1348,6 @@ class NSNitroNserrSessionExpired(NSNitroBaseErrors):
 
 
 class NSNitroNserrSessionExceeded(NSNitroBaseErrors):
-
     """
         Nitro error code 445
         Session limit exceeded
@@ -1525,7 +1356,6 @@ class NSNitroNserrSessionExceeded(NSNitroBaseErrors):
 
 
 class NSNitroNserrCfeConnExceeded(NSNitroBaseErrors):
-
     """
         Nitro error code 446
         Connection limit to CFE exceeded
@@ -1534,7 +1364,6 @@ class NSNitroNserrCfeConnExceeded(NSNitroBaseErrors):
 
 
 class NSNitroNserrCfeKillself(NSNitroBaseErrors):
-
     """
         Nitro error code 449
         Invalid session id. Current session cannot be killed
@@ -1543,7 +1372,6 @@ class NSNitroNserrCfeKillself(NSNitroBaseErrors):
 
 
 class NSNitroNserrCfeIncompletesession(NSNitroBaseErrors):
-
     """
         Nitro error code 450
         Invalid session. Response/challenge is incomplete
@@ -1552,7 +1380,6 @@ class NSNitroNserrCfeIncompletesession(NSNitroBaseErrors):
 
 
 class NSNitroNserrAclAlreadyinstate(NSNitroBaseErrors):
-
     """
         Nitro error code 451
         Entity already in this state
@@ -1561,7 +1388,6 @@ class NSNitroNserrAclAlreadyinstate(NSNitroBaseErrors):
 
 
 class NSNitroNserrCfeSessionNoexist(NSNitroBaseErrors):
-
     """
         Nitro error code 452
         Session does not exist
@@ -1570,7 +1396,6 @@ class NSNitroNserrCfeSessionNoexist(NSNitroBaseErrors):
 
 
 class NSNitroNserrSysgroupUserExists(NSNitroBaseErrors):
-
     """
         Nitro error code 453
         User already bound to system group
@@ -1579,7 +1404,6 @@ class NSNitroNserrSysgroupUserExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrSysgroupPolicyExists(NSNitroBaseErrors):
-
     """
         Nitro error code 454
         Policy already bound to system group
@@ -1588,7 +1412,6 @@ class NSNitroNserrSysgroupPolicyExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrSleep(NSNitroBaseErrors):
-
     """
         Nitro error code 455
         Sleep process sleep
@@ -1597,7 +1420,6 @@ class NSNitroNserrSleep(NSNitroBaseErrors):
 
 
 class NSNitroNserrPpedie(NSNitroBaseErrors):
-
     """
         Nitro error code 456
         Your PPE is no more
@@ -1606,7 +1428,6 @@ class NSNitroNserrPpedie(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoconnCmdpropfail(NSNitroBaseErrors):
-
     """
         Nitro error code 457
         Unable to establish connection with the secondary. Command
@@ -1616,7 +1437,6 @@ class NSNitroNserrNoconnCmdpropfail(NSNitroBaseErrors):
 
 
 class NSNitroNserrTimeoutSecondary(NSNitroBaseErrors):
-
     """
         Nitro error code 458
         There is no response from the secondary. Propagation timed out
@@ -1625,7 +1445,6 @@ class NSNitroNserrTimeoutSecondary(NSNitroBaseErrors):
 
 
 class NSNitroNserrRpcTimeout(NSNitroBaseErrors):
-
     """
         Nitro error code 459
         RPC timeout
@@ -1634,7 +1453,6 @@ class NSNitroNserrRpcTimeout(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotSupported(NSNitroBaseErrors):
-
     """
         Nitro error code 460
         Feature not supported in this release
@@ -1643,7 +1461,6 @@ class NSNitroNserrNotSupported(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoentVserver(NSNitroBaseErrors):
-
     """
         Nitro error code 461
         No such Vserver
@@ -1652,7 +1469,6 @@ class NSNitroNserrNoentVserver(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoentSvc(NSNitroBaseErrors):
-
     """
         Nitro error code 462
         No such service
@@ -1661,7 +1477,6 @@ class NSNitroNserrNoentSvc(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoentSvcSvcgrp(NSNitroBaseErrors):
-
     """
         Nitro error code 463
         No such service/serviceGroup
@@ -1670,7 +1485,6 @@ class NSNitroNserrNoentSvcSvcgrp(NSNitroBaseErrors):
 
 
 class NSNitroNserrHaNov4Netmask(NSNitroBaseErrors):
-
     """
         Nitro error code 464
         IPv4 netmask is not required for IPv6
@@ -1679,7 +1493,6 @@ class NSNitroNserrHaNov4Netmask(NSNitroBaseErrors):
 
 
 class NSNitroNserrMaxVsevrverBindingsToService(NSNitroBaseErrors):
-
     """
         Nitro error code 465
         Maximum vservers bound to a service exceeded
@@ -1688,7 +1501,6 @@ class NSNitroNserrMaxVsevrverBindingsToService(NSNitroBaseErrors):
 
 
 class NSNitroNserrSacl6Clearpending(NSNitroBaseErrors):
-
     """
         Nitro error code 466
         Simple ACL6 Clear in progress
@@ -1697,7 +1509,6 @@ class NSNitroNserrSacl6Clearpending(NSNitroBaseErrors):
 
 
 class NSNitroNserrSacl6NameExists(NSNitroBaseErrors):
-
     """
         Nitro error code 467
         Simple ACL6 with the same name exists
@@ -1706,7 +1517,6 @@ class NSNitroNserrSacl6NameExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrSacl6SupersetExists(NSNitroBaseErrors):
-
     """
         Nitro error code 468
         Operation not permitted. (An overlapping rule already exists)
@@ -1715,7 +1525,6 @@ class NSNitroNserrSacl6SupersetExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrSacl6SubsetExists(NSNitroBaseErrors):
-
     """
         Nitro error code 469
         Operation not permitted. (A rule which is subset of this rule
@@ -1725,7 +1534,6 @@ class NSNitroNserrSacl6SubsetExists(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoBackupVipBound(NSNitroBaseErrors):
-
     """
         Nitro error code 470
         No backupVserver bound
@@ -1734,7 +1542,6 @@ class NSNitroNserrNoBackupVipBound(NSNitroBaseErrors):
 
 
 class NSNitroNserrSessionExpiredRedirect(NSNitroBaseErrors):
-
     """
         Nitro error code 471
         Session expired,  Please login again
@@ -1743,7 +1550,6 @@ class NSNitroNserrSessionExpiredRedirect(NSNitroBaseErrors):
 
 
 class NSNitroNserrNoentVlan(NSNitroBaseErrors):
-
     """
         Nitro error code 472
         Vlan does not exist
@@ -1752,7 +1558,6 @@ class NSNitroNserrNoentVlan(NSNitroBaseErrors):
 
 
 class NSNitroNserrMaxSvcEntity(NSNitroBaseErrors):
-
     """
         Nitro error code 473
         Maximum service limit reached
@@ -1761,7 +1566,6 @@ class NSNitroNserrMaxSvcEntity(NSNitroBaseErrors):
 
 
 class NSNitroNserrClExist(NSNitroBaseErrors):
-
     """
         Nitro error code 474
         Resource already exists in cluster
@@ -1770,7 +1574,6 @@ class NSNitroNserrClExist(NSNitroBaseErrors):
 
 
 class NSNitroNserrOwnernodeNotallowed(NSNitroBaseErrors):
-
     """
         Nitro error code 475
         Can not specify owner node.
@@ -1779,7 +1582,6 @@ class NSNitroNserrOwnernodeNotallowed(NSNitroBaseErrors):
 
 
 class NSNitroNserrOwnernodeNotSpecified(NSNitroBaseErrors):
-
     """
         Nitro error code 476
         Owner node is not specified.
@@ -1788,7 +1590,6 @@ class NSNitroNserrOwnernodeNotSpecified(NSNitroBaseErrors):
 
 
 class NSNitroNserrNotSuppincluster(NSNitroBaseErrors):
-
     """
         Nitro error code 477
         Operation not supported in Cluster.
@@ -1797,7 +1598,6 @@ class NSNitroNserrNotSuppincluster(NSNitroBaseErrors):
 
 
 class NSNitroNserrVserverTypeMismatch(NSNitroBaseErrors):
-
     """
         Nitro error code 478
         Vserver type mismatch.
@@ -1806,7 +1606,6 @@ class NSNitroNserrVserverTypeMismatch(NSNitroBaseErrors):
 
 
 class NSNitroNserrIterEnd(NSNitroBaseErrors):
-
     """
         Nitro error code 479
         End of iteration reached.
@@ -1815,7 +1614,6 @@ class NSNitroNserrIterEnd(NSNitroBaseErrors):
 
 
 class NSNitroCaconfErrors(NSNitroError):
-
     """
         Base exception class NSNitroCaconfErrors
     """
@@ -1823,7 +1621,6 @@ class NSNitroCaconfErrors(NSNitroError):
 
 
 class NSNitroNserrCaconfCnflHeurexpRelexp(NSNitroCaconfErrors):
-
     """
         Nitro error code 480
         Conflicting arguments,  heurExpiryParam and relExpiry
@@ -1832,7 +1629,6 @@ class NSNitroNserrCaconfCnflHeurexpRelexp(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHeurexpRelexpmili(NSNitroCaconfErrors):
-
     """
         Nitro error code 481
         Conflicting arguments,  heurExpiryParam and relExpiryMilliSec
@@ -1841,7 +1637,6 @@ class NSNitroNserrCaconfCnflHeurexpRelexpmili(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflRelexpRelexpmili(NSNitroCaconfErrors):
-
     """
         Nitro error code 482
         Conflicting arguments,  relExpiry and relExpiryMiliSec
@@ -1850,7 +1645,6 @@ class NSNitroNserrCaconfCnflRelexpRelexpmili(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpHeurexp(NSNitroCaconfErrors):
-
     """
         Nitro error code 483
         Conflicting arguments,  absExpiry and heurExpiryParam
@@ -1859,7 +1653,6 @@ class NSNitroNserrCaconfCnflAbsexpHeurexp(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpRelexpmili(NSNitroCaconfErrors):
-
     """
         Nitro error code 484
         Conflicting arguments,  absExpiry and relExpiryMilliSec
@@ -1868,7 +1661,6 @@ class NSNitroNserrCaconfCnflAbsexpRelexpmili(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpgmtHeruexp(NSNitroCaconfErrors):
-
     """
         Nitro error code 485
         Conflicting arguments,  absExpiryGMT and heurExpiryParam
@@ -1877,7 +1669,6 @@ class NSNitroNserrCaconfCnflAbsexpgmtHeruexp(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpAbsexpgmt(NSNitroCaconfErrors):
-
     """
         Nitro error code 486
         Conflicting arguments,  absExpiry and absExpiryGMT
@@ -1886,7 +1677,6 @@ class NSNitroNserrCaconfCnflAbsexpAbsexpgmt(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpgmtRelexpmili(NSNitroCaconfErrors):
-
     """
         Nitro error code 487
         Conflicting arguments,  absExpiryGMT and relExpiryMilliSec
@@ -1895,7 +1685,6 @@ class NSNitroNserrCaconfCnflAbsexpgmtRelexpmili(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHitparamsHitslctr(NSNitroCaconfErrors):
-
     """
         Nitro error code 488
         Conflicting arguments,  hitParams and hitSelector
@@ -1904,7 +1693,6 @@ class NSNitroNserrCaconfCnflHitparamsHitslctr(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflInvalparamsHitslctr(NSNitroCaconfErrors):
-
     """
         Nitro error code 489
         Conflicting arguments,  invalParams and hitSelector
@@ -1913,7 +1701,6 @@ class NSNitroNserrCaconfCnflInvalparamsHitslctr(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHitparamsInvlslctr(NSNitroCaconfErrors):
-
     """
         Nitro error code 490
         Conflicting arguments,  hitParams and invalSelector
@@ -1922,7 +1709,6 @@ class NSNitroNserrCaconfCnflHitparamsInvlslctr(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflInvalparamsInvlslctr(NSNitroCaconfErrors):
-
     """
         Nitro error code 491
         Conflicting arguments,  invalParams and invalSelector
@@ -1931,7 +1717,6 @@ class NSNitroNserrCaconfCnflInvalparamsInvlslctr(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHitslctrMatchcooky(NSNitroCaconfErrors):
-
     """
         Nitro error code 492
         Conflicting arguments,  hitSelector and matchCookies
@@ -1940,7 +1725,6 @@ class NSNitroNserrCaconfCnflHitslctrMatchcooky(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHitslctrInvalrest2host(NSNitroCaconfErrors):
-
     """
         Nitro error code 493
         Conflicting arguments,  hitSelector and invalRestrictedToHost
@@ -1949,7 +1733,6 @@ class NSNitroNserrCaconfCnflHitslctrInvalrest2host(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHitslctrIgnrparamvalcase(NSNitroCaconfErrors):
-
     """
         Nitro error code 494
         Conflicting arguments,  hitSelector and ignoreParamValueCase
@@ -1958,7 +1741,6 @@ class NSNitroNserrCaconfCnflHitslctrIgnrparamvalcase(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflInvalslctrMatchcooky(NSNitroCaconfErrors):
-
     """
         Nitro error code 495
         Conflicting arguments,  invalSelector and matchCookies
@@ -1967,7 +1749,6 @@ class NSNitroNserrCaconfCnflInvalslctrMatchcooky(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflInvalslctrInvalrest2host(NSNitroCaconfErrors):
-
     """
         Nitro error code 496
         Conflicting arguments,  invalSelector and invalRestrictedToHost
@@ -1976,7 +1757,6 @@ class NSNitroNserrCaconfCnflInvalslctrInvalrest2host(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflInvalslctrIgnrparamvalcase(NSNitroCaconfErrors):
-
     """
         Nitro error code 497
         Conflicting arguments,  invalSelector and ignoreParamValueCase
@@ -1985,7 +1765,6 @@ class NSNitroNserrCaconfCnflInvalslctrIgnrparamvalcase(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflPosrelexpRelexp(NSNitroCaconfErrors):
-
     """
         Nitro error code 498
         Conflicting arguments,  weekPosRelExpiry and relExpiry
@@ -1994,7 +1773,6 @@ class NSNitroNserrCaconfCnflPosrelexpRelexp(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflPosrelexpRelexpmili(NSNitroCaconfErrors):
-
     """
         Nitro error code 499
         Conflicting arguments,  weekPosRelExpiry and relExpiryMiliSec
@@ -2003,7 +1781,6 @@ class NSNitroNserrCaconfCnflPosrelexpRelexpmili(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpPosrelexp(NSNitroCaconfErrors):
-
     """
         Nitro error code 500
         Conflicting arguments,  absExpiry and weekPosRelExpiry
@@ -2012,7 +1789,6 @@ class NSNitroNserrCaconfCnflAbsexpPosrelexp(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflAbsexpgmtPosrelexp(NSNitroCaconfErrors):
-
     """
         Nitro error code 501
         Conflicting arguments,  absExpiryGMT and weekPosRelExpiry
@@ -2021,7 +1797,6 @@ class NSNitroNserrCaconfCnflAbsexpgmtPosrelexp(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflIgnrparamvalcaseHitparams(NSNitroCaconfErrors):
-
     """
         Nitro error code 502
         Invalid arguments,  ignoreParamValueCase is set while hitParams
@@ -2031,7 +1806,6 @@ class NSNitroNserrCaconfCnflIgnrparamvalcaseHitparams(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflHitInvalparamsMatchcuky(NSNitroCaconfErrors):
-
     """
         Nitro error code 503
         Invalid arguments,  matchCookies is set while both hitParams and
@@ -2041,7 +1815,6 @@ class NSNitroNserrCaconfCnflHitInvalparamsMatchcuky(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflInvalrest2hostInvalparam(NSNitroCaconfErrors):
-
     """
         Nitro error code 504
         Invalid arguments,  invalRestrictedToHost is set while
@@ -2051,7 +1824,6 @@ class NSNitroNserrCaconfCnflInvalrest2hostInvalparam(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflPrefetchPrefetchsec(NSNitroCaconfErrors):
-
     """
         Nitro error code 505
         Invalid arguments,  prefetchPeriod is set while prefetch is
@@ -2061,7 +1833,6 @@ class NSNitroNserrCaconfCnflPrefetchPrefetchsec(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflPrefetchPrefetchmili(NSNitroCaconfErrors):
-
     """
         Nitro error code 506
         Invalid arguments,  prefetchPeriodMilliSec is set while prefetch
@@ -2071,7 +1842,6 @@ class NSNitroNserrCaconfCnflPrefetchPrefetchmili(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfCnflPrefetchmiliPrefetchsec(NSNitroCaconfErrors):
-
     """
         Nitro error code 507
         Conflicting arguments,  prefetchPeriodMilliSec and
@@ -2081,7 +1851,6 @@ class NSNitroNserrCaconfCnflPrefetchmiliPrefetchsec(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfArgLeMinVal(NSNitroCaconfErrors):
-
     """
         Nitro error code 508
         Invalid arguments,  given value is less than the minimum value
@@ -2090,7 +1859,6 @@ class NSNitroNserrCaconfArgLeMinVal(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCaconfArgGeMaxVal(NSNitroCaconfErrors):
-
     """
         Nitro error code 509
         Invalid arguments,  given value is more than the maximum value
@@ -2099,7 +1867,6 @@ class NSNitroNserrCaconfArgGeMaxVal(NSNitroCaconfErrors):
 
 
 class NSNitroNserrCachegroupNegminhit(NSNitroCaconfErrors):
-
     """
         Nitro error code 510
         ContentGroup cannot have negative minHit.
@@ -2108,7 +1875,6 @@ class NSNitroNserrCachegroupNegminhit(NSNitroCaconfErrors):
 
 
 class NSNitroCrErrors(NSNitroError):
-
     """
         Base exception class NSNitroCrErrors
     """
@@ -2116,7 +1882,6 @@ class NSNitroCrErrors(NSNitroError):
 
 
 class NSNitroNserrPxyCacheHmg(NSNitroCrErrors):
-
     """
         Nitro error code 512
         All caches in a content group should be of the same type
@@ -2125,7 +1890,6 @@ class NSNitroNserrPxyCacheHmg(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyRmLastMemt(NSNitroCrErrors):
-
     """
         Nitro error code 513
         Cannot remove last map entry from the table; remove the map
@@ -2135,7 +1899,6 @@ class NSNitroNserrPxyRmLastMemt(NSNitroCrErrors):
 
 
 class NSNitroNserrCswInsInvalPfx(NSNitroCrErrors):
-
     """
         Nitro error code 514
         Invalid prefix specified in the URL
@@ -2144,7 +1907,6 @@ class NSNitroNserrCswInsInvalPfx(NSNitroCrErrors):
 
 
 class NSNitroNserrPengExprIvalName(NSNitroCrErrors):
-
     """
         Nitro error code 515
         Invalid expression name
@@ -2153,7 +1915,6 @@ class NSNitroNserrPengExprIvalName(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBigUrl(NSNitroCrErrors):
-
     """
         Nitro error code 516
         URL specified is too long - maximum is 208,  including . and *
@@ -2162,7 +1923,6 @@ class NSNitroNserrCswBigUrl(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBigPfx(NSNitroCrErrors):
-
     """
         Nitro error code 517
         Prefix specified is too long - maximum is 199,  excluding *
@@ -2171,7 +1931,6 @@ class NSNitroNserrCswBigPfx(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBigSfx(NSNitroCrErrors):
-
     """
         Nitro error code 518
         Extension specified is too long,  maximum is 8
@@ -2180,7 +1939,6 @@ class NSNitroNserrCswBigSfx(NSNitroCrErrors):
 
 
 class NSNitroNserrCswInvalSfx(NSNitroCrErrors):
-
     """
         Nitro error code 519
         Extension is invalid
@@ -2189,7 +1947,6 @@ class NSNitroNserrCswInvalSfx(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNomethod(NSNitroCrErrors):
-
     """
         Nitro error code 520
         Invalid method name
@@ -2198,7 +1955,6 @@ class NSNitroNserrExprNomethod(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNourltokens(NSNitroCrErrors):
-
     """
         Nitro error code 521
         Invalid HTTP URL tokens
@@ -2207,7 +1963,6 @@ class NSNitroNserrExprNourltokens(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNoversion(NSNitroCrErrors):
-
     """
         Nitro error code 522
         Invalid HTTP version
@@ -2216,7 +1971,6 @@ class NSNitroNserrExprNoversion(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNohdr(NSNitroCrErrors):
-
     """
         Nitro error code 523
         Invalid HTTP header
@@ -2225,7 +1979,6 @@ class NSNitroNserrExprNohdr(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNocacntl(NSNitroCrErrors):
-
     """
         Nitro error code 524
         Invalid cache-control value
@@ -2234,7 +1987,6 @@ class NSNitroNserrExprNocacntl(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNoprag(NSNitroCrErrors):
-
     """
         Nitro error code 525
         Invalid pragma value
@@ -2243,7 +1995,6 @@ class NSNitroNserrExprNoprag(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNoquery(NSNitroCrErrors):
-
     """
         Nitro error code 526
         Invalid query string
@@ -2252,7 +2003,6 @@ class NSNitroNserrExprNoquery(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNoqual(NSNitroCrErrors):
-
     """
         Nitro error code 527
         Invalid qualifier
@@ -2261,7 +2011,6 @@ class NSNitroNserrExprNoqual(NSNitroCrErrors):
 
 
 class NSNitroNserrActionInuse(NSNitroCrErrors):
-
     """
         Nitro error code 528
         Action name is already in use
@@ -2270,7 +2019,6 @@ class NSNitroNserrActionInuse(NSNitroCrErrors):
 
 
 class NSNitroNserrActionHdrInval(NSNitroCrErrors):
-
     """
         Nitro error code 529
         Invalid header
@@ -2279,16 +2027,14 @@ class NSNitroNserrActionHdrInval(NSNitroCrErrors):
 
 
 class NSNitroNserrUrlqInval(NSNitroCrErrors):
-
     """
         Nitro error code 530
-
+        
     """
     pass
 
 
 class NSNitroNserrUndefAction(NSNitroCrErrors):
-
     """
         Nitro error code 531
         Action directive or qualifier is not valid
@@ -2297,7 +2043,6 @@ class NSNitroNserrUndefAction(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeInuse(NSNitroCrErrors):
-
     """
         Nitro error code 532
         Policy name is already in use
@@ -2306,7 +2051,6 @@ class NSNitroNserrCpeInuse(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeReqactInval(NSNitroCrErrors):
-
     """
         Nitro error code 533
         Request action is not valid
@@ -2315,7 +2059,6 @@ class NSNitroNserrCpeReqactInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeRspactInval(NSNitroCrErrors):
-
     """
         Nitro error code 534
         Response action is not valid
@@ -2324,7 +2067,6 @@ class NSNitroNserrCpeRspactInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeReqruleInval(NSNitroCrErrors):
-
     """
         Nitro error code 535
         Request rule is not valid
@@ -2333,7 +2075,6 @@ class NSNitroNserrCpeReqruleInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeRspruleInval(NSNitroCrErrors):
-
     """
         Nitro error code 536
         Response rule is not valid
@@ -2342,7 +2083,6 @@ class NSNitroNserrCpeRspruleInval(NSNitroCrErrors):
 
 
 class NSNitroNserrActionDefinval(NSNitroCrErrors):
-
     """
         Nitro error code 537
         Default actions cannot be removed
@@ -2351,7 +2091,6 @@ class NSNitroNserrActionDefinval(NSNitroCrErrors):
 
 
 class NSNitroNserrActionNotpresent(NSNitroCrErrors):
-
     """
         Nitro error code 538
         Action does not exist
@@ -2360,7 +2099,6 @@ class NSNitroNserrActionNotpresent(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyInvalServicetype(NSNitroCrErrors):
-
     """
         Nitro error code 539
         Invalid service type for virtual server
@@ -2369,7 +2107,6 @@ class NSNitroNserrPxyInvalServicetype(NSNitroCrErrors):
 
 
 class NSNitroNserrCachepolicyInuse(NSNitroCrErrors):
-
     """
         Nitro error code 540
         Caching policy name is already in use
@@ -2378,7 +2115,6 @@ class NSNitroNserrCachepolicyInuse(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupInternal(NSNitroCrErrors):
-
     """
         Nitro error code 543
         Built-in content groups cannot be removed
@@ -2387,7 +2123,6 @@ class NSNitroNserrCachegroupInternal(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeInval(NSNitroCrErrors):
-
     """
         Nitro error code 544
         Policy name is invalid
@@ -2396,7 +2131,6 @@ class NSNitroNserrCpeInval(NSNitroCrErrors):
 
 
 class NSNitroNserrExprNolen(NSNitroCrErrors):
-
     """
         Nitro error code 545
         URL length is not valid
@@ -2405,25 +2139,22 @@ class NSNitroNserrExprNolen(NSNitroCrErrors):
 
 
 class NSNitroNserrDnswait(NSNitroCrErrors):
-
     """
         Nitro error code 546
-
+        
     """
     pass
 
 
 class NSNitroNserrGwTimeout(NSNitroCrErrors):
-
     """
         Nitro error code 547
-
+        
     """
     pass
 
 
 class NSNitroNserrCswdmnInuse(NSNitroCrErrors):
-
     """
         Nitro error code 548
         Domain is already hosted by another server
@@ -2432,16 +2163,14 @@ class NSNitroNserrCswdmnInuse(NSNitroCrErrors):
 
 
 class NSNitroNserrCswdmnPlcyExist(NSNitroCrErrors):
-
     """
         Nitro error code 549
-
+        
     """
     pass
 
 
 class NSNitroNserrActionNomodHdr(NSNitroCrErrors):
-
     """
         Nitro error code 550
         Action has missing argument
@@ -2450,7 +2179,6 @@ class NSNitroNserrActionNomodHdr(NSNitroCrErrors):
 
 
 class NSNitroNserrExprInvalOperator(NSNitroCrErrors):
-
     """
         Nitro error code 551
         Invalid operator for the qualifier
@@ -2459,7 +2187,6 @@ class NSNitroNserrExprInvalOperator(NSNitroCrErrors):
 
 
 class NSNitroNserrExprDefRemInval(NSNitroCrErrors):
-
     """
         Nitro error code 552
         Default expression cannot be removed
@@ -2468,7 +2195,6 @@ class NSNitroNserrExprDefRemInval(NSNitroCrErrors):
 
 
 class NSNitroNserrExprToomany(NSNitroCrErrors):
-
     """
         Nitro error code 553
         Expression limit reached
@@ -2477,7 +2203,6 @@ class NSNitroNserrExprToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrActionToomany(NSNitroCrErrors):
-
     """
         Nitro error code 554
         Action limit reached
@@ -2486,7 +2211,6 @@ class NSNitroNserrActionToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCswpolicyToomany(NSNitroCrErrors):
-
     """
         Nitro error code 555
         CS policy limit reached
@@ -2495,7 +2219,6 @@ class NSNitroNserrCswpolicyToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCrdpolicyToomany(NSNitroCrErrors):
-
     """
         Nitro error code 556
         CR policy limit reached
@@ -2504,7 +2227,6 @@ class NSNitroNserrCrdpolicyToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrMappolicyToomany(NSNitroCrErrors):
-
     """
         Nitro error code 557
         Map policy limit reached
@@ -2513,7 +2235,6 @@ class NSNitroNserrMappolicyToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrFiltpolicyToomany(NSNitroCrErrors):
-
     """
         Nitro error code 558
         Filter policy limit reached
@@ -2522,7 +2243,6 @@ class NSNitroNserrFiltpolicyToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCachepolicyToomany(NSNitroCrErrors):
-
     """
         Nitro error code 559
         Integrated cache policy limit reached
@@ -2531,7 +2251,6 @@ class NSNitroNserrCachepolicyToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupToomany(NSNitroCrErrors):
-
     """
         Nitro error code 560
         Integrated cache content group limit reached
@@ -2540,7 +2259,6 @@ class NSNitroNserrCachegroupToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheparamMemallocFailed(NSNitroCrErrors):
-
     """
         Nitro error code 561
         Unable to allocate specified amount of memory
@@ -2549,7 +2267,6 @@ class NSNitroNserrCacheparamMemallocFailed(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupInuse(NSNitroCrErrors):
-
     """
         Nitro error code 562
         Content group name is already in use
@@ -2558,7 +2275,6 @@ class NSNitroNserrCachegroupInuse(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupExpconflict(NSNitroCrErrors):
-
     """
         Nitro error code 563
         Expiry times conflict
@@ -2567,7 +2283,6 @@ class NSNitroNserrCachegroupExpconflict(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheparamInval(NSNitroCrErrors):
-
     """
         Nitro error code 564
         Cache parameter is invalid
@@ -2576,7 +2291,6 @@ class NSNitroNserrCacheparamInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupParamInval(NSNitroCrErrors):
-
     """
         Nitro error code 565
         Invalid invalidation parameter
@@ -2585,7 +2299,6 @@ class NSNitroNserrCachegroupParamInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupQueryInval(NSNitroCrErrors):
-
     """
         Nitro error code 566
         Invalid query string
@@ -2594,7 +2307,6 @@ class NSNitroNserrCachegroupQueryInval(NSNitroCrErrors):
 
 
 class NSNitroNserrActionInval(NSNitroCrErrors):
-
     """
         Nitro error code 567
         Action name is invalid
@@ -2603,7 +2315,6 @@ class NSNitroNserrActionInval(NSNitroCrErrors):
 
 
 class NSNitroNserrExprDefSetInval(NSNitroCrErrors):
-
     """
         Nitro error code 568
         Default expression cannot be set
@@ -2612,7 +2323,6 @@ class NSNitroNserrExprDefSetInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupResszMinGtMax(NSNitroCrErrors):
-
     """
         Nitro error code 569
         Minimum response size cannot exceed the maximum response size
@@ -2621,7 +2331,6 @@ class NSNitroNserrCachegroupResszMinGtMax(NSNitroCrErrors):
 
 
 class NSNitroNserrFiltacionInvalrespcode(NSNitroCrErrors):
-
     """
         Nitro error code 570
         Invalid HTTP response code
@@ -2630,7 +2339,6 @@ class NSNitroNserrFiltacionInvalrespcode(NSNitroCrErrors):
 
 
 class NSNitroNserrSvpnCertChallenge(NSNitroCrErrors):
-
     """
         Nitro error code 571
         Destination Server challenged for a client certificate
@@ -2639,7 +2347,6 @@ class NSNitroNserrSvpnCertChallenge(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupHostReq(NSNitroCrErrors):
-
     """
         Nitro error code 576
         Host required for a group with invalidation restricted to host
@@ -2648,7 +2355,6 @@ class NSNitroNserrCachegroupHostReq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupHostNreq(NSNitroCrErrors):
-
     """
         Nitro error code 577
         Host not required
@@ -2657,7 +2363,6 @@ class NSNitroNserrCachegroupHostNreq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupDyngrpNexp(NSNitroCrErrors):
-
     """
         Nitro error code 578
         Cannot expire a parameterized content group
@@ -2666,7 +2371,6 @@ class NSNitroNserrCachegroupDyngrpNexp(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupOneGrpReq(NSNitroCrErrors):
-
     """
         Nitro error code 579
         Only one content group required
@@ -2675,7 +2379,6 @@ class NSNitroNserrCachegroupOneGrpReq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupOneAllReq(NSNitroCrErrors):
-
     """
         Nitro error code 580
         ALL should be the only content group specified
@@ -2684,7 +2387,6 @@ class NSNitroNserrCachegroupOneAllReq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupMatchParamInval(NSNitroCrErrors):
-
     """
         Nitro error code 581
         Invalid request hit parameter
@@ -2693,7 +2395,6 @@ class NSNitroNserrCachegroupMatchParamInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupDynResCache(NSNitroCrErrors):
-
     """
         Nitro error code 582
         Cannot specify a parameterized group with a response time CACHE
@@ -2703,7 +2404,6 @@ class NSNitroNserrCachegroupDynResCache(NSNitroCrErrors):
 
 
 class NSNitroNserrExprInvalValue(NSNitroCrErrors):
-
     """
         Nitro error code 583
         Invalid expression value
@@ -2712,7 +2412,6 @@ class NSNitroNserrExprInvalValue(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupPrefetchConflict(NSNitroCrErrors):
-
     """
         Nitro error code 584
         Prefetch periods conflict
@@ -2721,7 +2420,6 @@ class NSNitroNserrCachegroupPrefetchConflict(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupPrefetchEnable(NSNitroCrErrors):
-
     """
         Nitro error code 585
         Enable prefetch to set prefetch period
@@ -2730,7 +2428,6 @@ class NSNitroNserrCachegroupPrefetchEnable(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupCchUnknown(NSNitroCrErrors):
-
     """
         Nitro error code 586
         Unknown cache-control header
@@ -2739,7 +2436,6 @@ class NSNitroNserrCachegroupCchUnknown(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupRelexpX10ms(NSNitroCrErrors):
-
     """
         Nitro error code 587
         Relative expiry milliseconds must be multiples of 10
@@ -2748,7 +2444,6 @@ class NSNitroNserrCachegroupRelexpX10ms(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupPrefetchX10ms(NSNitroCrErrors):
-
     """
         Nitro error code 588
         Prefetch period milliseconds must be multiples of 10
@@ -2757,7 +2452,6 @@ class NSNitroNserrCachegroupPrefetchX10ms(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupStaticToDynamic(NSNitroCrErrors):
-
     """
         Nitro error code 589
          This content group cannot be made parameterized
@@ -2766,7 +2460,6 @@ class NSNitroNserrCachegroupStaticToDynamic(NSNitroCrErrors):
 
 
 class NSNitroNserrPlcyDefRemInval(NSNitroCrErrors):
-
     """
         Nitro error code 591
         Default policy cannot be removed
@@ -2775,7 +2468,6 @@ class NSNitroNserrPlcyDefRemInval(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupPrefetchRelNreq(NSNitroCrErrors):
-
     """
         Nitro error code 592
         Relative expiry and prefetch period should both be seconds or
@@ -2785,7 +2477,6 @@ class NSNitroNserrCachegroupPrefetchRelNreq(NSNitroCrErrors):
 
 
 class NSNitroNserrExprSetInvalFlowtype(NSNitroCrErrors):
-
     """
         Nitro error code 593
         Flow type cannot be changed
@@ -2794,7 +2485,6 @@ class NSNitroNserrExprSetInvalFlowtype(NSNitroCrErrors):
 
 
 class NSNitroNserrExprTooBig(NSNitroCrErrors):
-
     """
         Nitro error code 594
         Expression too long - maximum length is 1500,  in fully-
@@ -2804,7 +2494,6 @@ class NSNitroNserrExprTooBig(NSNitroCrErrors):
 
 
 class NSNitroNserrCpeInvalidIdrange(NSNitroCrErrors):
-
     """
         Nitro error code 595
         Priority should be between 0 and 64000 (inclusive)
@@ -2813,7 +2502,6 @@ class NSNitroNserrCpeInvalidIdrange(NSNitroCrErrors):
 
 
 class NSNitroNserrExprTooBigExt(NSNitroCrErrors):
-
     """
         Nitro error code 596
         Expression too long - maximum length is 800,  in fully-qualified
@@ -2823,7 +2511,6 @@ class NSNitroNserrExprTooBigExt(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupMatchcookieDynReq(NSNitroCrErrors):
-
     """
         Nitro error code 597
         Match cookies argument allowed only with parameterized groups
@@ -2832,7 +2519,6 @@ class NSNitroNserrCachegroupMatchcookieDynReq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupMatchcookieNreq(NSNitroCrErrors):
-
     """
         Nitro error code 598
         Cannot modify match cookies
@@ -2841,7 +2527,6 @@ class NSNitroNserrCachegroupMatchcookieNreq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachefwpxyPresent(NSNitroCrErrors):
-
     """
         Nitro error code 599
         Forward proxy is already present
@@ -2850,7 +2535,6 @@ class NSNitroNserrCachefwpxyPresent(NSNitroCrErrors):
 
 
 class NSNitroNserrCachePrefetchReevalNreq(NSNitroCrErrors):
-
     """
         Nitro error code 600
         Cannot configure a content group to both prefetch and evaluate
@@ -2860,7 +2544,6 @@ class NSNitroNserrCachePrefetchReevalNreq(NSNitroCrErrors):
 
 
 class NSNitroNserrCachefwpxyToomany(NSNitroCrErrors):
-
     """
         Nitro error code 601
         Forward proxy limit reached
@@ -2869,7 +2552,6 @@ class NSNitroNserrCachefwpxyToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCachePetFcNreq(NSNitroCrErrors):
-
     """
         Nitro error code 602
         Cannot enable both 'Poll Every Time' and 'Flash Cache'
@@ -2878,7 +2560,6 @@ class NSNitroNserrCachePetFcNreq(NSNitroCrErrors):
 
 
 class NSNitroNserrSaveconfigInProgress(NSNitroCrErrors):
-
     """
         Nitro error code 603
         Configuration is being saved,  please try again later
@@ -2887,7 +2568,6 @@ class NSNitroNserrSaveconfigInProgress(NSNitroCrErrors):
 
 
 class NSNitroNserrGwsubnetNotExist(NSNitroCrErrors):
-
     """
         Nitro error code 604
         The gateway is not directly reachable
@@ -2896,7 +2576,6 @@ class NSNitroNserrGwsubnetNotExist(NSNitroCrErrors):
 
 
 class NSNitroNserrGwReqSubnet(NSNitroCrErrors):
-
     """
         Nitro error code 605
         An existing route relies on the presence of this subnet
@@ -2905,7 +2584,6 @@ class NSNitroNserrGwReqSubnet(NSNitroCrErrors):
 
 
 class NSNitroNserrUrlpolNoPri(NSNitroCrErrors):
-
     """
         Nitro error code 606
         Priority cannot be specified for URL-based content switching
@@ -2915,7 +2593,6 @@ class NSNitroNserrUrlpolNoPri(NSNitroCrErrors):
 
 
 class NSNitroNserrBadCrAttribs(NSNitroCrErrors):
-
     """
         Nitro error code 607
         Bad cache redirection VIP attributes given
@@ -2924,7 +2601,6 @@ class NSNitroNserrBadCrAttribs(NSNitroCrErrors):
 
 
 class NSNitroNserrMacNotSupported(NSNitroCrErrors):
-
     """
         Nitro error code 608
         MAC redirection not supported
@@ -2933,7 +2609,6 @@ class NSNitroNserrMacNotSupported(NSNitroCrErrors):
 
 
 class NSNitroNserrPolicyNotSupported(NSNitroCrErrors):
-
     """
         Nitro error code 609
         Policy redirection not supported with NNTP
@@ -2942,7 +2617,6 @@ class NSNitroNserrPolicyNotSupported(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheabilityNotSupported(NSNitroCrErrors):
-
     """
         Nitro error code 610
         Cannot set cacheability on cache
@@ -2951,7 +2625,6 @@ class NSNitroNserrCacheabilityNotSupported(NSNitroCrErrors):
 
 
 class NSNitroNserrHostRtNotAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 611
         Host route advertisement not permitted for this IP
@@ -2960,7 +2633,6 @@ class NSNitroNserrHostRtNotAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrRoutingNotAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 612
         Routing protocols can run only on SNIP's or NSIP
@@ -2969,7 +2641,6 @@ class NSNitroNserrRoutingNotAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrConfigNotsaved(NSNitroCrErrors):
-
     """
         Nitro error code 613
         Configuration is not saved
@@ -2978,7 +2649,6 @@ class NSNitroNserrConfigNotsaved(NSNitroCrErrors):
 
 
 class NSNitroNserrDisRoutingNsip(NSNitroCrErrors):
-
     """
         Nitro error code 614
         Cannot disable dynamic routing on NSIP
@@ -2987,16 +2657,14 @@ class NSNitroNserrDisRoutingNsip(NSNitroCrErrors):
 
 
 class NSNitroNserrExprmismatch(NSNitroCrErrors):
-
     """
         Nitro error code 624
-
+        
     """
     pass
 
 
 class NSNitroNserrNoHost(NSNitroCrErrors):
-
     """
         Nitro error code 627
         No host header and default not set
@@ -3005,7 +2673,6 @@ class NSNitroNserrNoHost(NSNitroCrErrors):
 
 
 class NSNitroNserrNoDflt(NSNitroCrErrors):
-
     """
         Nitro error code 628
         Host header present,  no match,  and default not set
@@ -3014,7 +2681,6 @@ class NSNitroNserrNoDflt(NSNitroCrErrors):
 
 
 class NSNitroNserrDfltdmnFirst(NSNitroCrErrors):
-
     """
         Nitro error code 629
         No default domain translation entry
@@ -3023,7 +2689,6 @@ class NSNitroNserrDfltdmnFirst(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyConfLoop(NSNitroCrErrors):
-
     """
         Nitro error code 630
         Source and target domains cannot be the same
@@ -3032,7 +2697,6 @@ class NSNitroNserrPxyConfLoop(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMeDup(NSNitroCrErrors):
-
     """
         Nitro error code 632
         Duplicate map entry
@@ -3041,7 +2705,6 @@ class NSNitroNserrPxyMeDup(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyIvalTgt(NSNitroCrErrors):
-
     """
         Nitro error code 633
         Target is invalid during map entry addition
@@ -3050,7 +2713,6 @@ class NSNitroNserrPxyIvalTgt(NSNitroCrErrors):
 
 
 class NSNitroNserrConnected(NSNitroCrErrors):
-
     """
         Nitro error code 634
         Proxy connection established
@@ -3059,7 +2721,6 @@ class NSNitroNserrConnected(NSNitroCrErrors):
 
 
 class NSNitroNserrAuthenticate(NSNitroCrErrors):
-
     """
         Nitro error code 635
         Authentication required
@@ -3068,7 +2729,6 @@ class NSNitroNserrAuthenticate(NSNitroCrErrors):
 
 
 class NSNitroNserrLargeDomain(NSNitroCrErrors):
-
     """
         Nitro error code 636
         Domain length overflow
@@ -3077,7 +2737,6 @@ class NSNitroNserrLargeDomain(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyIvalUrl(NSNitroCrErrors):
-
     """
         Nitro error code 640
         Source/destination URL or the combination is not valid
@@ -3086,7 +2745,6 @@ class NSNitroNserrPxyIvalUrl(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMeUse(NSNitroCrErrors):
-
     """
         Nitro error code 641
         Map entry is already in use
@@ -3095,7 +2753,6 @@ class NSNitroNserrPxyMeUse(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMtType(NSNitroCrErrors):
-
     """
         Nitro error code 642
         Map entries in a table should be homogeneous
@@ -3104,7 +2761,6 @@ class NSNitroNserrPxyMtType(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMtUse(NSNitroCrErrors):
-
     """
         Nitro error code 643
         Map table is in use
@@ -3113,7 +2769,6 @@ class NSNitroNserrPxyMtUse(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMbInval(NSNitroCrErrors):
-
     """
         Nitro error code 644
         Invalid map bind operation
@@ -3122,7 +2777,6 @@ class NSNitroNserrPxyMbInval(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMbUse(NSNitroCrErrors):
-
     """
         Nitro error code 645
         You can bind only one table to a vserver
@@ -3131,7 +2785,6 @@ class NSNitroNserrPxyMbUse(NSNitroCrErrors):
 
 
 class NSNitroNserrPxySetdcdn(NSNitroCrErrors):
-
     """
         Nitro error code 646
         Invalid DCDN configuration
@@ -3140,7 +2793,6 @@ class NSNitroNserrPxySetdcdn(NSNitroCrErrors):
 
 
 class NSNitroNserrPxySetdflt(NSNitroCrErrors):
-
     """
         Nitro error code 647
         Invalid default domain specification
@@ -3149,7 +2801,6 @@ class NSNitroNserrPxySetdflt(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyDfltNotset(NSNitroCrErrors):
-
     """
         Nitro error code 648
         Removing default without setting it
@@ -3158,7 +2809,6 @@ class NSNitroNserrPxyDfltNotset(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyFwdIval(NSNitroCrErrors):
-
     """
         Nitro error code 649
         Invalid FWD PXY map entry
@@ -3167,7 +2817,6 @@ class NSNitroNserrPxyFwdIval(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMtxProt(NSNitroCrErrors):
-
     """
         Nitro error code 656
         PXY and cache protocol should be the same
@@ -3176,7 +2825,6 @@ class NSNitroNserrPxyMtxProt(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMtxTra(NSNitroCrErrors):
-
     """
         Nitro error code 657
         Invalid cache type on service
@@ -3185,7 +2833,6 @@ class NSNitroNserrPxyMtxTra(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMtxFwd(NSNitroCrErrors):
-
     """
         Nitro error code 658
         Forward Pxy matrix
@@ -3194,7 +2841,6 @@ class NSNitroNserrPxyMtxFwd(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMtxRev(NSNitroCrErrors):
-
     """
         Nitro error code 659
         Reverse Pxy Matrix
@@ -3203,7 +2849,6 @@ class NSNitroNserrPxyMtxRev(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyAddTraNonhttp(NSNitroCrErrors):
-
     """
         Nitro error code 660
         transparent non-HTTP policy is invalid
@@ -3212,7 +2857,6 @@ class NSNitroNserrPxyAddTraNonhttp(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyAddTraOther(NSNitroCrErrors):
-
     """
         Nitro error code 661
         transparent non-HTTP map/via should not be specified
@@ -3221,7 +2865,6 @@ class NSNitroNserrPxyAddTraOther(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyOptInval(NSNitroCrErrors):
-
     """
         Nitro error code 662
         ARP/ghost options invalid for REV/FWD proxy
@@ -3230,7 +2873,6 @@ class NSNitroNserrPxyOptInval(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyAddSvrOther(NSNitroCrErrors):
-
     """
         Nitro error code 663
         Simple content based no proxy attribs
@@ -3239,7 +2881,6 @@ class NSNitroNserrPxyAddSvrOther(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyMbDup(NSNitroCrErrors):
-
     """
         Nitro error code 664
         Bind entry already exists
@@ -3248,7 +2889,6 @@ class NSNitroNserrPxyMbDup(NSNitroCrErrors):
 
 
 class NSNitroNserrPxyDfltDup(NSNitroCrErrors):
-
     """
         Nitro error code 665
         Default already exists
@@ -3257,7 +2897,6 @@ class NSNitroNserrPxyDfltDup(NSNitroCrErrors):
 
 
 class NSNitroNserrSelInuse(NSNitroCrErrors):
-
     """
         Nitro error code 672
         Selector already exists
@@ -3266,7 +2905,6 @@ class NSNitroNserrSelInuse(NSNitroCrErrors):
 
 
 class NSNitroNserrSelParseFailed(NSNitroCrErrors):
-
     """
         Nitro error code 673
         Error in selector expression syntax
@@ -3275,7 +2913,6 @@ class NSNitroNserrSelParseFailed(NSNitroCrErrors):
 
 
 class NSNitroNserrNoselector(NSNitroCrErrors):
-
     """
         Nitro error code 674
         No such selector
@@ -3284,7 +2921,6 @@ class NSNitroNserrNoselector(NSNitroCrErrors):
 
 
 class NSNitroNserrSelToomany(NSNitroCrErrors):
-
     """
         Nitro error code 675
         Selector limit reached
@@ -3293,7 +2929,6 @@ class NSNitroNserrSelToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCachegroupNoselparam(NSNitroCrErrors):
-
     """
         Nitro error code 677
         Cannot change param-based content group to selector-based (or
@@ -3303,7 +2938,6 @@ class NSNitroNserrCachegroupNoselparam(NSNitroCrErrors):
 
 
 class NSNitroNserrNocachegroup(NSNitroCrErrors):
-
     """
         Nitro error code 678
         Content group does not exist
@@ -3312,7 +2946,6 @@ class NSNitroNserrNocachegroup(NSNitroCrErrors):
 
 
 class NSNitroNserrNonreqSel(NSNitroCrErrors):
-
     """
         Nitro error code 679
         Selector expression is not request based
@@ -3321,7 +2954,6 @@ class NSNitroNserrNonreqSel(NSNitroCrErrors):
 
 
 class NSNitroNserrInvalarg(NSNitroCrErrors):
-
     """
         Nitro error code 680
         The action qualifier and the specified argument(s) do not match
@@ -3330,7 +2962,6 @@ class NSNitroNserrInvalarg(NSNitroCrErrors):
 
 
 class NSNitroNserrNowildAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 681
         Wildcard not allowed with BETWEEN operator
@@ -3339,7 +2970,6 @@ class NSNitroNserrNowildAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrDateIncompat(NSNitroCrErrors):
-
     """
         Nitro error code 682
         Time arguments incompatible
@@ -3348,7 +2978,6 @@ class NSNitroNserrDateIncompat(NSNitroCrErrors):
 
 
 class NSNitroNserrTimedateInvalid(NSNitroCrErrors):
-
     """
         Nitro error code 683
         Date/time value invalid
@@ -3357,7 +2986,6 @@ class NSNitroNserrTimedateInvalid(NSNitroCrErrors):
 
 
 class NSNitroNserrContentgroupCookieReqParam(NSNitroCrErrors):
-
     """
         Nitro error code 684
         Hit parameters or inval parameters needed to enable cookie
@@ -3367,7 +2995,6 @@ class NSNitroNserrContentgroupCookieReqParam(NSNitroCrErrors):
 
 
 class NSNitroNserrContentgroupIgnorecaseReqHitparam(NSNitroCrErrors):
-
     """
         Nitro error code 685
         Hit parameters needed to enable case-insensitive param value
@@ -3377,7 +3004,6 @@ class NSNitroNserrContentgroupIgnorecaseReqHitparam(NSNitroCrErrors):
 
 
 class NSNitroNserrContentgroupInvalparamReq(NSNitroCrErrors):
-
     """
         Nitro error code 686
         Inval parameters needed to enable host-based invalidation
@@ -3386,7 +3012,6 @@ class NSNitroNserrContentgroupInvalparamReq(NSNitroCrErrors):
 
 
 class NSNitroNserrClisecExpTooLong(NSNitroCrErrors):
-
     """
         Nitro error code 687
         Client security expression too long
@@ -3395,7 +3020,6 @@ class NSNitroNserrClisecExpTooLong(NSNitroCrErrors):
 
 
 class NSNitroNserrNonhttpCswBindHttpSslPolicy(NSNitroCrErrors):
-
     """
         Nitro error code 688
         HTTP/SSL protocol based policies can be bound only to HTTP/SSL
@@ -3405,7 +3029,6 @@ class NSNitroNserrNonhttpCswBindHttpSslPolicy(NSNitroCrErrors):
 
 
 class NSNitroNserrNonhttpCswBindDomainPolicy(NSNitroCrErrors):
-
     """
         Nitro error code 689
         Domain based policies can be bound only to HTTP/SSL CS vserver
@@ -3414,7 +3037,6 @@ class NSNitroNserrNonhttpCswBindDomainPolicy(NSNitroCrErrors):
 
 
 class NSNitroNserrNonhttpCswBindUrlPolicy(NSNitroCrErrors):
-
     """
         Nitro error code 690
         URL based policies can be bound only to HTTP/SSL CS vserver
@@ -3423,7 +3045,6 @@ class NSNitroNserrNonhttpCswBindUrlPolicy(NSNitroCrErrors):
 
 
 class NSNitroNserrPolboundtoTooManyVsvrs(NSNitroCrErrors):
-
     """
         Nitro error code 691
         Domain cannot be set - policy bound to more than one vserver.
@@ -3432,7 +3053,6 @@ class NSNitroNserrPolboundtoTooManyVsvrs(NSNitroCrErrors):
 
 
 class NSNitroNserrPiCswUrlDomain(NSNitroCrErrors):
-
     """
         Nitro error code 692
         Domain/URL options disallowed along with advanced expressions
@@ -3441,7 +3061,6 @@ class NSNitroNserrPiCswUrlDomain(NSNitroCrErrors):
 
 
 class NSNitroNserrPiToPeCsw(NSNitroCrErrors):
-
     """
         Nitro error code 693
         Advanced expressions based  policies cannot be bound to a
@@ -3451,7 +3070,6 @@ class NSNitroNserrPiToPeCsw(NSNitroCrErrors):
 
 
 class NSNitroNserrPeToPiCsw(NSNitroCrErrors):
-
     """
         Nitro error code 694
         Classic expression policies cannot be bound to a advanced CS
@@ -3461,7 +3079,6 @@ class NSNitroNserrPeToPiCsw(NSNitroCrErrors):
 
 
 class NSNitroNserrPriorityCompPiCsw(NSNitroCrErrors):
-
     """
         Nitro error code 695
         Priority is mandatory for advanced expressions.
@@ -3470,7 +3087,6 @@ class NSNitroNserrPriorityCompPiCsw(NSNitroCrErrors):
 
 
 class NSNitroNserrPiTcpcsw(NSNitroCrErrors):
-
     """
         Nitro error code 696
         Advanced expressions can not be bound to non-HTTP CS Vserver.
@@ -3479,7 +3095,6 @@ class NSNitroNserrPiTcpcsw(NSNitroCrErrors):
 
 
 class NSNitroNserrPeGoto(NSNitroCrErrors):
-
     """
         Nitro error code 697
         Priority Jump expression cannot be bound with a classic
@@ -3489,7 +3104,6 @@ class NSNitroNserrPeGoto(NSNitroCrErrors):
 
 
 class NSNitroNserrPiToPePolCsw(NSNitroCrErrors):
-
     """
         Nitro error code 698
         Advanced expression based policy cannot be converted to a
@@ -3499,7 +3113,6 @@ class NSNitroNserrPiToPePolCsw(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheobjectEvict(NSNitroCrErrors):
-
     """
         Nitro error code 699
         Cached object removed on expiry.
@@ -3508,7 +3121,6 @@ class NSNitroNserrCacheobjectEvict(NSNitroCrErrors):
 
 
 class NSNitroNserrDnsfail(NSNitroCrErrors):
-
     """
         Nitro error code 700
         DNS request failed
@@ -3517,7 +3129,6 @@ class NSNitroNserrDnsfail(NSNitroCrErrors):
 
 
 class NSNitroNserrHcRetTypeChange(NSNitroCrErrors):
-
     """
         Nitro error code 701
         Cannot change http callout return type.
@@ -3526,7 +3137,6 @@ class NSNitroNserrHcRetTypeChange(NSNitroCrErrors):
 
 
 class NSNitroNserrHcNotHttpVs(NSNitroCrErrors):
-
     """
         Nitro error code 702
         Not a HTTP or SSL vserver.
@@ -3535,7 +3145,6 @@ class NSNitroNserrHcNotHttpVs(NSNitroCrErrors):
 
 
 class NSNitroNserrHcReqConfigXor(NSNitroCrErrors):
-
     """
         Nitro error code 703
         Full request expression and other request attributes cannot be
@@ -3545,7 +3154,6 @@ class NSNitroNserrHcReqConfigXor(NSNitroCrErrors):
 
 
 class NSNitroNserrHcServiceConfigXor(NSNitroCrErrors):
-
     """
         Nitro error code 704
          and vserver cannot be set at the same time.
@@ -3554,7 +3162,6 @@ class NSNitroNserrHcServiceConfigXor(NSNitroCrErrors):
 
 
 class NSNitroNserrHcRetTypeReqd(NSNitroCrErrors):
-
     """
         Nitro error code 705
         Return type needs to be configured first.
@@ -3563,7 +3170,6 @@ class NSNitroNserrHcRetTypeReqd(NSNitroCrErrors):
 
 
 class NSNitroNserrRtspCswBindIpPolicy(NSNitroCrErrors):
-
     """
         Nitro error code 706
         Only IP based policies can be bound to RTSP CS vserver
@@ -3572,7 +3178,6 @@ class NSNitroNserrRtspCswBindIpPolicy(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBindIncompatTgt(NSNitroCrErrors):
-
     """
         Nitro error code 707
         The target vserver is not compatible with the CS verver.
@@ -3581,7 +3186,6 @@ class NSNitroNserrCswBindIncompatTgt(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBindIncompatCspl(NSNitroCrErrors):
-
     """
         Nitro error code 725
         The target vserver is not compatible with the CS policylabel.
@@ -3590,7 +3194,6 @@ class NSNitroNserrCswBindIncompatCspl(NSNitroCrErrors):
 
 
 class NSNitroNserrAsBadXmlnamespacePrefix(NSNitroCrErrors):
-
     """
         Nitro error code 708
         Invalid XML-Namespace prefix.
@@ -3599,7 +3202,6 @@ class NSNitroNserrAsBadXmlnamespacePrefix(NSNitroCrErrors):
 
 
 class NSNitroNserrInvalidSipExpr(NSNitroCrErrors):
-
     """
         Nitro error code 709
         The SourceIP Expression specified is invalid.
@@ -3608,7 +3210,6 @@ class NSNitroNserrInvalidSipExpr(NSNitroCrErrors):
 
 
 class NSNitroNserrNoBackendvserver(NSNitroCrErrors):
-
     """
         Nitro error code 710
         No backend LB vserver found.
@@ -3617,7 +3218,6 @@ class NSNitroNserrNoBackendvserver(NSNitroCrErrors):
 
 
 class NSNitroNserrContentGroupToomany(NSNitroCrErrors):
-
     """
         Nitro error code 711
         ContentGroup limit reached
@@ -3626,7 +3226,6 @@ class NSNitroNserrContentGroupToomany(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheMemSizeChanged(NSNitroCrErrors):
-
     """
         Nitro error code 712
         To use new Integrated Cache memory limit,  save the
@@ -3636,7 +3235,6 @@ class NSNitroNserrCacheMemSizeChanged(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheMemSizeZero(NSNitroCrErrors):
-
     """
         Nitro error code 713
         No memory limit is configured for Integrated Cache. Use set
@@ -3646,7 +3244,6 @@ class NSNitroNserrCacheMemSizeZero(NSNitroCrErrors):
 
 
 class NSNitroNserrL2connNotAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 714
         l2conn feature is supported only for ncore.
@@ -3655,7 +3252,6 @@ class NSNitroNserrL2connNotAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrSqlNotAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 715
         Database feature is supported only on nCore
@@ -3664,7 +3260,6 @@ class NSNitroNserrSqlNotAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrIpsecNotAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 716
         IPSec feature is not supported
@@ -3673,7 +3268,6 @@ class NSNitroNserrIpsecNotAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrHtmlpageNotAllowed(NSNitroCrErrors):
-
     """
         Nitro error code 717
         Respondwith/sqlresponse_ok/sqlresponse_error actions cannot be
@@ -3683,7 +3277,6 @@ class NSNitroNserrHtmlpageNotAllowed(NSNitroCrErrors):
 
 
 class NSNitroNserrPeNotAllowedDb(NSNitroCrErrors):
-
     """
         Nitro error code 718
         PE expressions are not allowed for DataStream.
@@ -3692,7 +3285,6 @@ class NSNitroNserrPeNotAllowedDb(NSNitroCrErrors):
 
 
 class NSNitroNserrCswNoPolicyName(NSNitroCrErrors):
-
     """
         Nitro error code 719
         Policy name is required with priority.
@@ -3701,7 +3293,6 @@ class NSNitroNserrCswNoPolicyName(NSNitroCrErrors):
 
 
 class NSNitroNserrSqlMsgExceed(NSNitroCrErrors):
-
     """
         Nitro error code 720
         Message length should be smaller than 512
@@ -3710,7 +3301,6 @@ class NSNitroNserrSqlMsgExceed(NSNitroCrErrors):
 
 
 class NSNitroNserrCswClassicAppfwPol(NSNitroCrErrors):
-
     """
         Nitro error code 721
         Binding classic appfw policy to CS vserver is not supported.
@@ -3719,7 +3309,6 @@ class NSNitroNserrCswClassicAppfwPol(NSNitroCrErrors):
 
 
 class NSNitroNserrRoutingStripedSnip(NSNitroCrErrors):
-
     """
         Nitro error code 722
         Routing protocols can run only on a spotted SNIP in a cluster
@@ -3728,7 +3317,6 @@ class NSNitroNserrRoutingStripedSnip(NSNitroCrErrors):
 
 
 class NSNitroNserrUsernameRuleMissing(NSNitroCrErrors):
-
     """
         Nitro error code 723
         UserName or evalRule argument Missing
@@ -3737,7 +3325,6 @@ class NSNitroNserrUsernameRuleMissing(NSNitroCrErrors):
 
 
 class NSNitroNserrActionExist(NSNitroCrErrors):
-
     """
         Nitro error code 724
         Default Action for this type already exist.
@@ -3746,7 +3333,6 @@ class NSNitroNserrActionExist(NSNitroCrErrors):
 
 
 class NSNitroNserrWrongServicename(NSNitroCrErrors):
-
     """
         Nitro error code 726
         Use corresponding 'gslb service' command.
@@ -3755,7 +3341,6 @@ class NSNitroNserrWrongServicename(NSNitroCrErrors):
 
 
 class NSNitroNserrPeNotAllowedRule(NSNitroCrErrors):
-
     """
         Nitro error code 727
         PE expressions are not allowed for RULE based persistence
@@ -3764,7 +3349,6 @@ class NSNitroNserrPeNotAllowedRule(NSNitroCrErrors):
 
 
 class NSNitroNserrNodeNotInCluster(NSNitroCrErrors):
-
     """
         Nitro error code 728
         Node is not in the cluster config
@@ -3773,7 +3357,6 @@ class NSNitroNserrNodeNotInCluster(NSNitroCrErrors):
 
 
 class NSNitroNserrMcmxCnres(NSNitroCrErrors):
-
     """
         Nitro error code 729
         Error in communication with other cores
@@ -3782,7 +3365,6 @@ class NSNitroNserrMcmxCnres(NSNitroCrErrors):
 
 
 class NSNitroNserrHcPostReqConfigXor(NSNitroCrErrors):
-
     """
         Nitro error code 730
         Parameters and body cannot be set at the same time for the POST
@@ -3792,7 +3374,6 @@ class NSNitroNserrHcPostReqConfigXor(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBindIncompatBkup(NSNitroCrErrors):
-
     """
         Nitro error code 732
         The backup vserver of the target vserver is not compatible with
@@ -3802,7 +3383,6 @@ class NSNitroNserrCswBindIncompatBkup(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheMemResizeInProgress(NSNitroCrErrors):
-
     """
         Nitro error code 733
         Integrated Cache memory resize is in progress. Please wait a few
@@ -3812,7 +3392,6 @@ class NSNitroNserrCacheMemResizeInProgress(NSNitroCrErrors):
 
 
 class NSNitroNserrCacheMemResizeFailed(NSNitroCrErrors):
-
     """
         Nitro error code 734
         Integrated Cache memory resize failed.
@@ -3821,7 +3400,6 @@ class NSNitroNserrCacheMemResizeFailed(NSNitroCrErrors):
 
 
 class NSNitroNserrCswBindIncompatTarget(NSNitroCrErrors):
-
     """
         Nitro error code 735
         The target vserver has to be an LB vserver.
@@ -3830,7 +3408,6 @@ class NSNitroNserrCswBindIncompatTarget(NSNitroCrErrors):
 
 
 class NSNitroNserrAttribMemFreed(NSNitroCrErrors):
-
     """
         Nitro error code 736
         ATTRIB memory already freed
@@ -3839,7 +3416,6 @@ class NSNitroNserrAttribMemFreed(NSNitroCrErrors):
 
 
 class NSNitroDskCacheErrors(NSNitroError):
-
     """
         Base exception class NSNitroDskCacheErrors
     """
@@ -3847,7 +3423,6 @@ class NSNitroDskCacheErrors(NSNitroError):
 
 
 class NSNitroNserrIcCacheNotEnb(NSNitroDskCacheErrors):
-
     """
         Nitro error code 752
         Integrated Caching not enabled.
@@ -3856,7 +3431,6 @@ class NSNitroNserrIcCacheNotEnb(NSNitroDskCacheErrors):
 
 
 class NSNitroNserrDiskEnggNotRunning(NSNitroDskCacheErrors):
-
     """
         Nitro error code 753
         Disk Engine is not running,  Save the config and reboot.
@@ -3865,7 +3439,6 @@ class NSNitroNserrDiskEnggNotRunning(NSNitroDskCacheErrors):
 
 
 class NSNitroNserrDiskEnggDisabled(NSNitroDskCacheErrors):
-
     """
         Nitro error code 754
         To take Disk Engine down,  Save the config and reboot.
@@ -3874,7 +3447,6 @@ class NSNitroNserrDiskEnggDisabled(NSNitroDskCacheErrors):
 
 
 class NSNitroNserrIcDiskCacheParamNotSet(NSNitroDskCacheErrors):
-
     """
         Nitro error code 755
         Disk Cache not enabled. Set -enableDiskCache parameter to YES.
@@ -3883,7 +3455,6 @@ class NSNitroNserrIcDiskCacheParamNotSet(NSNitroDskCacheErrors):
 
 
 class NSNitro0x300Errors(NSNitroError):
-
     """
         Base exception class NSNitro0x300Errors
     """
@@ -3891,7 +3462,6 @@ class NSNitro0x300Errors(NSNitroError):
 
 
 class NSNitroNserrRnatInv(NSNitro0x300Errors):
-
     """
         Nitro error code 769
         Reverse NAT not applicable for default route.
@@ -3900,7 +3470,6 @@ class NSNitroNserrRnatInv(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalidIf(NSNitro0x300Errors):
-
     """
         Nitro error code 770
         Invalid interface name/number.
@@ -3909,7 +3478,6 @@ class NSNitroNserrInvalidIf(NSNitro0x300Errors):
 
 
 class NSNitroNserrMgrlimitReached(NSNitro0x300Errors):
-
     """
         Nitro error code 771
         Maximum manager limit reached.
@@ -3918,7 +3486,6 @@ class NSNitroNserrMgrlimitReached(NSNitro0x300Errors):
 
 
 class NSNitroNserrSpInvaldTable(NSNitro0x300Errors):
-
     """
         Nitro error code 772
         SP table entries should be in increasing order.
@@ -3927,7 +3494,6 @@ class NSNitroNserrSpInvaldTable(NSNitro0x300Errors):
 
 
 class NSNitroNserrRnatNatipExists(NSNitro0x300Errors):
-
     """
         Nitro error code 773
         RNAT to the target network with specified NAT IP already exists.
@@ -3936,7 +3502,6 @@ class NSNitroNserrRnatNatipExists(NSNitro0x300Errors):
 
 
 class NSNitroNserrRnatExists(NSNitro0x300Errors):
-
     """
         Nitro error code 774
         RNAT to the target network already exists.
@@ -3945,7 +3510,6 @@ class NSNitroNserrRnatExists(NSNitro0x300Errors):
 
 
 class NSNitroNserrRnatNotExists(NSNitro0x300Errors):
-
     """
         Nitro error code 775
         RNAT to the target network does not exist.
@@ -3954,7 +3518,6 @@ class NSNitroNserrRnatNotExists(NSNitro0x300Errors):
 
 
 class NSNitroNserrRnatNatipNotExists(NSNitro0x300Errors):
-
     """
         Nitro error code 776
         RNAT to the target network with specified NAT IP doesn't exist.
@@ -3963,7 +3526,6 @@ class NSNitroNserrRnatNatipNotExists(NSNitro0x300Errors):
 
 
 class NSNitroNserrRnatInvalidNatip(NSNitro0x300Errors):
-
     """
         Nitro error code 777
         NAT IP is not valid.
@@ -3972,7 +3534,6 @@ class NSNitroNserrRnatInvalidNatip(NSNitro0x300Errors):
 
 
 class NSNitroNserrRnatXaclwithttl(NSNitro0x300Errors):
-
     """
         Nitro error code 778
         Acl with ttl can not be used in RNAT/RNAT6/ForwardingSession
@@ -3982,7 +3543,6 @@ class NSNitroNserrRnatXaclwithttl(NSNitro0x300Errors):
 
 
 class NSNitroNserrArpDisabled(NSNitro0x300Errors):
-
     """
         Nitro error code 784
         IP has arp disabled.
@@ -3991,7 +3551,6 @@ class NSNitroNserrArpDisabled(NSNitro0x300Errors):
 
 
 class NSNitroNserrArpSecNotOwnedip(NSNitro0x300Errors):
-
     """
         Nitro error code 785
         Secondary can not arp for this IP.
@@ -4000,7 +3559,6 @@ class NSNitroNserrArpSecNotOwnedip(NSNitro0x300Errors):
 
 
 class NSNitroNserrCpeRuleInval(NSNitro0x300Errors):
-
     """
         Nitro error code 786
         Invalid rule.
@@ -4009,7 +3567,6 @@ class NSNitroNserrCpeRuleInval(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalFlowtype(NSNitro0x300Errors):
-
     """
         Nitro error code 787
         Only authorization,  audit,  VPN session and traffic policies
@@ -4019,7 +3576,6 @@ class NSNitroNserrInvalFlowtype(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalPolicyType(NSNitro0x300Errors):
-
     """
         Nitro error code 788
         Response rule is invalid in an authorization policy.
@@ -4028,7 +3584,6 @@ class NSNitroNserrInvalPolicyType(NSNitro0x300Errors):
 
 
 class NSNitroNserrCpeRuleActionInval(NSNitro0x300Errors):
-
     """
         Nitro error code 789
         Request action is valid only for request rule.
@@ -4037,7 +3592,6 @@ class NSNitroNserrCpeRuleActionInval(NSNitro0x300Errors):
 
 
 class NSNitroNserrCpeDefSetInval(NSNitro0x300Errors):
-
     """
         Nitro error code 790
         Default policy cannot be set.
@@ -4046,7 +3600,6 @@ class NSNitroNserrCpeDefSetInval(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalForcecleanup(NSNitro0x300Errors):
-
     """
         Nitro error code 791
         Invalid forcecleanup value.
@@ -4055,7 +3608,6 @@ class NSNitroNserrInvalForcecleanup(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalAaaGroup(NSNitro0x300Errors):
-
     """
         Nitro error code 792
         Invalid authorizationgroup value.
@@ -4064,7 +3616,6 @@ class NSNitroNserrInvalAaaGroup(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalProxy(NSNitro0x300Errors):
-
     """
         Nitro error code 793
         Invalid allprotocolproxy value.
@@ -4073,7 +3624,6 @@ class NSNitroNserrInvalProxy(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalHtttpproxy(NSNitro0x300Errors):
-
     """
         Nitro error code 800
         Invalid HTTP proxy value.
@@ -4082,7 +3632,6 @@ class NSNitroNserrInvalHtttpproxy(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalFtpproxy(NSNitro0x300Errors):
-
     """
         Nitro error code 801
         Invalid FTP proxy value.
@@ -4091,7 +3640,6 @@ class NSNitroNserrInvalFtpproxy(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalSockproxy(NSNitro0x300Errors):
-
     """
         Nitro error code 802
         Invalid SOCKS proxy value.
@@ -4100,7 +3648,6 @@ class NSNitroNserrInvalSockproxy(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalGopherproxy(NSNitro0x300Errors):
-
     """
         Nitro error code 803
         Invalid GOPHER proxy value.
@@ -4109,7 +3656,6 @@ class NSNitroNserrInvalGopherproxy(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalSslproxy(NSNitro0x300Errors):
-
     """
         Nitro error code 804
         Invalid SSL proxy value.
@@ -4118,7 +3664,6 @@ class NSNitroNserrInvalSslproxy(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalAaagrpMax(NSNitro0x300Errors):
-
     """
         Nitro error code 805
         Max 5 groups can be specified in authorizationgroup.
@@ -4127,7 +3672,6 @@ class NSNitroNserrInvalAaagrpMax(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalMaxPortNum(NSNitro0x300Errors):
-
     """
         Nitro error code 806
         Maximum 16 ports can be specified in httpport.
@@ -4136,7 +3680,6 @@ class NSNitroNserrInvalMaxPortNum(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalHttpport(NSNitro0x300Errors):
-
     """
         Nitro error code 807
         Invalid port.
@@ -4145,7 +3688,6 @@ class NSNitroNserrInvalHttpport(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalVpnvsererPoltype(NSNitro0x300Errors):
-
     """
         Nitro error code 808
         Only authentication and traffic policies can be bound to a VPN
@@ -4155,7 +3697,6 @@ class NSNitroNserrInvalVpnvsererPoltype(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvalVpnglobalPoltype(NSNitro0x300Errors):
-
     """
         Nitro error code 809
         Only authentication and traffic policies can be bound to VPN
@@ -4165,7 +3706,6 @@ class NSNitroNserrInvalVpnglobalPoltype(NSNitro0x300Errors):
 
 
 class NSNitroNserrCpeRemInuse(NSNitro0x300Errors):
-
     """
         Nitro error code 810
         Bound policy cannot be removed.
@@ -4174,7 +3714,6 @@ class NSNitroNserrCpeRemInuse(NSNitro0x300Errors):
 
 
 class NSNitroNserrProxyConflict(NSNitro0x300Errors):
-
     """
         Nitro error code 811
         Proxy server for all protocols already configured.
@@ -4183,7 +3722,6 @@ class NSNitroNserrProxyConflict(NSNitro0x300Errors):
 
 
 class NSNitroNserrProxyInval(NSNitro0x300Errors):
-
     """
         Nitro error code 812
         Domain names allowed only if proxy type is browser
@@ -4192,7 +3730,6 @@ class NSNitroNserrProxyInval(NSNitro0x300Errors):
 
 
 class NSNitroNserrPxyexcptInval(NSNitro0x300Errors):
-
     """
         Nitro error code 813
         Proxy exception allowed only if proxy type is browser
@@ -4201,7 +3738,6 @@ class NSNitroNserrPxyexcptInval(NSNitro0x300Errors):
 
 
 class NSNitroNserrCpePoltypeNoCse(NSNitro0x300Errors):
-
     """
         Nitro error code 814
         Policy type does not support client security expressions in rule
@@ -4210,7 +3746,6 @@ class NSNitroNserrCpePoltypeNoCse(NSNitro0x300Errors):
 
 
 class NSNitroNserrSessactCseIncompatible(NSNitro0x300Errors):
-
     """
         Nitro error code 815
         Session action and rule are incompatible
@@ -4219,7 +3754,6 @@ class NSNitroNserrSessactCseIncompatible(NSNitro0x300Errors):
 
 
 class NSNitroNserrNomemCse(NSNitro0x300Errors):
-
     """
         Nitro error code 816
         Not enough memory while adding client security expressions
@@ -4228,7 +3762,6 @@ class NSNitroNserrNomemCse(NSNitro0x300Errors):
 
 
 class NSNitroNserrIncompatFsRule(NSNitro0x300Errors):
-
     """
         Nitro error code 817
         File system expressions supported in authorization policy only
@@ -4237,7 +3770,6 @@ class NSNitroNserrIncompatFsRule(NSNitro0x300Errors):
 
 
 class NSNitroNserrIncompatFsMix(NSNitro0x300Errors):
-
     """
         Nitro error code 818
         Incompatible expressions mixed with file system expressions in
@@ -4247,7 +3779,6 @@ class NSNitroNserrIncompatFsMix(NSNitro0x300Errors):
 
 
 class NSNitroNserrDrEnable(NSNitro0x300Errors):
-
     """
         Nitro error code 819
         Dynamic routing can be enabled on only one IP per subnet
@@ -4256,7 +3787,6 @@ class NSNitroNserrDrEnable(NSNitro0x300Errors):
 
 
 class NSNitroNserrMaxDistance(NSNitro0x300Errors):
-
     """
         Nitro error code 820
         Only null interface routes can have distance equal to 255
@@ -4265,7 +3795,6 @@ class NSNitroNserrMaxDistance(NSNitro0x300Errors):
 
 
 class NSNitroNserrNullRouteDistance(NSNitro0x300Errors):
-
     """
         Nitro error code 821
         It is not possible to set the administrative distance/cost
@@ -4275,7 +3804,6 @@ class NSNitroNserrNullRouteDistance(NSNitro0x300Errors):
 
 
 class NSNitroNserrBadActionTcpProfileType(NSNitro0x300Errors):
-
     """
         Nitro error code 822
         TCP profile cannot be set to this service type
@@ -4284,7 +3812,6 @@ class NSNitroNserrBadActionTcpProfileType(NSNitro0x300Errors):
 
 
 class NSNitroNserrBadActionHttpProfileType(NSNitro0x300Errors):
-
     """
         Nitro error code 823
         HTTP profile cannot be set to this service type
@@ -4293,7 +3820,6 @@ class NSNitroNserrBadActionHttpProfileType(NSNitro0x300Errors):
 
 
 class NSNitroNserrSpInvalidThreshold(NSNitro0x300Errors):
-
     """
         Nitro error code 824
         Invalid base threshold value
@@ -4302,7 +3828,6 @@ class NSNitroNserrSpInvalidThreshold(NSNitro0x300Errors):
 
 
 class NSNitroNserrVipRouteExists(NSNitro0x300Errors):
-
     """
         Nitro error code 825
         VIP exists for this host route
@@ -4311,7 +3836,6 @@ class NSNitroNserrVipRouteExists(NSNitro0x300Errors):
 
 
 class NSNitroNserrActionBound(NSNitro0x300Errors):
-
     """
         Nitro error code 832
         Action bound to policy can not be deleted.
@@ -4320,7 +3844,6 @@ class NSNitroNserrActionBound(NSNitro0x300Errors):
 
 
 class NSNitroNserrMaxIplimit(NSNitro0x300Errors):
-
     """
         Nitro error code 833
         Maximum limit for bound IP to this resource record reached,
@@ -4331,7 +3854,6 @@ class NSNitroNserrMaxIplimit(NSNitro0x300Errors):
 
 
 class NSNitroNserrBadPrefixLen(NSNitro0x300Errors):
-
     """
         Nitro error code 826
         Invalid rnat network prefix len it must be 0-128
@@ -4340,7 +3862,6 @@ class NSNitroNserrBadPrefixLen(NSNitro0x300Errors):
 
 
 class NSNitroNserrInvNetaddr(NSNitro0x300Errors):
-
     """
         Nitro error code 827
         Invalid IPv6 network address
@@ -4349,7 +3870,6 @@ class NSNitroNserrInvNetaddr(NSNitro0x300Errors):
 
 
 class NSNitroNserrMinDistance(NSNitro0x300Errors):
-
     """
         Nitro error code 828
         Static route cannot have distance less than 1
@@ -4358,7 +3878,6 @@ class NSNitroNserrMinDistance(NSNitro0x300Errors):
 
 
 class NSNitroNserrIpsecProfileInuse(NSNitro0x300Errors):
-
     """
         Nitro error code 829
         Profile is in use by an ip tunnel.
@@ -4367,7 +3886,6 @@ class NSNitroNserrIpsecProfileInuse(NSNitro0x300Errors):
 
 
 class NSNitroNserrIpsecInvalidProfileName(NSNitro0x300Errors):
-
     """
         Nitro error code 830
         Invalid profile name.
@@ -4376,7 +3894,6 @@ class NSNitroNserrIpsecInvalidProfileName(NSNitro0x300Errors):
 
 
 class NSNitroNserrSpotted(NSNitro0x300Errors):
-
     """
         Nitro error code 831
         Spotted IP cannot be used here
@@ -4385,7 +3902,6 @@ class NSNitroNserrSpotted(NSNitro0x300Errors):
 
 
 class NSNitroNserrIpsecPbrOnlyIpSupported(NSNitro0x300Errors):
-
     """
         Nitro error code 834
         Only IP range is supported
@@ -4394,7 +3910,6 @@ class NSNitroNserrIpsecPbrOnlyIpSupported(NSNitro0x300Errors):
 
 
 class NSNitroNserrIpsecIpNotContiguous(NSNitro0x300Errors):
-
     """
         Nitro error code 835
         Invalid IP range. The IP range does not cover all the IP's for a
@@ -4404,7 +3919,6 @@ class NSNitroNserrIpsecIpNotContiguous(NSNitro0x300Errors):
 
 
 class NSNitroAclErrors(NSNitroError):
-
     """
         Base exception class NSNitroAclErrors
     """
@@ -4412,7 +3926,6 @@ class NSNitroAclErrors(NSNitroError):
 
 
 class NSNitroNserrAclNotExists(NSNitroAclErrors):
-
     """
         Nitro error code 864
         ACL rule does not exist
@@ -4421,7 +3934,6 @@ class NSNitroNserrAclNotExists(NSNitroAclErrors):
 
 
 class NSNitroNserrAclExists(NSNitroAclErrors):
-
     """
         Nitro error code 865
         IP address has existing ACL rule
@@ -4430,7 +3942,6 @@ class NSNitroNserrAclExists(NSNitroAclErrors):
 
 
 class NSNitroNserrAclpipWosrcdst(NSNitroAclErrors):
-
     """
         Nitro error code 866
         Peer IP can't be given without src/dst flag
@@ -4439,7 +3950,6 @@ class NSNitroNserrAclpipWosrcdst(NSNitroAclErrors):
 
 
 class NSNitroNserrAclSameipPip(NSNitroAclErrors):
-
     """
         Nitro error code 867
         IP address and peer IP can't be same
@@ -4448,7 +3958,6 @@ class NSNitroNserrAclSameipPip(NSNitroAclErrors):
 
 
 class NSNitroNserrAclInvalPeerip(NSNitroAclErrors):
-
     """
         Nitro error code 868
         Invalid peer IP
@@ -4457,7 +3966,6 @@ class NSNitroNserrAclInvalPeerip(NSNitroAclErrors):
 
 
 class NSNitroNserrAclIppipExists(NSNitroAclErrors):
-
     """
         Nitro error code 869
         ACL with identical parameter specification already exists
@@ -4466,7 +3974,6 @@ class NSNitroNserrAclIppipExists(NSNitroAclErrors):
 
 
 class NSNitroNserrXacldelerror(NSNitroAclErrors):
-
     """
         Nitro error code 870
         ACL has already been removed
@@ -4475,7 +3982,6 @@ class NSNitroNserrXacldelerror(NSNitroAclErrors):
 
 
 class NSNitroNserrXacladderror(NSNitroAclErrors):
-
     """
         Nitro error code 871
         Port can be specified only if protocol is TCP (6) or UDP (17)
@@ -4484,7 +3990,6 @@ class NSNitroNserrXacladderror(NSNitroAclErrors):
 
 
 class NSNitroNserrXaclPriorityExists(NSNitroAclErrors):
-
     """
         Nitro error code 872
         ACL with this priority already exists
@@ -4493,7 +3998,6 @@ class NSNitroNserrXaclPriorityExists(NSNitroAclErrors):
 
 
 class NSNitroNserrXaclIcmpReqd(NSNitroAclErrors):
-
     """
         Nitro error code 873
         ICMP type / code can be specified only if protocol is ICMP(1)
@@ -4502,7 +4006,6 @@ class NSNitroNserrXaclIcmpReqd(NSNitroAclErrors):
 
 
 class NSNitroNserrNoloopback(NSNitroAclErrors):
-
     """
         Nitro error code 874
         ACL cannot be configured on the loopback interface
@@ -4511,7 +4014,6 @@ class NSNitroNserrNoloopback(NSNitroAclErrors):
 
 
 class NSNitroNserrInvicmptype(NSNitroAclErrors):
-
     """
         Nitro error code 875
         Invalid ICMP type
@@ -4520,7 +4022,6 @@ class NSNitroNserrInvicmptype(NSNitroAclErrors):
 
 
 class NSNitroNserrInvicmpcode(NSNitroAclErrors):
-
     """
         Nitro error code 876
         Invalid ICMP code
@@ -4529,7 +4030,6 @@ class NSNitroNserrInvicmpcode(NSNitroAclErrors):
 
 
 class NSNitroNserrXaclrnatdel(NSNitroAclErrors):
-
     """
         Nitro error code 877
         ACL is bounded to RNAT, cannot be removed
@@ -4538,7 +4038,6 @@ class NSNitroNserrXaclrnatdel(NSNitroAclErrors):
 
 
 class NSNitroNserrXaclmodcfginfo(NSNitroAclErrors):
-
     """
         Nitro error code 878
         ACL modified,  apply ACLs to activate change
@@ -4547,7 +4046,6 @@ class NSNitroNserrXaclmodcfginfo(NSNitroAclErrors):
 
 
 class NSNitroNserrXaclfwdsessiondel(NSNitroAclErrors):
-
     """
         Nitro error code 879
         ACL is bounded to FORWARDSESSION, cannot be removed
@@ -4556,7 +4054,6 @@ class NSNitroNserrXaclfwdsessiondel(NSNitroAclErrors):
 
 
 class NSNitroPbr6Errors(NSNitroError):
-
     """
         Base exception class NSNitroPbr6Errors
     """
@@ -4564,7 +4061,6 @@ class NSNitroPbr6Errors(NSNitroError):
 
 
 class NSNitroNserrPbr6IppipExists(NSNitroPbr6Errors):
-
     """
         Nitro error code 880
         PBR6 with identical parameter specification already exists
@@ -4573,7 +4069,6 @@ class NSNitroNserrPbr6IppipExists(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6Delerror(NSNitroPbr6Errors):
-
     """
         Nitro error code 881
         PBR6 has already been removed
@@ -4582,7 +4077,6 @@ class NSNitroNserrPbr6Delerror(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6Adderror(NSNitroPbr6Errors):
-
     """
         Nitro error code 882
         Port can be specified only if protocol is TCP (6) or UDP (17)
@@ -4591,7 +4085,6 @@ class NSNitroNserrPbr6Adderror(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6PriorityExists(NSNitroPbr6Errors):
-
     """
         Nitro error code 883
         PBR6 with this priority already exists
@@ -4600,7 +4093,6 @@ class NSNitroNserrPbr6PriorityExists(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6IcmpReqd(NSNitroPbr6Errors):
-
     """
         Nitro error code 884
         ICMPv6 type/code can be specified only if protocol is ICMPv6 (1)
@@ -4609,7 +4101,6 @@ class NSNitroNserrPbr6IcmpReqd(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6Unspecaddr(NSNitroPbr6Errors):
-
     """
         Nitro error code 885
         unspecified address (::) can not be configured in PBR6
@@ -4618,7 +4109,6 @@ class NSNitroNserrPbr6Unspecaddr(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6Modcfginfo(NSNitroPbr6Errors):
-
     """
         Nitro error code 886
         PBR6 modified,  apply pbrs6 to activate change
@@ -4627,7 +4117,6 @@ class NSNitroNserrPbr6Modcfginfo(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6Prefixlen(NSNitroPbr6Errors):
-
     """
         Nitro error code 887
         Prefix length should not be configured in PBR6. (Use range
@@ -4637,7 +4126,6 @@ class NSNitroNserrPbr6Prefixlen(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6SpecifyNexthopvlan(NSNitroPbr6Errors):
-
     """
         Nitro error code 888
         Nexthop VLAN should be specified with Link local gateway address
@@ -4646,7 +4134,6 @@ class NSNitroNserrPbr6SpecifyNexthopvlan(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6InvalidGateway(NSNitroPbr6Errors):
-
     """
         Nitro error code 889
         Invalid PBR6 Gateway
@@ -4655,7 +4142,6 @@ class NSNitroNserrPbr6InvalidGateway(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6InvalidNexthopVlan(NSNitroPbr6Errors):
-
     """
         Nitro error code 890
         Invalid Nexthop VLAN ID
@@ -4664,7 +4150,6 @@ class NSNitroNserrPbr6InvalidNexthopVlan(NSNitroPbr6Errors):
 
 
 class NSNitroNserrPbr6MaxRuleExceeded(NSNitroPbr6Errors):
-
     """
         Nitro error code 891
         Number of PBR6s on the system exceeds Maximum
@@ -4673,7 +4158,6 @@ class NSNitroNserrPbr6MaxRuleExceeded(NSNitroPbr6Errors):
 
 
 class NSNitroAcl6Errors(NSNitroError):
-
     """
         Base exception class NSNitroAcl6Errors
     """
@@ -4681,7 +4165,6 @@ class NSNitroAcl6Errors(NSNitroError):
 
 
 class NSNitroNserrAcl6IppipExists(NSNitroAcl6Errors):
-
     """
         Nitro error code 896
         ACL6 with identical parameter sametfication already exists
@@ -4690,7 +4173,6 @@ class NSNitroNserrAcl6IppipExists(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6Delerror(NSNitroAcl6Errors):
-
     """
         Nitro error code 897
         ACL6 has already been removed
@@ -4699,7 +4181,6 @@ class NSNitroNserrAcl6Delerror(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6Adderror(NSNitroAcl6Errors):
-
     """
         Nitro error code 898
         Port can be specified only if protocol is TCP (6) or UDP (17)
@@ -4708,7 +4189,6 @@ class NSNitroNserrAcl6Adderror(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6PriorityExists(NSNitroAcl6Errors):
-
     """
         Nitro error code 899
         ACL6 with this priority already exists
@@ -4717,7 +4197,6 @@ class NSNitroNserrAcl6PriorityExists(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6IcmpReqd(NSNitroAcl6Errors):
-
     """
         Nitro error code 900
         ICMPv6 type/code can be specified only if protocol is ICMPv6
@@ -4727,7 +4206,6 @@ class NSNitroNserrAcl6IcmpReqd(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6Unspecaddr(NSNitroAcl6Errors):
-
     """
         Nitro error code 901
         unspecified address (::) can not be configured in ACL6
@@ -4736,7 +4214,6 @@ class NSNitroNserrAcl6Unspecaddr(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6Modcfginfo(NSNitroAcl6Errors):
-
     """
         Nitro error code 902
         ACL6 modified,  apply ACLs6 to activate change
@@ -4745,7 +4222,6 @@ class NSNitroNserrAcl6Modcfginfo(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6Prefixlen(NSNitroAcl6Errors):
-
     """
         Nitro error code 903
         Prefix length should not be configured in ACL6. (Use range
@@ -4755,7 +4231,6 @@ class NSNitroNserrAcl6Prefixlen(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6RnatNotAllowed(NSNitroAcl6Errors):
-
     """
         Nitro error code 904
         Action must be ALLOW to bind ACL6 to RNAT
@@ -4764,7 +4239,6 @@ class NSNitroNserrAcl6RnatNotAllowed(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6rnatDelerror(NSNitroAcl6Errors):
-
     """
         Nitro error code 905
         This ACL6 is associated with rnat6/nat64/forwardingsession
@@ -4774,7 +4248,6 @@ class NSNitroNserrAcl6rnatDelerror(NSNitroAcl6Errors):
 
 
 class NSNitroNserrRnat6InvalidRedport(NSNitroAcl6Errors):
-
     """
         Nitro error code 906
         Invalid option for SET/UNSET, redirect port can be specified
@@ -4784,7 +4257,6 @@ class NSNitroNserrRnat6InvalidRedport(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6RnatExists(NSNitroAcl6Errors):
-
     """
         Nitro error code 907
         ACL6 based rnat is already exist for this acl6(Duplicate config)
@@ -4793,7 +4265,6 @@ class NSNitroNserrAcl6RnatExists(NSNitroAcl6Errors):
 
 
 class NSNitroNserrNetRnat6Exists(NSNitroAcl6Errors):
-
     """
         Nitro error code 908
         network based rnat is already exist for this network
@@ -4803,7 +4274,6 @@ class NSNitroNserrNetRnat6Exists(NSNitroAcl6Errors):
 
 
 class NSNitroNserrRnatVipPortAllocFail(NSNitroAcl6Errors):
-
     """
         Nitro error code 909
         ERROR : Port allocation for VIP v6 address Failed
@@ -4812,7 +4282,6 @@ class NSNitroNserrRnatVipPortAllocFail(NSNitroAcl6Errors):
 
 
 class NSNitroNserrAcl6RnatNat64NotAllowed(NSNitroAcl6Errors):
-
     """
         Nitro error code 910
         ERROR : Acl6 already bound to nat64 config
@@ -4821,7 +4290,6 @@ class NSNitroNserrAcl6RnatNat64NotAllowed(NSNitroAcl6Errors):
 
 
 class NSNitroPbrErrors(NSNitroError):
-
     """
         Base exception class NSNitroPbrErrors
     """
@@ -4829,7 +4297,6 @@ class NSNitroPbrErrors(NSNitroError):
 
 
 class NSNitroNserrPbrNexthopNotdirect(NSNitroPbrErrors):
-
     """
         Nitro error code 912
         PBR Nexthop should be direct
@@ -4838,7 +4305,6 @@ class NSNitroNserrPbrNexthopNotdirect(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrNoloopback(NSNitroPbrErrors):
-
     """
         Nitro error code 913
         PBR cannot be configured on the loopback interface
@@ -4847,7 +4313,6 @@ class NSNitroNserrPbrNoloopback(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrdelerror(NSNitroPbrErrors):
-
     """
         Nitro error code 914
         This PBR has already been removed
@@ -4856,7 +4321,6 @@ class NSNitroNserrPbrdelerror(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrIppipExists(NSNitroPbrErrors):
-
     """
         Nitro error code 915
         PBR with identical parameter specification already exists
@@ -4865,7 +4329,6 @@ class NSNitroNserrPbrIppipExists(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrPriorityExists(NSNitroPbrErrors):
-
     """
         Nitro error code 916
         PBR with this priority already exists
@@ -4874,7 +4337,6 @@ class NSNitroNserrPbrPriorityExists(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrmodcfginfo(NSNitroPbrErrors):
-
     """
         Nitro error code 918
         PBR modified,  use 'apply pbrs' to commit this operation
@@ -4883,7 +4345,6 @@ class NSNitroNserrPbrmodcfginfo(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrNexthopReqd(NSNitroPbrErrors):
-
     """
         Nitro error code 919
         PBR Nexthop is required
@@ -4892,7 +4353,6 @@ class NSNitroNserrPbrNexthopReqd(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrL2ConfigInfo(NSNitroPbrErrors):
-
     """
         Nitro error code 920
         L2 based PBRs work only for routed traffic
@@ -4901,7 +4361,6 @@ class NSNitroNserrPbrL2ConfigInfo(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrmodcfgL2Info(NSNitroPbrErrors):
-
     """
         Nitro error code 921
         L2 based PBRs work only for routed traffic: PBR modified,  use
@@ -4911,7 +4370,6 @@ class NSNitroNserrPbrmodcfgL2Info(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrNoMonitorGateway(NSNitroPbrErrors):
-
     """
         Nitro error code 922
         Monitor can't be configured when nexthop is configured as
@@ -4921,7 +4379,6 @@ class NSNitroNserrPbrNoMonitorGateway(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrInvalidIporgateway(NSNitroPbrErrors):
-
     """
         Nitro error code 923
         Invalid Nexthop IPaddress/Gateway name
@@ -4930,7 +4387,6 @@ class NSNitroNserrPbrInvalidIporgateway(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrMaxRuleExceeded(NSNitroPbrErrors):
-
     """
         Nitro error code 924
         Number of PBRs on the system exceeds Maximum
@@ -4939,7 +4395,6 @@ class NSNitroNserrPbrMaxRuleExceeded(NSNitroPbrErrors):
 
 
 class NSNitroNserrPbrNexthopTunnelReqd(NSNitroPbrErrors):
-
     """
         Nitro error code 925
         PBR Nexthop or IpTunnel is required
@@ -4948,7 +4403,6 @@ class NSNitroNserrPbrNexthopTunnelReqd(NSNitroPbrErrors):
 
 
 class NSNitroFwdsessionErrors(NSNitroError):
-
     """
         Base exception class NSNitroFwdsessionErrors
     """
@@ -4956,7 +4410,6 @@ class NSNitroFwdsessionErrors(NSNitroError):
 
 
 class NSNitroNserrFwdsessionNameExists(NSNitroFwdsessionErrors):
-
     """
         Nitro error code 928
         A forwarding session with same name exists
@@ -4965,7 +4418,6 @@ class NSNitroNserrFwdsessionNameExists(NSNitroFwdsessionErrors):
 
 
 class NSNitroNserrFwdsessionAclNotExists(NSNitroFwdsessionErrors):
-
     """
         Nitro error code 931
         Specified ACL is not configured
@@ -4974,7 +4426,6 @@ class NSNitroNserrFwdsessionAclNotExists(NSNitroFwdsessionErrors):
 
 
 class NSNitroNserrFwdsessionConnFailover(NSNitroFwdsessionErrors):
-
     """
         Nitro error code 932
         Connection fail-over not supported for v6 forwarding sessions
@@ -4983,7 +4434,6 @@ class NSNitroNserrFwdsessionConnFailover(NSNitroFwdsessionErrors):
 
 
 class NSNitroTdErrors(NSNitroError):
-
     """
         Base exception class NSNitroTdErrors
     """
@@ -4991,7 +4441,6 @@ class NSNitroTdErrors(NSNitroError):
 
 
 class NSNitroRnatErrors(NSNitroError):
-
     """
         Base exception class NSNitroRnatErrors
     """
@@ -4999,7 +4448,6 @@ class NSNitroRnatErrors(NSNitroError):
 
 
 class NSNitroCliErrors(NSNitroError):
-
     """
         Base exception class NSNitroCliErrors
     """
@@ -5007,7 +4455,6 @@ class NSNitroCliErrors(NSNitroError):
 
 
 class NSNitroNserrTcpconnfail(NSNitroCliErrors):
-
     """
         Nitro error code 1024
         Connection failed
@@ -5016,7 +4463,6 @@ class NSNitroNserrTcpconnfail(NSNitroCliErrors):
 
 
 class NSNitroNserrLoginfail(NSNitroCliErrors):
-
     """
         Nitro error code 1025
         Login failed
@@ -5025,7 +4471,6 @@ class NSNitroNserrLoginfail(NSNitroCliErrors):
 
 
 class NSNitroNserrNologin(NSNitroCliErrors):
-
     """
         Nitro error code 1026
         Not logged in
@@ -5034,7 +4479,6 @@ class NSNitroNserrNologin(NSNitroCliErrors):
 
 
 class NSNitroNserrAuthtimeout(NSNitroCliErrors):
-
     """
         Nitro error code 1027
         Not logged in or connection timed out
@@ -5043,7 +4487,6 @@ class NSNitroNserrAuthtimeout(NSNitroCliErrors):
 
 
 class NSNitroNserrNotPrimary(NSNitroCliErrors):
-
     """
         Nitro error code 1028
         You are connected to a secondary node; configuration changes
@@ -5054,7 +4497,6 @@ class NSNitroNserrNotPrimary(NSNitroCliErrors):
 
 
 class NSNitroNserrRemoteop(NSNitroCliErrors):
-
     """
         Nitro error code 1029
         Operation cannot be performed from remote login
@@ -5063,7 +4505,6 @@ class NSNitroNserrRemoteop(NSNitroCliErrors):
 
 
 class NSNitroNserrConnlost(NSNitroCliErrors):
-
     """
         Nitro error code 1030
         Connection with NetScaler lost
@@ -5072,7 +4513,6 @@ class NSNitroNserrConnlost(NSNitroCliErrors):
 
 
 class NSNitroNserrRpcdatamismatch(NSNitroCliErrors):
-
     """
         Nitro error code 1031
         Communication error (RPC data-size mismatch)
@@ -5081,7 +4521,6 @@ class NSNitroNserrRpcdatamismatch(NSNitroCliErrors):
 
 
 class NSNitroNserrRpcbadreply(NSNitroCliErrors):
-
     """
         Nitro error code 1032
         Communication error (bad RPC reply)
@@ -5090,7 +4529,6 @@ class NSNitroNserrRpcbadreply(NSNitroCliErrors):
 
 
 class NSNitroNserrUnabletoprompt(NSNitroCliErrors):
-
     """
         Nitro error code 1033
         Unable to display secondary prompt
@@ -5099,7 +4537,6 @@ class NSNitroNserrUnabletoprompt(NSNitroCliErrors):
 
 
 class NSNitroNserrUserabort(NSNitroCliErrors):
-
     """
         Nitro error code 1040
         User requested abort
@@ -5108,7 +4545,6 @@ class NSNitroNserrUserabort(NSNitroCliErrors):
 
 
 class NSNitroNserrEof(NSNitroCliErrors):
-
     """
         Nitro error code 1041
         EOF
@@ -5117,7 +4553,6 @@ class NSNitroNserrEof(NSNitroCliErrors):
 
 
 class NSNitroNserrInterrupt(NSNitroCliErrors):
-
     """
         Nitro error code 1042
         Interrupted
@@ -5126,7 +4561,6 @@ class NSNitroNserrInterrupt(NSNitroCliErrors):
 
 
 class NSNitroNserrInternal(NSNitroCliErrors):
-
     """
         Nitro error code 1043
         Internal error
@@ -5135,7 +4569,6 @@ class NSNitroNserrInternal(NSNitroCliErrors):
 
 
 class NSNitroNserrNotClip(NSNitroCliErrors):
-
     """
         Nitro error code 1044
         You are connected to NSIP of a cluster node; configuration
@@ -5146,7 +4579,6 @@ class NSNitroNserrNotClip(NSNitroCliErrors):
 
 
 class NSNitroNserrEulaNotaccepted(NSNitroCliErrors):
-
     """
         Nitro error code 1045
         End User License Agreement not accepted. Login from CLI/GUI to
@@ -5156,7 +4588,6 @@ class NSNitroNserrEulaNotaccepted(NSNitroCliErrors):
 
 
 class NSNitroNserrStrmaxlen255(NSNitroCliErrors):
-
     """
         Nitro error code 1048
         String length exceeds maximum. Allowed maximum length is 255
@@ -5166,7 +4597,6 @@ class NSNitroNserrStrmaxlen255(NSNitroCliErrors):
 
 
 class NSNitroNserrStrmaxlen32(NSNitroCliErrors):
-
     """
         Nitro error code 1049
         String length exceeds maximum. Allowed maximum length is 32.
@@ -5175,7 +4605,6 @@ class NSNitroNserrStrmaxlen32(NSNitroCliErrors):
 
 
 class NSNitroNserrNoprefixLength(NSNitroCliErrors):
-
     """
         Nitro error code 1050
         Prefix length must be given with network
@@ -5184,7 +4613,6 @@ class NSNitroNserrNoprefixLength(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidpollval(NSNitroCliErrors):
-
     """
         Nitro error code 1051
         Minpoll value should not be greater than maxpoll
@@ -5193,7 +4621,6 @@ class NSNitroNserrInvalidpollval(NSNitroCliErrors):
 
 
 class NSNitroNserrShellAccess(NSNitroCliErrors):
-
     """
         Nitro error code 1052
         User has shell access
@@ -5202,7 +4629,6 @@ class NSNitroNserrShellAccess(NSNitroCliErrors):
 
 
 class NSNitroNserrNoresponse(NSNitroCliErrors):
-
     """
         Nitro error code 1056
         No response from NetScaler
@@ -5211,7 +4637,6 @@ class NSNitroNserrNoresponse(NSNitroCliErrors):
 
 
 class NSNitroNserrIoerror(NSNitroCliErrors):
-
     """
         Nitro error code 1057
         I/O error
@@ -5220,7 +4645,6 @@ class NSNitroNserrIoerror(NSNitroCliErrors):
 
 
 class NSNitroNserrEnv(NSNitroCliErrors):
-
     """
         Nitro error code 1058
         Environment error
@@ -5229,7 +4653,6 @@ class NSNitroNserrEnv(NSNitroCliErrors):
 
 
 class NSNitroNserrCmdsfailed(NSNitroCliErrors):
-
     """
         Nitro error code 1059
         Some commands failed
@@ -5238,7 +4661,6 @@ class NSNitroNserrCmdsfailed(NSNitroCliErrors):
 
 
 class NSNitroNserrAllcmdsfailed(NSNitroCliErrors):
-
     """
         Nitro error code 1060
         All commands failed
@@ -5247,7 +4669,6 @@ class NSNitroNserrAllcmdsfailed(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidTcpOptionType(NSNitroCliErrors):
-
     """
         Nitro error code 1061
         Invalid tcp option type value. Allowed type values are 0 to 255
@@ -5256,7 +4677,6 @@ class NSNitroNserrInvalidTcpOptionType(NSNitroCliErrors):
 
 
 class NSNitroNserrLicexpired(NSNitroCliErrors):
-
     """
         Nitro error code 1066
         Features(s) license expired
@@ -5265,7 +4685,6 @@ class NSNitroNserrLicexpired(NSNitroCliErrors):
 
 
 class NSNitroNserrFeatdisabled(NSNitroCliErrors):
-
     """
         Nitro error code 1067
         Feature(s) not enabled
@@ -5274,7 +4693,6 @@ class NSNitroNserrFeatdisabled(NSNitroCliErrors):
 
 
 class NSNitroNserrMaxlimit(NSNitroCliErrors):
-
     """
         Nitro error code 1072
         Maximum resource limit reached
@@ -5283,7 +4701,6 @@ class NSNitroNserrMaxlimit(NSNitroCliErrors):
 
 
 class NSNitroNserrSetNosupport(NSNitroCliErrors):
-
     """
         Nitro error code 1073
         Set operation not supported
@@ -5292,7 +4709,6 @@ class NSNitroNserrSetNosupport(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidvalue(NSNitroCliErrors):
-
     """
         Nitro error code 1074
         Invalid value
@@ -5301,7 +4717,6 @@ class NSNitroNserrInvalidvalue(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidname(NSNitroCliErrors):
-
     """
         Nitro error code 1075
         Invalid name; names must begin with an alphanumeric character or
@@ -5312,7 +4727,6 @@ class NSNitroNserrInvalidname(NSNitroCliErrors):
 
 
 class NSNitroNserrNosuchcmd(NSNitroCliErrors):
-
     """
         Nitro error code 1088
         No such command
@@ -5321,7 +4735,6 @@ class NSNitroNserrNosuchcmd(NSNitroCliErrors):
 
 
 class NSNitroNserrCmdambiguous(NSNitroCliErrors):
-
     """
         Nitro error code 1089
         Ambiguous command name
@@ -5330,7 +4743,6 @@ class NSNitroNserrCmdambiguous(NSNitroCliErrors):
 
 
 class NSNitroNserrNosucharg(NSNitroCliErrors):
-
     """
         Nitro error code 1090
         No such argument
@@ -5339,7 +4751,6 @@ class NSNitroNserrNosucharg(NSNitroCliErrors):
 
 
 class NSNitroNserrArgvalmissing(NSNitroCliErrors):
-
     """
         Nitro error code 1091
         Required argument value missing
@@ -5348,7 +4759,6 @@ class NSNitroNserrArgvalmissing(NSNitroCliErrors):
 
 
 class NSNitroNserrArgsmutex(NSNitroCliErrors):
-
     """
         Nitro error code 1092
         Arguments cannot both be specified
@@ -5357,7 +4767,6 @@ class NSNitroNserrArgsmutex(NSNitroCliErrors):
 
 
 class NSNitroNserrArgprereq(NSNitroCliErrors):
-
     """
         Nitro error code 1093
         Argument pre-requisite missing
@@ -5366,7 +4775,6 @@ class NSNitroNserrArgprereq(NSNitroCliErrors):
 
 
 class NSNitroNserrArgstoofew(NSNitroCliErrors):
-
     """
         Nitro error code 1094
         Too few arguments
@@ -5375,7 +4783,6 @@ class NSNitroNserrArgstoofew(NSNitroCliErrors):
 
 
 class NSNitroNserrArgmissing(NSNitroCliErrors):
-
     """
         Nitro error code 1095
         Required argument missing
@@ -5384,7 +4791,6 @@ class NSNitroNserrArgmissing(NSNitroCliErrors):
 
 
 class NSNitroNserrArgorder(NSNitroCliErrors):
-
     """
         Nitro error code 1096
         Argument(s) out of order
@@ -5393,7 +4799,6 @@ class NSNitroNserrArgorder(NSNitroCliErrors):
 
 
 class NSNitroNserrArgvalbad(NSNitroCliErrors):
-
     """
         Nitro error code 1097
         Invalid argument value
@@ -5402,7 +4807,6 @@ class NSNitroNserrArgvalbad(NSNitroCliErrors):
 
 
 class NSNitroNserrArgvalseq(NSNitroCliErrors):
-
     """
         Nitro error code 1098
         Arguments cannot have the same value
@@ -5411,7 +4815,6 @@ class NSNitroNserrArgvalseq(NSNitroCliErrors):
 
 
 class NSNitroNserrArgambiguous(NSNitroCliErrors):
-
     """
         Nitro error code 1099
         Ambiguous argument name
@@ -5420,7 +4823,6 @@ class NSNitroNserrArgambiguous(NSNitroCliErrors):
 
 
 class NSNitroNserrSyncgslbconfig(NSNitroCliErrors):
-
     """
         Nitro error code 1100
         Please confirm whether you want to sync-config (Y/N)? [N]:
@@ -5429,7 +4831,6 @@ class NSNitroNserrSyncgslbconfig(NSNitroCliErrors):
 
 
 class NSNitroNserrSyncgslbconfigWarn(NSNitroCliErrors):
-
     """
         Nitro error code 1101
         Syncing config may cause configuration loss on other site.
@@ -5438,7 +4839,6 @@ class NSNitroNserrSyncgslbconfigWarn(NSNitroCliErrors):
 
 
 class NSNitroNserrArgvalsneq(NSNitroCliErrors):
-
     """
         Nitro error code 1104
         Arguments must have the same value
@@ -5447,7 +4847,6 @@ class NSNitroNserrArgvalsneq(NSNitroCliErrors):
 
 
 class NSNitroNserrArgvalambiguous(NSNitroCliErrors):
-
     """
         Nitro error code 1105
         Ambiguous argument value
@@ -5456,7 +4855,6 @@ class NSNitroNserrArgvalambiguous(NSNitroCliErrors):
 
 
 class NSNitroNserrStrmaxlen(NSNitroCliErrors):
-
     """
         Nitro error code 1106
         String length exceeds maximum
@@ -5465,7 +4863,6 @@ class NSNitroNserrStrmaxlen(NSNitroCliErrors):
 
 
 class NSNitroNserrStrminlen(NSNitroCliErrors):
-
     """
         Nitro error code 1107
         String too short
@@ -5474,7 +4871,6 @@ class NSNitroNserrStrminlen(NSNitroCliErrors):
 
 
 class NSNitroNserrIntmaxval(NSNitroCliErrors):
-
     """
         Nitro error code 1108
         Integer value exceeds maximum
@@ -5483,7 +4879,6 @@ class NSNitroNserrIntmaxval(NSNitroCliErrors):
 
 
 class NSNitroNserrIntminval(NSNitroCliErrors):
-
     """
         Nitro error code 1109
         Integer value below minimum
@@ -5492,7 +4887,6 @@ class NSNitroNserrIntminval(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidip(NSNitroCliErrors):
-
     """
         Nitro error code 1110
         Invalid IP address
@@ -5501,7 +4895,6 @@ class NSNitroNserrInvalidip(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidnetmask(NSNitroCliErrors):
-
     """
         Nitro error code 1111
         Invalid netmask
@@ -5510,7 +4903,6 @@ class NSNitroNserrInvalidnetmask(NSNitroCliErrors):
 
 
 class NSNitroNserrToomanyvals(NSNitroCliErrors):
-
     """
         Nitro error code 1112
         Argument has too many values
@@ -5519,7 +4911,6 @@ class NSNitroNserrToomanyvals(NSNitroCliErrors):
 
 
 class NSNitroNserrBadrange(NSNitroCliErrors):
-
     """
         Nitro error code 1113
         Range minimum exceeds range maximum
@@ -5528,7 +4919,6 @@ class NSNitroNserrBadrange(NSNitroCliErrors):
 
 
 class NSNitroNserrExprquotes(NSNitroCliErrors):
-
     """
         Nitro error code 1114
         Expression must be enclosed in quotes
@@ -5537,7 +4927,6 @@ class NSNitroNserrExprquotes(NSNitroCliErrors):
 
 
 class NSNitroNserrBadquotes(NSNitroCliErrors):
-
     """
         Nitro error code 1115
         Unmatched quote
@@ -5546,7 +4935,6 @@ class NSNitroNserrBadquotes(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidrange(NSNitroCliErrors):
-
     """
         Nitro error code 1116
         Invalid range specification
@@ -5555,7 +4943,6 @@ class NSNitroNserrInvalidrange(NSNitroCliErrors):
 
 
 class NSNitroNserrMismatchranges(NSNitroCliErrors):
-
     """
         Nitro error code 1117
         Ranges are different sizes
@@ -5564,7 +4951,6 @@ class NSNitroNserrMismatchranges(NSNitroCliErrors):
 
 
 class NSNitroNserrMultiranges(NSNitroCliErrors):
-
     """
         Nitro error code 1118
         Only one range allowed per argument
@@ -5573,7 +4959,6 @@ class NSNitroNserrMultiranges(NSNitroCliErrors):
 
 
 class NSNitroNserrNomatchchar(NSNitroCliErrors):
-
     """
         Nitro error code 1119
         Unmatched character
@@ -5582,7 +4967,6 @@ class NSNitroNserrNomatchchar(NSNitroCliErrors):
 
 
 class NSNitroNserrNeedreboot(NSNitroCliErrors):
-
     """
         Nitro error code 1120
         The configuration must be saved and the system rebooted for
@@ -5592,7 +4976,6 @@ class NSNitroNserrNeedreboot(NSNitroCliErrors):
 
 
 class NSNitroNsqSaveconfig(NSNitroCliErrors):
-
     """
         Nitro error code 1121
         Do you want to save the new configuration?
@@ -5601,7 +4984,6 @@ class NSNitroNsqSaveconfig(NSNitroCliErrors):
 
 
 class NSNitroNserrNotsaved(NSNitroCliErrors):
-
     """
         Nitro error code 1122
         The configuration changes were not saved - they will be lost on
@@ -5611,7 +4993,6 @@ class NSNitroNserrNotsaved(NSNitroCliErrors):
 
 
 class NSNitroNserrCmdexec(NSNitroCliErrors):
-
     """
         Nitro error code 1123
         Error(s) occurred - some or all changes may not be applied
@@ -5620,7 +5001,6 @@ class NSNitroNserrCmdexec(NSNitroCliErrors):
 
 
 class NSNitroNsqReboot(NSNitroCliErrors):
-
     """
         Nitro error code 1124
         Do you want to reboot the system now?
@@ -5629,7 +5009,6 @@ class NSNitroNsqReboot(NSNitroCliErrors):
 
 
 class NSNitroNserrNoreboot(NSNitroCliErrors):
-
     """
         Nitro error code 1125
         The configuration changes will not take effect until the system
@@ -5639,7 +5018,6 @@ class NSNitroNserrNoreboot(NSNitroCliErrors):
 
 
 class NSNitroNserrPgmfailed(NSNitroCliErrors):
-
     """
         Nitro error code 1126
         External program failed
@@ -5648,7 +5026,6 @@ class NSNitroNserrPgmfailed(NSNitroCliErrors):
 
 
 class NSNitroNserrCtxmode(NSNitroCliErrors):
-
     """
         Nitro error code 1127
         Contextual CLI mode
@@ -5657,7 +5034,6 @@ class NSNitroNserrCtxmode(NSNitroCliErrors):
 
 
 class NSNitroNserrCmdincomplete(NSNitroCliErrors):
-
     """
         Nitro error code 1128
         Incomplete command
@@ -5666,7 +5042,6 @@ class NSNitroNserrCmdincomplete(NSNitroCliErrors):
 
 
 class NSNitroNserrCmdoutofctx(NSNitroCliErrors):
-
     """
         Nitro error code 1129
         Command not valid here
@@ -5675,7 +5050,6 @@ class NSNitroNserrCmdoutofctx(NSNitroCliErrors):
 
 
 class NSNitroNserrConfigsaved(NSNitroCliErrors):
-
     """
         Nitro error code 1130
         The running configuration has been saved
@@ -5684,7 +5058,6 @@ class NSNitroNserrConfigsaved(NSNitroCliErrors):
 
 
 class NSNitroNserrConfigcleared(NSNitroCliErrors):
-
     """
         Nitro error code 1131
         The running configuration has been cleared
@@ -5693,7 +5066,6 @@ class NSNitroNserrConfigcleared(NSNitroCliErrors):
 
 
 class NSNitroNserrRebooting(NSNitroCliErrors):
-
     """
         Nitro error code 1132
         NetScaler is rebooting now
@@ -5702,7 +5074,6 @@ class NSNitroNserrRebooting(NSNitroCliErrors):
 
 
 class NSNitroNserrNoconfigsave(NSNitroCliErrors):
-
     """
         Nitro error code 1133
         The running configuration has not changed
@@ -5711,7 +5082,6 @@ class NSNitroNserrNoconfigsave(NSNitroCliErrors):
 
 
 class NSNitroNserrRegexnoanchor(NSNitroCliErrors):
-
     """
         Nitro error code 1135
         First character of regular expression must be '^'
@@ -5720,7 +5090,6 @@ class NSNitroNserrRegexnoanchor(NSNitroCliErrors):
 
 
 class NSNitroNserrRegexnomatch(NSNitroCliErrors):
-
     """
         Nitro error code 1136
         Regular expression does not match
@@ -5729,7 +5098,6 @@ class NSNitroNserrRegexnomatch(NSNitroCliErrors):
 
 
 class NSNitroNserrRegexinvalid(NSNitroCliErrors):
-
     """
         Nitro error code 1137
         Invalid regular expression
@@ -5738,7 +5106,6 @@ class NSNitroNserrRegexinvalid(NSNitroCliErrors):
 
 
 class NSNitroNserrRegexnotallowed(NSNitroCliErrors):
-
     """
         Nitro error code 1138
         Regular expression not allowed
@@ -5747,7 +5114,6 @@ class NSNitroNserrRegexnotallowed(NSNitroCliErrors):
 
 
 class NSNitroNserrRegexnocmd(NSNitroCliErrors):
-
     """
         Nitro error code 1139
         No matches
@@ -5756,7 +5122,6 @@ class NSNitroNserrRegexnocmd(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidipv6Format(NSNitroCliErrors):
-
     """
         Nitro error code 1140
         Invalid IPv6 address
@@ -5765,7 +5130,6 @@ class NSNitroNserrInvalidipv6Format(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidipv6TwoDoubecolon(NSNitroCliErrors):
-
     """
         Nitro error code 1141
         Double-colon can appear only once in an IPv6 address
@@ -5774,7 +5138,6 @@ class NSNitroNserrInvalidipv6TwoDoubecolon(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidipv6NoprefixLength(NSNitroCliErrors):
-
     """
         Nitro error code 1142
         Prefix length must be given with an IPv6 address
@@ -5783,7 +5146,6 @@ class NSNitroNserrInvalidipv6NoprefixLength(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidipv6PrefixValue(NSNitroCliErrors):
-
     """
         Nitro error code 1143
         Prefix length must be in the range of 0-128
@@ -5792,7 +5154,6 @@ class NSNitroNserrInvalidipv6PrefixValue(NSNitroCliErrors):
 
 
 class NSNitroNserrTermnameinvalid(NSNitroCliErrors):
-
     """
         Nitro error code 1144
         Invalid term name
@@ -5801,7 +5162,6 @@ class NSNitroNserrTermnameinvalid(NSNitroCliErrors):
 
 
 class NSNitroNserrTerminvalid(NSNitroCliErrors):
-
     """
         Nitro error code 1145
         Invalid syntax in term
@@ -5810,7 +5170,6 @@ class NSNitroNserrTerminvalid(NSNitroCliErrors):
 
 
 class NSNitroNserrForcefailover(NSNitroCliErrors):
-
     """
         Nitro error code 1146
         Please confirm whether you want force-failover (Y/N)? [N]:
@@ -5819,7 +5178,6 @@ class NSNitroNserrForcefailover(NSNitroCliErrors):
 
 
 class NSNitroNserrForcefailHealthWarn(NSNitroCliErrors):
-
     """
         Nitro error code 1147
         Force Failover may cause configuration loss,  peer health not
@@ -5829,7 +5187,6 @@ class NSNitroNserrForcefailHealthWarn(NSNitroCliErrors):
 
 
 class NSNitroNserrHellotimeMultiple(NSNitroCliErrors):
-
     """
         Nitro error code 1148
         Invalid value. Hellotime Interval must be a multiple of 200
@@ -5838,7 +5195,6 @@ class NSNitroNserrHellotimeMultiple(NSNitroCliErrors):
 
 
 class NSNitroNserrForcesyncsave(NSNitroCliErrors):
-
     """
         Nitro error code 1149
         Do you want to save the config after sync (Y/N)? [Y]:
@@ -5847,7 +5203,6 @@ class NSNitroNserrForcesyncsave(NSNitroCliErrors):
 
 
 class NSNitroNserrErroutfilename(NSNitroCliErrors):
-
     """
         Nitro error code 1150
         Character '/' not allowed in outfilename
@@ -5856,7 +5211,6 @@ class NSNitroNserrErroutfilename(NSNitroCliErrors):
 
 
 class NSNitroNserrRnatipdel(NSNitroCliErrors):
-
     """
         Nitro error code 1151
         address is bound to rnat config,  can not be removed
@@ -5865,7 +5219,6 @@ class NSNitroNserrRnatipdel(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidalias(NSNitroCliErrors):
-
     """
         Nitro error code 1152
         Invalid alias
@@ -5874,7 +5227,6 @@ class NSNitroNserrInvalidalias(NSNitroCliErrors):
 
 
 class NSNitroNserrNosuchalias(NSNitroCliErrors):
-
     """
         Nitro error code 1153
         No such alias
@@ -5883,7 +5235,6 @@ class NSNitroNserrNosuchalias(NSNitroCliErrors):
 
 
 class NSNitroNserrAliasexists(NSNitroCliErrors):
-
     """
         Nitro error code 1154
         Alias already exists
@@ -5892,7 +5243,6 @@ class NSNitroNserrAliasexists(NSNitroCliErrors):
 
 
 class NSNitroNserrNosuchfile(NSNitroCliErrors):
-
     """
         Nitro error code 1155
         No such file
@@ -5901,7 +5251,6 @@ class NSNitroNserrNosuchfile(NSNitroCliErrors):
 
 
 class NSNitroNserrNotregfile(NSNitroCliErrors):
-
     """
         Nitro error code 1156
         Not a file
@@ -5910,7 +5259,6 @@ class NSNitroNserrNotregfile(NSNitroCliErrors):
 
 
 class NSNitroNserrDeprcmd(NSNitroCliErrors):
-
     """
         Nitro error code 1157
         Command deprecated
@@ -5919,7 +5267,6 @@ class NSNitroNserrDeprcmd(NSNitroCliErrors):
 
 
 class NSNitroNserrDeprarg(NSNitroCliErrors):
-
     """
         Nitro error code 1158
         Argument deprecated
@@ -5928,7 +5275,6 @@ class NSNitroNserrDeprarg(NSNitroCliErrors):
 
 
 class NSNitroNserrNotlogfile(NSNitroCliErrors):
-
     """
         Nitro error code 1159
         Not a NetScaler log file
@@ -5937,7 +5283,6 @@ class NSNitroNserrNotlogfile(NSNitroCliErrors):
 
 
 class NSNitroNserrNoplenforipv6range(NSNitroCliErrors):
-
     """
         Nitro error code 1160
         Prefix length cannot be specified for an IPv6 range
@@ -5946,7 +5291,6 @@ class NSNitroNserrNoplenforipv6range(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidint(NSNitroCliErrors):
-
     """
         Nitro error code 1161
         Integer not in range
@@ -5955,7 +5299,6 @@ class NSNitroNserrInvalidint(NSNitroCliErrors):
 
 
 class NSNitroNserrCmdambiguousUsecompletionsoptions(NSNitroCliErrors):
-
     """
         Nitro error code 1162
         Ambiguous (use cmd completion for options)
@@ -5964,7 +5307,6 @@ class NSNitroNserrCmdambiguousUsecompletionsoptions(NSNitroCliErrors):
 
 
 class NSNitroNserrMetadataInvalEntitytype(NSNitroCliErrors):
-
     """
         Nitro error code 1163
         Invalid Entity Type
@@ -5973,7 +5315,6 @@ class NSNitroNserrMetadataInvalEntitytype(NSNitroCliErrors):
 
 
 class NSNitroNserrSetnotexist(NSNitroCliErrors):
-
     """
         Nitro error code 1164
         set operation does not exist
@@ -5982,7 +5323,6 @@ class NSNitroNserrSetnotexist(NSNitroCliErrors):
 
 
 class NSNitroNserrSetargnotexist(NSNitroCliErrors):
-
     """
         Nitro error code 1165
         set operation for one of the modified argument does not exist
@@ -5991,7 +5331,6 @@ class NSNitroNserrSetargnotexist(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidDs(NSNitroCliErrors):
-
     """
         Nitro error code 1166
         Invalid datasource
@@ -6000,7 +5339,6 @@ class NSNitroNserrInvalidDs(NSNitroCliErrors):
 
 
 class NSNitroNserrNosuchcounter(NSNitroCliErrors):
-
     """
         Nitro error code 1167
         No such counter
@@ -6009,7 +5347,6 @@ class NSNitroNserrNosuchcounter(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidipmask(NSNitroCliErrors):
-
     """
         Nitro error code 1168
         Invalid IP address mask
@@ -6018,7 +5355,6 @@ class NSNitroNserrInvalidipmask(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidippat(NSNitroCliErrors):
-
     """
         Nitro error code 1169
         Invalid IP address pattern
@@ -6027,7 +5363,6 @@ class NSNitroNserrInvalidippat(NSNitroCliErrors):
 
 
 class NSNitroNserrBadrc(NSNitroCliErrors):
-
     """
         Nitro error code 1170
         Unexpected return code
@@ -6036,7 +5371,6 @@ class NSNitroNserrBadrc(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidrangetype(NSNitroCliErrors):
-
     """
         Nitro error code 1171
         Inappropriate range values for value type
@@ -6045,7 +5379,6 @@ class NSNitroNserrInvalidrangetype(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidrangeval(NSNitroCliErrors):
-
     """
         Nitro error code 1172
         Invalid range value
@@ -6054,7 +5387,6 @@ class NSNitroNserrInvalidrangeval(NSNitroCliErrors):
 
 
 class NSNitroNserrInvalidipv6PrefixLength(NSNitroCliErrors):
-
     """
         Nitro error code 1173
         Prefix length must not be given
@@ -6063,7 +5395,6 @@ class NSNitroNserrInvalidipv6PrefixLength(NSNitroCliErrors):
 
 
 class NSNitroNserrEntitydeleteFail(NSNitroCliErrors):
-
     """
         Nitro error code 1174
         Can not delete active entity
@@ -6072,7 +5403,6 @@ class NSNitroNserrEntitydeleteFail(NSNitroCliErrors):
 
 
 class NSNitroNserrRnatipdel2(NSNitroCliErrors):
-
     """
         Nitro error code 1176
         An RNAT address requires an IP address to exist
@@ -6081,7 +5411,6 @@ class NSNitroNserrRnatipdel2(NSNitroCliErrors):
 
 
 class NSNitroNserrIncompatibleip(NSNitroCliErrors):
-
     """
         Nitro error code 1181
         Private IP and public IP must be either IPv4 or IPv6
@@ -6090,7 +5419,6 @@ class NSNitroNserrIncompatibleip(NSNitroCliErrors):
 
 
 class NSNitroNserrTranscrIp(NSNitroCliErrors):
-
     """
         Nitro error code 1182
         For transparent CR vserver,  you cannot specify IP address
@@ -6099,7 +5427,6 @@ class NSNitroNserrTranscrIp(NSNitroCliErrors):
 
 
 class NSNitroNserrPasswordMismatch(NSNitroCliErrors):
-
     """
         Nitro error code 1183
         Passwords entered do not match
@@ -6108,7 +5435,6 @@ class NSNitroNserrPasswordMismatch(NSNitroCliErrors):
 
 
 class NSNitroNserrLeadingTrailingSpaces(NSNitroCliErrors):
-
     """
         Nitro error code 1053
         Leading or Trailing spaces in string
@@ -6117,7 +5443,6 @@ class NSNitroNserrLeadingTrailingSpaces(NSNitroCliErrors):
 
 
 class NSNitroCfeErrors(NSNitroError):
-
     """
         Base exception class NSNitroCfeErrors
     """
@@ -6125,7 +5450,6 @@ class NSNitroCfeErrors(NSNitroError):
 
 
 class NSNitroNserrNosuchioctl(NSNitroCfeErrors):
-
     """
         Nitro error code 1184
         Command not implemented on server
@@ -6134,7 +5458,6 @@ class NSNitroNserrNosuchioctl(NSNitroCfeErrors):
 
 
 class NSNitroNserrNotargets(NSNitroCfeErrors):
-
     """
         Nitro error code 1185
         No configured targets
@@ -6143,7 +5466,6 @@ class NSNitroNserrNotargets(NSNitroCfeErrors):
 
 
 class NSNitroNserrCantrecover(NSNitroCfeErrors):
-
     """
         Nitro error code 1186
         Configuration possibly inconsistent.  Please check with the
@@ -6153,7 +5475,6 @@ class NSNitroNserrCantrecover(NSNitroCfeErrors):
 
 
 class NSNitroNserrIgnoredioctl(NSNitroCfeErrors):
-
     """
         Nitro error code 1187
         The command was ignored.
@@ -6162,7 +5483,6 @@ class NSNitroNserrIgnoredioctl(NSNitroCfeErrors):
 
 
 class NSNitroNserrRemoteclose(NSNitroCfeErrors):
-
     """
         Nitro error code 1188
         The remote side closed the connection.
@@ -6171,7 +5491,6 @@ class NSNitroNserrRemoteclose(NSNitroCfeErrors):
 
 
 class NSNitroNserrInvalidTarget(NSNitroCfeErrors):
-
     """
         Nitro error code 1189
         The specified target does not exist
@@ -6180,7 +5499,6 @@ class NSNitroNserrInvalidTarget(NSNitroCfeErrors):
 
 
 class NSNitroNserrFileError(NSNitroCfeErrors):
-
     """
         Nitro error code 1190
         File operation failed
@@ -6189,7 +5507,6 @@ class NSNitroNserrFileError(NSNitroCfeErrors):
 
 
 class NSNitroNserrCommentDropped(NSNitroCfeErrors):
-
     """
         Nitro error code 1191
         Failed to retain all comments
@@ -6198,7 +5515,6 @@ class NSNitroNserrCommentDropped(NSNitroCfeErrors):
 
 
 class NSNitroNserrAggreqTimeout(NSNitroCfeErrors):
-
     """
         Nitro error code 1192
         Request to Aggregator timed out
@@ -6207,7 +5523,6 @@ class NSNitroNserrAggreqTimeout(NSNitroCfeErrors):
 
 
 class NSNitroNserrAggread(NSNitroCfeErrors):
-
     """
         Nitro error code 1193
         Failed to read data from Aggregator
@@ -6216,7 +5531,6 @@ class NSNitroNserrAggread(NSNitroCfeErrors):
 
 
 class NSNitroNserrRpcCmdDup(NSNitroCfeErrors):
-
     """
         Nitro error code 1194
         Found unexpected RPC duplicate command
@@ -6225,7 +5539,6 @@ class NSNitroNserrRpcCmdDup(NSNitroCfeErrors):
 
 
 class NSNitroNserrRpcCmdNondup(NSNitroCfeErrors):
-
     """
         Nitro error code 1195
         Found unexpected RPC command
@@ -6234,7 +5547,6 @@ class NSNitroNserrRpcCmdNondup(NSNitroCfeErrors):
 
 
 class NSNitroNserrCfePeComm(NSNitroCfeErrors):
-
     """
         Nitro error code 1196
         Communication error with the packet engine
@@ -6243,7 +5555,6 @@ class NSNitroNserrCfePeComm(NSNitroCfeErrors):
 
 
 class NSNitroNserrAggConfail(NSNitroCfeErrors):
-
     """
         Nitro error code 1197
         Failed to connect to the aggregator
@@ -6252,7 +5563,6 @@ class NSNitroNserrAggConfail(NSNitroCfeErrors):
 
 
 class NSNitroNserrCfePeTimout(NSNitroCfeErrors):
-
     """
         Nitro error code 1198
         No response from the packet engine
@@ -6261,7 +5571,6 @@ class NSNitroNserrCfePeTimout(NSNitroCfeErrors):
 
 
 class NSNitroNserrAggInvalidresponse(NSNitroCfeErrors):
-
     """
         Nitro error code 1199
         Invalid response from the aggregator
@@ -6270,7 +5579,6 @@ class NSNitroNserrAggInvalidresponse(NSNitroCfeErrors):
 
 
 class NSNitroNserrNontpsvr(NSNitroCfeErrors):
-
     """
         Nitro error code 1200
         Cannot enable ntpd when there is no ntp server configured
@@ -6279,7 +5587,6 @@ class NSNitroNserrNontpsvr(NSNitroCfeErrors):
 
 
 class NSNitroNserrAggSendfail(NSNitroCfeErrors):
-
     """
         Nitro error code 1201
         Failed to send to aggregator
@@ -6288,7 +5595,6 @@ class NSNitroNserrAggSendfail(NSNitroCfeErrors):
 
 
 class NSNitroNserrCfeAslearnComm(NSNitroCfeErrors):
-
     """
         Nitro error code 1202
         Communication error with aslearn
@@ -6297,7 +5603,6 @@ class NSNitroNserrCfeAslearnComm(NSNitroCfeErrors):
 
 
 class NSNitroNserrReadonlySession(NSNitroCfeErrors):
-
     """
         Nitro error code 1203
         Session is read-only; connect to the Cluster IP address to
@@ -6307,7 +5612,6 @@ class NSNitroNserrReadonlySession(NSNitroCfeErrors):
 
 
 class NSNitroNserrWrongPeState(NSNitroCfeErrors):
-
     """
         Nitro error code 1204
         The packet engine is in the wrong state to receive this command
@@ -6316,7 +5620,6 @@ class NSNitroNserrWrongPeState(NSNitroCfeErrors):
 
 
 class NSNitroNserrCfeValidationFailed(NSNitroCfeErrors):
-
     """
         Nitro error code 1205
         Config validation failed
@@ -6325,7 +5628,6 @@ class NSNitroNserrCfeValidationFailed(NSNitroCfeErrors):
 
 
 class NSNitroNserrXpathInternal(NSNitroCfeErrors):
-
     """
         Nitro error code 1206
         XPATH Internal Error
@@ -6334,7 +5636,6 @@ class NSNitroNserrXpathInternal(NSNitroCfeErrors):
 
 
 class NSNitroNserrCfeCallhomeComm(NSNitroCfeErrors):
-
     """
         Nitro error code 1207
         Communication error with callhome
@@ -6343,7 +5644,6 @@ class NSNitroNserrCfeCallhomeComm(NSNitroCfeErrors):
 
 
 class NSNitroNserrBindNoent(NSNitroCfeErrors):
-
     """
         Nitro error code 1208
         No such bind resource
@@ -6352,7 +5652,6 @@ class NSNitroNserrBindNoent(NSNitroCfeErrors):
 
 
 class NSNitroNserrPpnetmask(NSNitroCfeErrors):
-
     """
         Nitro error code 1209
         Netmask length 31 supports only point to point communications
@@ -6361,7 +5660,6 @@ class NSNitroNserrPpnetmask(NSNitroCfeErrors):
 
 
 class NSNitroNserrDbInternal(NSNitroCfeErrors):
-
     """
         Nitro error code 1211
         Config DB Internal Error
@@ -6370,7 +5668,6 @@ class NSNitroNserrDbInternal(NSNitroCfeErrors):
 
 
 class NSNitroNitroErrors(NSNitroError):
-
     """
         Base exception class NSNitroNitroErrors
     """
@@ -6378,7 +5675,6 @@ class NSNitroNitroErrors(NSNitroError):
 
 
 class NSNitroNserrNitroInvalidObjectname(NSNitroNitroErrors):
-
     """
         Nitro error code 1232
         Invalid object name
@@ -6387,7 +5683,6 @@ class NSNitroNserrNitroInvalidObjectname(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroInvalidJsonInput(NSNitroNitroErrors):
-
     """
         Nitro error code 1233
         Invalid JSON input
@@ -6396,7 +5691,6 @@ class NSNitroNserrNitroInvalidJsonInput(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroInvalidJsonDatatype(NSNitroNitroErrors):
-
     """
         Nitro error code 1234
         Invalid JSON data type
@@ -6405,7 +5699,6 @@ class NSNitroNserrNitroInvalidJsonDatatype(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroInvalidXmlInput(NSNitroNitroErrors):
-
     """
         Nitro error code 1235
         Invalid XML input
@@ -6414,7 +5707,6 @@ class NSNitroNserrNitroInvalidXmlInput(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroInvalidDatatype(NSNitroNitroErrors):
-
     """
         Nitro error code 1236
         Invalid NITRO data type
@@ -6423,7 +5715,6 @@ class NSNitroNserrNitroInvalidDatatype(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroInvalidMethod(NSNitroNitroErrors):
-
     """
         Nitro error code 1237
         Invalid method name. It should be either post,  put,  get,  stat
@@ -6433,7 +5724,6 @@ class NSNitroNserrNitroInvalidMethod(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroParseError(NSNitroNitroErrors):
-
     """
         Nitro error code 1238
         NITRO parse error
@@ -6442,7 +5732,6 @@ class NSNitroNserrNitroParseError(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroCmdexecFailed(NSNitroNitroErrors):
-
     """
         Nitro error code 1239
         NITRO command Execution failed
@@ -6451,7 +5740,6 @@ class NSNitroNserrNitroCmdexecFailed(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroInvalidAction(NSNitroNitroErrors):
-
     """
         Nitro error code 1240
         Invalid nitro action or operation
@@ -6460,7 +5748,6 @@ class NSNitroNserrNitroInvalidAction(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroRollbackFailed(NSNitroNitroErrors):
-
     """
         Nitro error code 1241
         Rollback failed. Manually correct the configuration
@@ -6469,7 +5756,6 @@ class NSNitroNserrNitroRollbackFailed(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroRollbackNotSupported(NSNitroNitroErrors):
-
     """
         Nitro error code 1242
         Rollback not supported for this action
@@ -6478,7 +5764,6 @@ class NSNitroNserrNitroRollbackNotSupported(NSNitroNitroErrors):
 
 
 class NSNitroNserrNitroBulkFailed(NSNitroNitroErrors):
-
     """
         Nitro error code 1243
         Bulk operation failed
@@ -6487,7 +5772,6 @@ class NSNitroNserrNitroBulkFailed(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappTemplateExists(NSNitroNitroErrors):
-
     """
         Nitro error code 1248
         Template already exists
@@ -6496,7 +5780,6 @@ class NSNitroNserrNsappTemplateExists(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappInvalidTemplate(NSNitroNitroErrors):
-
     """
         Nitro error code 1249
         Invalid Template
@@ -6505,7 +5788,6 @@ class NSNitroNserrNsappInvalidTemplate(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappDirError(NSNitroNitroErrors):
-
     """
         Nitro error code 1250
         Couldnot open directory
@@ -6514,7 +5796,6 @@ class NSNitroNserrNsappDirError(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappFileError(NSNitroNitroErrors):
-
     """
         Nitro error code 1251
         Can not open the file
@@ -6523,7 +5804,6 @@ class NSNitroNserrNsappFileError(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappInvalidAppInput(NSNitroNitroErrors):
-
     """
         Nitro error code 1252
         Invalid Application input
@@ -6532,7 +5812,6 @@ class NSNitroNserrNsappInvalidAppInput(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappExceededFilelength(NSNitroNitroErrors):
-
     """
         Nitro error code 1253
         File length exceeded 256 characters
@@ -6541,7 +5820,6 @@ class NSNitroNserrNsappExceededFilelength(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappEndpointInuse(NSNitroNitroErrors):
-
     """
         Nitro error code 1254
         Public endpoint in use
@@ -6550,7 +5828,6 @@ class NSNitroNserrNsappEndpointInuse(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappProtocolMismatch(NSNitroNitroErrors):
-
     """
         Nitro error code 1255
         Protocol mismatch with existing configuration
@@ -6559,7 +5836,6 @@ class NSNitroNserrNsappProtocolMismatch(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappInvalidVarname(NSNitroNitroErrors):
-
     """
         Nitro error code 1256
         Invalid variable name
@@ -6568,7 +5844,6 @@ class NSNitroNserrNsappInvalidVarname(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappZipFile(NSNitroNitroErrors):
-
     """
         Nitro error code 1257
         Error in zip format
@@ -6577,7 +5852,6 @@ class NSNitroNserrNsappZipFile(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappMaxepReached(NSNitroNitroErrors):
-
     """
         Nitro error code 1258
         Only one endpoint can be configured
@@ -6586,7 +5860,6 @@ class NSNitroNserrNsappMaxepReached(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappNotExist(NSNitroNitroErrors):
-
     """
         Nitro error code 1259
         Application does not exist
@@ -6595,7 +5868,6 @@ class NSNitroNserrNsappNotExist(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappInvalidServicetype(NSNitroNitroErrors):
-
     """
         Nitro error code 1260
         Invalid servicetype - HTTP/HTTPS/SSL are only allowed
@@ -6604,7 +5876,6 @@ class NSNitroNserrNsappInvalidServicetype(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappTemplateFormatError(NSNitroNitroErrors):
-
     """
         Nitro error code 1261
         Template format error
@@ -6613,7 +5884,6 @@ class NSNitroNserrNsappTemplateFormatError(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappAppWithoutAppunits(NSNitroNitroErrors):
-
     """
         Nitro error code 1262
         Application without appunits can not be exported
@@ -6622,7 +5892,6 @@ class NSNitroNserrNsappAppWithoutAppunits(NSNitroNitroErrors):
 
 
 class NSNitroNserrNsappServicrgroupExists(NSNitroNitroErrors):
-
     """
         Nitro error code 1263
         Service group with this name already exists
@@ -6631,7 +5900,6 @@ class NSNitroNserrNsappServicrgroupExists(NSNitroNitroErrors):
 
 
 class NSNitroLbErrors(NSNitroError):
-
     """
         Base exception class NSNitroLbErrors
     """
@@ -6639,7 +5907,6 @@ class NSNitroLbErrors(NSNitroError):
 
 
 class NSNitroNserrSlesslbLbmethodNotsupported(NSNitroLbErrors):
-
     """
         Nitro error code 1280
         Incompatible LB method for sessionless vserver
@@ -6648,7 +5915,6 @@ class NSNitroNserrSlesslbLbmethodNotsupported(NSNitroLbErrors):
 
 
 class NSNitroNserrSlesslbPersistNotsupported(NSNitroLbErrors):
-
     """
         Nitro error code 1281
         Incompatible persistence method for sessionless vserver
@@ -6657,7 +5923,6 @@ class NSNitroNserrSlesslbPersistNotsupported(NSNitroLbErrors):
 
 
 class NSNitroNserrSlesslbTypeNotsupported(NSNitroLbErrors):
-
     """
         Nitro error code 1282
         Sessionless vserver must be of type ANY,  DNS or UDP
@@ -6666,7 +5931,6 @@ class NSNitroNserrSlesslbTypeNotsupported(NSNitroLbErrors):
 
 
 class NSNitroNserrSlesslbModeNotsupported(NSNitroLbErrors):
-
     """
         Nitro error code 1283
         Sessionless vserver must have MAC or IPTUNNEL mode set
@@ -6675,7 +5939,6 @@ class NSNitroNserrSlesslbModeNotsupported(NSNitroLbErrors):
 
 
 class NSNitroNserrSlesslbSvcUsipnotset(NSNitroLbErrors):
-
     """
         Nitro error code 1284
         Service bound to a sessionless vserver must have UseSourceIP
@@ -6685,7 +5948,6 @@ class NSNitroNserrSlesslbSvcUsipnotset(NSNitroLbErrors):
 
 
 class NSNitroNserrWildcardvipLbmethodInval(NSNitroLbErrors):
-
     """
         Nitro error code 1286
         Invalid LB method for a wildcard vserver
@@ -6694,7 +5956,6 @@ class NSNitroNserrWildcardvipLbmethodInval(NSNitroLbErrors):
 
 
 class NSNitroNserrWildcardvipPersistInval(NSNitroLbErrors):
-
     """
         Nitro error code 1287
         Invalid persistence policy for a wildcard vserver
@@ -6703,7 +5964,6 @@ class NSNitroNserrWildcardvipPersistInval(NSNitroLbErrors):
 
 
 class NSNitroNserrLbSoThreshold(NSNitroLbErrors):
-
     """
         Nitro error code 1288
         Spill-over threshold should be a non-zero value
@@ -6712,7 +5972,6 @@ class NSNitroNserrLbSoThreshold(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverUsip(NSNitroLbErrors):
-
     """
         Nitro error code 1289
         Service must have Use Source IP option set in order to be bound
@@ -6722,7 +5981,6 @@ class NSNitroNserrConnfailoverUsip(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverService(NSNitroLbErrors):
-
     """
         Nitro error code 1290
         Connection failover can only be enabled on a virtual server of
@@ -6732,7 +5990,6 @@ class NSNitroNserrConnfailoverService(NSNitroLbErrors):
 
 
 class NSNitroNserrLbSoDynamicconThreshold(NSNitroLbErrors):
-
     """
         Nitro error code 1291
         Spill-over threshold cannot be set for dynamic connection spill-
@@ -6742,7 +5999,6 @@ class NSNitroNserrLbSoDynamicconThreshold(NSNitroLbErrors):
 
 
 class NSNitroNserrLbSoAddrvip(NSNitroLbErrors):
-
     """
         Nitro error code 1292
         DYNAMICCONNECTION spill-over cannot be set on a non-LB vserver
@@ -6751,7 +6007,6 @@ class NSNitroNserrLbSoAddrvip(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverNotforSless(NSNitroLbErrors):
-
     """
         Nitro error code 1293
         Connection Failover is not supported for sessionless lb
@@ -6761,7 +6016,6 @@ class NSNitroNserrConnfailoverNotforSless(NSNitroLbErrors):
 
 
 class NSNitroNserrNewsvcPercentCapped(NSNitroLbErrors):
-
     """
         Nitro error code 1294
         Percentage value of requests capped at 100
@@ -6770,7 +6024,6 @@ class NSNitroNserrNewsvcPercentCapped(NSNitroLbErrors):
 
 
 class NSNitroNserrSipNocallid(NSNitroLbErrors):
-
     """
         Nitro error code 1296
         Missing Call-ID header field
@@ -6779,7 +6032,6 @@ class NSNitroNserrSipNocallid(NSNitroLbErrors):
 
 
 class NSNitroNserrSipNovia(NSNitroLbErrors):
-
     """
         Nitro error code 1297
         Missing Via header field
@@ -6788,7 +6040,6 @@ class NSNitroNserrSipNovia(NSNitroLbErrors):
 
 
 class NSNitroNserrSipNocseq(NSNitroLbErrors):
-
     """
         Nitro error code 1298
         Missing CSeq header field
@@ -6797,7 +6048,6 @@ class NSNitroNserrSipNocseq(NSNitroLbErrors):
 
 
 class NSNitroNserrSipNoto(NSNitroLbErrors):
-
     """
         Nitro error code 1299
         Missing To header field
@@ -6806,7 +6056,6 @@ class NSNitroNserrSipNoto(NSNitroLbErrors):
 
 
 class NSNitroNserrSipNofrom(NSNitroLbErrors):
-
     """
         Nitro error code 1300
         Missing From header field
@@ -6815,7 +6064,6 @@ class NSNitroNserrSipNofrom(NSNitroLbErrors):
 
 
 class NSNitroNserrSipNomaxForwards(NSNitroLbErrors):
-
     """
         Nitro error code 1301
         Missing Max-Forwards header field
@@ -6824,7 +6072,6 @@ class NSNitroNserrSipNomaxForwards(NSNitroLbErrors):
 
 
 class NSNitroNserrSipServiceUnavailable(NSNitroLbErrors):
-
     """
         Nitro error code 1302
         Service unavailable
@@ -6833,7 +6080,6 @@ class NSNitroNserrSipServiceUnavailable(NSNitroLbErrors):
 
 
 class NSNitroNserrSvcNotBound(NSNitroLbErrors):
-
     """
         Nitro error code 1303
         Service not bound to Vserver
@@ -6842,7 +6088,6 @@ class NSNitroNserrSvcNotBound(NSNitroLbErrors):
 
 
 class NSNitroNserrSvctypeMismatch(NSNitroLbErrors):
-
     """
         Nitro error code 1304
         Service type mismatch between the vserver and service
@@ -6851,7 +6096,6 @@ class NSNitroNserrSvctypeMismatch(NSNitroLbErrors):
 
 
 class NSNitroNserrChConNotAllowed(NSNitroLbErrors):
-
     """
         Nitro error code 1305
         CONNECTION header cannot be set
@@ -6860,7 +6104,6 @@ class NSNitroNserrChConNotAllowed(NSNitroLbErrors):
 
 
 class NSNitroNserrChIncompleteHdr(NSNitroLbErrors):
-
     """
         Nitro error code 1312
         Custom Header string should end with CRLF
@@ -6869,7 +6112,6 @@ class NSNitroNserrChIncompleteHdr(NSNitroLbErrors):
 
 
 class NSNitroNserrSpilloverdisabled(NSNitroLbErrors):
-
     """
         Nitro error code 1313
         No spillover on the vserver due to max client setting '0' on a
@@ -6879,7 +6121,6 @@ class NSNitroNserrSpilloverdisabled(NSNitroLbErrors):
 
 
 class NSNitroNserrMaxtimeexceeded(NSNitroLbErrors):
-
     """
         Nitro error code 1314
         Maximum time value for interval or responsetimeout or downtime
@@ -6889,7 +6130,6 @@ class NSNitroNserrMaxtimeexceeded(NSNitroLbErrors):
 
 
 class NSNitroNserrScinvalproto(NSNitroLbErrors):
-
     """
         Nitro error code 1315
         Cannot bind SC policy to non-HTTP service or vserver
@@ -6898,7 +6138,6 @@ class NSNitroNserrScinvalproto(NSNitroLbErrors):
 
 
 class NSNitroNserrRootrec(NSNitroLbErrors):
-
     """
         Nitro error code 1316
         Atleast one nameserver record should exist for the root domain
@@ -6907,7 +6146,6 @@ class NSNitroNserrRootrec(NSNitroLbErrors):
 
 
 class NSNitroNserrRootGluerec(NSNitroLbErrors):
-
     """
         Nitro error code 1317
         Root domain nameserver address record should have atleast one ip
@@ -6917,7 +6155,6 @@ class NSNitroNserrRootGluerec(NSNitroLbErrors):
 
 
 class NSNitroNserrVipinsertNotSupported(NSNitroLbErrors):
-
     """
         Nitro error code 1356
         Vserver IP and port header insertion option not supported on
@@ -6927,7 +6164,6 @@ class NSNitroNserrVipinsertNotSupported(NSNitroLbErrors):
 
 
 class NSNitroNserrVsvrAlrdyBound(NSNitroLbErrors):
-
     """
         Nitro error code 1318
         This vserver is already bound to a WLM
@@ -6936,7 +6172,6 @@ class NSNitroNserrVsvrAlrdyBound(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidWlmBinding(NSNitroLbErrors):
-
     """
         Nitro error code 1319
         Only LB vservers are allowed to bound to WLM
@@ -6945,7 +6180,6 @@ class NSNitroNserrInvalidWlmBinding(NSNitroLbErrors):
 
 
 class NSNitroNserrVsvrNotBound(NSNitroLbErrors):
-
     """
         Nitro error code 1320
         Vserver not bound to WLM
@@ -6954,7 +6188,6 @@ class NSNitroNserrVsvrNotBound(NSNitroLbErrors):
 
 
 class NSNitroNserrWlmExists(NSNitroLbErrors):
-
     """
         Nitro error code 1321
         WLM already configured on this IP,  port
@@ -6963,7 +6196,6 @@ class NSNitroNserrWlmExists(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidTimeout(NSNitroLbErrors):
-
     """
         Nitro error code 1322
         Invalid persistence timeout: default timeout assigned
@@ -6972,7 +6204,6 @@ class NSNitroNserrInvalidTimeout(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverIncmode(NSNitroLbErrors):
-
     """
         Nitro error code 1323
         Stateful connection failover cannot be enabled in INC mode
@@ -6981,7 +6212,6 @@ class NSNitroNserrConnfailoverIncmode(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverTcpb(NSNitroLbErrors):
-
     """
         Nitro error code 1324
         Stateful connection failover cannot be enabled on a vserver that
@@ -6991,7 +6221,6 @@ class NSNitroNserrConnfailoverTcpb(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverTcpbSvcBind(NSNitroLbErrors):
-
     """
         Nitro error code 1326
         Service with TCP buffering enabled cannot be bound to a vserver
@@ -7001,7 +6230,6 @@ class NSNitroNserrConnfailoverTcpbSvcBind(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverTcpbSvcParam(NSNitroLbErrors):
-
     """
         Nitro error code 1327
         TCP buffering cannot be enabled on a service bound to a vserver
@@ -7011,7 +6239,6 @@ class NSNitroNserrConnfailoverTcpbSvcParam(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverServiceStatefull(NSNitroLbErrors):
-
     """
         Nitro error code 1328
         Stateful connection failover cannot be enabled on a vserver of
@@ -7021,7 +6248,6 @@ class NSNitroNserrConnfailoverServiceStatefull(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverSslSvcBind(NSNitroLbErrors):
-
     """
         Nitro error code 1329
         SSL TCP service cannot be bound to a TCP vserver with stateful
@@ -7031,7 +6257,6 @@ class NSNitroNserrConnfailoverSslSvcBind(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverHaIncNode(NSNitroLbErrors):
-
     """
         Nitro error code 1330
         Ha node with INC mode enabled cannot be added to the system that
@@ -7041,7 +6266,6 @@ class NSNitroNserrConnfailoverHaIncNode(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverSslSvc(NSNitroLbErrors):
-
     """
         Nitro error code 1331
         Stateful connection failover cannot be enabled on a vserver that
@@ -7051,7 +6275,6 @@ class NSNitroNserrConnfailoverSslSvc(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidPersistence(NSNitroLbErrors):
-
     """
         Nitro error code 1332
         Invalid Persistence type
@@ -7060,7 +6283,6 @@ class NSNitroNserrInvalidPersistence(NSNitroLbErrors):
 
 
 class NSNitroNserrRtspsessionInvalid(NSNitroLbErrors):
-
     """
         Nitro error code 1333
         Invalid RTSP session entry
@@ -7069,7 +6291,6 @@ class NSNitroNserrRtspsessionInvalid(NSNitroLbErrors):
 
 
 class NSNitroNserrLbMethodSameasBackupMethod(NSNitroLbErrors):
-
     """
         Nitro error code 1334
         Backup load balancing method cannot be the same as the primary
@@ -7079,7 +6300,6 @@ class NSNitroNserrLbMethodSameasBackupMethod(NSNitroLbErrors):
 
 
 class NSNitroNserrServerExist(NSNitroLbErrors):
-
     """
         Nitro error code 1335
         Server already exists
@@ -7088,7 +6308,6 @@ class NSNitroNserrServerExist(NSNitroLbErrors):
 
 
 class NSNitroNserrLbSoHealth(NSNitroLbErrors):
-
     """
         Nitro error code 1336
         HEALTH spill-over cannot be set on a non-LB vserver
@@ -7097,7 +6316,6 @@ class NSNitroNserrLbSoHealth(NSNitroLbErrors):
 
 
 class NSNitroNserrReqRuleMissing(NSNitroLbErrors):
-
     """
         Nitro error code 1337
         Request Rule is required,  when Response rule is specified.
@@ -7106,7 +6324,6 @@ class NSNitroNserrReqRuleMissing(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverBindlo(NSNitroLbErrors):
-
     """
         Nitro error code 1338
         Loopback service cannot be bound to vserver with connection
@@ -7116,7 +6333,6 @@ class NSNitroNserrConnfailoverBindlo(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverSetwithlo(NSNitroLbErrors):
-
     """
         Nitro error code 1339
         Connection Failover cannot be set to STATEFUL/STATELESS on
@@ -7126,7 +6342,6 @@ class NSNitroNserrConnfailoverSetwithlo(NSNitroLbErrors):
 
 
 class NSNitroNserrRedirectUrlNotApplicable(NSNitroLbErrors):
-
     """
         Nitro error code 1340
         Redirect URL cannot be configured on this vserver.
@@ -7135,7 +6350,6 @@ class NSNitroNserrRedirectUrlNotApplicable(NSNitroLbErrors):
 
 
 class NSNitroNserrStatefulConnfailoverIpv6(NSNitroLbErrors):
-
     """
         Nitro error code 1341
         Stateful connection failover cannot be enabled on an IPv6
@@ -7145,7 +6359,6 @@ class NSNitroNserrStatefulConnfailoverIpv6(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverNotSupported(NSNitroLbErrors):
-
     """
         Nitro error code 1342
         Connection Failover is not supported for pattern based vservers
@@ -7154,7 +6367,6 @@ class NSNitroNserrConnfailoverNotSupported(NSNitroLbErrors):
 
 
 class NSNitroNserrNobindOnpush(NSNitroLbErrors):
-
     """
         Nitro error code 1343
         Bindings not allowed on push vserver
@@ -7163,7 +6375,6 @@ class NSNitroNserrNobindOnpush(NSNitroLbErrors):
 
 
 class NSNitroNserrPushVsvr(NSNitroLbErrors):
-
     """
         Nitro error code 1344
         Option cannot be set on push vserver
@@ -7172,7 +6383,6 @@ class NSNitroNserrPushVsvr(NSNitroLbErrors):
 
 
 class NSNitroNserrOnlyHttpssl(NSNitroLbErrors):
-
     """
         Nitro error code 1345
         Option can only be set on http/ ssl vserver
@@ -7181,7 +6391,6 @@ class NSNitroNserrOnlyHttpssl(NSNitroLbErrors):
 
 
 class NSNitroNserrPushBindExists(NSNitroLbErrors):
-
     """
         Nitro error code 1346
         A push vserver is already bound. Unbind before binding new
@@ -7191,7 +6400,6 @@ class NSNitroNserrPushBindExists(NSNitroLbErrors):
 
 
 class NSNitroNserrSetPushvsOnly(NSNitroLbErrors):
-
     """
         Nitro error code 1347
         Push vserver should be of type push or ssl_push only
@@ -7200,7 +6408,6 @@ class NSNitroNserrSetPushvsOnly(NSNitroLbErrors):
 
 
 class NSNitroNserrSlessNoSupport(NSNitroLbErrors):
-
     """
         Nitro error code 1348
         Not supported for sessionless vservers
@@ -7209,7 +6416,6 @@ class NSNitroNserrSlessNoSupport(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverV6service(NSNitroLbErrors):
-
     """
         Nitro error code 1349
         Connection Failover cannot be set to STATEFUL on vserver with
@@ -7219,7 +6425,6 @@ class NSNitroNserrConnfailoverV6service(NSNitroLbErrors):
 
 
 class NSNitroNserrConnfailoverVserver(NSNitroLbErrors):
-
     """
         Nitro error code 1350
         IPV6 service cannot be bound to vserver with connection failover
@@ -7229,7 +6434,6 @@ class NSNitroNserrConnfailoverVserver(NSNitroLbErrors):
 
 
 class NSNitroNserrNoListenPolicyForDummyvs(NSNitroLbErrors):
-
     """
         Nitro error code 1352
         Cannot bind listen policy to dummy vservers
@@ -7238,7 +6442,6 @@ class NSNitroNserrNoListenPolicyForDummyvs(NSNitroLbErrors):
 
 
 class NSNitroNserrNormalVsNoneListenpol(NSNitroLbErrors):
-
     """
         Nitro error code 1355
         The vserver already has None Listen Policy\n
@@ -7247,7 +6450,6 @@ class NSNitroNserrNormalVsNoneListenpol(NSNitroLbErrors):
 
 
 class NSNitroNserrNoLispriForNoneLispol(NSNitroLbErrors):
-
     """
         Nitro error code 1357
         None listenpolicy doesnot have listen priority\n
@@ -7256,7 +6458,6 @@ class NSNitroNserrNoLispriForNoneLispol(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidPolicyString(NSNitroLbErrors):
-
     """
         Nitro error code 1358
         Invalid listenpolicy entered\n
@@ -7265,7 +6466,6 @@ class NSNitroNserrInvalidPolicyString(NSNitroLbErrors):
 
 
 class NSNitroNserrNodatalenoffforvs(NSNitroLbErrors):
-
     """
         Nitro error code 1359
         Dataoffset and datalength are not requied for this vserver\n
@@ -7274,7 +6474,6 @@ class NSNitroNserrNodatalenoffforvs(NSNitroLbErrors):
 
 
 class NSNitroNserrLbgrppersiswithrdp(NSNitroLbErrors):
-
     """
         Nitro error code 1285
         Persistency is not applicable for RDP vserver or LB group which
@@ -7284,7 +6483,6 @@ class NSNitroNserrLbgrppersiswithrdp(NSNitroLbErrors):
 
 
 class NSNitroNserrCsSothreshold(NSNitroLbErrors):
-
     """
         Nitro error code 1370
          Spillover threshold must be given with spillover method  in
@@ -7294,7 +6492,6 @@ class NSNitroNserrCsSothreshold(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidInsertvserveripport(NSNitroLbErrors):
-
     """
         Nitro error code 1392
         V6TOV4MAPPING is not applicable to ipv4 vserver
@@ -7303,7 +6500,6 @@ class NSNitroNserrInvalidInsertvserveripport(NSNitroLbErrors):
 
 
 class NSNitroNserrLbServerNotexist(NSNitroLbErrors):
-
     """
         Nitro error code 1388
         The Target LB Vserver does not exist
@@ -7312,7 +6508,6 @@ class NSNitroNserrLbServerNotexist(NSNitroLbErrors):
 
 
 class NSNitroNserrBoundtoCsact(NSNitroLbErrors):
-
     """
         Nitro error code 1371
         The LB Vserver referred by Content Switching action cannot be
@@ -7322,7 +6517,6 @@ class NSNitroNserrBoundtoCsact(NSNitroLbErrors):
 
 
 class NSNitroNserrBoundtoCspolicy(NSNitroLbErrors):
-
     """
         Nitro error code 1372
         The Content Switching Action bound to Content Switching Policy
@@ -7332,7 +6526,6 @@ class NSNitroNserrBoundtoCspolicy(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidMultiplebind(NSNitroLbErrors):
-
     """
         Nitro error code 1373
         Multiple Bind not supported for Content Switching Advanced
@@ -7342,7 +6535,6 @@ class NSNitroNserrInvalidMultiplebind(NSNitroLbErrors):
 
 
 class NSNitroNserrCspolicyHasaction(NSNitroLbErrors):
-
     """
         Nitro error code 1374
         LB vserver/gotoPriorityExpression/invoke not allowed during bind
@@ -7352,7 +6544,6 @@ class NSNitroNserrCspolicyHasaction(NSNitroLbErrors):
 
 
 class NSNitroNserrCsNotsupportLb(NSNitroLbErrors):
-
     """
         Nitro error code 1375
         The Protocol of given LB vserver is not supported by Content
@@ -7362,7 +6553,6 @@ class NSNitroNserrCsNotsupportLb(NSNitroLbErrors):
 
 
 class NSNitroNserrActionNotnoopCs(NSNitroLbErrors):
-
     """
         Nitro error code 1386
         Do not provide gotoPriorityExpression/invoke because policy has
@@ -7372,7 +6562,6 @@ class NSNitroNserrActionNotnoopCs(NSNitroLbErrors):
 
 
 class NSNitroNserrCspolicyNoaction(NSNitroLbErrors):
-
     """
         Nitro error code 1387
         Content Switching policy has no action
@@ -7381,7 +6570,6 @@ class NSNitroNserrCspolicyNoaction(NSNitroLbErrors):
 
 
 class NSNitroNserrCspepolicySetnoaction(NSNitroLbErrors):
-
     """
         Nitro error code 1389
         Content Switching classic policy does not support action
@@ -7390,7 +6578,6 @@ class NSNitroNserrCspepolicySetnoaction(NSNitroLbErrors):
 
 
 class NSNitroNserrPolicyUsedForInvoke(NSNitroLbErrors):
-
     """
         Nitro error code 1390
         Do not give target LB beacuse the policy has been bound to
@@ -7400,7 +6587,6 @@ class NSNitroNserrPolicyUsedForInvoke(NSNitroLbErrors):
 
 
 class NSNitroNserrSpecifyBackupNode(NSNitroLbErrors):
-
     """
         Nitro error code 1393
         Please specify the backup node.
@@ -7409,7 +6595,6 @@ class NSNitroNserrSpecifyBackupNode(NSNitroLbErrors):
 
 
 class NSNitroNserrSameNodes(NSNitroLbErrors):
-
     """
         Nitro error code 1394
         Owner and backup nodes need to different.
@@ -7418,7 +6603,6 @@ class NSNitroNserrSameNodes(NSNitroLbErrors):
 
 
 class NSNitroNserrIncompatiblePolicyServerType(NSNitroLbErrors):
-
     """
         Nitro error code 1391
         Content switching vserver service type is not compatible with
@@ -7428,7 +6612,6 @@ class NSNitroNserrIncompatiblePolicyServerType(NSNitroLbErrors):
 
 
 class NSNitroNserrPepolicyBindNotallowed(NSNitroLbErrors):
-
     """
         Nitro error code 1395
         Binding of classic content switching policy to content switching
@@ -7438,7 +6621,6 @@ class NSNitroNserrPepolicyBindNotallowed(NSNitroLbErrors):
 
 
 class NSNitroNserrTcpkaIdletimeTooLow(NSNitroLbErrors):
-
     """
         Nitro error code 1396
         Connection idle time cannot be lower than keep-alive probe
@@ -7448,7 +6630,6 @@ class NSNitroNserrTcpkaIdletimeTooLow(NSNitroLbErrors):
 
 
 class NSNitroNserrOwnerNodeNotInCluster(NSNitroLbErrors):
-
     """
         Nitro error code 1397
         Owner node is not in the cluster config or is NOT ACTIVE
@@ -7457,7 +6638,6 @@ class NSNitroNserrOwnerNodeNotInCluster(NSNitroLbErrors):
 
 
 class NSNitroNserrBackupNodeNotInCluster(NSNitroLbErrors):
-
     """
         Nitro error code 1398
         Backup node is not in the cluster config or is NOT ACTIVE
@@ -7466,7 +6646,6 @@ class NSNitroNserrBackupNodeNotInCluster(NSNitroLbErrors):
 
 
 class NSNitroNserrSpottedVserverNotSupportedInStandalone(NSNitroLbErrors):
-
     """
         Nitro error code 1399
         Spotted vserver configuration not supported in standalone or HA
@@ -7476,7 +6655,6 @@ class NSNitroNserrSpottedVserverNotSupportedInStandalone(NSNitroLbErrors):
 
 
 class NSNitroNserrSpottedConfigNoMatch(NSNitroLbErrors):
-
     """
         Nitro error code 1400
         Spotted config of the backup verser does not match the vserver
@@ -7485,7 +6663,6 @@ class NSNitroNserrSpottedConfigNoMatch(NSNitroLbErrors):
 
 
 class NSNitroNserrOptionNotSupported(NSNitroLbErrors):
-
     """
         Nitro error code 1401
         Skip persistency is supported only for ANY and UDP service types
@@ -7494,7 +6671,6 @@ class NSNitroNserrOptionNotSupported(NSNitroLbErrors):
 
 
 class NSNitroNserrOptionNotSupportedIp(NSNitroLbErrors):
-
     """
         Nitro error code 1402
         BYPASS is not supported for IP based vservers
@@ -7503,7 +6679,6 @@ class NSNitroNserrOptionNotSupportedIp(NSNitroLbErrors):
 
 
 class NSNitroNserrOwnerNodeNotSet(NSNitroLbErrors):
-
     """
         Nitro error code 1403
         Owner node should be specified for cluster
@@ -7512,7 +6687,6 @@ class NSNitroNserrOwnerNodeNotSet(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidRename(NSNitroLbErrors):
-
     """
         Nitro error code 1404
         Rename is supported only for advanced CS policies
@@ -7521,7 +6695,6 @@ class NSNitroNserrInvalidRename(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalLocalNamsvrType(NSNitroLbErrors):
-
     """
         Nitro error code 1405
         Only UDP based local nameservers are allowed
@@ -7530,7 +6703,6 @@ class NSNitroNserrInvalLocalNamsvrType(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalidTftport(NSNitroLbErrors):
-
     """
         Nitro error code 1406
         Invalid port for tftp vserver
@@ -7539,7 +6711,6 @@ class NSNitroNserrInvalidTftport(NSNitroLbErrors):
 
 
 class NSNitroNserrNoRename(NSNitroLbErrors):
-
     """
         Nitro error code 1407
         No Rename Supported
@@ -7548,7 +6719,6 @@ class NSNitroNserrNoRename(NSNitroLbErrors):
 
 
 class NSNitroNserrUseBindcrCmd(NSNitroLbErrors):
-
     """
         Nitro error code 88
         Use Bind CR command to bind CR Vserver instead of Bind CS
@@ -7557,7 +6727,6 @@ class NSNitroNserrUseBindcrCmd(NSNitroLbErrors):
 
 
 class NSNitroNserrLbrefferedInCsbinding(NSNitroLbErrors):
-
     """
         Nitro error code 1409
         Cannot remove LB Vserver which is reffered in CS policy bindings
@@ -7566,7 +6735,6 @@ class NSNitroNserrLbrefferedInCsbinding(NSNitroLbErrors):
 
 
 class NSNitroNserrDefaultlbNotBound(NSNitroLbErrors):
-
     """
         Nitro error code 1410
         default LB mentioned is not bound
@@ -7575,7 +6743,6 @@ class NSNitroNserrDefaultlbNotBound(NSNitroLbErrors):
 
 
 class NSNitroNserrNgBindEntity(NSNitroLbErrors):
-
     """
         Nitro error code 1411
         Error binding the node group to an entity
@@ -7584,7 +6751,6 @@ class NSNitroNserrNgBindEntity(NSNitroLbErrors):
 
 
 class NSNitroNserrEntityBoundToAnotherNg(NSNitroLbErrors):
-
     """
         Nitro error code 1412
         The specified entity is already bound to a different node group
@@ -7593,7 +6759,6 @@ class NSNitroNserrEntityBoundToAnotherNg(NSNitroLbErrors):
 
 
 class NSNitroNserrEntityAlreadyBound(NSNitroLbErrors):
-
     """
         Nitro error code 1413
         The specified entity is already bound to this node group
@@ -7602,7 +6767,6 @@ class NSNitroNserrEntityAlreadyBound(NSNitroLbErrors):
 
 
 class NSNitroNserrEntityNotBoundToNg(NSNitroLbErrors):
-
     """
         Nitro error code 1414
         The specified entity is not bound to any node group
@@ -7611,7 +6775,6 @@ class NSNitroNserrEntityNotBoundToNg(NSNitroLbErrors):
 
 
 class NSNitroNserrNgNotFound(NSNitroLbErrors):
-
     """
         Nitro error code 1415
         Nodegroup is not found
@@ -7620,7 +6783,6 @@ class NSNitroNserrNgNotFound(NSNitroLbErrors):
 
 
 class NSNitroNserrNgHasBindings(NSNitroLbErrors):
-
     """
         Nitro error code 1416
         Nodegroup cannot be deleted,  it has entities bound to it
@@ -7629,7 +6791,6 @@ class NSNitroNserrNgHasBindings(NSNitroLbErrors):
 
 
 class NSNitroNserrVserverCannotBind(NSNitroLbErrors):
-
     """
         Nitro error code 1417
         Vserver cannot bind to the nodegroup
@@ -7638,7 +6799,6 @@ class NSNitroNserrVserverCannotBind(NSNitroLbErrors):
 
 
 class NSNitroNserrVserverCannotUnbind(NSNitroLbErrors):
-
     """
         Nitro error code 1418
         Vserver cannot unbind to the nodegroup
@@ -7647,7 +6807,6 @@ class NSNitroNserrVserverCannotUnbind(NSNitroLbErrors):
 
 
 class NSNitroNserrNgCannotBeStrict(NSNitroLbErrors):
-
     """
         Nitro error code 1419
         Nodegroup cannot be made strict as there are no nodes bound to
@@ -7657,7 +6816,6 @@ class NSNitroNserrNgCannotBeStrict(NSNitroLbErrors):
 
 
 class NSNitroNserrNgStrictAndZerodepth(NSNitroLbErrors):
-
     """
         Nitro error code 1420
         Cannot bind an entity to a strict nodegroup with no nodes bound
@@ -7667,7 +6825,6 @@ class NSNitroNserrNgStrictAndZerodepth(NSNitroLbErrors):
 
 
 class NSNitroNserrUnbindingLastNodeFromStrictNg(NSNitroLbErrors):
-
     """
         Nitro error code 1421
         Cannot unbind the last node from a strict nodegroup with
@@ -7677,7 +6834,6 @@ class NSNitroNserrUnbindingLastNodeFromStrictNg(NSNitroLbErrors):
 
 
 class NSNitroNserrNgAlreadyAdded(NSNitroLbErrors):
-
     """
         Nitro error code 1422
         Nodegroup is already added
@@ -7686,7 +6842,6 @@ class NSNitroNserrNgAlreadyAdded(NSNitroLbErrors):
 
 
 class NSNitroNserrNgEntityNomem(NSNitroLbErrors):
-
     """
         Nitro error code 1423
         No memory to establish entity to nodegroup association
@@ -7695,7 +6850,6 @@ class NSNitroNserrNgEntityNomem(NSNitroLbErrors):
 
 
 class NSNitroNserrNgMaxConfigured(NSNitroLbErrors):
-
     """
         Nitro error code 1424
         Cannot add nodegroup; maximum number of nodegroups already added
@@ -7704,7 +6858,6 @@ class NSNitroNserrNgMaxConfigured(NSNitroLbErrors):
 
 
 class NSNitroNserrInvalCsAction(NSNitroLbErrors):
-
     """
         Nitro error code 1425
         Action given is not a CS action
@@ -7713,7 +6866,6 @@ class NSNitroNserrInvalCsAction(NSNitroLbErrors):
 
 
 class NSNitroNserrSetCsactionDisallowed(NSNitroLbErrors):
-
     """
         Nitro error code 1426
         Set disallowed for CS action from Target LB to Target Expression
@@ -7723,7 +6875,6 @@ class NSNitroNserrSetCsactionDisallowed(NSNitroLbErrors):
 
 
 class NSNitroNserrRetainVlan(NSNitroLbErrors):
-
     """
         Nitro error code 1427
         macmoderetainvlan applicable only for wildcard(IP and port)
@@ -7733,7 +6884,6 @@ class NSNitroNserrRetainVlan(NSNitroLbErrors):
 
 
 class NSNitroNserrBindBdggroupSyncvlan(NSNitroLbErrors):
-
     """
         Nitro error code 1428
         Sync vlan cannot be bound to bridgegroup
@@ -7742,7 +6892,6 @@ class NSNitroNserrBindBdggroupSyncvlan(NSNitroLbErrors):
 
 
 class NSNitroNserrDelSyncvlan(NSNitroLbErrors):
-
     """
         Nitro error code 1429
         Sync vlan cannot be deleted
@@ -7751,7 +6900,6 @@ class NSNitroNserrDelSyncvlan(NSNitroLbErrors):
 
 
 class NSNitroPqErrors(NSNitroError):
-
     """
         Base exception class NSNitroPqErrors
     """
@@ -7759,7 +6907,6 @@ class NSNitroPqErrors(NSNitroError):
 
 
 class NSNitroNserrPqBindvip(NSNitroPqErrors):
-
     """
         Nitro error code 1360
         Cannot bind same priority policy to VIP
@@ -7768,7 +6915,6 @@ class NSNitroNserrPqBindvip(NSNitroPqErrors):
 
 
 class NSNitroNserrPqInvalprio(NSNitroPqErrors):
-
     """
         Nitro error code 1361
         Invalid priority value
@@ -7777,7 +6923,6 @@ class NSNitroNserrPqInvalprio(NSNitroPqErrors):
 
 
 class NSNitroNserrPq2bigrule(NSNitroPqErrors):
-
     """
         Nitro error code 1362
         Rule argument too big
@@ -7786,7 +6931,6 @@ class NSNitroNserrPq2bigrule(NSNitroPqErrors):
 
 
 class NSNitroNserrPqInvalwt(NSNitroPqErrors):
-
     """
         Nitro error code 1363
         Invalid weight value
@@ -7795,7 +6939,6 @@ class NSNitroNserrPqInvalwt(NSNitroPqErrors):
 
 
 class NSNitroNserrPqPolexist(NSNitroPqErrors):
-
     """
         Nitro error code 1364
         Policy name already in use
@@ -7804,7 +6947,6 @@ class NSNitroNserrPqPolexist(NSNitroPqErrors):
 
 
 class NSNitroNserrPqNopol(NSNitroPqErrors):
-
     """
         Nitro error code 1365
         No such PQ policy exists
@@ -7813,7 +6955,6 @@ class NSNitroNserrPqNopol(NSNitroPqErrors):
 
 
 class NSNitroNserrPq2manyref(NSNitroPqErrors):
-
     """
         Nitro error code 1366
         Cannot remove a policy which is bound to VIP
@@ -7822,7 +6963,6 @@ class NSNitroNserrPq2manyref(NSNitroPqErrors):
 
 
 class NSNitroNserrPqNolbvip(NSNitroPqErrors):
-
     """
         Nitro error code 1367
         No such LB vserver exists
@@ -7831,7 +6971,6 @@ class NSNitroNserrPqNolbvip(NSNitroPqErrors):
 
 
 class NSNitroNserrPqPhsconfig(NSNitroPqErrors):
-
     """
         Nitro error code 1368
         Cannot configure PQ on VIP if physical service has PQ
@@ -7841,7 +6980,6 @@ class NSNitroNserrPqPhsconfig(NSNitroPqErrors):
 
 
 class NSNitroNserrPqNobind(NSNitroPqErrors):
-
     """
         Nitro error code 1369
         Cannot unbind PQ Policy which is not bound
@@ -7850,7 +6988,6 @@ class NSNitroNserrPqNobind(NSNitroPqErrors):
 
 
 class NSNitroLb2Errors(NSNitroError):
-
     """
         Base exception class NSNitroLb2Errors
     """
@@ -7858,7 +6995,6 @@ class NSNitroLb2Errors(NSNitroError):
 
 
 class NSNitroNserrAddrpresent(NSNitroLb2Errors):
-
     """
         Nitro error code 1376
         Address(s) is invalid or already present in this action,  will
@@ -7868,7 +7004,6 @@ class NSNitroNserrAddrpresent(NSNitroLb2Errors):
 
 
 class NSNitroNserrPersistencePersistavpNotdefined(NSNitroLb2Errors):
-
     """
         Nitro error code 1377
         Persist Avp Number Must be defined For diameter Persistency
@@ -7877,7 +7012,6 @@ class NSNitroNserrPersistencePersistavpNotdefined(NSNitroLb2Errors):
 
 
 class NSNitroNserrMaxDiameterAvpExceeded(NSNitroLb2Errors):
-
     """
         Nitro error code 1378
         Maximum number of diameter Persist Avp Codes exceeded
@@ -7886,7 +7020,6 @@ class NSNitroNserrMaxDiameterAvpExceeded(NSNitroLb2Errors):
 
 
 class NSNitroNserrAutoscaleMinGtMax(NSNitroLb2Errors):
-
     """
         Nitro error code 1379
         Minimum Autoscale member count exceeds the maximum value
@@ -7895,7 +7028,6 @@ class NSNitroNserrAutoscaleMinGtMax(NSNitroLb2Errors):
 
 
 class NSNitroNserrMemberportReqd(NSNitroLb2Errors):
-
     """
         Nitro error code 1380
         Member Port option has to be specified when autoScale option
@@ -7905,7 +7037,6 @@ class NSNitroNserrMemberportReqd(NSNitroLb2Errors):
 
 
 class NSNitroNserrCookieinsertNotset(NSNitroLb2Errors):
-
     """
         Nitro error code 1381
         Persistence type is not COOKIEINSERT.
@@ -7914,7 +7045,6 @@ class NSNitroNserrCookieinsertNotset(NSNitroLb2Errors):
 
 
 class NSNitroSslErrors(NSNitroError):
-
     """
         Base exception class NSNitroSslErrors
     """
@@ -7922,7 +7052,6 @@ class NSNitroSslErrors(NSNitroError):
 
 
 class NSNitroNserrSslCert(NSNitroSslErrors):
-
     """
         Nitro error code 1536
         Invalid certificate
@@ -7931,7 +7060,6 @@ class NSNitroNserrSslCert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslPkey(NSNitroSslErrors):
-
     """
         Nitro error code 1537
         Invalid private key,  or PEM pass phrase required for this
@@ -7941,7 +7069,6 @@ class NSNitroNserrSslPkey(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNomatch(NSNitroSslErrors):
-
     """
         Nitro error code 1538
         Certificate and private key do not match
@@ -7950,7 +7077,6 @@ class NSNitroNserrSslNomatch(NSNitroSslErrors):
 
 
 class NSNitroNserrSslCerttype(NSNitroSslErrors):
-
     """
         Nitro error code 1539
         Invalid cetificate type
@@ -7959,7 +7085,6 @@ class NSNitroNserrSslCerttype(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNocert(NSNitroSslErrors):
-
     """
         Nitro error code 1540
         Certificate does not exist
@@ -7968,7 +7093,6 @@ class NSNitroNserrSslNocert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslRefext(NSNitroSslErrors):
-
     """
         Nitro error code 1541
         Certificate is referenced by a CRL,  OCSP responder,  vserver,
@@ -7979,7 +7103,6 @@ class NSNitroNserrSslRefext(NSNitroSslErrors):
 
 
 class NSNitroNserrSslBind(NSNitroSslErrors):
-
     """
         Nitro error code 1542
         Certificate binding does not exist
@@ -7988,7 +7111,6 @@ class NSNitroNserrSslBind(NSNitroSslErrors):
 
 
 class NSNitroNserrSslLink(NSNitroSslErrors):
-
     """
         Nitro error code 1543
         Certificate can't be linked to the same certificate
@@ -7997,7 +7119,6 @@ class NSNitroNserrSslLink(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNeedSslproto(NSNitroSslErrors):
-
     """
         Nitro error code 1544
         Object's protocol type is not SSL
@@ -8006,7 +7127,6 @@ class NSNitroNserrSslNeedSslproto(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNolink(NSNitroSslErrors):
-
     """
         Nitro error code 1545
         Certificate does not have any CA link
@@ -8015,7 +7135,6 @@ class NSNitroNserrSslNolink(NSNitroSslErrors):
 
 
 class NSNitroNserrSslBindor(NSNitroSslErrors):
-
     """
         Nitro error code 1546
         Current certificate replaces the previous binding
@@ -8024,7 +7143,6 @@ class NSNitroNserrSslBindor(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNosvrcert(NSNitroSslErrors):
-
     """
         Nitro error code 1547
         Certificate is not a server certificate
@@ -8033,7 +7151,6 @@ class NSNitroNserrSslNosvrcert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslIssubmis(NSNitroSslErrors):
-
     """
         Nitro error code 1548
         Issuer certificate mismatch
@@ -8042,7 +7159,6 @@ class NSNitroNserrSslIssubmis(NSNitroSslErrors):
 
 
 class NSNitroNserrSslCrl(NSNitroSslErrors):
-
     """
         Nitro error code 1549
         Invalid CRL
@@ -8051,7 +7167,6 @@ class NSNitroNserrSslCrl(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNocrl(NSNitroSslErrors):
-
     """
         Nitro error code 1550
         CRL does not exist
@@ -8060,7 +7175,6 @@ class NSNitroNserrSslNocrl(NSNitroSslErrors):
 
 
 class NSNitroNserrSslDhcount(NSNitroSslErrors):
-
     """
         Nitro error code 1551
         DH Refresh count should be 0 or >=500
@@ -8069,7 +7183,6 @@ class NSNitroNserrSslDhcount(NSNitroSslErrors):
 
 
 class NSNitroNserrSslSessto(NSNitroSslErrors):
-
     """
         Nitro error code 1552
         Session timeout should be > 0
@@ -8078,7 +7191,6 @@ class NSNitroNserrSslSessto(NSNitroSslErrors):
 
 
 class NSNitroNserrSslErsacount(NSNitroSslErrors):
-
     """
         Nitro error code 1553
         eRSA Refresh count should be 0 or >=500
@@ -8087,7 +7199,6 @@ class NSNitroNserrSslErsacount(NSNitroSslErrors):
 
 
 class NSNitroNserrSslDhSize(NSNitroSslErrors):
-
     """
         Nitro error code 1554
         DH params of size greater than 2048 bits not supported
@@ -8096,7 +7207,6 @@ class NSNitroNserrSslDhSize(NSNitroSslErrors):
 
 
 class NSNitroNserrDhpath(NSNitroSslErrors):
-
     """
         Nitro error code 1555
         DH file path mandatory if DH enabled
@@ -8105,7 +7215,6 @@ class NSNitroNserrDhpath(NSNitroSslErrors):
 
 
 class NSNitroNserrCertheader(NSNitroSslErrors):
-
     """
         Nitro error code 1556
         Cert header tag mandatory if cert enabled
@@ -8114,7 +7223,6 @@ class NSNitroNserrCertheader(NSNitroSslErrors):
 
 
 class NSNitroNserrSessheader(NSNitroSslErrors):
-
     """
         Nitro error code 1557
         Sess header tag mandatory if sess enabled
@@ -8123,7 +7231,6 @@ class NSNitroNserrSessheader(NSNitroSslErrors):
 
 
 class NSNitroNserrCipherPerm(NSNitroSslErrors):
-
     """
         Nitro error code 1558
         Default ciphers/aliases cannot be added or removed
@@ -8132,7 +7239,6 @@ class NSNitroNserrCipherPerm(NSNitroSslErrors):
 
 
 class NSNitroNserrSslErsadisabled(NSNitroSslErrors):
-
     """
         Nitro error code 1559
         Setting eRSA count when eRSA is disabled
@@ -8141,7 +7247,6 @@ class NSNitroNserrSslErsadisabled(NSNitroSslErrors):
 
 
 class NSNitroNserrSslDhdisabled(NSNitroSslErrors):
-
     """
         Nitro error code 1560
         Setting DH count when DH is disabled
@@ -8150,7 +7255,6 @@ class NSNitroNserrSslDhdisabled(NSNitroSslErrors):
 
 
 class NSNitroNserrSslSessdisabled(NSNitroSslErrors):
-
     """
         Nitro error code 1561
         Setting session timeout when session reuse is disabled
@@ -8159,7 +7263,6 @@ class NSNitroNserrSslSessdisabled(NSNitroSslErrors):
 
 
 class NSNitroNserrSslPkeySize(NSNitroSslErrors):
-
     """
         Nitro error code 1562
         Certificate with key size greater than RSA4096 or DSA2048 bits
@@ -8169,7 +7272,6 @@ class NSNitroNserrSslPkeySize(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNotApplicable(NSNitroSslErrors):
-
     """
         Nitro error code 1563
         Option is not applicable for this SSL protocol
@@ -8178,7 +7280,6 @@ class NSNitroNserrSslNotApplicable(NSNitroSslErrors):
 
 
 class NSNitroNserrSslInternalerr(NSNitroSslErrors):
-
     """
         Nitro error code 1567
         Internal Error
@@ -8187,7 +7288,6 @@ class NSNitroNserrSslInternalerr(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNocacert(NSNitroSslErrors):
-
     """
         Nitro error code 1568
         cacert does not exists
@@ -8196,7 +7296,6 @@ class NSNitroNserrSslNocacert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslRefreshdis(NSNitroSslErrors):
-
     """
         Nitro error code 1569
         crl refresh disabled
@@ -8205,7 +7304,6 @@ class NSNitroNserrSslRefreshdis(NSNitroSslErrors):
 
 
 class NSNitroNserrSslSvrportneeded(NSNitroSslErrors):
-
     """
         Nitro error code 1570
         Server/port information is needed for enabling auto refresh
@@ -8214,7 +7312,6 @@ class NSNitroNserrSslSvrportneeded(NSNitroSslErrors):
 
 
 class NSNitroNserrSslBaseobjneeded(NSNitroSslErrors):
-
     """
         Nitro error code 1571
         baseDN is required for enabling auto refresh
@@ -8223,7 +7320,6 @@ class NSNitroNserrSslBaseobjneeded(NSNitroSslErrors):
 
 
 class NSNitroNserrSslCipherRedirect(NSNitroSslErrors):
-
     """
         Nitro error code 1572
         Send Internal Cipher mismatch error page
@@ -8232,7 +7328,6 @@ class NSNitroNserrSslCipherRedirect(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNodsa(NSNitroSslErrors):
-
     """
         Nitro error code 1573
         Loading of certificate and key of type DSA(DSS) is not supported
@@ -8242,7 +7337,6 @@ class NSNitroNserrSslNodsa(NSNitroSslErrors):
 
 
 class NSNitroNserrSslFipsrefext(NSNitroSslErrors):
-
     """
         Nitro error code 1574
         The FIPS key is referenced by a certificate
@@ -8251,7 +7345,6 @@ class NSNitroNserrSslFipsrefext(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNofipskey(NSNitroSslErrors):
-
     """
         Nitro error code 1575
         No such FIPS key
@@ -8260,7 +7353,6 @@ class NSNitroNserrSslNofipskey(NSNitroSslErrors):
 
 
 class NSNitroNserrNofipscard(NSNitroSslErrors):
-
     """
         Nitro error code 1576
         Operation not permitted - no FIPS card present in the system
@@ -8269,7 +7361,6 @@ class NSNitroNserrNofipscard(NSNitroSslErrors):
 
 
 class NSNitroNserrFipscardnotconf(NSNitroSslErrors):
-
     """
         Nitro error code 1577
         Operation not permitted - FIPS card is not configured
@@ -8278,7 +7369,6 @@ class NSNitroNserrFipscardnotconf(NSNitroSslErrors):
 
 
 class NSNitroNserrSslSslv2Redirect(NSNitroSslErrors):
-
     """
         Nitro error code 1578
         Send Internal SSL protocol mismatch error page
@@ -8287,7 +7377,6 @@ class NSNitroNserrSslSslv2Redirect(NSNitroSslErrors):
 
 
 class NSNitroNserrSslModsize64(NSNitroSslErrors):
-
     """
         Nitro error code 1579
         Modulus size in bytes should be multiple of 64
@@ -8296,7 +7385,6 @@ class NSNitroNserrSslModsize64(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNonfipskey(NSNitroSslErrors):
-
     """
         Nitro error code 1580
         Configuration of non-FIPS key on FIPS system not allowed
@@ -8305,7 +7393,6 @@ class NSNitroNserrSslNonfipskey(NSNitroSslErrors):
 
 
 class NSNitroNserrNfipsFipsUpd(NSNitroSslErrors):
-
     """
         Nitro error code 1581
         Cannot update a non-FIPS certificate with a FIPS certificate
@@ -8314,7 +7401,6 @@ class NSNitroNserrNfipsFipsUpd(NSNitroSslErrors):
 
 
 class NSNitroNserrFipsNfipsUpd(NSNitroSslErrors):
-
     """
         Nitro error code 1582
         Cannot update a FIPS certificate with a non-FIPS certificate
@@ -8323,7 +7409,6 @@ class NSNitroNserrFipsNfipsUpd(NSNitroSslErrors):
 
 
 class NSNitroNserrSslIssuerNotinGlbcertlist(NSNitroSslErrors):
-
     """
         Nitro error code 1583
         Unable to find the CA certificate for the CRL
@@ -8332,7 +7417,6 @@ class NSNitroNserrSslIssuerNotinGlbcertlist(NSNitroSslErrors):
 
 
 class NSNitroNserrSslCrlsigcheckFail(NSNitroSslErrors):
-
     """
         Nitro error code 1584
         Signature check on the CRL failed
@@ -8341,7 +7425,6 @@ class NSNitroNserrSslCrlsigcheckFail(NSNitroSslErrors):
 
 
 class NSNitroNserrSslPortrewrite(NSNitroSslErrors):
-
     """
         Nitro error code 1585
         SSL port rewrite can be enabled only when SSL redirect is
@@ -8351,7 +7434,6 @@ class NSNitroNserrSslPortrewrite(NSNitroSslErrors):
 
 
 class NSNitroNserrSslSslv2RenegClientCert(NSNitroSslErrors):
-
     """
         Nitro error code 1586
         Send Internal error page for SSLv2 protocol and client
@@ -8361,7 +7443,6 @@ class NSNitroNserrSslSslv2RenegClientCert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslBrklink(NSNitroSslErrors):
-
     """
         Nitro error code 1587
         All incompatible CA links/Cert bindings were broken during the
@@ -8371,7 +7452,6 @@ class NSNitroNserrSslBrklink(NSNitroSslErrors):
 
 
 class NSNitroNserrSslCertNotYetValid(NSNitroSslErrors):
-
     """
         Nitro error code 1588
         The specified certificate is not yet valid
@@ -8380,7 +7460,6 @@ class NSNitroNserrSslCertNotYetValid(NSNitroSslErrors):
 
 
 class NSNitroNserrSslCertExpired(NSNitroSslErrors):
-
     """
         Nitro error code 1589
         The certificate has expired
@@ -8389,7 +7468,6 @@ class NSNitroNserrSslCertExpired(NSNitroSslErrors):
 
 
 class NSNitroNserrSslExpiredBrklink(NSNitroSslErrors):
-
     """
         Nitro error code 1590
         All incompatible CA links were broken during the update
@@ -8399,7 +7477,6 @@ class NSNitroNserrSslExpiredBrklink(NSNitroSslErrors):
 
 
 class NSNitroNserrSslNyvalidBrklink(NSNitroSslErrors):
-
     """
         Nitro error code 1591
         All incompatible CA links were broken during the update
@@ -8409,7 +7486,6 @@ class NSNitroNserrSslNyvalidBrklink(NSNitroSslErrors):
 
 
 class NSNitroNserrSslOcspRespcert(NSNitroSslErrors):
-
     """
         Nitro error code 1592
         No such responder certificate.
@@ -8418,7 +7494,6 @@ class NSNitroNserrSslOcspRespcert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslOcspSigncert(NSNitroSslErrors):
-
     """
         Nitro error code 1593
         No such signing certificate.
@@ -8427,7 +7502,6 @@ class NSNitroNserrSslOcspSigncert(NSNitroSslErrors):
 
 
 class NSNitroNserrSslOcspAia(NSNitroSslErrors):
-
     """
         Nitro error code 1600
         Invalid AIA value
@@ -8436,7 +7510,6 @@ class NSNitroNserrSslOcspAia(NSNitroSslErrors):
 
 
 class NSNitroSsl2Errors(NSNitroError):
-
     """
         Base exception class NSNitroSsl2Errors
     """
@@ -8444,7 +7517,6 @@ class NSNitroSsl2Errors(NSNitroError):
 
 
 class NSNitroNserrSslFipscardlocked(NSNitroSsl2Errors):
-
     """
         Nitro error code 3584
         FIPS card locked due to three unsuccessful login attempts
@@ -8453,7 +7525,6 @@ class NSNitroNserrSslFipscardlocked(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDomincompat(NSNitroSsl2Errors):
-
     """
         Nitro error code 3585
         Certificate is registered to a different domain; use the 'no
@@ -8463,7 +7534,6 @@ class NSNitroNserrSslDomincompat(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNomthdchange(NSNitroSsl2Errors):
-
     """
         Nitro error code 3586
         Cannot change refresh method of CRL
@@ -8472,7 +7542,6 @@ class NSNitroNserrSslNomthdchange(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslUrlsrvrneeded(NSNitroSsl2Errors):
-
     """
         Nitro error code 3587
         Either URL or server-IP required on CRL
@@ -8481,7 +7550,6 @@ class NSNitroNserrSslUrlsrvrneeded(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslInvalidUrl(NSNitroSsl2Errors):
-
     """
         Nitro error code 3588
         Invalid URL
@@ -8490,7 +7558,6 @@ class NSNitroNserrSslInvalidUrl(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslMixparams(NSNitroSsl2Errors):
-
     """
         Nitro error code 3589
         LDAP and HTTP parameters cannot both be specified
@@ -8499,7 +7566,6 @@ class NSNitroNserrSslMixparams(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslPkeyMinsize(NSNitroSsl2Errors):
-
     """
         Nitro error code 3590
         Certificate of size smaller than 512 bits not supported
@@ -8508,7 +7574,6 @@ class NSNitroNserrSslPkeyMinsize(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSyncinprogress(NSNitroSsl2Errors):
-
     """
         Nitro error code 3591
         Another synchronization is already in process,  please try again
@@ -8518,7 +7583,6 @@ class NSNitroNserrSslSyncinprogress(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSyncfailed(NSNitroSsl2Errors):
-
     """
         Nitro error code 3592
         Synchronization failed,  please try again
@@ -8527,7 +7591,6 @@ class NSNitroNserrSslSyncfailed(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCiphgrpRefcnt(NSNitroSsl2Errors):
-
     """
         Nitro error code 3593
         Cipher group has bound entities or is referenced by an SSL
@@ -8537,7 +7600,6 @@ class NSNitroNserrSslCiphgrpRefcnt(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCvmNodsa(NSNitroSsl2Errors):
-
     """
         Nitro error code 3594
         Loading DSA(DSS) certificate and key not supported on this
@@ -8547,7 +7609,6 @@ class NSNitroNserrSslCvmNodsa(NSNitroSsl2Errors):
 
 
 class NSNitroNserrCerthashheader(NSNitroSsl2Errors):
-
     """
         Nitro error code 3595
         CertHash header tag mandatory if certHash is enabled
@@ -8556,7 +7617,6 @@ class NSNitroNserrCerthashheader(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCrlinrefresh(NSNitroSsl2Errors):
-
     """
         Nitro error code 3596
         CRL refresh in progress,  details cannot be displayed
@@ -8565,7 +7625,6 @@ class NSNitroNserrSslCrlinrefresh(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCrlmemExceeds(NSNitroSsl2Errors):
-
     """
         Nitro error code 3597
         CRL memory exhausted. Cannot load any more CRL's
@@ -8574,7 +7633,6 @@ class NSNitroNserrSslCrlmemExceeds(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCrlindeletion(NSNitroSsl2Errors):
-
     """
         Nitro error code 3598
         CRL deletion in progress,  details cannot be displayed
@@ -8583,7 +7641,6 @@ class NSNitroNserrSslCrlindeletion(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslIndeleteNorefresh(NSNitroSsl2Errors):
-
     """
         Nitro error code 3599
         CRL deletion in progress,  cannot be refreshed
@@ -8592,7 +7649,6 @@ class NSNitroNserrSslIndeleteNorefresh(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslInrefreshNodelete(NSNitroSsl2Errors):
-
     """
         Nitro error code 3600
         CRL refresh in progress,  cannot be removed
@@ -8601,7 +7657,6 @@ class NSNitroNserrSslInrefreshNodelete(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNomix(NSNitroSsl2Errors):
-
     """
         Nitro error code 3601
         Cannot specify both HTTP data insertion and SSL actions
@@ -8610,7 +7665,6 @@ class NSNitroNserrNomix(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNopolicyNontrsvc(NSNitroSsl2Errors):
-
     """
         Nitro error code 3602
         Cannot bind SSL policy to SSL backend service
@@ -8619,7 +7673,6 @@ class NSNitroNserrNopolicyNontrsvc(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSslpolBindConst(NSNitroSsl2Errors):
-
     """
         Nitro error code 3603
         Cannot bind non-SSL policy to SSL vserver/service
@@ -8628,7 +7681,6 @@ class NSNitroNserrSslSslpolBindConst(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNoUsableCiphers(NSNitroSsl2Errors):
-
     """
         Nitro error code 3604
         No usable ciphers configured on the SSL vserver/service
@@ -8637,7 +7689,6 @@ class NSNitroNserrSslNoUsableCiphers(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCertNotCa(NSNitroSsl2Errors):
-
     """
         Nitro error code 3605
         Not a CA certificate
@@ -8646,7 +7697,6 @@ class NSNitroNserrSslCertNotCa(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCacertNoCrlsign(NSNitroSsl2Errors):
-
     """
         Nitro error code 3606
         Specified certificate is either not a CA cert,  or does not have
@@ -8656,7 +7706,6 @@ class NSNitroNserrSslCacertNoCrlsign(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCrlExpired(NSNitroSsl2Errors):
-
     """
         Nitro error code 3607
         CRL has expired
@@ -8665,7 +7714,6 @@ class NSNitroNserrSslCrlExpired(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCrlNotyetValid(NSNitroSsl2Errors):
-
     """
         Nitro error code 3608
         CRL is not yet valid
@@ -8674,7 +7722,6 @@ class NSNitroNserrSslCrlNotyetValid(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslParsingDeltaCrlExtn(NSNitroSsl2Errors):
-
     """
         Nitro error code 3609
         Parsing of Delta-CRL extension failed
@@ -8683,7 +7730,6 @@ class NSNitroNserrSslParsingDeltaCrlExtn(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDeltaCrlMissingBaseCrl(NSNitroSsl2Errors):
-
     """
         Nitro error code 3610
         Base-CRL for the specified Delta-CRL is missing
@@ -8692,7 +7738,6 @@ class NSNitroNserrSslDeltaCrlMissingBaseCrl(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNofipscipher(NSNitroSsl2Errors):
-
     """
         Nitro error code 3611
         Specified cipher/cipher-alias is not FIPS-approved
@@ -8701,7 +7746,6 @@ class NSNitroNserrNofipscipher(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNofipsciphergrp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3612
         Cipher group does not contain all FIPS-approved ciphers
@@ -8710,7 +7754,6 @@ class NSNitroNserrNofipsciphergrp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNonfipsciphertogrp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3613
         Cannot add non FIPS approved cipher to cipher group
@@ -8719,7 +7762,6 @@ class NSNitroNserrNonfipsciphertogrp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNonfipsaliastogrp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3614
         Cannot add non FIPS approved cipher alias to cipher group
@@ -8728,7 +7770,6 @@ class NSNitroNserrNonfipsaliastogrp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNonfipsgrouptogrp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3615
         Cannot add non FIPS cipher group to another cipher group
@@ -8737,7 +7778,6 @@ class NSNitroNserrNonfipsgrouptogrp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslImportFipskeyNameMismatch(NSNitroSsl2Errors):
-
     """
         Nitro error code 3616
         Specified FIPS key name does not match with the exported FIPS
@@ -8747,7 +7787,6 @@ class NSNitroNserrSslImportFipskeyNameMismatch(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslPkeySizeCa(NSNitroSsl2Errors):
-
     """
         Nitro error code 3617
         CA certificate of size greater than 4096 bits not supported
@@ -8756,7 +7795,6 @@ class NSNitroNserrSslPkeySizeCa(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCrlPortMismatch(NSNitroSsl2Errors):
-
     """
         Nitro error code 3618
         Port specified in URL does not match -port parameter
@@ -8765,7 +7803,6 @@ class NSNitroNserrSslCrlPortMismatch(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslPkeySizeVpx(NSNitroSsl2Errors):
-
     """
         Nitro error code 3619
         Certificate with key size greater than RSA512 or DSA512 bits not
@@ -8775,7 +7812,6 @@ class NSNitroNserrSslPkeySizeVpx(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDhSizeVpx(NSNitroSsl2Errors):
-
     """
         Nitro error code 3620
         DH params of size greater than 512 bits not supported
@@ -8784,7 +7820,6 @@ class NSNitroNserrSslDhSizeVpx(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNoentCipher(NSNitroSsl2Errors):
-
     """
         Nitro error code 3621
         No such cipher/cipherAlias/cipherGroup
@@ -8793,7 +7828,6 @@ class NSNitroNserrNoentCipher(NSNitroSsl2Errors):
 
 
 class NSNitroNserrFipsfwwrongmajor(NSNitroSsl2Errors):
-
     """
         Nitro error code 3622
         The current firmware's major version is not supported for update
@@ -8803,7 +7837,6 @@ class NSNitroNserrFipsfwwrongmajor(NSNitroSsl2Errors):
 
 
 class NSNitroNserrFipsfwwrongminor(NSNitroSsl2Errors):
-
     """
         Nitro error code 3623
         The current firmware's minor version is not supported for update
@@ -8813,7 +7846,6 @@ class NSNitroNserrFipsfwwrongminor(NSNitroSsl2Errors):
 
 
 class NSNitroNserrFipsfwupdated(NSNitroSsl2Errors):
-
     """
         Nitro error code 3624
         The current firmware is already updated to 4.6.1
@@ -8822,7 +7854,6 @@ class NSNitroNserrFipsfwupdated(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslPendingCmds(NSNitroSsl2Errors):
-
     """
         Nitro error code 3625
         Other commands (card health monitoring/traffic) are pending to
@@ -8833,7 +7864,6 @@ class NSNitroNserrSslPendingCmds(NSNitroSsl2Errors):
 
 
 class NSNitroNserrFipsfwupdatedoreboot(NSNitroSsl2Errors):
-
     """
         Nitro error code 3626
         Operation not permitted - FIPS card firmware update done,
@@ -8843,7 +7873,6 @@ class NSNitroNserrFipsfwupdatedoreboot(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSniNotenable(NSNitroSsl2Errors):
-
     """
         Nitro error code 3627
         SNI feature not enabled on the vserver/service
@@ -8852,7 +7881,6 @@ class NSNitroNserrSslSniNotenable(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNoCn(NSNitroSsl2Errors):
-
     """
         Nitro error code 3628
         CommonName not present in certificate,  it is must for a
@@ -8862,7 +7890,6 @@ class NSNitroNserrSslNoCn(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDupSnicert(NSNitroSsl2Errors):
-
     """
         Nitro error code 3629
         Trying to bind SNI certificate with duplicate CommonName,
@@ -8872,7 +7899,6 @@ class NSNitroNserrSslDupSnicert(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSniNotvalidServ(NSNitroSsl2Errors):
-
     """
         Nitro error code 3630
         Operation not permitted - SNI feature not supported on SSL
@@ -8882,7 +7908,6 @@ class NSNitroNserrSslSniNotvalidServ(NSNitroSsl2Errors):
 
 
 class NSNitroNserrOcspReferences(NSNitroSsl2Errors):
-
     """
         Nitro error code 3632
         OCSP responder is bound to a vserver/certkey pair.  Use unbind
@@ -8892,7 +7917,6 @@ class NSNitroNserrOcspReferences(NSNitroSsl2Errors):
 
 
 class NSNitroNserrOcspSignerNokey(NSNitroSsl2Errors):
-
     """
         Nitro error code 3633
         Signing certificate must also have a private key.
@@ -8901,7 +7925,6 @@ class NSNitroNserrOcspSignerNokey(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNotSupported(NSNitroSsl2Errors):
-
     """
         Nitro error code 3634
         OCSP responder must be an HTTP server; SSL is not supported.
@@ -8910,7 +7933,6 @@ class NSNitroNserrSslNotSupported(NSNitroSsl2Errors):
 
 
 class NSNitroNserrOcspTooManyResponders(NSNitroSsl2Errors):
-
     """
         Nitro error code 3635
         Too many OCSP responders configured to add another.  Please
@@ -8920,7 +7942,6 @@ class NSNitroNserrOcspTooManyResponders(NSNitroSsl2Errors):
 
 
 class NSNitroNserrOcspNoDnsServerConfigured(NSNitroSsl2Errors):
-
     """
         Nitro error code 3636
         Unable to resolve DNS name.
@@ -8929,7 +7950,6 @@ class NSNitroNserrOcspNoDnsServerConfigured(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDupSnicertBrklink(NSNitroSsl2Errors):
-
     """
         Nitro error code 3637
         Some of the existing SNI cert bindings are broken due to
@@ -8939,7 +7959,6 @@ class NSNitroNserrSslDupSnicertBrklink(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNoCnBrllink(NSNitroSsl2Errors):
-
     """
         Nitro error code 3638
         All exitsing SNI Cert bindings are broken during update
@@ -8949,7 +7968,6 @@ class NSNitroNserrSslNoCnBrllink(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNgfipsresetreboot(NSNitroSsl2Errors):
-
     """
         Nitro error code 3639
         Operation not permitted - FIPS card was reset,  please reboot
@@ -8959,7 +7977,6 @@ class NSNitroNserrNgfipsresetreboot(NSNitroSsl2Errors):
 
 
 class NSNitroNserrNgfipsinitreboot(NSNitroSsl2Errors):
-
     """
         Nitro error code 3640
         Operation not permitted - FIPS card was initialized,  please
@@ -8969,7 +7986,6 @@ class NSNitroNserrNgfipsinitreboot(NSNitroSsl2Errors):
 
 
 class NSNitroNserrFipscmdtimeout(NSNitroSsl2Errors):
-
     """
         Nitro error code 3641
         Operation timedout on the FIPS card,  please try again
@@ -8978,7 +7994,6 @@ class NSNitroNserrFipscmdtimeout(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSimtimeout(NSNitroSsl2Errors):
-
     """
         Nitro error code 3642
         Operation timed out or repeated,  please wait for 10 mins and
@@ -8988,7 +8003,6 @@ class NSNitroNserrSslSimtimeout(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNgfipsQfull(NSNitroSsl2Errors):
-
     """
         Nitro error code 3643
         FIPS card command queue full. Please try again later
@@ -8997,7 +8011,6 @@ class NSNitroNserrSslNgfipsQfull(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNomemVsvrsrvlistnode(NSNitroSsl2Errors):
-
     """
         Nitro error code 3644
         Failed to allocate memory for CertkeyVserverServList Node.
@@ -9006,7 +8019,6 @@ class NSNitroNserrSslNomemVsvrsrvlistnode(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCertkeySize64(NSNitroSsl2Errors):
-
     """
         Nitro error code 3645
         Certificate with key size (modulus) that is not multiple of 512
@@ -9016,7 +8028,6 @@ class NSNitroNserrSslCertkeySize64(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSniAtk(NSNitroSsl2Errors):
-
     """
         Nitro error code 3646
         Host header field in the HTTP request does not match with the
@@ -9026,7 +8037,6 @@ class NSNitroNserrSniAtk(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSniNohosthdr(NSNitroSsl2Errors):
-
     """
         Nitro error code 3647
         Host header missing in the HTTP header for SNI enabled session
@@ -9035,7 +8045,6 @@ class NSNitroNserrSniNohosthdr(NSNitroSsl2Errors):
 
 
 class NSNitroNserrCrlShmemAllocFail(NSNitroSsl2Errors):
-
     """
         Nitro error code 3648
         Crl node allocation in the shared mem is failed
@@ -9044,7 +8053,6 @@ class NSNitroNserrCrlShmemAllocFail(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslPeNoSetUnset(NSNitroSsl2Errors):
-
     """
         Nitro error code 3649
         Set/Unset operation not supported for classic SSL polices
@@ -9053,7 +8061,6 @@ class NSNitroNserrSslPeNoSetUnset(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNotCtlPol(NSNitroSsl2Errors):
-
     """
         Nitro error code 3650
         Not a control policy
@@ -9062,7 +8069,6 @@ class NSNitroNserrSslNotCtlPol(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNotDataPol(NSNitroSsl2Errors):
-
     """
         Nitro error code 3651
         Not a data policy
@@ -9071,7 +8077,6 @@ class NSNitroNserrSslNotDataPol(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslTypeReqd(NSNitroSsl2Errors):
-
     """
         Nitro error code 3652
         Type is required
@@ -9080,7 +8085,6 @@ class NSNitroNserrSslTypeReqd(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNotPiPol(NSNitroSsl2Errors):
-
     """
         Nitro error code 3653
         Advanced policy attributes specified with classic policy
@@ -9089,7 +8093,6 @@ class NSNitroNserrSslNotPiPol(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslPePolPolLbl(NSNitroSsl2Errors):
-
     """
         Nitro error code 3654
         Cannot bind classic policy to policy label
@@ -9098,7 +8101,6 @@ class NSNitroNserrSslPePolPolLbl(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslCertMissingParam(NSNitroSsl2Errors):
-
     """
         Nitro error code 3655
         Required parameters missing in the certificate. Please check the
@@ -9108,7 +8110,6 @@ class NSNitroNserrSslCertMissingParam(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNomemCertkeyOcsprespListnode(NSNitroSsl2Errors):
-
     """
         Nitro error code 3656
         Failed to allocate memory for CertkeyOCSPRespList Node.
@@ -9117,7 +8118,6 @@ class NSNitroNserrSslNomemCertkeyOcsprespListnode(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslOcspDuplicate(NSNitroSsl2Errors):
-
     """
         Nitro error code 3657
         An ocspResponder is already bound with the specified priority.
@@ -9126,7 +8126,6 @@ class NSNitroNserrSslOcspDuplicate(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBindCp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3658
         Binding of SSL classic policy is not supported,  use equivalent
@@ -9136,7 +8135,6 @@ class NSNitroNserrSslBindCp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslAddCp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3659
         Adding SSL classic policy is not supported,  use equivalent
@@ -9146,7 +8144,6 @@ class NSNitroNserrSslAddCp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleIcFileExists(NSNitroSsl2Errors):
-
     """
         Nitro error code 3660
         Certificate file for intermediate certificate already exists.
@@ -9155,7 +8152,6 @@ class NSNitroNserrSslBundleIcFileExists(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleScertMissing(NSNitroSsl2Errors):
-
     """
         Nitro error code 3661
         Server certificate must be placed first in certificate bundle
@@ -9165,7 +8161,6 @@ class NSNitroNserrSslBundleScertMissing(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleCertMissing(NSNitroSsl2Errors):
-
     """
         Nitro error code 3662
         No certificates present in the certificate bundle file.
@@ -9174,7 +8169,6 @@ class NSNitroNserrSslBundleCertMissing(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleFailed(NSNitroSsl2Errors):
-
     """
         Nitro error code 3663
         Processing of certificate bundle file failed.
@@ -9183,7 +8177,6 @@ class NSNitroNserrSslBundleFailed(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleParseErr(NSNitroSsl2Errors):
-
     """
         Nitro error code 3664
         Unable to parse the certificate bundle file.
@@ -9192,7 +8185,6 @@ class NSNitroNserrSslBundleParseErr(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleMaxCert(NSNitroSsl2Errors):
-
     """
         Nitro error code 3665
         Exceeded maximum Intermediate certificates limit of 9.
@@ -9201,7 +8193,6 @@ class NSNitroNserrSslBundleMaxCert(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleMaxKey(NSNitroSsl2Errors):
-
     """
         Nitro error code 3666
         Only one private-key is allowed in the certificate bundle file.
@@ -9210,7 +8201,6 @@ class NSNitroNserrSslBundleMaxKey(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslBundleIcFileCreateFailed(NSNitroSsl2Errors):
-
     """
         Nitro error code 3667
         Intermediate certificate file creation failed.
@@ -9219,7 +8209,6 @@ class NSNitroNserrSslBundleIcFileCreateFailed(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSkipcaOpnotper(NSNitroSsl2Errors):
-
     """
         Nitro error code 3668
         skipCA is not permitted for this entity.
@@ -9228,7 +8217,6 @@ class NSNitroNserrSslSkipcaOpnotper(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslIssuerMismatch(NSNitroSsl2Errors):
-
     """
         Nitro error code 3669
         Certificate Issuer mismatch
@@ -9237,7 +8225,6 @@ class NSNitroNserrSslIssuerMismatch(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslSetPolicyActionType(NSNitroSsl2Errors):
-
     """
         Nitro error code 3670
         Action type cannot be changed from the previous configured
@@ -9247,7 +8234,6 @@ class NSNitroNserrSslSetPolicyActionType(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDtlsNotsupp(NSNitroSsl2Errors):
-
     """
         Nitro error code 3671
         Virtual server of type DTLS is not supported on this platform
@@ -9256,7 +8242,6 @@ class NSNitroNserrSslDtlsNotsupp(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslInvalidCnName(NSNitroSsl2Errors):
-
     """
         Nitro error code 3672
         Invalid Common Name.
@@ -9265,7 +8250,6 @@ class NSNitroNserrSslInvalidCnName(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslEccNotSupported(NSNitroSsl2Errors):
-
     """
         Nitro error code 3673
         ECDHE ciphers supported only on FE SSL entities on N3 MPX.
@@ -9274,7 +8258,6 @@ class NSNitroNserrSslEccNotSupported(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslDh2048Insw(NSNitroSsl2Errors):
-
     """
         Nitro error code 3674
         DH-2048bit with TLS is not accelerated in crypto hardware on
@@ -9285,7 +8268,6 @@ class NSNitroNserrSslDh2048Insw(NSNitroSsl2Errors):
 
 
 class NSNitroNserrSslNoProtocolEnabled(NSNitroSsl2Errors):
-
     """
         Nitro error code 3675
         SSL or TLS protocols not enabled on the service.
@@ -9294,7 +8276,6 @@ class NSNitroNserrSslNoProtocolEnabled(NSNitroSsl2Errors):
 
 
 class NSNitroGentoolErrors(NSNitroError):
-
     """
         Base exception class NSNitroGentoolErrors
     """
@@ -9302,7 +8283,6 @@ class NSNitroGentoolErrors(NSNitroError):
 
 
 class NSNitroNserrSslConffile(NSNitroGentoolErrors):
-
     """
         Nitro error code 1601
         Error in SSL conf file
@@ -9311,7 +8291,6 @@ class NSNitroNserrSslConffile(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNoconffile(NSNitroGentoolErrors):
-
     """
         Nitro error code 1602
         Unable to load SSL configuration info
@@ -9320,7 +8299,6 @@ class NSNitroNserrSslNoconffile(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslSigfail(NSNitroGentoolErrors):
-
     """
         Nitro error code 1603
         Signing operation failed
@@ -9329,7 +8307,6 @@ class NSNitroNserrSslSigfail(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslInvalformat(NSNitroGentoolErrors):
-
     """
         Nitro error code 1604
         Invalid format
@@ -9338,7 +8315,6 @@ class NSNitroNserrSslInvalformat(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslOutfile(NSNitroGentoolErrors):
-
     """
         Nitro error code 1605
         Problem in writing output file
@@ -9347,7 +8323,6 @@ class NSNitroNserrSslOutfile(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslVerifyFail(NSNitroGentoolErrors):
-
     """
         Nitro error code 1606
         Signature verification failed
@@ -9356,7 +8331,6 @@ class NSNitroNserrSslVerifyFail(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslFilecreate(NSNitroGentoolErrors):
-
     """
         Nitro error code 1607
         Unable to create output file
@@ -9365,7 +8339,6 @@ class NSNitroNserrSslFilecreate(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslMinkeysize(NSNitroGentoolErrors):
-
     """
         Nitro error code 1608
         Key size is less than the minimum value 512
@@ -9374,7 +8347,6 @@ class NSNitroNserrSslMinkeysize(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslInvalidReq(NSNitroGentoolErrors):
-
     """
         Nitro error code 1609
         Invalid certificate request
@@ -9383,7 +8355,6 @@ class NSNitroNserrSslInvalidReq(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslGentool(NSNitroGentoolErrors):
-
     """
         Nitro error code 1610
         Internal failure in SSL cert/key generation tool
@@ -9392,7 +8363,6 @@ class NSNitroNserrSslGentool(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslPemOnly(NSNitroGentoolErrors):
-
     """
         Nitro error code 1611
         Only PEM format private key can be encrypted
@@ -9401,7 +8371,6 @@ class NSNitroNserrSslPemOnly(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslPassmismatch(NSNitroGentoolErrors):
-
     """
         Nitro error code 1612
         Password verification failed
@@ -9410,7 +8379,6 @@ class NSNitroNserrSslPassmismatch(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslPassreq(NSNitroGentoolErrors):
-
     """
         Nitro error code 1613
         Password required for private key
@@ -9419,7 +8387,6 @@ class NSNitroNserrSslPassreq(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslInvalpass(NSNitroGentoolErrors):
-
     """
         Nitro error code 1614
         Invalid password
@@ -9428,7 +8395,6 @@ class NSNitroNserrSslInvalpass(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslMaxkeysize(NSNitroGentoolErrors):
-
     """
         Nitro error code 1615
         Maximum allowed key size is 2048
@@ -9437,7 +8403,6 @@ class NSNitroNserrSslMaxkeysize(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslGntoolargMissing(NSNitroGentoolErrors):
-
     """
         Nitro error code 1616
         Required argument missing
@@ -9446,7 +8411,6 @@ class NSNitroNserrSslGntoolargMissing(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslInvalPubexp(NSNitroGentoolErrors):
-
     """
         Nitro error code 1617
         Invalid public exponent value
@@ -9455,7 +8419,6 @@ class NSNitroNserrSslInvalPubexp(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslInvalidValue(NSNitroGentoolErrors):
-
     """
         Nitro error code 1618
         Invalid value
@@ -9464,7 +8427,6 @@ class NSNitroNserrSslInvalidValue(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslMissingKval(NSNitroGentoolErrors):
-
     """
         Nitro error code 1619
          Value missing for the argument
@@ -9473,7 +8435,6 @@ class NSNitroNserrSslMissingKval(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslInvalDhgen(NSNitroGentoolErrors):
-
     """
         Nitro error code 1620
         Invalid DH generator value
@@ -9482,7 +8443,6 @@ class NSNitroNserrSslInvalDhgen(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNofileCertreq(NSNitroGentoolErrors):
-
     """
         Nitro error code 1621
         No such certificate request file exists
@@ -9491,7 +8451,6 @@ class NSNitroNserrSslNofileCertreq(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslReqNomatch(NSNitroGentoolErrors):
-
     """
         Nitro error code 1622
         Certificate Request (CSR) and private key do not match
@@ -9500,7 +8459,6 @@ class NSNitroNserrSslReqNomatch(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslPkcs12(NSNitroGentoolErrors):
-
     """
         Nitro error code 1623
         Problem in input PKCS12 file
@@ -9509,7 +8467,6 @@ class NSNitroNserrSslPkcs12(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNofileCapvtkey(NSNitroGentoolErrors):
-
     """
         Nitro error code 1624
         No such CA key file present
@@ -9518,7 +8475,6 @@ class NSNitroNserrSslNofileCapvtkey(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNofileCacert(NSNitroGentoolErrors):
-
     """
         Nitro error code 1625
         No such CA certificate file exists
@@ -9527,7 +8483,6 @@ class NSNitroNserrSslNofileCacert(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNofileSerial(NSNitroGentoolErrors):
-
     """
         Nitro error code 1626
         No such serial file exists
@@ -9536,7 +8491,6 @@ class NSNitroNserrSslNofileSerial(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNofilePkcs12(NSNitroGentoolErrors):
-
     """
         Nitro error code 1627
         No such PKCS12 file exists
@@ -9545,7 +8499,6 @@ class NSNitroNserrSslNofilePkcs12(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslReadCacert(NSNitroGentoolErrors):
-
     """
         Nitro error code 1628
         In reading input CA certficate file
@@ -9554,7 +8507,6 @@ class NSNitroNserrSslReadCacert(NSNitroGentoolErrors):
 
 
 class NSNitroNserrReadCert(NSNitroGentoolErrors):
-
     """
         Nitro error code 1629
         Error in reading input certficate file
@@ -9563,7 +8515,6 @@ class NSNitroNserrReadCert(NSNitroGentoolErrors):
 
 
 class NSNitroNserrImpExpNotTogether(NSNitroGentoolErrors):
-
     """
         Nitro error code 1630
         Import and export can not be specified together
@@ -9572,7 +8523,6 @@ class NSNitroNserrImpExpNotTogether(NSNitroGentoolErrors):
 
 
 class NSNitroNserrNofileCert(NSNitroGentoolErrors):
-
     """
         Nitro error code 1631
         No such certificate file exists
@@ -9581,7 +8531,6 @@ class NSNitroNserrNofileCert(NSNitroGentoolErrors):
 
 
 class NSNitroNserrNofileKey(NSNitroGentoolErrors):
-
     """
         Nitro error code 1632
         No such key file exists
@@ -9590,7 +8539,6 @@ class NSNitroNserrNofileKey(NSNitroGentoolErrors):
 
 
 class NSNitroNserrCacertpkeyMismatch(NSNitroGentoolErrors):
-
     """
         Nitro error code 1633
         CA certificate not matching with CA private-key
@@ -9599,7 +8547,6 @@ class NSNitroNserrCacertpkeyMismatch(NSNitroGentoolErrors):
 
 
 class NSNitroNserrWrongRevEntry(NSNitroGentoolErrors):
-
     """
         Nitro error code 1634
         Invalid revocation entry in CA's database
@@ -9608,7 +8555,6 @@ class NSNitroNserrWrongRevEntry(NSNitroGentoolErrors):
 
 
 class NSNitroNserrWrongRevDate(NSNitroGentoolErrors):
-
     """
         Nitro error code 1635
         Invalid revocation data in CA's database
@@ -9617,7 +8563,6 @@ class NSNitroNserrWrongRevDate(NSNitroGentoolErrors):
 
 
 class NSNitroNserrWrongSerialNo(NSNitroGentoolErrors):
-
     """
         Nitro error code 1636
         Invalid serial number in CA's database
@@ -9626,7 +8571,6 @@ class NSNitroNserrWrongSerialNo(NSNitroGentoolErrors):
 
 
 class NSNitroNserrCreateDatabaseEntry(NSNitroGentoolErrors):
-
     """
         Nitro error code 1637
         Revocation entry creation failed
@@ -9635,7 +8579,6 @@ class NSNitroNserrCreateDatabaseEntry(NSNitroGentoolErrors):
 
 
 class NSNitroNserrAlreadyRevkd(NSNitroGentoolErrors):
-
     """
         Nitro error code 1638
         Certificate already revoked
@@ -9644,7 +8587,6 @@ class NSNitroNserrAlreadyRevkd(NSNitroGentoolErrors):
 
 
 class NSNitroNserrLoadPkey(NSNitroGentoolErrors):
-
     """
         Nitro error code 1639
         Private key loading failed
@@ -9653,7 +8595,6 @@ class NSNitroNserrLoadPkey(NSNitroGentoolErrors):
 
 
 class NSNitroNserrCertpkeyNeeded(NSNitroGentoolErrors):
-
     """
         Nitro error code 1640
         Both certificate and private key are needed for export
@@ -9662,7 +8603,6 @@ class NSNitroNserrCertpkeyNeeded(NSNitroGentoolErrors):
 
 
 class NSNitroNserrPkcs12Needed(NSNitroGentoolErrors):
-
     """
         Nitro error code 1641
         PKCS12 file missing for import
@@ -9671,7 +8611,6 @@ class NSNitroNserrPkcs12Needed(NSNitroGentoolErrors):
 
 
 class NSNitroNserrErrFileexists(NSNitroGentoolErrors):
-
     """
         Nitro error code 1642
         Cannot create output file. File already exists
@@ -9680,7 +8619,6 @@ class NSNitroNserrErrFileexists(NSNitroGentoolErrors):
 
 
 class NSNitroNserrFipskeyKeyfileOption(NSNitroGentoolErrors):
-
     """
         Nitro error code 1643
         Both -keyFileName and -fipsKeyName cannot be specified
@@ -9689,7 +8627,6 @@ class NSNitroNserrFipskeyKeyfileOption(NSNitroGentoolErrors):
 
 
 class NSNitroNserrOutfilelenbig(NSNitroGentoolErrors):
-
     """
         Nitro error code 1644
         Output file name too long
@@ -9698,7 +8635,6 @@ class NSNitroNserrOutfilelenbig(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslDefpath(NSNitroGentoolErrors):
-
     """
         Nitro error code 1645
         Output filepath should be under the default directory
@@ -9708,7 +8644,6 @@ class NSNitroNserrSslDefpath(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslCrlDefpath(NSNitroGentoolErrors):
-
     """
         Nitro error code 1646
         Output CRL filepath should be under the default directory
@@ -9718,7 +8653,6 @@ class NSNitroNserrSslCrlDefpath(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslDeflocation(NSNitroGentoolErrors):
-
     """
         Nitro error code 1647
         Input file(s) not present under the default directory
@@ -9728,7 +8662,6 @@ class NSNitroNserrSslDeflocation(NSNitroGentoolErrors):
 
 
 class NSNitroNserrDhreqd(NSNitroGentoolErrors):
-
     """
         Nitro error code 1791
         DH required
@@ -9737,7 +8670,6 @@ class NSNitroNserrDhreqd(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslCrlDeflocation(NSNitroGentoolErrors):
-
     """
         Nitro error code 1650
         Input CRL file not present under the default directory
@@ -9747,7 +8679,6 @@ class NSNitroNserrSslCrlDeflocation(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslNofipsKey(NSNitroGentoolErrors):
-
     """
         Nitro error code 1651
         No such FIPS key
@@ -9756,7 +8687,6 @@ class NSNitroNserrSslNofipsKey(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslImproperSerialfile(NSNitroGentoolErrors):
-
     """
         Nitro error code 1652
         Invalid serial file
@@ -9765,7 +8695,6 @@ class NSNitroNserrSslImproperSerialfile(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslSerialNumRevoked(NSNitroGentoolErrors):
-
     """
         Nitro error code 1653
         Certificate serial number match with another certificate already
@@ -9775,7 +8704,6 @@ class NSNitroNserrSslSerialNumRevoked(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslMaxrsakeysize(NSNitroGentoolErrors):
-
     """
         Nitro error code 1654
         Maximum allowed key size is 4096
@@ -9784,7 +8712,6 @@ class NSNitroNserrSslMaxrsakeysize(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslMustbepem(NSNitroGentoolErrors):
-
     """
         Nitro error code 1655
         The input file must be in PEM or SIM format.
@@ -9793,7 +8720,6 @@ class NSNitroNserrSslMustbepem(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslCantbepem(NSNitroGentoolErrors):
-
     """
         Nitro error code 1656
         The input file cannot be in PEM format.
@@ -9802,7 +8728,6 @@ class NSNitroNserrSslCantbepem(NSNitroGentoolErrors):
 
 
 class NSNitroNserrSslBadLabel(NSNitroGentoolErrors):
-
     """
         Nitro error code 1657
         The keylabel cannot be 'public' or 'private'.
@@ -9811,7 +8736,6 @@ class NSNitroNserrSslBadLabel(NSNitroGentoolErrors):
 
 
 class NSNitroGslbErrors(NSNitroError):
-
     """
         Base exception class NSNitroGslbErrors
     """
@@ -9819,7 +8743,6 @@ class NSNitroGslbErrors(NSNitroError):
 
 
 class NSNitroNserrBadDnsOption(NSNitroGslbErrors):
-
     """
         Nitro error code 1792
         Invalid DNS option specified
@@ -9828,7 +8751,6 @@ class NSNitroNserrBadDnsOption(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsBadCachetype(NSNitroGslbErrors):
-
     """
         Nitro error code 1793
         Only forward cache type can bind to DNS vserver
@@ -9837,7 +8759,6 @@ class NSNitroNserrDnsBadCachetype(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsNotavail(NSNitroGslbErrors):
-
     """
         Nitro error code 1794
         No such DNS vserver exists
@@ -9846,7 +8767,6 @@ class NSNitroNserrDnsNotavail(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsBadVstype(NSNitroGslbErrors):
-
     """
         Nitro error code 1795
         DNS vserver can only be address-based
@@ -9855,7 +8775,6 @@ class NSNitroNserrDnsBadVstype(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitelkupFailed(NSNitroGslbErrors):
-
     """
         Nitro error code 1796
         GSLB site not found
@@ -9864,7 +8783,6 @@ class NSNitroNserrGslbSitelkupFailed(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoarec(NSNitroGslbErrors):
-
     """
         Nitro error code 1801
         Address record for host name not available
@@ -9873,7 +8791,6 @@ class NSNitroNserrNoarec(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalttl(NSNitroGslbErrors):
-
     """
         Nitro error code 1806
         Invalid TTL value
@@ -9882,7 +8799,6 @@ class NSNitroNserrInvalttl(NSNitroGslbErrors):
 
 
 class NSNitroNserrCnameexists(NSNitroGslbErrors):
-
     """
         Nitro error code 1807
         Alias name record exists for the host name
@@ -9891,7 +8807,6 @@ class NSNitroNserrCnameexists(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalSvcoption(NSNitroGslbErrors):
-
     """
         Nitro error code 1808
         Option not applicable for this service
@@ -9900,7 +8815,6 @@ class NSNitroNserrInvalSvcoption(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbbindExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1809
         GSLB binding exists for the given host
@@ -9909,7 +8823,6 @@ class NSNitroNserrGslbbindExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrNotLocalremote(NSNitroGslbErrors):
-
     """
         Nitro error code 1810
         Site information must be specified for a GSLB service
@@ -9918,7 +8831,6 @@ class NSNitroNserrNotLocalremote(NSNitroGslbErrors):
 
 
 class NSNitroNserrCountMismatch(NSNitroGslbErrors):
-
     """
         Nitro error code 1811
         Address record count does not match the number of services bound
@@ -9928,7 +8840,6 @@ class NSNitroNserrCountMismatch(NSNitroGslbErrors):
 
 
 class NSNitroNserrIpMismatch(NSNitroGslbErrors):
-
     """
         Nitro error code 1812
         IP addresses of bound GSLB services and the address records do
@@ -9938,7 +8849,6 @@ class NSNitroNserrIpMismatch(NSNitroGslbErrors):
 
 
 class NSNitroNserrSvcipRepeat(NSNitroGslbErrors):
-
     """
         Nitro error code 1813
         A GSLB service with the same IP address is already bound to the
@@ -9948,7 +8858,6 @@ class NSNitroNserrSvcipRepeat(NSNitroGslbErrors):
 
 
 class NSNitroNserrNotRemote(NSNitroGslbErrors):
-
     """
         Nitro error code 1814
         Service bound to GSLB VIP with -gslb remote is a local service
@@ -9957,7 +8866,6 @@ class NSNitroNserrNotRemote(NSNitroGslbErrors):
 
 
 class NSNitroNserrNotLocal(NSNitroGslbErrors):
-
     """
         Nitro error code 1815
         Service bound to GSLB VIP with -gslb local is not a local
@@ -9967,7 +8875,6 @@ class NSNitroNserrNotLocal(NSNitroGslbErrors):
 
 
 class NSNitroNserrProxyRec(NSNitroGslbErrors):
-
     """
         Nitro error code 1816
         A proxy record cannot be assigned to the domain
@@ -9976,7 +8883,6 @@ class NSNitroNserrProxyRec(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoproxyArec(NSNitroGslbErrors):
-
     """
         Nitro error code 1817
         Proxy address records cannot be bound to a GSLB vserver
@@ -9985,7 +8891,6 @@ class NSNitroNserrNoproxyArec(NSNitroGslbErrors):
 
 
 class NSNitroNserrSvcGslbbindExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1819
         GSLB binding exists - unbind the GSLB vserver first
@@ -9994,7 +8899,6 @@ class NSNitroNserrSvcGslbbindExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrSvctypemismatch(NSNitroGslbErrors):
-
     """
         Nitro error code 1820
         Service type mismatch with existing service/vserver
@@ -10003,7 +8907,6 @@ class NSNitroNserrSvctypemismatch(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidPubipOption(NSNitroGslbErrors):
-
     """
         Nitro error code 1822
         The public IP and public port are valid only for GSLB local
@@ -10013,7 +8916,6 @@ class NSNitroNserrInvalidPubipOption(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalNameSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1823
         Invalid domain name syntax
@@ -10022,7 +8924,6 @@ class NSNitroNserrInvalNameSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbBackup(NSNitroGslbErrors):
-
     """
         Nitro error code 1824
         Backup VIP is backup of other GSLB VIP. Please unset the
@@ -10032,7 +8933,6 @@ class NSNitroNserrGslbBackup(NSNitroGslbErrors):
 
 
 class NSNitroNserrIsBackup(NSNitroGslbErrors):
-
     """
         Nitro error code 1825
         Backup VIP is backup of other VIP. Please unset the existing
@@ -10042,7 +8942,6 @@ class NSNitroNserrIsBackup(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbHasBackup(NSNitroGslbErrors):
-
     """
         Nitro error code 1826
         GSLB VIP has a backup. Please unset the backup and try the
@@ -10052,7 +8951,6 @@ class NSNitroNserrGslbHasBackup(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbRequiresIndependentBackup(NSNitroGslbErrors):
-
     """
         Nitro error code 1827
         Backup VIP to GSLB VIP must not be backup of any other VIP.
@@ -10062,7 +8960,6 @@ class NSNitroNserrGslbRequiresIndependentBackup(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbNoqualifier(NSNitroGslbErrors):
-
     """
         Nitro error code 1828
         At least one qualifier should be given for the location
@@ -10071,7 +8968,6 @@ class NSNitroNserrGslbNoqualifier(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbNoname(NSNitroGslbErrors):
-
     """
         Nitro error code 1829
         The qualifier does not exist in the repository
@@ -10080,7 +8976,6 @@ class NSNitroNserrGslbNoname(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbCustomNospace(NSNitroGslbErrors):
-
     """
         Nitro error code 1830
         Too many custom locations
@@ -10089,7 +8984,6 @@ class NSNitroNserrGslbCustomNospace(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbStaticNospace(NSNitroGslbErrors):
-
     """
         Nitro error code 1836
         Too many static locations
@@ -10098,7 +8992,6 @@ class NSNitroNserrGslbStaticNospace(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbsitenameExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1831
         A GSLB site with the same name exists
@@ -10107,7 +9000,6 @@ class NSNitroNserrGslbsitenameExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbsiteipExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1832
         A GSLB site with the same IP address exists
@@ -10116,7 +9008,6 @@ class NSNitroNserrGslbsiteipExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoGslbsite(NSNitroGslbErrors):
-
     """
         Nitro error code 1833
         The GSLB site does not exist
@@ -10125,7 +9016,6 @@ class NSNitroNserrNoGslbsite(NSNitroGslbErrors):
 
 
 class NSNitroNserrLocalExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1834
         The local site already exists
@@ -10134,7 +9024,6 @@ class NSNitroNserrLocalExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoGslbsvc(NSNitroGslbErrors):
-
     """
         Nitro error code 1835
         The GSLB service does not exist
@@ -10143,7 +9032,6 @@ class NSNitroNserrNoGslbsvc(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoGslbvip(NSNitroGslbErrors):
-
     """
         Nitro error code 1837
         The GSLB vserver does not exist
@@ -10152,7 +9040,6 @@ class NSNitroNserrNoGslbvip(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoDmn(NSNitroGslbErrors):
-
     """
         Nitro error code 1839
         The domain does not exist
@@ -10161,7 +9048,6 @@ class NSNitroNserrNoDmn(NSNitroGslbErrors):
 
 
 class NSNitroNserrDmnNotbound(NSNitroGslbErrors):
-
     """
         Nitro error code 1840
         The domain is not bound to this VIP
@@ -10170,7 +9056,6 @@ class NSNitroNserrDmnNotbound(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbdomainBound(NSNitroGslbErrors):
-
     """
         Nitro error code 1842
         The domain is already bound to a GSLB vserver
@@ -10179,7 +9064,6 @@ class NSNitroNserrGslbdomainBound(NSNitroGslbErrors):
 
 
 class NSNitroNserrNotGslbent(NSNitroGslbErrors):
-
     """
         Nitro error code 1844
         Operation not permitted on a non-GSLB entity
@@ -10188,7 +9072,6 @@ class NSNitroNserrNotGslbent(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbdomainPerm(NSNitroGslbErrors):
-
     """
         Nitro error code 1845
         Operation not permitted on a GSLB-configured domain
@@ -10197,7 +9080,6 @@ class NSNitroNserrGslbdomainPerm(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbMaxqual(NSNitroGslbErrors):
-
     """
         Nitro error code 1846
         Maximum qualifiers allowed is six
@@ -10206,7 +9088,6 @@ class NSNitroNserrGslbMaxqual(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbMaxloclength(NSNitroGslbErrors):
-
     """
         Nitro error code 1847
         Maximum allowed location length is 256 characters
@@ -10215,7 +9096,6 @@ class NSNitroNserrGslbMaxloclength(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipPerm(NSNitroGslbErrors):
-
     """
         Nitro error code 1848
         Operation not permitted on a GSLB vserver
@@ -10224,7 +9104,6 @@ class NSNitroNserrGslbvipPerm(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbsvcPerm(NSNitroGslbErrors):
-
     """
         Nitro error code 1849
         Operation not permitted on a GSLB service
@@ -10233,7 +9112,6 @@ class NSNitroNserrGslbsvcPerm(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbMaxsites(NSNitroGslbErrors):
-
     """
         Nitro error code 1850
         Maximum number of sites is 32
@@ -10242,7 +9120,6 @@ class NSNitroNserrGslbMaxsites(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbQualtoolong(NSNitroGslbErrors):
-
     """
         Nitro error code 1851
         The qualifier is too long
@@ -10251,7 +9128,6 @@ class NSNitroNserrGslbQualtoolong(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbPersistidexists(NSNitroGslbErrors):
-
     """
         Nitro error code 1852
         The persistence ID is already being used by a GSLB vserver
@@ -10260,7 +9136,6 @@ class NSNitroNserrGslbPersistidexists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbInvldLdnstoIntvl(NSNitroGslbErrors):
-
     """
         Nitro error code 1854
         Minimum LDNS entry timeout interval is 30 secs
@@ -10269,7 +9144,6 @@ class NSNitroNserrGslbInvldLdnstoIntvl(NSNitroGslbErrors):
 
 
 class NSNitroNserrVipBackupIsgslb(NSNitroGslbErrors):
-
     """
         Nitro error code 1856
         GSLB vserver cannot be backup of a non-GSLB vserver
@@ -10278,7 +9152,6 @@ class NSNitroNserrVipBackupIsgslb(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbPubipPubportExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1857
         The public IP and public port are being used by another GSLB
@@ -10288,7 +9161,6 @@ class NSNitroNserrGslbPubipPubportExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslblocalsvcEnadisNotallowed(NSNitroGslbErrors):
-
     """
         Nitro error code 1858
         GSLB local service status not changed - please enable or disable
@@ -10298,7 +9170,6 @@ class NSNitroNserrGslblocalsvcEnadisNotallowed(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslblocalsvrEnadisNotallowed(NSNitroGslbErrors):
-
     """
         Nitro error code 1859
         Server status not changed - the server has a GSLB local service
@@ -10307,7 +9178,6 @@ class NSNitroNserrGslblocalsvrEnadisNotallowed(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidPersistid(NSNitroGslbErrors):
-
     """
         Nitro error code 1860
         Invalid persistence ID
@@ -10316,7 +9186,6 @@ class NSNitroNserrInvalidPersistid(NSNitroGslbErrors):
 
 
 class NSNitroNserrPermPersistid(NSNitroGslbErrors):
-
     """
         Nitro error code 1861
         The persistence ID is required for persistence or spillover-
@@ -10326,7 +9195,6 @@ class NSNitroNserrPermPersistid(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidLocalsiteip(NSNitroGslbErrors):
-
     """
         Nitro error code 1862
         Invalid GSLB local site IP address
@@ -10335,7 +9203,6 @@ class NSNitroNserrInvalidLocalsiteip(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidRemotesiteip(NSNitroGslbErrors):
-
     """
         Nitro error code 1863
         Invalid GSLB remote site IP address
@@ -10344,7 +9211,6 @@ class NSNitroNserrInvalidRemotesiteip(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidSitetype(NSNitroGslbErrors):
-
     """
         Nitro error code 1864
         Invalid GSLB site type
@@ -10353,7 +9219,6 @@ class NSNitroNserrInvalidSitetype(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidBackupip(NSNitroGslbErrors):
-
     """
         Nitro error code 1865
         Invalid backup IP for the GSLB domain
@@ -10362,7 +9227,6 @@ class NSNitroNserrInvalidBackupip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipMaxsvc(NSNitroGslbErrors):
-
     """
         Nitro error code 1866
         Cannot bind more than 32 services to a GSLB vserver
@@ -10371,7 +9235,6 @@ class NSNitroNserrGslbvipMaxsvc(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidJitter(NSNitroGslbErrors):
-
     """
         Nitro error code 1867
         RTT tolerance value must be between 1 and 100
@@ -10380,7 +9243,6 @@ class NSNitroNserrInvalidJitter(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslblocsvcDisNotallowd(NSNitroGslbErrors):
-
     """
         Nitro error code 1868
         Cannot add GSLB local service with state set to DISABLED
@@ -10389,7 +9251,6 @@ class NSNitroNserrGslblocsvcDisNotallowd(NSNitroGslbErrors):
 
 
 class NSNitroNserrDummybkupNotallowd(NSNitroGslbErrors):
-
     """
         Nitro error code 1869
         A backup vserver with no IP address and port must be of type
@@ -10399,7 +9260,6 @@ class NSNitroNserrDummybkupNotallowd(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbsvcBindNotallowd(NSNitroGslbErrors):
-
     """
         Nitro error code 1870
         Cannot bind GSLB service to a vserver with valid IP and port
@@ -10408,7 +9268,6 @@ class NSNitroNserrGslbsvcBindNotallowd(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapVersion(NSNitroGslbErrors):
-
     """
         Nitro error code 1871
         Unrecognized NetScaler file version
@@ -10417,7 +9276,6 @@ class NSNitroNserrNsmapVersion(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapFormat(NSNitroGslbErrors):
-
     """
         Nitro error code 1872
         Unrecognized file format specified
@@ -10426,7 +9284,6 @@ class NSNitroNserrNsmapFormat(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapEof(NSNitroGslbErrors):
-
     """
         Nitro error code 1873
         End of file has been reached
@@ -10435,7 +9292,6 @@ class NSNitroNserrNsmapEof(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapParse(NSNitroGslbErrors):
-
     """
         Nitro error code 1874
         File parsing error
@@ -10444,7 +9300,6 @@ class NSNitroNserrNsmapParse(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapRead(NSNitroGslbErrors):
-
     """
         Nitro error code 1875
         Error reading file
@@ -10453,7 +9308,6 @@ class NSNitroNserrNsmapRead(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapWrite(NSNitroGslbErrors):
-
     """
         Nitro error code 1876
         Error writing file
@@ -10462,7 +9316,6 @@ class NSNitroNserrNsmapWrite(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapIoctl(NSNitroGslbErrors):
-
     """
         Nitro error code 1877
         Error occurred while transferring information to NetScaler
@@ -10471,7 +9324,6 @@ class NSNitroNserrNsmapIoctl(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapOutputfile(NSNitroGslbErrors):
-
     """
         Nitro error code 1878
         Error opening output file for writing
@@ -10480,7 +9332,6 @@ class NSNitroNserrNsmapOutputfile(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapInputfile(NSNitroGslbErrors):
-
     """
         Nitro error code 1879
         Error opening input file for reading
@@ -10489,7 +9340,6 @@ class NSNitroNserrNsmapInputfile(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapRequiredField(NSNitroGslbErrors):
-
     """
         Nitro error code 1880
         Required field missing
@@ -10498,7 +9348,6 @@ class NSNitroNserrNsmapRequiredField(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapDbfile(NSNitroGslbErrors):
-
     """
         Nitro error code 1881
         Error opening database file
@@ -10507,7 +9356,6 @@ class NSNitroNserrNsmapDbfile(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapDbinsert(NSNitroGslbErrors):
-
     """
         Nitro error code 1882
         Error inserting entry into the database
@@ -10516,7 +9364,6 @@ class NSNitroNserrNsmapDbinsert(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapDbsearch(NSNitroGslbErrors):
-
     """
         Nitro error code 1883
         Error searching the database
@@ -10525,7 +9372,6 @@ class NSNitroNserrNsmapDbsearch(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbproxmLicenceAbsent(NSNitroGslbErrors):
-
     """
         Nitro error code 1884
         Cannot set proximity methods without GSLB proximity license
@@ -10534,7 +9380,6 @@ class NSNitroNserrGslbproxmLicenceAbsent(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitepersistenceHttponly(NSNitroGslbErrors):
-
     """
         Nitro error code 1885
         Site persistence is valid only for HTTP or SSL GSLB services
@@ -10543,7 +9388,6 @@ class NSNitroNserrGslbSitepersistenceHttponly(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbNositepfx(NSNitroGslbErrors):
-
     """
         Nitro error code 1886
         Site prefix compulsory if site persistence is HTTPRedirect
@@ -10552,7 +9396,6 @@ class NSNitroNserrGslbNositepfx(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSiteprefixSize(NSNitroGslbErrors):
-
     """
         Nitro error code 1888
         Site prefix size exceeds maximum
@@ -10561,7 +9404,6 @@ class NSNitroNserrGslbSiteprefixSize(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitedomainSize(NSNitroGslbErrors):
-
     """
         Nitro error code 1889
         Site domain cannot be created - name length exceeds maximum
@@ -10570,7 +9412,6 @@ class NSNitroNserrGslbSitedomainSize(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitedomainSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1890
         Site domain cannot be created - name is invalid
@@ -10579,7 +9420,6 @@ class NSNitroNserrGslbSitedomainSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitedomainRefers(NSNitroGslbErrors):
-
     """
         Nitro error code 1891
         Site domain cannot be deleted - it has external DNS references
@@ -10588,7 +9428,6 @@ class NSNitroNserrGslbSitedomainRefers(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbdomainRefers(NSNitroGslbErrors):
-
     """
         Nitro error code 1892
         GSLB domain cannot be deleted - it has external DNS references
@@ -10597,7 +9436,6 @@ class NSNitroNserrGslbdomainRefers(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbArecordExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1893
         GSLB record cannot be created - another A record is configured
@@ -10607,7 +9445,6 @@ class NSNitroNserrGslbArecordExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitecookieTimeoutRange(NSNitroGslbErrors):
-
     """
         Nitro error code 1894
         Invalid GSLB site cookie timeout
@@ -10616,7 +9453,6 @@ class NSNitroNserrGslbSitecookieTimeoutRange(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbdomainSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1895
         GSLB domain cannot be created - name is invalid
@@ -10625,7 +9461,6 @@ class NSNitroNserrGslbdomainSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSoPerm(NSNitroGslbErrors):
-
     """
         Nitro error code 1896
         Spill-over cannot be set on a GSLB vserver
@@ -10634,7 +9469,6 @@ class NSNitroNserrGslbSoPerm(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDeprcookietout(NSNitroGslbErrors):
-
     """
         Nitro error code 1897
         Ignored deprecated cookietimeout setting since it has been made
@@ -10644,7 +9478,6 @@ class NSNitroNserrGslbDeprcookietout(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsNamesvrSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1898
         Invalid name server syntax
@@ -10653,7 +9486,6 @@ class NSNitroNserrDnsNamesvrSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsOrigsvrSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1899
         Invalid origin server syntax
@@ -10662,7 +9494,6 @@ class NSNitroNserrDnsOrigsvrSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsContactSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1900
         Invalid contact name syntax
@@ -10671,7 +9502,6 @@ class NSNitroNserrDnsContactSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsMxSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1901
         Invalid mail exchange syntax
@@ -10680,7 +9510,6 @@ class NSNitroNserrDnsMxSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsCnameSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1902
         Invalid canonical name syntax
@@ -10689,7 +9518,6 @@ class NSNitroNserrDnsCnameSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsAliasSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1904
         Invalid alias name syntax
@@ -10698,7 +9526,6 @@ class NSNitroNserrDnsAliasSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbNolocalvip(NSNitroGslbErrors):
-
     """
         Nitro error code 1905
         Cannot create GSLB local service - add the local vserver first
@@ -10707,7 +9534,6 @@ class NSNitroNserrGslbNolocalvip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbLocalsvcexists(NSNitroGslbErrors):
-
     """
         Nitro error code 1906
         Cannot delete the vserver - corresponding GSLB local service
@@ -10717,7 +9543,6 @@ class NSNitroNserrGslbLocalsvcexists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslblocalsvcPerm(NSNitroGslbErrors):
-
     """
         Nitro error code 1907
         Operation not permitted on GSLB local service
@@ -10726,7 +9551,6 @@ class NSNitroNserrGslblocalsvcPerm(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsInvalRevdomnameSyntax(NSNitroGslbErrors):
-
     """
         Nitro error code 1908
         Invalid reverse domain name syntax
@@ -10735,7 +9559,6 @@ class NSNitroNserrDnsInvalRevdomnameSyntax(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsAliasrec(NSNitroGslbErrors):
-
     """
         Nitro error code 1909
         Alias name cannot have any record
@@ -10744,7 +9567,6 @@ class NSNitroNserrDnsAliasrec(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslblocsvcDelayedcleanNotallowd(NSNitroGslbErrors):
-
     """
         Nitro error code 1910
         Down state flush cannot be set on GSLB local service
@@ -10753,7 +9575,6 @@ class NSNitroNserrGslblocsvcDelayedcleanNotallowd(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoBkpVip(NSNitroGslbErrors):
-
     """
         Nitro error code 1911
         Set a backup Vserver,  to enable it.
@@ -10762,7 +9583,6 @@ class NSNitroNserrNoBkpVip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbNosuchLdnsentry(NSNitroGslbErrors):
-
     """
         Nitro error code 1912
         LDNS entry not present
@@ -10771,7 +9591,6 @@ class NSNitroNserrGslbNosuchLdnsentry(NSNitroGslbErrors):
 
 
 class NSNitroNserrMaxDnsView(NSNitroGslbErrors):
-
     """
         Nitro error code 1913
         Number of DNS views exceeds limit
@@ -10780,7 +9599,6 @@ class NSNitroNserrMaxDnsView(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSiteIpExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1914
         GSLB Site IP already exists
@@ -10789,7 +9607,6 @@ class NSNitroNserrGslbSiteIpExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbLastMip(NSNitroGslbErrors):
-
     """
         Nitro error code 1915
         MIP is not removed. At least one MIP is required
@@ -10798,7 +9615,6 @@ class NSNitroNserrGslbLastMip(NSNitroGslbErrors):
 
 
 class NSNitroNserrRmGslbSite(NSNitroGslbErrors):
-
     """
         Nitro error code 1916
         IP cannot be removed as it is being used by the GSLB local site
@@ -10807,7 +9623,6 @@ class NSNitroNserrRmGslbSite(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbIprmLastMip(NSNitroGslbErrors):
-
     """
         Nitro error code 1917
         GSLB Site IP removed. MIP is not removed. At least one MIP is
@@ -10817,7 +9632,6 @@ class NSNitroNserrGslbIprmLastMip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSvcPubPortErr(NSNitroGslbErrors):
-
     """
         Nitro error code 1918
         Cannot modify public port for remote GSLB service
@@ -10826,7 +9640,6 @@ class NSNitroNserrGslbSvcPubPortErr(NSNitroGslbErrors):
 
 
 class NSNitroNserrRecHasRef(NSNitroGslbErrors):
-
     """
         Nitro error code 1919
         DNS record has references
@@ -10835,7 +9648,6 @@ class NSNitroNserrRecHasRef(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsViewRef(NSNitroGslbErrors):
-
     """
         Nitro error code 1920
         The dns view cannot be removed as it has dependencies
@@ -10844,7 +9656,6 @@ class NSNitroNserrDnsViewRef(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitePersistenceMatch(NSNitroGslbErrors):
-
     """
         Nitro error code 1921
         Mismatch in gslb site persistence type with other bound services
@@ -10853,7 +9664,6 @@ class NSNitroNserrGslbSitePersistenceMatch(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbSitePersistenceConflicts(NSNitroGslbErrors):
-
     """
         Nitro error code 1922
         Site persistence  conflicts with other services bound to the
@@ -10863,7 +9673,6 @@ class NSNitroNserrGslbSitePersistenceConflicts(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsPolicyInval(NSNitroGslbErrors):
-
     """
         Nitro error code 1923
         Invalid DNS policy
@@ -10872,7 +9681,6 @@ class NSNitroNserrDnsPolicyInval(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipCnameMismatch(NSNitroGslbErrors):
-
     """
         Nitro error code 1924
         GSLB vserver cannot be bound with cname based and ip based
@@ -10882,7 +9690,6 @@ class NSNitroNserrGslbvipCnameMismatch(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipCnameUnsupportedLbmethods(NSNitroGslbErrors):
-
     """
         Nitro error code 1925
         GSLB vserver having cname services cannot have dynamic load
@@ -10892,7 +9699,6 @@ class NSNitroNserrGslbvipCnameUnsupportedLbmethods(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbServiceMonNoipport(NSNitroGslbErrors):
-
     """
         Nitro error code 1926
         Cannot bind monitor with zero ip or  port to a cname gslb
@@ -10902,7 +9708,6 @@ class NSNitroNserrGslbServiceMonNoipport(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbServiceMonSetNoipport(NSNitroGslbErrors):
-
     """
         Nitro error code 1927
         Cannot set ip or port to zero when monitor is bound to a cname
@@ -10912,7 +9717,6 @@ class NSNitroNserrGslbServiceMonSetNoipport(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbCnameServiceSet(NSNitroGslbErrors):
-
     """
         Nitro error code 1928
         Setting of these parameters on cname gslb service is not allowed
@@ -10921,7 +9725,6 @@ class NSNitroNserrGslbCnameServiceSet(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbCnameVserverSet(NSNitroGslbErrors):
-
     """
         Nitro error code 1929
         Setting of these parameters on gslb vserver having cname
@@ -10931,7 +9734,6 @@ class NSNitroNserrGslbCnameVserverSet(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipCnameUnsupportedBkupLbmethods(NSNitroGslbErrors):
-
     """
         Nitro error code 1930
         GSLB vserver having cname services cannot have dynamic backup
@@ -10941,7 +9743,6 @@ class NSNitroNserrGslbvipCnameUnsupportedBkupLbmethods(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipCnameUnsupportedEdr(NSNitroGslbErrors):
-
     """
         Nitro error code 1931
         GSLB vserver having cname services cannot have empty down
@@ -10951,7 +9752,6 @@ class NSNitroNserrGslbvipCnameUnsupportedEdr(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipCnameUnsupportedMir(NSNitroGslbErrors):
-
     """
         Nitro error code 1932
         GSLB vserver having cname services cannot have multiple ip
@@ -10961,7 +9761,6 @@ class NSNitroNserrGslbvipCnameUnsupportedMir(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbsvcViewNexist(NSNitroGslbErrors):
-
     """
         Nitro error code 1933
         View is not bound to the GSLB service
@@ -10970,7 +9769,6 @@ class NSNitroNserrGslbsvcViewNexist(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsTtlMoreThanMaxAllowed(NSNitroGslbErrors):
-
     """
         Nitro error code 1934
         DNS RECORD TTL value greater than max TTL allowed
@@ -10979,7 +9777,6 @@ class NSNitroNserrDnsTtlMoreThanMaxAllowed(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbLbMaxsites(NSNitroGslbErrors):
-
     """
         Nitro error code 1935
         Maximum number of LB sites is 1024
@@ -10988,7 +9785,6 @@ class NSNitroNserrGslbLbMaxsites(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbHaschildren(NSNitroGslbErrors):
-
     """
         Nitro error code 1936
         Cannot remove site that has child site(s)
@@ -10997,7 +9793,6 @@ class NSNitroNserrGslbHaschildren(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbParentischild(NSNitroGslbErrors):
-
     """
         Nitro error code 1937
         Parent site cannot be a child to another site
@@ -11006,7 +9801,6 @@ class NSNitroNserrGslbParentischild(NSNitroGslbErrors):
 
 
 class NSNitroNserrMaxStreamSelectors(NSNitroGslbErrors):
-
     """
         Nitro error code 1938
         Number of selectors exceeds limit
@@ -11015,7 +9809,6 @@ class NSNitroNserrMaxStreamSelectors(NSNitroGslbErrors):
 
 
 class NSNitroNserrMaxStreamIdentifers(NSNitroGslbErrors):
-
     """
         Nitro error code 1939
         Number of identifiers exceeds limit
@@ -11024,7 +9817,6 @@ class NSNitroNserrMaxStreamIdentifers(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoSuchSelector(NSNitroGslbErrors):
-
     """
         Nitro error code 1940
         The given selector does not exist
@@ -11033,7 +9825,6 @@ class NSNitroNserrNoSuchSelector(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoSuchIdentifier(NSNitroGslbErrors):
-
     """
         Nitro error code 1941
         The given identifier does not exist
@@ -11042,7 +9833,6 @@ class NSNitroNserrNoSuchIdentifier(NSNitroGslbErrors):
 
 
 class NSNitroNserrRltTimesliceInvalidVal(NSNitroGslbErrors):
-
     """
         Nitro error code 1942
         Time slice should be a multiple of 10
@@ -11051,7 +9841,6 @@ class NSNitroNserrRltTimesliceInvalidVal(NSNitroGslbErrors):
 
 
 class NSNitroNserrIllegalSubnetMask(NSNitroGslbErrors):
-
     """
         Nitro error code 1943
         Incorrect subnet mask value
@@ -11060,7 +9849,6 @@ class NSNitroNserrIllegalSubnetMask(NSNitroGslbErrors):
 
 
 class NSNitroNserrStreamSelectorInuse(NSNitroGslbErrors):
-
     """
         Nitro error code 1944
         The selector is being referenced by one or more identifiers
@@ -11069,7 +9857,6 @@ class NSNitroNserrStreamSelectorInuse(NSNitroGslbErrors):
 
 
 class NSNitroNserrIdentifierInuse(NSNitroGslbErrors):
-
     """
         Nitro error code 1945
         The identifier is being referenced by one or more policies
@@ -11078,7 +9865,6 @@ class NSNitroNserrIdentifierInuse(NSNitroGslbErrors):
 
 
 class NSNitroNserrSelectorCannotChangeAttribType(NSNitroGslbErrors):
-
     """
         Nitro error code 1946
         Cannot change request type selector to response type
@@ -11087,7 +9873,6 @@ class NSNitroNserrSelectorCannotChangeAttribType(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbIgnTrigmon(NSNitroGslbErrors):
-
     """
         Nitro error code 1947
         Trigger monitor setting assumed ALWAYS for GSLB local site
@@ -11096,7 +9881,6 @@ class NSNitroNserrGslbIgnTrigmon(NSNitroGslbErrors):
 
 
 class NSNitroNserrSelectorNotMoreThan2Ipv6Exp(NSNitroGslbErrors):
-
     """
         Nitro error code 1948
         Cannot exceed more than two IPV6 expressions in a selector
@@ -11105,7 +9889,6 @@ class NSNitroNserrSelectorNotMoreThan2Ipv6Exp(NSNitroGslbErrors):
 
 
 class NSNitroNserrRepeatedMonitors(NSNitroGslbErrors):
-
     """
         Nitro error code 1949
         Monitors cannot be repeated
@@ -11114,7 +9897,6 @@ class NSNitroNserrRepeatedMonitors(NSNitroGslbErrors):
 
 
 class NSNitroNserrAllMonitorsDisabled(NSNitroGslbErrors):
-
     """
         Nitro error code 1950
         All monitors in selected list are disabled.
@@ -11123,7 +9905,6 @@ class NSNitroNserrAllMonitorsDisabled(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbAaaarecordExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1951
         GSLB record cannot be created - another AAAA record is
@@ -11133,7 +9914,6 @@ class NSNitroNserrGslbAaaarecordExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipHeterogeneousServiceIpversion(NSNitroGslbErrors):
-
     """
         Nitro error code 1952
         Heterogeneous service binding is not allowed for GSLB vserver
@@ -11142,7 +9922,6 @@ class NSNitroNserrGslbvipHeterogeneousServiceIpversion(NSNitroGslbErrors):
 
 
 class NSNitroNserrViewipIpv6(NSNitroGslbErrors):
-
     """
         Nitro error code 1953
         View IP setting is not allowed for IPv6 GSLB service.
@@ -11151,7 +9930,6 @@ class NSNitroNserrViewipIpv6(NSNitroGslbErrors):
 
 
 class NSNitroNserrBackupipIpv6(NSNitroGslbErrors):
-
     """
         Nitro error code 1954
         IPv4 backup IP setting is not allowed for IPv6 GSLB vserver.
@@ -11160,7 +9938,6 @@ class NSNitroNserrBackupipIpv6(NSNitroGslbErrors):
 
 
 class NSNitroNserrBackupVipMismatch(NSNitroGslbErrors):
-
     """
         Nitro error code 1955
         Both primary and secondary vservers should be of same
@@ -11170,7 +9947,6 @@ class NSNitroNserrBackupVipMismatch(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDomainConversion(NSNitroGslbErrors):
-
     """
         Nitro error code 1956
         Cannot associate gslb domain to the service.
@@ -11179,7 +9955,6 @@ class NSNitroNserrGslbDomainConversion(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbIpv4Backupip(NSNitroGslbErrors):
-
     """
         Nitro error code 1957
         IPv6 service binding is not allowed along with IPv4 backup IP.
@@ -11188,7 +9963,6 @@ class NSNitroNserrGslbIpv4Backupip(NSNitroGslbErrors):
 
 
 class NSNitroNserrCannotAddSelector(NSNitroGslbErrors):
-
     """
         Nitro error code 1958
         Cannot set a new selector when the identifier with no selector
@@ -11198,7 +9972,6 @@ class NSNitroNserrCannotAddSelector(NSNitroGslbErrors):
 
 
 class NSNitroNserrSelConflictingAttributes(NSNitroGslbErrors):
-
     """
         Nitro error code 1959
         Conflicting attributes in the new and current selector sets.
@@ -11207,7 +9980,6 @@ class NSNitroNserrSelConflictingAttributes(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbvipCnameBackupip(NSNitroGslbErrors):
-
     """
         Nitro error code 1960
         GSLB vserver having cname services cannot have backup IP
@@ -11216,7 +9988,6 @@ class NSNitroNserrGslbvipCnameBackupip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbHeterogeneousSiteip(NSNitroGslbErrors):
-
     """
         Nitro error code 1961
         Heterogeneous IPv6 and IPv4 GSLB site IPs not allowed.
@@ -11225,7 +9996,6 @@ class NSNitroNserrGslbHeterogeneousSiteip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbUnused1(NSNitroGslbErrors):
-
     """
         Nitro error code 1962
         ####### USE ME ##########
@@ -11234,7 +10004,6 @@ class NSNitroNserrGslbUnused1(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbUnused2(NSNitroGslbErrors):
-
     """
         Nitro error code 1963
         ####### USE ME ##########
@@ -11243,7 +10012,6 @@ class NSNitroNserrGslbUnused2(NSNitroGslbErrors):
 
 
 class NSNitroNserrAaaaRecordExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1964
         AAAA record cannot be created - another AAAA record is
@@ -11253,7 +10021,6 @@ class NSNitroNserrAaaaRecordExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbRectypeService(NSNitroGslbErrors):
-
     """
         Nitro error code 1965
         Cannot set the record type while services bound to the GSLB
@@ -11263,7 +10030,6 @@ class NSNitroNserrGslbRectypeService(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbRectypeDomain(NSNitroGslbErrors):
-
     """
         Nitro error code 1966
         Cannot set the record type while domains bound to the GSLB
@@ -11273,7 +10039,6 @@ class NSNitroNserrGslbRectypeDomain(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbRectypeBackupVip(NSNitroGslbErrors):
-
     """
         Nitro error code 1967
         Cannot set the record type while GSLB vserver has backup
@@ -11283,7 +10048,6 @@ class NSNitroNserrGslbRectypeBackupVip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbBkpvipRectype(NSNitroGslbErrors):
-
     """
         Nitro error code 1968
         Cannot set the record type while GSLB vserver is a backup
@@ -11293,7 +10057,6 @@ class NSNitroNserrGslbBkpvipRectype(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbUnused3(NSNitroGslbErrors):
-
     """
         Nitro error code 1969
         ###### USE ME ########
@@ -11302,7 +10065,6 @@ class NSNitroNserrGslbUnused3(NSNitroGslbErrors):
 
 
 class NSNitroNserrBackupipIpv4(NSNitroGslbErrors):
-
     """
         Nitro error code 1970
         IPv6 backup IP setting is not allowed for IPv4 GSLB vserver.
@@ -11311,7 +10073,6 @@ class NSNitroNserrBackupipIpv4(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbIpv6Backupip(NSNitroGslbErrors):
-
     """
         Nitro error code 1971
         IPv4 service binding is not allowed along with IPv6 backup IP.
@@ -11320,7 +10081,6 @@ class NSNitroNserrGslbIpv6Backupip(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDbReqTooBig(NSNitroGslbErrors):
-
     """
         Nitro error code 1972
         Static proximity Database request is too big.
@@ -11329,7 +10089,6 @@ class NSNitroNserrGslbDbReqTooBig(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDbQueueMaxed(NSNitroGslbErrors):
-
     """
         Nitro error code 1973
         Static proximity Database queue is full.
@@ -11338,7 +10097,6 @@ class NSNitroNserrGslbDbQueueMaxed(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDbServer(NSNitroGslbErrors):
-
     """
         Nitro error code 1974
         Static proximity database server is not running.
@@ -11347,7 +10105,6 @@ class NSNitroNserrGslbDbServer(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDbTimeout(NSNitroGslbErrors):
-
     """
         Nitro error code 1975
         Static proximity database server is not responding.
@@ -11356,7 +10113,6 @@ class NSNitroNserrGslbDbTimeout(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDbClosed(NSNitroGslbErrors):
-
     """
         Nitro error code 1976
         Connection to static proximity database server is closed.
@@ -11365,7 +10121,6 @@ class NSNitroNserrGslbDbClosed(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbCoordinates(NSNitroGslbErrors):
-
     """
         Nitro error code 1977
         Both longitude and latitude should be specified or not.
@@ -11374,7 +10129,6 @@ class NSNitroNserrGslbCoordinates(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalidIpv6Prefixlen(NSNitroGslbErrors):
-
     """
         Nitro error code 1978
         Invalid IPv6 prefix length.
@@ -11383,7 +10137,6 @@ class NSNitroNserrInvalidIpv6Prefixlen(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbdomainCanmeRecordExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1979
         Cname record can't be created. Another record exists for the
@@ -11393,7 +10146,6 @@ class NSNitroNserrGslbdomainCanmeRecordExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbdomainAaaaCnameExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1980
         Cname record exists for the configured domain.
@@ -11402,7 +10154,6 @@ class NSNitroNserrGslbdomainAaaaCnameExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbNonParentRemotesite(NSNitroGslbErrors):
-
     """
         Nitro error code 1981
         Cannot have a gslb remote site,  other than the parent site,
@@ -11412,7 +10163,6 @@ class NSNitroNserrGslbNonParentRemotesite(NSNitroGslbErrors):
 
 
 class NSNitroNserrZoneExists(NSNitroGslbErrors):
-
     """
         Nitro error code 1982
         Zone already configured.
@@ -11421,7 +10171,6 @@ class NSNitroNserrZoneExists(NSNitroGslbErrors):
 
 
 class NSNitroNserrInvalKeyflags(NSNitroGslbErrors):
-
     """
         Nitro error code 1983
         Invalid flags value in DNSKEY
@@ -11430,7 +10179,6 @@ class NSNitroNserrInvalKeyflags(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnskeyNonexists(NSNitroGslbErrors):
-
     """
         Nitro error code 1984
         Zone has no DNSKEY's
@@ -11439,7 +10187,6 @@ class NSNitroNserrDnskeyNonexists(NSNitroGslbErrors):
 
 
 class NSNitroNserrNorecsInZone(NSNitroGslbErrors):
-
     """
         Nitro error code 1985
         No records in zone
@@ -11448,7 +10195,6 @@ class NSNitroNserrNorecsInZone(NSNitroGslbErrors):
 
 
 class NSNitroNserrSignfailed(NSNitroGslbErrors):
-
     """
         Nitro error code 1986
         RSA Sign operation returned error
@@ -11457,7 +10203,6 @@ class NSNitroNserrSignfailed(NSNitroGslbErrors):
 
 
 class NSNitroNserrDigestinitFailed(NSNitroGslbErrors):
-
     """
         Nitro error code 1987
         Digest init before RSA Sign operation returned error
@@ -11466,7 +10211,6 @@ class NSNitroNserrDigestinitFailed(NSNitroGslbErrors):
 
 
 class NSNitroNserrDigestupdateFailed(NSNitroGslbErrors):
-
     """
         Nitro error code 1988
         Digest update before RSA Sign operation returned error
@@ -11475,7 +10219,6 @@ class NSNitroNserrDigestupdateFailed(NSNitroGslbErrors):
 
 
 class NSNitroNserrKeyexists(NSNitroGslbErrors):
-
     """
         Nitro error code 1989
         The DNSKEY is already added for this zone
@@ -11484,7 +10227,6 @@ class NSNitroNserrKeyexists(NSNitroGslbErrors):
 
 
 class NSNitroNserrNopasvkeys(NSNitroGslbErrors):
-
     """
         Nitro error code 1990
         No Passive DNSKEY's in zone
@@ -11493,7 +10235,6 @@ class NSNitroNserrNopasvkeys(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsMaxkeysize(NSNitroGslbErrors):
-
     """
         Nitro error code 1991
         Maximum allowed public key size is 1024 and private key size is
@@ -11503,7 +10244,6 @@ class NSNitroNserrDnsMaxkeysize(NSNitroGslbErrors):
 
 
 class NSNitroNserrNodataToSign(NSNitroGslbErrors):
-
     """
         Nitro error code 1992
         No data to sign the record
@@ -11512,7 +10252,6 @@ class NSNitroNserrNodataToSign(NSNitroGslbErrors):
 
 
 class NSNitroNserrCnameSiteNotexists(NSNitroGslbErrors):
-
     """
         Nitro error code 1993
         Site name must be specified for cname based GSLB service.
@@ -11521,7 +10260,6 @@ class NSNitroNserrCnameSiteNotexists(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsNosoaNons(NSNitroGslbErrors):
-
     """
         Nitro error code 1994
         No SOA or NS records for the zone
@@ -11530,7 +10268,6 @@ class NSNitroNserrDnsNosoaNons(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsProxyZone(NSNitroGslbErrors):
-
     """
         Nitro error code 1995
         Cannot sign/unsign a proxy zone
@@ -11539,7 +10276,6 @@ class NSNitroNserrDnsProxyZone(NSNitroGslbErrors):
 
 
 class NSNitroNserrNoactvkeys(NSNitroGslbErrors):
-
     """
         Nitro error code 1996
         No active DNSKEY's in zone
@@ -11548,7 +10284,6 @@ class NSNitroNserrNoactvkeys(NSNitroGslbErrors):
 
 
 class NSNitroNserrNotifyperiod(NSNitroGslbErrors):
-
     """
         Nitro error code 1997
         Notification period must be less than the expiry period
@@ -11557,7 +10292,6 @@ class NSNitroNserrNotifyperiod(NSNitroGslbErrors):
 
 
 class NSNitroNserrLoadPubkey(NSNitroGslbErrors):
-
     """
         Nitro error code 1998
         Public key loading failed
@@ -11566,7 +10300,6 @@ class NSNitroNserrLoadPubkey(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnskeygenUnsupportedAlgo(NSNitroGslbErrors):
-
     """
         Nitro error code 1999
         Unsupported algorithm
@@ -11575,7 +10308,6 @@ class NSNitroNserrDnskeygenUnsupportedAlgo(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnskeygenErrPubfileOpen(NSNitroGslbErrors):
-
     """
         Nitro error code 2000
         Error opening public key file
@@ -11584,7 +10316,6 @@ class NSNitroNserrDnskeygenErrPubfileOpen(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnskeygenErrPrivfileOpen(NSNitroGslbErrors):
-
     """
         Nitro error code 2001
         Error opening private key file
@@ -11593,7 +10324,6 @@ class NSNitroNserrDnskeygenErrPrivfileOpen(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnskeygenErrDsfileOpen(NSNitroGslbErrors):
-
     """
         Nitro error code 2002
         Error opening delegation signer (DS) file
@@ -11602,7 +10332,6 @@ class NSNitroNserrDnskeygenErrDsfileOpen(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbOptNotsupported(NSNitroGslbErrors):
-
     """
         Nitro error code 2003
         gslb option is not supported,  GSLB site is mandatory for GSLB
@@ -11612,7 +10341,6 @@ class NSNitroNserrGslbOptNotsupported(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbGfsNotSupported(NSNitroGslbErrors):
-
     """
         Nitro error code 2004
         Graceful shutdown is not supported for GSLB services.
@@ -11621,7 +10349,6 @@ class NSNitroNserrGslbGfsNotSupported(NSNitroGslbErrors):
 
 
 class NSNitroNserrNsmapImportfile(NSNitroGslbErrors):
-
     """
         Nitro error code 2005
         Error reading the imported file. See /var/log/ns.log file for
@@ -11631,7 +10358,6 @@ class NSNitroNserrNsmapImportfile(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsCnameloop(NSNitroGslbErrors):
-
     """
         Nitro error code 2006
         Addition of this CNAME record leads to a CNAME loop
@@ -11640,7 +10366,6 @@ class NSNitroNserrDnsCnameloop(NSNitroGslbErrors):
 
 
 class NSNitroNserrNewsvcNot4gslb(NSNitroGslbErrors):
-
     """
         Nitro error code 2007
         startup settings not applicable to GSLB vservers
@@ -11649,7 +10374,6 @@ class NSNitroNserrNewsvcNot4gslb(NSNitroGslbErrors):
 
 
 class NSNitroNserrNonClusterSystem(NSNitroGslbErrors):
-
     """
         Nitro error code 2008
         The option is only supported for clustering systems.
@@ -11658,7 +10382,6 @@ class NSNitroNserrNonClusterSystem(NSNitroGslbErrors):
 
 
 class NSNitroNserrPmMonNotEnabled(NSNitroGslbErrors):
-
     """
         Nitro error code 2009
         Path monitoring must be enabled to enable this option.
@@ -11667,7 +10390,6 @@ class NSNitroNserrPmMonNotEnabled(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbBackupPersDepricated(NSNitroGslbErrors):
-
     """
         Nitro error code 2010
         GSLB Backup Persistence is deprecated. Please use Spillover
@@ -11677,7 +10399,6 @@ class NSNitroNserrGslbBackupPersDepricated(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsSignfail(NSNitroGslbErrors):
-
     """
         Nitro error code 2011
         DNSSEC Sign operation failed
@@ -11686,7 +10407,6 @@ class NSNitroNserrDnsSignfail(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnsNeedProxy(NSNitroGslbErrors):
-
     """
         Nitro error code 2012
         Zone needs to be in proxy mode
@@ -11695,7 +10415,6 @@ class NSNitroNserrDnsNeedProxy(NSNitroGslbErrors):
 
 
 class NSNitroNserrDnssecOffloadNosupport(NSNitroGslbErrors):
-
     """
         Nitro error code 2013
         DNNSEC Offload is not supported in this platform.
@@ -11704,7 +10423,6 @@ class NSNitroNserrDnssecOffloadNosupport(NSNitroGslbErrors):
 
 
 class NSNitroNserrDns64ActInval(NSNitroGslbErrors):
-
     """
         Nitro error code 2014
         Invalid DNS64 action.
@@ -11713,7 +10431,6 @@ class NSNitroNserrDns64ActInval(NSNitroGslbErrors):
 
 
 class NSNitroNserrDns64NotSupportedVs(NSNitroGslbErrors):
-
     """
         Nitro error code 2015
         Specified policy can be bound only to DNS/DNS_TCP vserver.
@@ -11722,7 +10439,6 @@ class NSNitroNserrDns64NotSupportedVs(NSNitroGslbErrors):
 
 
 class NSNitroNserrDns64InvalPrefix(NSNitroGslbErrors):
-
     """
         Nitro error code 2016
         Specified Prefix is either not allowed or Prefix length is not
@@ -11732,7 +10448,6 @@ class NSNitroNserrDns64InvalPrefix(NSNitroGslbErrors):
 
 
 class NSNitroNserrGslbDbRepeatRequest(NSNitroGslbErrors):
-
     """
         Nitro error code 2017
         Location database request need to be repeated
@@ -11741,7 +10456,6 @@ class NSNitroNserrGslbDbRepeatRequest(NSNitroGslbErrors):
 
 
 class NSNitroSvpnErrors(NSNitroError):
-
     """
         Base exception class NSNitroSvpnErrors
     """
@@ -11749,7 +10463,6 @@ class NSNitroSvpnErrors(NSNitroError):
 
 
 class NSNitroNscfgInfo(NSNitroSvpnErrors):
-
     """
         Nitro error code 2049
         Sending the /cfg information
@@ -11758,7 +10471,6 @@ class NSNitroNscfgInfo(NSNitroSvpnErrors):
 
 
 class NSNitroNscsInfo(NSNitroSvpnErrors):
-
     """
         Nitro error code 2050
         Backend server info exists
@@ -11767,7 +10479,6 @@ class NSNitroNscsInfo(NSNitroSvpnErrors):
 
 
 class NSNitroNscsprobeInfo(NSNitroSvpnErrors):
-
     """
         Nitro error code 2051
         Probe to backend server pending
@@ -11776,7 +10487,6 @@ class NSNitroNscsprobeInfo(NSNitroSvpnErrors):
 
 
 class NSNitroNsappprobeInfo(NSNitroSvpnErrors):
-
     """
         Nitro error code 2052
         Client side connection being closed
@@ -11785,7 +10495,6 @@ class NSNitroNsappprobeInfo(NSNitroSvpnErrors):
 
 
 class NSNitroNscfgMpInfo(NSNitroSvpnErrors):
-
     """
         Nitro error code 2112
         Sending the /mp_cfg Information
@@ -11794,7 +10503,6 @@ class NSNitroNscfgMpInfo(NSNitroSvpnErrors):
 
 
 class NSNitroNserrNointranetip(NSNitroSvpnErrors):
-
     """
         Nitro error code 2113
         No Intranet IP available
@@ -11803,7 +10511,6 @@ class NSNitroNserrNointranetip(NSNitroSvpnErrors):
 
 
 class NSNitroNserrAlreadylogedin(NSNitroSvpnErrors):
-
     """
         Nitro error code 2114
         The user is already logged-in
@@ -11812,7 +10519,6 @@ class NSNitroNserrAlreadylogedin(NSNitroSvpnErrors):
 
 
 class NSNitroNserrUrlinuse(NSNitroSvpnErrors):
-
     """
         Nitro error code 2115
         Bound URL/bookmark cannot be removed.
@@ -11821,7 +10527,6 @@ class NSNitroNserrUrlinuse(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappinuse(NSNitroSvpnErrors):
-
     """
         Nitro error code 2116
         Bound VPN application cannot be removed.
@@ -11830,7 +10535,6 @@ class NSNitroNserrVpnappinuse(NSNitroSvpnErrors):
 
 
 class NSNitroNserrNotsuppTransIntercpt(NSNitroSvpnErrors):
-
     """
         Nitro error code 2117
         Transparent interception is not yet supported.
@@ -11839,7 +10543,6 @@ class NSNitroNserrNotsuppTransIntercpt(NSNitroSvpnErrors):
 
 
 class NSNitroNserrNotsuppProtUdp(NSNitroSvpnErrors):
-
     """
         Nitro error code 2118
         UDP protocol is not yet supported
@@ -11848,7 +10551,6 @@ class NSNitroNserrNotsuppProtUdp(NSNitroSvpnErrors):
 
 
 class NSNitroNserrDefaultcmdplcy(NSNitroSvpnErrors):
-
     """
         Nitro error code 2119
         Default command policy cannot be removed
@@ -11857,7 +10559,6 @@ class NSNitroNserrDefaultcmdplcy(NSNitroSvpnErrors):
 
 
 class NSNitroNserrClntCertReqd(NSNitroSvpnErrors):
-
     """
         Nitro error code 2120
         Client SSL certificate is required
@@ -11866,7 +10567,6 @@ class NSNitroNserrClntCertReqd(NSNitroSvpnErrors):
 
 
 class NSNitroNserrInvalCertfield(NSNitroSvpnErrors):
-
     """
         Nitro error code 2121
         Invalid certificate field
@@ -11875,7 +10575,6 @@ class NSNitroNserrInvalCertfield(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappProxyIprange(NSNitroSvpnErrors):
-
     """
         Nitro error code 2064
         Proxy interception does not support IP ranges
@@ -11884,7 +10583,6 @@ class NSNitroNserrVpnappProxyIprange(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappProxyNetmask(NSNitroSvpnErrors):
-
     """
         Nitro error code 2065
         Proxy interception does not support netmasks
@@ -11893,7 +10591,6 @@ class NSNitroNserrVpnappProxyNetmask(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappProxyDstportRange(NSNitroSvpnErrors):
-
     """
         Nitro error code 2066
         Proxy interception does not support destination port ranges
@@ -11902,7 +10599,6 @@ class NSNitroNserrVpnappProxyDstportRange(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappProxyProtocol(NSNitroSvpnErrors):
-
     """
         Nitro error code 2067
         Proxy interception supports only TCP
@@ -11911,7 +10607,6 @@ class NSNitroNserrVpnappProxyProtocol(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappProxyHostname(NSNitroSvpnErrors):
-
     """
         Nitro error code 2068
         Proxy interception does not support hostname interception
@@ -11920,7 +10615,6 @@ class NSNitroNserrVpnappProxyHostname(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappTransSrcip(NSNitroSvpnErrors):
-
     """
         Nitro error code 2069
         Transparent interception does not support source IP
@@ -11929,7 +10623,6 @@ class NSNitroNserrVpnappTransSrcip(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappTransSrcport(NSNitroSvpnErrors):
-
     """
         Nitro error code 2070
         Transparent interception does not support source port
@@ -11938,7 +10631,6 @@ class NSNitroNserrVpnappTransSrcport(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappNoInterceptionType(NSNitroSvpnErrors):
-
     """
         Nitro error code 2071
         Intranet application requires an interception type
@@ -11947,7 +10639,6 @@ class NSNitroNserrVpnappNoInterceptionType(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappCliappPort(NSNitroSvpnErrors):
-
     """
         Nitro error code 2072
         Both client application name and destination port cannot be
@@ -11957,7 +10648,6 @@ class NSNitroNserrVpnappCliappPort(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappCliappProto(NSNitroSvpnErrors):
-
     """
         Nitro error code 2073
         Protocol can not be specified when client application name is
@@ -11967,7 +10657,6 @@ class NSNitroNserrVpnappCliappProto(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappProxyCliapp(NSNitroSvpnErrors):
-
     """
         Nitro error code 2074
         Proxy interception does not support client application based
@@ -11977,7 +10666,6 @@ class NSNitroNserrVpnappProxyCliapp(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappMissingProto(NSNitroSvpnErrors):
-
     """
         Nitro error code 2075
         Protocol must be specified
@@ -11986,7 +10674,6 @@ class NSNitroNserrVpnappMissingProto(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappMissingArg(NSNitroSvpnErrors):
-
     """
         Nitro error code 2076
         One of destIP,  IPRange,  hostname or clientApplication has to
@@ -11996,7 +10683,6 @@ class NSNitroNserrVpnappMissingArg(NSNitroSvpnErrors):
 
 
 class NSNitroNserrVpnappTooManyArg(NSNitroSvpnErrors):
-
     """
         Nitro error code 2077
         At most one of destIP,  IPRange,  hostname or clientApplication
@@ -12006,16 +10692,14 @@ class NSNitroNserrVpnappTooManyArg(NSNitroSvpnErrors):
 
 
 class NSNitroNserrFsAuthfail(NSNitroSvpnErrors):
-
     """
         Nitro error code 2078
-
+        
     """
     pass
 
 
 class NSNitroNserrNsipv6notpresent(NSNitroSvpnErrors):
-
     """
         Nitro error code 2079
         No IPV6 Netscaler IP has been configured
@@ -12024,7 +10708,6 @@ class NSNitroNserrNsipv6notpresent(NSNitroSvpnErrors):
 
 
 class NSNitroNserrRemoveSession(NSNitroSvpnErrors):
-
     """
         Nitro error code 2096
         No IPV6 Netscaler IP has been configured
@@ -12033,7 +10716,6 @@ class NSNitroNserrRemoveSession(NSNitroSvpnErrors):
 
 
 class NSNitroNserrStawiExist(NSNitroSvpnErrors):
-
     """
         Nitro error code 3250
         A STA or WI DBS configuration exists. Unset it first
@@ -12042,7 +10724,6 @@ class NSNitroNserrStawiExist(NSNitroSvpnErrors):
 
 
 class NSNitroNserrInvalidSsoAction(NSNitroSvpnErrors):
-
     """
         Nitro error code 2099
         Invalid sso action
@@ -12051,7 +10732,6 @@ class NSNitroNserrInvalidSsoAction(NSNitroSvpnErrors):
 
 
 class NSNitroNserrInvalidTmtrafficAction(NSNitroSvpnErrors):
-
     """
         Nitro error code 2100
         Invalid tm traffic action
@@ -12060,7 +10740,6 @@ class NSNitroNserrInvalidTmtrafficAction(NSNitroSvpnErrors):
 
 
 class NSNitroNserrInvalfsso(NSNitroSvpnErrors):
-
     """
         Nitro error code 2101
         SSO should be turned on for setting formsso action
@@ -12069,7 +10748,6 @@ class NSNitroNserrInvalfsso(NSNitroSvpnErrors):
 
 
 class NSNitroNserrInvalidurl(NSNitroSvpnErrors):
-
     """
         Nitro error code 2102
         Action url should be root relative url
@@ -12078,7 +10756,6 @@ class NSNitroNserrInvalidurl(NSNitroSvpnErrors):
 
 
 class NSNitroNserrInvalidFlowtypeForappflow(NSNitroSvpnErrors):
-
     """
         Nitro error code 2126
         Flowtype needs to be REQUEST or ICA_REQUEST or OTHERTCP_REQUEST
@@ -12088,7 +10765,6 @@ class NSNitroNserrInvalidFlowtypeForappflow(NSNitroSvpnErrors):
 
 
 class NSNitroNserrTooManyServers(NSNitroSvpnErrors):
-
     """
         Nitro error code 2127
         Too many servers bound
@@ -12097,7 +10773,6 @@ class NSNitroNserrTooManyServers(NSNitroSvpnErrors):
 
 
 class NSNitroNserrBlockingAttrWarningForVpnAppflow(NSNitroSvpnErrors):
-
     """
         Nitro error code 2961
         Policy will not apply to VPN traffic if it has blocking
@@ -12107,7 +10782,6 @@ class NSNitroNserrBlockingAttrWarningForVpnAppflow(NSNitroSvpnErrors):
 
 
 class NSNitroPolErrors(NSNitroError):
-
     """
         Base exception class NSNitroPolErrors
     """
@@ -12115,7 +10789,6 @@ class NSNitroPolErrors(NSNitroError):
 
 
 class NSNitroNserrInvalidpol(NSNitroPolErrors):
-
     """
         Nitro error code 2053
         Binding invalid policy
@@ -12124,7 +10797,6 @@ class NSNitroNserrInvalidpol(NSNitroPolErrors):
 
 
 class NSNitroNserrNopol(NSNitroPolErrors):
-
     """
         Nitro error code 2054
         No such policy exists
@@ -12133,7 +10805,6 @@ class NSNitroNserrNopol(NSNitroPolErrors):
 
 
 class NSNitroNserrRuleurl(NSNitroPolErrors):
-
     """
         Nitro error code 2055
         Rule or URL required
@@ -12142,7 +10813,6 @@ class NSNitroNserrRuleurl(NSNitroPolErrors):
 
 
 class NSNitroNserrDelmc(NSNitroPolErrors):
-
     """
         Nitro error code 2056
         Delay or maxConn argument required
@@ -12151,7 +10821,6 @@ class NSNitroNserrDelmc(NSNitroPolErrors):
 
 
 class NSNitroNserrAcp(NSNitroPolErrors):
-
     """
         Nitro error code 2057
         Alternate content path not required
@@ -12160,7 +10829,6 @@ class NSNitroNserrAcp(NSNitroPolErrors):
 
 
 class NSNitroNserrAcs(NSNitroPolErrors):
-
     """
         Nitro error code 2058
         Alternate content service not required
@@ -12169,7 +10837,6 @@ class NSNitroNserrAcs(NSNitroPolErrors):
 
 
 class NSNitroNserrNosetCexp(NSNitroPolErrors):
-
     """
         Nitro error code 2059
         No support to set compound expression value
@@ -12178,7 +10845,6 @@ class NSNitroNserrNosetCexp(NSNitroPolErrors):
 
 
 class NSNitroNserrCexpDepth(NSNitroPolErrors):
-
     """
         Nitro error code 2060
         Maximum recursive depth reached
@@ -12187,7 +10853,6 @@ class NSNitroNserrCexpDepth(NSNitroPolErrors):
 
 
 class NSNitroNserrNovpnapp(NSNitroPolErrors):
-
     """
         Nitro error code 2061
         No such intranet application exists
@@ -12196,7 +10861,6 @@ class NSNitroNserrNovpnapp(NSNitroPolErrors):
 
 
 class NSNitroNserrNosetCse(NSNitroPolErrors):
-
     """
         Nitro error code 2062
         No support to set client security expression value
@@ -12205,7 +10869,6 @@ class NSNitroNserrNosetCse(NSNitroPolErrors):
 
 
 class NSNitroNserrInvalPolname(NSNitroPolErrors):
-
     """
         Nitro error code 2063
         Invalid policy Name
@@ -12214,7 +10877,6 @@ class NSNitroNserrInvalPolname(NSNitroPolErrors):
 
 
 class NSNitroNserrUnbindInvalidpol(NSNitroPolErrors):
-
     """
         Nitro error code 2097
         Policy not bound
@@ -12223,7 +10885,6 @@ class NSNitroNserrUnbindInvalidpol(NSNitroPolErrors):
 
 
 class NSNitroNserrExceedMaxPolLimit(NSNitroPolErrors):
-
     """
         Nitro error code 2098
         32 authentication policies are already bound
@@ -12232,7 +10893,6 @@ class NSNitroNserrExceedMaxPolLimit(NSNitroPolErrors):
 
 
 class NSNitroNserrInternalPiError(NSNitroPolErrors):
-
     """
         Nitro error code 2103
         Internal policy error
@@ -12241,7 +10901,6 @@ class NSNitroNserrInternalPiError(NSNitroPolErrors):
 
 
 class NSNitroNserrNegPolViol1(NSNitroPolErrors):
-
     """
         Nitro error code 2104
         Only negotiate and certificate policies can be bound together
@@ -12250,7 +10909,6 @@ class NSNitroNserrNegPolViol1(NSNitroPolErrors):
 
 
 class NSNitroNserrNegPolViol2(NSNitroPolErrors):
-
     """
         Nitro error code 2105
         Negotiate policy in primary can be bound only along with ldap
@@ -12260,7 +10918,6 @@ class NSNitroNserrNegPolViol2(NSNitroPolErrors):
 
 
 class NSNitroNserrNegPolViol3(NSNitroPolErrors):
-
     """
         Nitro error code 2106
         Negotiate policy in secondary can be bound only along with
@@ -12270,7 +10927,6 @@ class NSNitroNserrNegPolViol3(NSNitroPolErrors):
 
 
 class NSNitroNserrSamlPolViol1(NSNitroPolErrors):
-
     """
         Nitro error code 2122
         SAML policy can only be the last in the cascade or the only one
@@ -12280,7 +10936,6 @@ class NSNitroNserrSamlPolViol1(NSNitroPolErrors):
 
 
 class NSNitroNserrSamlPolViol2(NSNitroPolErrors):
-
     """
         Nitro error code 2123
         SAML policy in primary can be bound only along with ldap policy
@@ -12290,7 +10945,6 @@ class NSNitroNserrSamlPolViol2(NSNitroPolErrors):
 
 
 class NSNitroNserrSamlPolViol3(NSNitroPolErrors):
-
     """
         Nitro error code 2124
         SAML policy cannot be bound to secondary cascade
@@ -12299,7 +10953,6 @@ class NSNitroNserrSamlPolViol3(NSNitroPolErrors):
 
 
 class NSNitroNserrSamlDisabled(NSNitroPolErrors):
-
     """
         Nitro error code 2125
         SAML policy binding is disabled
@@ -12308,7 +10961,6 @@ class NSNitroNserrSamlDisabled(NSNitroPolErrors):
 
 
 class NSNitroNserrLdapPolViol1(NSNitroPolErrors):
-
     """
         Nitro error code 2088
         Only LDAP policies may be bound for group extraction.
@@ -12317,7 +10969,6 @@ class NSNitroNserrLdapPolViol1(NSNitroPolErrors):
 
 
 class NSNitroNserrLdapPolViol2(NSNitroPolErrors):
-
     """
         Nitro error code 2089
         An LDAP policy bound for group extraction must set
@@ -12327,7 +10978,6 @@ class NSNitroNserrLdapPolViol2(NSNitroPolErrors):
 
 
 class NSNitroNserrNonSelectorPolicy(NSNitroPolErrors):
-
     """
         Nitro error code 2107
         Only selector based policies can be bound to sql vserver
@@ -12336,7 +10986,6 @@ class NSNitroNserrNonSelectorPolicy(NSNitroPolErrors):
 
 
 class NSNitroNserrBadSelector(NSNitroPolErrors):
-
     """
         Nitro error code 2108
         Selector does not match content group type
@@ -12345,7 +10994,6 @@ class NSNitroNserrBadSelector(NSNitroPolErrors):
 
 
 class NSNitroNserrBadContentgroup(NSNitroPolErrors):
-
     """
         Nitro error code 2109
         Contentgroup not compatible
@@ -12354,7 +11002,6 @@ class NSNitroNserrBadContentgroup(NSNitroPolErrors):
 
 
 class NSNitroNserrSqlPolGlobalBindpoint(NSNitroPolErrors):
-
     """
         Nitro error code 2110
         Datastream cache policies cannot have global/override bindpoint
@@ -12363,7 +11010,6 @@ class NSNitroNserrSqlPolGlobalBindpoint(NSNitroPolErrors):
 
 
 class NSNitroNserrAppqoeInvalidAcp(NSNitroPolErrors):
-
     """
         Nitro error code 2111
         Alternate content path is invalid
@@ -12372,7 +11018,6 @@ class NSNitroNserrAppqoeInvalidAcp(NSNitroPolErrors):
 
 
 class NSNitroNserrAppqoeCltrate(NSNitroPolErrors):
-
     """
         Nitro error code 2086
         Client detect rate is not required
@@ -12381,7 +11026,6 @@ class NSNitroNserrAppqoeCltrate(NSNitroPolErrors):
 
 
 class NSNitroNserrAppqoeDosthreshNreq(NSNitroPolErrors):
-
     """
         Nitro error code 2087
         DoS attack threshold is not required
@@ -12390,7 +11034,6 @@ class NSNitroNserrAppqoeDosthreshNreq(NSNitroPolErrors):
 
 
 class NSNitroNserrAppqoeDosthreshReq(NSNitroPolErrors):
-
     """
         Nitro error code 2090
         DoS attack threshold is required
@@ -12399,7 +11042,6 @@ class NSNitroNserrAppqoeDosthreshReq(NSNitroPolErrors):
 
 
 class NSNitroNserrAppqoeAcsReq(NSNitroPolErrors):
-
     """
         Nitro error code 2091
         Alternate content service is required
@@ -12408,7 +11050,6 @@ class NSNitroNserrAppqoeAcsReq(NSNitroPolErrors):
 
 
 class NSNitroNserrAppqoeAcpReq(NSNitroPolErrors):
-
     """
         Nitro error code 2092
         Alternate content path is required with alternate content
@@ -12418,7 +11059,6 @@ class NSNitroNserrAppqoeAcpReq(NSNitroPolErrors):
 
 
 class NSNitroNserrCmptypeMismatch(NSNitroPolErrors):
-
     """
         Nitro error code 2093
         Compression policy may not take effect due to global parameter
@@ -12428,7 +11068,6 @@ class NSNitroNserrCmptypeMismatch(NSNitroPolErrors):
 
 
 class NSNitroVlanErrors(NSNitroError):
-
     """
         Base exception class NSNitroVlanErrors
     """
@@ -12436,7 +11075,6 @@ class NSNitroVlanErrors(NSNitroError):
 
 
 class NSNitroNserrInterfacebound(NSNitroVlanErrors):
-
     """
         Nitro error code 2080
         Interface is already bound to this VLAN
@@ -12445,7 +11083,6 @@ class NSNitroNserrInterfacebound(NSNitroVlanErrors):
 
 
 class NSNitroNserrIfaceNoUnbind(NSNitroVlanErrors):
-
     """
         Nitro error code 2081
         Untagged interface cannot be removed from default VLAN. To
@@ -12455,7 +11092,6 @@ class NSNitroNserrIfaceNoUnbind(NSNitroVlanErrors):
 
 
 class NSNitroNserrIfaceMaxVlans(NSNitroVlanErrors):
-
     """
         Nitro error code 2082
         Maximum number of tagged VLANs bound to the interface exceeded
@@ -12465,7 +11101,6 @@ class NSNitroNserrIfaceMaxVlans(NSNitroVlanErrors):
 
 
 class NSNitroNserrVlanRtexist(NSNitroVlanErrors):
-
     """
         Nitro error code 2083
         An existing route relies on the presence of this vlan
@@ -12474,7 +11109,6 @@ class NSNitroNserrVlanRtexist(NSNitroVlanErrors):
 
 
 class NSNitroNserrVlanLlexist(NSNitroVlanErrors):
-
     """
         Nitro error code 2084
         An existing link-local ip relies on the presence of this vlan
@@ -12483,7 +11117,6 @@ class NSNitroNserrVlanLlexist(NSNitroVlanErrors):
 
 
 class NSNitroNserrBoundtonsvlan(NSNitroVlanErrors):
-
     """
         Nitro error code 2085
         Interface/Channel bound to NSVLAN
@@ -12492,7 +11125,6 @@ class NSNitroNserrBoundtonsvlan(NSNitroVlanErrors):
 
 
 class NSNitro0x850Errors(NSNitroError):
-
     """
         Base exception class NSNitro0x850Errors
     """
@@ -12500,7 +11132,6 @@ class NSNitro0x850Errors(NSNitroError):
 
 
 class NSNitroNserrMonitorInterval(NSNitro0x850Errors):
-
     """
         Nitro error code 2128
         Monitor interval must be greater than response timeout
@@ -12509,7 +11140,6 @@ class NSNitroNserrMonitorInterval(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorDestip(NSNitro0x850Errors):
-
     """
         Nitro error code 2129
         Destination IP must be specified for transparent,  tunneled or
@@ -12519,7 +11149,6 @@ class NSNitroNserrMonitorDestip(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorCodes(NSNitro0x850Errors):
-
     """
         Nitro error code 2130
         Too many response codes,  only 16 allowed
@@ -12528,7 +11157,6 @@ class NSNitroNserrMonitorCodes(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorRef(NSNitro0x850Errors):
-
     """
         Nitro error code 2131
         Monitor must be unbound before it can be deleted
@@ -12537,7 +11165,6 @@ class NSNitroNserrMonitorRef(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorBuiltin(NSNitro0x850Errors):
-
     """
         Nitro error code 2132
         Built-in monitors cannot be deleted
@@ -12546,7 +11173,6 @@ class NSNitroNserrMonitorBuiltin(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorBound(NSNitro0x850Errors):
-
     """
         Nitro error code 2133
         The monitor is already bound to the service
@@ -12555,7 +11181,6 @@ class NSNitroNserrMonitorBound(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorType(NSNitro0x850Errors):
-
     """
         Nitro error code 2134
         Invalid monitor type
@@ -12564,7 +11189,6 @@ class NSNitroNserrMonitorType(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorLocal(NSNitro0x850Errors):
-
     """
         Nitro error code 2135
         Monitor object cannot be bound to local service
@@ -12573,7 +11197,6 @@ class NSNitroNserrMonitorLocal(NSNitro0x850Errors):
 
 
 class NSNitroNserrTimeoutRange(NSNitro0x850Errors):
-
     """
         Nitro error code 2136
         Timeout value out of range; enter a value between 2 minutes and
@@ -12583,7 +11206,6 @@ class NSNitroNserrTimeoutRange(NSNitro0x850Errors):
 
 
 class NSNitroNserrInvalidhashlen(NSNitro0x850Errors):
-
     """
         Nitro error code 2137
         Hashlength should be between 1 and 4096 (inclusive)
@@ -12592,7 +11214,6 @@ class NSNitroNserrInvalidhashlen(NSNitro0x850Errors):
 
 
 class NSNitroNserrNotauthorized(NSNitro0x850Errors):
-
     """
         Nitro error code 2138
         Not authorized to execute this command
@@ -12601,7 +11222,6 @@ class NSNitroNserrNotauthorized(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorDefault(NSNitro0x850Errors):
-
     """
         Nitro error code 2139
         No operations allowed with the default monitor
@@ -12610,7 +11230,6 @@ class NSNitroNserrMonitorDefault(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorLdnsAddPerm(NSNitro0x850Errors):
-
     """
         Nitro error code 2140
         Cannot add monitor of ldns type
@@ -12619,7 +11238,6 @@ class NSNitroNserrMonitorLdnsAddPerm(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorLdnsBindPerm(NSNitro0x850Errors):
-
     """
         Nitro error code 2141
         Cannot bind ldns monitor
@@ -12628,7 +11246,6 @@ class NSNitroNserrMonitorLdnsBindPerm(NSNitro0x850Errors):
 
 
 class NSNitroNserrBackupLoop(NSNitro0x850Errors):
-
     """
         Nitro error code 2144
         The VIP is already a backup in the chain
@@ -12637,7 +11254,6 @@ class NSNitroNserrBackupLoop(NSNitro0x850Errors):
 
 
 class NSNitroNserrSecureUdp(NSNitro0x850Errors):
-
     """
         Nitro error code 2154
         Secure mode not supported for this protocol
@@ -12646,7 +11262,6 @@ class NSNitroNserrSecureUdp(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorWrongType(NSNitro0x850Errors):
-
     """
         Nitro error code 2155
         Existing monitor is of different type than given
@@ -12655,7 +11270,6 @@ class NSNitroNserrMonitorWrongType(NSNitro0x850Errors):
 
 
 class NSNitroNserrLrtmPerm(NSNitro0x850Errors):
-
     """
         Nitro error code 2156
         Enabling LRTM on this monitor type is not permitted
@@ -12664,7 +11278,6 @@ class NSNitroNserrLrtmPerm(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorScriptname(NSNitro0x850Errors):
-
     """
         Nitro error code 2157
         Invalid script name for user monitor
@@ -12673,7 +11286,6 @@ class NSNitroNserrMonitorScriptname(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorDispatcherip(NSNitro0x850Errors):
-
     """
         Nitro error code 2159
         Invalid dispatcher IP for user monitor
@@ -12682,7 +11294,6 @@ class NSNitroNserrMonitorDispatcherip(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorUserperm(NSNitro0x850Errors):
-
     """
         Nitro error code 2160
         Operation not permitted for a user monitor
@@ -12691,7 +11302,6 @@ class NSNitroNserrMonitorUserperm(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorNocodes(NSNitro0x850Errors):
-
     """
         Nitro error code 2161
         A response code is required for this monitor type
@@ -12700,7 +11310,6 @@ class NSNitroNserrMonitorNocodes(NSNitro0x850Errors):
 
 
 class NSNitroNserrInvalMon(NSNitro0x850Errors):
-
     """
         Nitro error code 2162
         Attempt to bind invalid monitor type
@@ -12709,7 +11318,6 @@ class NSNitroNserrInvalMon(NSNitro0x850Errors):
 
 
 class NSNitroNserrTypeExists(NSNitro0x850Errors):
-
     """
         Nitro error code 2163
         Only one monitor of this type can be bound to a service
@@ -12718,7 +11326,6 @@ class NSNitroNserrTypeExists(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorUnbindDefault(NSNitro0x850Errors):
-
     """
         Nitro error code 2164
         Default monitor cannot be unbound from a service
@@ -12727,7 +11334,6 @@ class NSNitroNserrMonitorUnbindDefault(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorBindDefault(NSNitro0x850Errors):
-
     """
         Nitro error code 2165
         Default monitor cannot be bound explicitly to a service
@@ -12736,7 +11342,6 @@ class NSNitroNserrMonitorBindDefault(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorDisableDefault(NSNitro0x850Errors):
-
     """
         Nitro error code 2166
         Default monitor cannot be disabled or enabled
@@ -12745,7 +11350,6 @@ class NSNitroNserrMonitorDisableDefault(NSNitro0x850Errors):
 
 
 class NSNitroNserrDrtmPerm(NSNitro0x850Errors):
-
     """
         Nitro error code 2167
         Dynamic response timeout is not permitted on this monitor type
@@ -12754,7 +11358,6 @@ class NSNitroNserrDrtmPerm(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonDtrmDeviation(NSNitro0x850Errors):
-
     """
         Nitro error code 2168
         Response timeout of the monitor has been changed to interval - 1
@@ -12763,7 +11366,6 @@ class NSNitroNserrMonDtrmDeviation(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorInvalidValue(NSNitro0x850Errors):
-
     """
         Nitro error code 2169
         Time parameter must be a multiple of 10
@@ -12772,7 +11374,6 @@ class NSNitroNserrMonitorInvalidValue(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorNotBound(NSNitro0x850Errors):
-
     """
         Nitro error code 2170
         Monitor not bound to service
@@ -12781,7 +11382,6 @@ class NSNitroNserrMonitorNotBound(NSNitro0x850Errors):
 
 
 class NSNitroNserrInvalidMonitor(NSNitro0x850Errors):
-
     """
         Nitro error code 2171
         Monitor does not exist
@@ -12790,7 +11390,6 @@ class NSNitroNserrInvalidMonitor(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorNoSuchipaddr(NSNitro0x850Errors):
-
     """
         Nitro error code 2172
         Some IP addresses were not present
@@ -12799,7 +11398,6 @@ class NSNitroNserrMonitorNoSuchipaddr(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorScriptArgSize(NSNitro0x850Errors):
-
     """
         Nitro error code 2173
         Combined argument size too long
@@ -12808,7 +11406,6 @@ class NSNitroNserrMonitorScriptArgSize(NSNitro0x850Errors):
 
 
 class NSNitroNserrMetrictableNoent(NSNitro0x850Errors):
-
     """
         Nitro error code 2174
         Metric table does not exist
@@ -12817,7 +11414,6 @@ class NSNitroNserrMetrictableNoent(NSNitro0x850Errors):
 
 
 class NSNitroNserrMetrictableExist(NSNitro0x850Errors):
-
     """
         Nitro error code 2175
         Metric table exists
@@ -12826,7 +11422,6 @@ class NSNitroNserrMetrictableExist(NSNitro0x850Errors):
 
 
 class NSNitroNserrDelMetrictablePermanent(NSNitro0x850Errors):
-
     """
         Nitro error code 2176
         Permanent metric table cannot be deleted
@@ -12835,7 +11430,6 @@ class NSNitroNserrDelMetrictablePermanent(NSNitro0x850Errors):
 
 
 class NSNitroNserrMaxMetricBinding(NSNitro0x850Errors):
-
     """
         Nitro error code 2177
         Maximum of 10 SNMP type metric can be bound to the monitor
@@ -12844,7 +11438,6 @@ class NSNitroNserrMaxMetricBinding(NSNitro0x850Errors):
 
 
 class NSNitroNserrMetricNoent(NSNitro0x850Errors):
-
     """
         Nitro error code 2178
         Metric does not exist
@@ -12853,7 +11446,6 @@ class NSNitroNserrMetricNoent(NSNitro0x850Errors):
 
 
 class NSNitroNserrMetricExists(NSNitro0x850Errors):
-
     """
         Nitro error code 2179
         Metric exists
@@ -12862,7 +11454,6 @@ class NSNitroNserrMetricExists(NSNitro0x850Errors):
 
 
 class NSNitroNserrOidExist(NSNitro0x850Errors):
-
     """
         Nitro error code 2180
         SNMP OID exists
@@ -12871,7 +11462,6 @@ class NSNitroNserrOidExist(NSNitro0x850Errors):
 
 
 class NSNitroNserrSnmpOidInval(NSNitro0x850Errors):
-
     """
         Nitro error code 2181
         SNMP OID is invalid
@@ -12880,7 +11470,6 @@ class NSNitroNserrSnmpOidInval(NSNitro0x850Errors):
 
 
 class NSNitroNserrMetrictableRdonly(NSNitro0x850Errors):
-
     """
         Nitro error code 2182
         No operations allowed on read only metric table
@@ -12889,7 +11478,6 @@ class NSNitroNserrMetrictableRdonly(NSNitro0x850Errors):
 
 
 class NSNitroNserrThresholdZero(NSNitro0x850Errors):
-
     """
         Nitro error code 2183
         This metric will not be used for CUSTOM LB as its threshold
@@ -12899,7 +11487,6 @@ class NSNitroNserrThresholdZero(NSNitro0x850Errors):
 
 
 class NSNitroNserrLdapMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2184
         bindDN or baseDN must be specified before LDAP monitor can be
@@ -12909,7 +11496,6 @@ class NSNitroNserrLdapMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrMysqlMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2185
         userName or database must be specified before MYSQL monitor can
@@ -12919,7 +11505,6 @@ class NSNitroNserrMysqlMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrPop3MonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2186
         userName must be specified before POP3 monitor can be used
@@ -12928,7 +11513,6 @@ class NSNitroNserrPop3MonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrNntpMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2187
         group must be specified before NNTP monitor can be used
@@ -12937,7 +11521,6 @@ class NSNitroNserrNntpMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrFtpextendedMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2188
         fileName must be specified before FTP-EXTENDED monitor can be
@@ -12947,7 +11530,6 @@ class NSNitroNserrFtpextendedMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrSnmpMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2189
         snmpOID or snmpCommunity must be specified before SNMP monitor
@@ -12957,7 +11539,6 @@ class NSNitroNserrSnmpMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrCitrixXmlService(NSNitro0x850Errors):
-
     """
         Nitro error code 2190
         application must be specified before CITRIX-XML-SERVICE monitor
@@ -12967,7 +11548,6 @@ class NSNitroNserrCitrixXmlService(NSNitro0x850Errors):
 
 
 class NSNitroNserrCitrixWebInterface(NSNitro0x850Errors):
-
     """
         Nitro error code 2191
         sitePath must be specified before CITRIX-WEB-INTERFACE monitor
@@ -12977,7 +11557,6 @@ class NSNitroNserrCitrixWebInterface(NSNitro0x850Errors):
 
 
 class NSNitroNserrLdnsMonCantDisable(NSNitro0x850Errors):
-
     """
         Nitro error code 2192
         Atleast one ldns monitor needs to be enabled
@@ -12986,7 +11565,6 @@ class NSNitroNserrLdnsMonCantDisable(NSNitro0x850Errors):
 
 
 class NSNitroNserrResRetryOnIpSvr(NSNitro0x850Errors):
-
     """
         Nitro error code 2193
         Resolve retry can be set only on domain based servers
@@ -12995,7 +11573,6 @@ class NSNitroNserrResRetryOnIpSvr(NSNitro0x850Errors):
 
 
 class NSNitroNserrIpOnDbsSvr(NSNitro0x850Errors):
-
     """
         Nitro error code 2194
         IP Address cannot be set on a domain based server
@@ -13004,7 +11581,6 @@ class NSNitroNserrIpOnDbsSvr(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorAlertretries(NSNitro0x850Errors):
-
     """
         Nitro error code 2195
         Monitor retries must be greater than SNMP alert retries
@@ -13013,7 +11589,6 @@ class NSNitroNserrMonitorAlertretries(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorFailureretries(NSNitro0x850Errors):
-
     """
         Nitro error code 2196
         Monitor retries must be greater than monitor failureRetries
@@ -13022,7 +11597,6 @@ class NSNitroNserrMonitorFailureretries(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorAlertfailureretries(NSNitro0x850Errors):
-
     """
         Nitro error code 2197
         Monitor failureRetries must be greater than SNMP alertRetries
@@ -13031,7 +11605,6 @@ class NSNitroNserrMonitorAlertfailureretries(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorIp(NSNitro0x850Errors):
-
     """
         Nitro error code 2198
         The server/monitor destination ip address is not appropriate for
@@ -13041,7 +11614,6 @@ class NSNitroNserrMonitorIp(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorSubnet(NSNitro0x850Errors):
-
     """
         Nitro error code 2199
         The server/monitor destination ip address should be in a
@@ -13051,7 +11623,6 @@ class NSNitroNserrMonitorSubnet(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorStatic(NSNitro0x850Errors):
-
     """
         Nitro error code 2200
         A static/permanent entry is configured for the server/monitor
@@ -13061,7 +11632,6 @@ class NSNitroNserrMonitorStatic(NSNitro0x850Errors):
 
 
 class NSNitroNserrTosidNotSet(NSNitro0x850Errors):
-
     """
         Nitro error code 2201
         Tos id must be specified for tos enabled vserver/monitor
@@ -13070,7 +11640,6 @@ class NSNitroNserrTosidNotSet(NSNitro0x850Errors):
 
 
 class NSNitroNserrFailureretriesNotSupported(NSNitro0x850Errors):
-
     """
         Nitro error code 2202
         The failure retries is not supported for this monitor type.
@@ -13080,7 +11649,6 @@ class NSNitroNserrFailureretriesNotSupported(NSNitro0x850Errors):
 
 
 class NSNitroNserrSuccessretriesNotSupported(NSNitro0x850Errors):
-
     """
         Nitro error code 2203
         The success retries is not supported for this monitor type.
@@ -13090,7 +11658,6 @@ class NSNitroNserrSuccessretriesNotSupported(NSNitro0x850Errors):
 
 
 class NSNitroNserrSetvsInvalMysqlparams(NSNitro0x850Errors):
-
     """
         Nitro error code 2204
         This parameter is only applicable to a MYSQL vserver.
@@ -13099,7 +11666,6 @@ class NSNitroNserrSetvsInvalMysqlparams(NSNitro0x850Errors):
 
 
 class NSNitroNserrSetvsInvalProtocolParams(NSNitro0x850Errors):
-
     """
         Nitro error code 2205
         The parameters are only applicable to  HTTP or SSL vservers.
@@ -13108,7 +11674,6 @@ class NSNitroNserrSetvsInvalProtocolParams(NSNitro0x850Errors):
 
 
 class NSNitroNserrSetvsInvalProtocolsParams(NSNitro0x850Errors):
-
     """
         Nitro error code 2206
         The parameters are only applicable to  HTTP ,  SSL or RTSP
@@ -13118,7 +11683,6 @@ class NSNitroNserrSetvsInvalProtocolsParams(NSNitro0x850Errors):
 
 
 class NSNitroNserrDdcValidateCredRequired(NSNitro0x850Errors):
-
     """
         Nitro error code 2207
         Username,  password and ddc domain are required for Xen Desktop
@@ -13128,7 +11692,6 @@ class NSNitroNserrDdcValidateCredRequired(NSNitro0x850Errors):
 
 
 class NSNitroNserrCitrixWiExtendedMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2208
         userName,  password,  sitepath and domain must be specified
@@ -13138,7 +11701,6 @@ class NSNitroNserrCitrixWiExtendedMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrSetvsInvalMssqlparams(NSNitro0x850Errors):
-
     """
         Nitro error code 2209
         This parameter is only applicable to a MSSQL vserver.
@@ -13147,7 +11709,6 @@ class NSNitroNserrSetvsInvalMssqlparams(NSNitro0x850Errors):
 
 
 class NSNitroNserrDrtmMonBoundedSvc(NSNitro0x850Errors):
-
     """
         Nitro error code 2210
         In a cluster system,  deviation can't be set/unset on any
@@ -13157,7 +11718,6 @@ class NSNitroNserrDrtmMonBoundedSvc(NSNitro0x850Errors):
 
 
 class NSNitroNserrPassiveOnLoadOnly(NSNitro0x850Errors):
-
     """
         Nitro error code 2212
         PASSIVE option can be set only on LOAD monitors.
@@ -13166,7 +11726,6 @@ class NSNitroNserrPassiveOnLoadOnly(NSNitro0x850Errors):
 
 
 class NSNitroNserrSetvsInvalOracleparams(NSNitro0x850Errors):
-
     """
         Nitro error code 2213
         This parameter is only applicable to a ORACLE vserver.
@@ -13175,7 +11734,6 @@ class NSNitroNserrSetvsInvalOracleparams(NSNitro0x850Errors):
 
 
 class NSNitroNserrRadiusAccountingMonitorIncomplete(NSNitro0x850Errors):
-
     """
         Nitro error code 2214
         Secret key must be specified before RADIUS ACCOUNTING monitor
@@ -13185,7 +11743,6 @@ class NSNitroNserrRadiusAccountingMonitorIncomplete(NSNitro0x850Errors):
 
 
 class NSNitroNserrMonitorScriptArgCnt(NSNitro0x850Errors):
-
     """
         Nitro error code 2215
         Too many script arguments
@@ -13194,7 +11751,6 @@ class NSNitroNserrMonitorScriptArgCnt(NSNitro0x850Errors):
 
 
 class NSNitroNserrInvalidDbslbBind(NSNitro0x850Errors):
-
     """
         Nitro error code 2216
         More than one bind not possible on one service for DBSLB in
@@ -13204,7 +11760,6 @@ class NSNitroNserrInvalidDbslbBind(NSNitro0x850Errors):
 
 
 class NSNitro0x900Errors(NSNitroError):
-
     """
         Base exception class NSNitro0x900Errors
     """
@@ -13212,7 +11767,6 @@ class NSNitro0x900Errors(NSNitroError):
 
 
 class NSNitroNserrSvcporttype(NSNitro0x900Errors):
-
     """
         Nitro error code 2305
         Service exists with the same port and service type
@@ -13221,7 +11775,6 @@ class NSNitroNserrSvcporttype(NSNitro0x900Errors):
 
 
 class NSNitroNserrVipInGroup(NSNitro0x900Errors):
-
     """
         Nitro error code 2306
         vserver is bound to a group. Set persistence parameters on group
@@ -13232,7 +11785,6 @@ class NSNitroNserrVipInGroup(NSNitro0x900Errors):
 
 
 class NSNitroNserrUnsupportedBkp(NSNitro0x900Errors):
-
     """
         Nitro error code 2307
         This backup/primary persistence combination is not supported
@@ -13241,7 +11793,6 @@ class NSNitroNserrUnsupportedBkp(NSNitro0x900Errors):
 
 
 class NSNitroNserrNonhttpsslVipingrp(NSNitro0x900Errors):
-
     """
         Nitro error code 2308
         Cookie persistence cannot be applied - group has non HTTP/SSL
@@ -13251,7 +11802,6 @@ class NSNitroNserrNonhttpsslVipingrp(NSNitro0x900Errors):
 
 
 class NSNitroNserrNonhttpVipingrp(NSNitro0x900Errors):
-
     """
         Nitro error code 2309
         Cookie persistence cannot be applied - group has non-HTTP type
@@ -13261,7 +11811,6 @@ class NSNitroNserrNonhttpVipingrp(NSNitro0x900Errors):
 
 
 class NSNitroNserrUseProperRmCmd(NSNitro0x900Errors):
-
     """
         Nitro error code 2310
         Use remove IP option instead
@@ -13270,7 +11819,6 @@ class NSNitroNserrUseProperRmCmd(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbmethodNotSupported(NSNitro0x900Errors):
-
     """
         Nitro error code 2321
         LB method not supported for LLB/PBR
@@ -13279,7 +11827,6 @@ class NSNitroNserrLbmethodNotSupported(NSNitro0x900Errors):
 
 
 class NSNitroNserrPersistenceNotSupported(NSNitro0x900Errors):
-
     """
         Nitro error code 2322
         Persistence not supported for LLB/PBR
@@ -13288,7 +11835,6 @@ class NSNitroNserrPersistenceNotSupported(NSNitro0x900Errors):
 
 
 class NSNitroNserrVserverParameters(NSNitro0x900Errors):
-
     """
         Nitro error code 2323
         Vserver arguments not valid for LLB/PBR VIP
@@ -13297,7 +11843,6 @@ class NSNitroNserrVserverParameters(NSNitro0x900Errors):
 
 
 class NSNitroNserrServiceParameters(NSNitro0x900Errors):
-
     """
         Nitro error code 2324
         Service parameters are invalid for LLB/PBR VIP
@@ -13306,7 +11851,6 @@ class NSNitroNserrServiceParameters(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbvipDelete(NSNitro0x900Errors):
-
     """
         Nitro error code 2325
         Vserver cannot be removed with out removing LB/PBR route
@@ -13315,7 +11859,6 @@ class NSNitroNserrLbvipDelete(NSNitro0x900Errors):
 
 
 class NSNitroNserrCachepolicyRespactionInval(NSNitro0x900Errors):
-
     """
         Nitro error code 2326
         Integrated caching action cannot be applied on a response
@@ -13324,7 +11867,6 @@ class NSNitroNserrCachepolicyRespactionInval(NSNitro0x900Errors):
 
 
 class NSNitroNserrCachelicenseFailed(NSNitro0x900Errors):
-
     """
         Nitro error code 2327
         The license for Integrated Caching feature was not enabled due
@@ -13334,7 +11876,6 @@ class NSNitroNserrCachelicenseFailed(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbvipMultiroutes(NSNitro0x900Errors):
-
     """
         Nitro error code 2328
         VIP can't be associated with multiple LB/PBR routes
@@ -13343,7 +11884,6 @@ class NSNitroNserrLbvipMultiroutes(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbmacInval(NSNitro0x900Errors):
-
     """
         Nitro error code 2329
         MAC/IPTUNNEL mode can be set only for a VIP with wildcard IP or
@@ -13353,7 +11893,6 @@ class NSNitroNserrLbmacInval(NSNitro0x900Errors):
 
 
 class NSNitroNserrCachestatsObjNotpresent(NSNitro0x900Errors):
-
     """
         Nitro error code 2336
         No object in cache matching the specified attributes
@@ -13362,7 +11901,6 @@ class NSNitroNserrCachestatsObjNotpresent(NSNitro0x900Errors):
 
 
 class NSNitroNserrCachepolicyNotactive(NSNitro0x900Errors):
-
     """
         Nitro error code 2337
         Integrated caching policy is not active
@@ -13371,7 +11909,6 @@ class NSNitroNserrCachepolicyNotactive(NSNitro0x900Errors):
 
 
 class NSNitroNserrCacheBuiltinsNotSourced(NSNitro0x900Errors):
-
     """
         Nitro error code 2338
         Failed sourcing cache builtins,  Disabling IC
@@ -13380,7 +11917,6 @@ class NSNitroNserrCacheBuiltinsNotSourced(NSNitro0x900Errors):
 
 
 class NSNitroNserrCachepolicyPriorityInval(NSNitro0x900Errors):
-
     """
         Nitro error code 2339
         Invalid priority
@@ -13389,7 +11925,6 @@ class NSNitroNserrCachepolicyPriorityInval(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6DefaultOnly(NSNitro0x900Errors):
-
     """
         Nitro error code 2340
         Only default route configuration supported
@@ -13398,7 +11933,6 @@ class NSNitroNserrRoute6DefaultOnly(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6DefaultExists(NSNitro0x900Errors):
-
     """
         Nitro error code 2341
         Configured route already exists
@@ -13407,7 +11941,6 @@ class NSNitroNserrRoute6DefaultExists(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6InvalidGateway(NSNitro0x900Errors):
-
     """
         Nitro error code 2342
         Invalid gateway
@@ -13416,7 +11949,6 @@ class NSNitroNserrRoute6InvalidGateway(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6Max(NSNitro0x900Errors):
-
     """
         Nitro error code 2343
         Already maximum number of routes configured
@@ -13425,7 +11957,6 @@ class NSNitroNserrRoute6Max(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6NotExist(NSNitro0x900Errors):
-
     """
         Nitro error code 2344
         Route does not exist
@@ -13434,7 +11965,6 @@ class NSNitroNserrRoute6NotExist(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6InvalidAddr(NSNitro0x900Errors):
-
     """
         Nitro error code 2345
         Incorrect IPv6 address type
@@ -13443,7 +11973,6 @@ class NSNitroNserrIpv6InvalidAddr(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbvipIpv6tov4(NSNitro0x900Errors):
-
     """
         Nitro error code 2352
         Changing IP from IPv6 to IPv4 not permitted
@@ -13452,7 +11981,6 @@ class NSNitroNserrLbvipIpv6tov4(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6Nsiptovip(NSNitro0x900Errors):
-
     """
         Nitro error code 2353
         Configuring NSIP as VIP not permitted
@@ -13461,7 +11989,6 @@ class NSNitroNserrIpv6Nsiptovip(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6Viptonsip(NSNitro0x900Errors):
-
     """
         Nitro error code 2354
         Configuring VIP as NSIP not permitted
@@ -13470,7 +11997,6 @@ class NSNitroNserrIpv6Viptonsip(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6Scope(NSNitro0x900Errors):
-
     """
         Nitro error code 2355
         Incorrect IPv6 address scope. (Default: global)
@@ -13479,7 +12005,6 @@ class NSNitroNserrIpv6Scope(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbvipIpv4tov6(NSNitro0x900Errors):
-
     """
         Nitro error code 2356
         Changing IP from IPv4 to IPv6 not permitted
@@ -13488,7 +12013,6 @@ class NSNitroNserrLbvipIpv4tov6(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6Linklocaltovip(NSNitro0x900Errors):
-
     """
         Nitro error code 2357
         Configuring Link-Local address as VIP or SNIP not permitted
@@ -13497,7 +12021,6 @@ class NSNitroNserrIpv6Linklocaltovip(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6Mapiponnsip(NSNitro0x900Errors):
-
     """
         Nitro error code 2358
         Mapped IP should not be configured for NSIP (Ignoring mapped ip)
@@ -13506,7 +12029,6 @@ class NSNitroNserrIpv6Mapiponnsip(NSNitro0x900Errors):
 
 
 class NSNitroNserrSecureipportaddrinuse(NSNitro0x900Errors):
-
     """
         Nitro error code 2359
         Internal secure service exists with the same port and service
@@ -13516,7 +12038,6 @@ class NSNitroNserrSecureipportaddrinuse(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6InvalidPrefix(NSNitro0x900Errors):
-
     """
         Nitro error code 2360
         Link-local prefix length is not equal to 64
@@ -13525,7 +12046,6 @@ class NSNitroNserrIpv6InvalidPrefix(NSNitro0x900Errors):
 
 
 class NSNitroNserrNd6LinklocalVlan(NSNitro0x900Errors):
-
     """
         Nitro error code 2361
         Vlan is necessary with IPv6 Link-local address
@@ -13534,7 +12054,6 @@ class NSNitroNserrNd6LinklocalVlan(NSNitro0x900Errors):
 
 
 class NSNitroNserrNd6VlanIntf(NSNitro0x900Errors):
-
     """
         Nitro error code 2368
         Interface not a member of given vlan
@@ -13543,7 +12062,6 @@ class NSNitroNserrNd6VlanIntf(NSNitro0x900Errors):
 
 
 class NSNitroNserrPersistTimeoutToDefault(NSNitro0x900Errors):
-
     """
         Nitro error code 2369
         Unsetting Persistency,  changing timeout to default
@@ -13552,7 +12070,6 @@ class NSNitroNserrPersistTimeoutToDefault(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbGroupNotExist(NSNitro0x900Errors):
-
     """
         Nitro error code 2370
         LB group does not exist
@@ -13561,7 +12078,6 @@ class NSNitroNserrLbGroupNotExist(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbVserverAlreadyBound(NSNitro0x900Errors):
-
     """
         Nitro error code 2371
         Vserver is already bound to a LB group
@@ -13570,7 +12086,6 @@ class NSNitroNserrLbVserverAlreadyBound(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6InvalidLinklocalGatewayVlan(NSNitro0x900Errors):
-
     """
         Nitro error code 2372
         Vlan ID must be specified for linklocal gateway
@@ -13579,7 +12094,6 @@ class NSNitroNserrRoute6InvalidLinklocalGatewayVlan(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6NoGworif(NSNitro0x900Errors):
-
     """
         Nitro error code 2373
         Either Gateway or Interface (vlan) should be specified for route
@@ -13588,7 +12102,6 @@ class NSNitroNserrRoute6NoGworif(NSNitro0x900Errors):
 
 
 class NSNitroNserrRoute6VlanMonitor(NSNitro0x900Errors):
-
     """
         Nitro error code 2374
         Monitor should not be given for vlan route
@@ -13597,7 +12110,6 @@ class NSNitroNserrRoute6VlanMonitor(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbmethodLeastreqNotSupported(NSNitro0x900Errors):
-
     """
         Nitro error code 2375
         LeastRequest LB method not supported for this service type
@@ -13606,7 +12118,6 @@ class NSNitroNserrLbmethodLeastreqNotSupported(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6MultipleLlip(NSNitro0x900Errors):
-
     """
         Nitro error code 2376
         Multiple link-local IPs to a Vlan is not allowed
@@ -13615,7 +12126,6 @@ class NSNitroNserrIpv6MultipleLlip(NSNitro0x900Errors):
 
 
 class NSNitroNserrIpv6ToomanyPrefixes(NSNitro0x900Errors):
-
     """
         Nitro error code 2377
         Too many prefixes to a Vlan,  maxmimum 5 prefixes are allowed
@@ -13624,7 +12134,6 @@ class NSNitroNserrIpv6ToomanyPrefixes(NSNitro0x900Errors):
 
 
 class NSNitroNserrRaprefixBoundtovlan(NSNitro0x900Errors):
-
     """
         Nitro error code 2378
         Router Advertisement prefix is bound to vlan
@@ -13633,7 +12142,6 @@ class NSNitroNserrRaprefixBoundtovlan(NSNitro0x900Errors):
 
 
 class NSNitroNserrLbVserverNotBound(NSNitro0x900Errors):
-
     """
         Nitro error code 2379
         Given vserver is not bound to this LB group
@@ -13642,7 +12150,6 @@ class NSNitroNserrLbVserverNotBound(NSNitro0x900Errors):
 
 
 class NSNitroNserrVserverBoundToNg(NSNitro0x900Errors):
-
     """
         Nitro error code 2380
         Cannot delete vserver that is bound to a nodegroup
@@ -13651,7 +12158,6 @@ class NSNitroNserrVserverBoundToNg(NSNitro0x900Errors):
 
 
 class NSNitroNserrVpathDestipNotdirect(NSNitro0x900Errors):
-
     """
         Nitro error code 2381
         Destination IPaddress should be directly connected
@@ -13660,7 +12166,6 @@ class NSNitroNserrVpathDestipNotdirect(NSNitro0x900Errors):
 
 
 class NSNitroNserrLronlacponly(NSNitro0x900Errors):
-
     """
         Nitro error code 2382
         Link Redundancy can be set only on LACP Channels
@@ -13669,7 +12174,6 @@ class NSNitroNserrLronlacponly(NSNitro0x900Errors):
 
 
 class NSNitroClusterErrors(NSNitroError):
-
     """
         Base exception class NSNitroClusterErrors
     """
@@ -13677,7 +12181,6 @@ class NSNitroClusterErrors(NSNitroError):
 
 
 class NSNitroNserrClnotexist(NSNitroClusterErrors):
-
     """
         Nitro error code 2448
         Cluster does not exist
@@ -13686,7 +12189,6 @@ class NSNitroNserrClnotexist(NSNitroClusterErrors):
 
 
 class NSNitroNserrToomanycls(NSNitroClusterErrors):
-
     """
         Nitro error code 2449
         This node is already added to another cluster
@@ -13695,7 +12197,6 @@ class NSNitroNserrToomanycls(NSNitroClusterErrors):
 
 
 class NSNitroNserrRmlocalnode(NSNitroClusterErrors):
-
     """
         Nitro error code 2450
         Local Node cannot be deleted
@@ -13704,7 +12205,6 @@ class NSNitroNserrRmlocalnode(NSNitroClusterErrors):
 
 
 class NSNitroNserrBkplaneenabled(NSNitroClusterErrors):
-
     """
         Nitro error code 2451
         Cluster Backplane is enabled on this interface
@@ -13713,7 +12213,6 @@ class NSNitroNserrBkplaneenabled(NSNitroClusterErrors):
 
 
 class NSNitroNserrLocalnodeNotconfigured(NSNitroClusterErrors):
-
     """
         Nitro error code 2452
         Clustering cannot be enabled as the local node is not a member
@@ -13723,7 +12222,6 @@ class NSNitroNserrLocalnodeNotconfigured(NSNitroClusterErrors):
 
 
 class NSNitroNserrHaclCannotCoexist(NSNitroClusterErrors):
-
     """
         Nitro error code 2453
         Clustering and HA cannot coexist.
@@ -13732,7 +12230,6 @@ class NSNitroNserrHaclCannotCoexist(NSNitroClusterErrors):
 
 
 class NSNitroNserrClacpkeynotcrt(NSNitroClusterErrors):
-
     """
         Nitro error code 2454
         LACP key for Node/cluster is not correct
@@ -13741,7 +12238,6 @@ class NSNitroNserrClacpkeynotcrt(NSNitroClusterErrors):
 
 
 class NSNitroNserrClnodeExist(NSNitroClusterErrors):
-
     """
         Nitro error code 2455
         already in cluster
@@ -13750,7 +12246,6 @@ class NSNitroNserrClnodeExist(NSNitroClusterErrors):
 
 
 class NSNitroNserrBkplanedisabled(NSNitroClusterErrors):
-
     """
         Nitro error code 2456
         Disabling Cluster backplane interface
@@ -13759,7 +12254,6 @@ class NSNitroNserrBkplanedisabled(NSNitroClusterErrors):
 
 
 class NSNitroNserrClagthroughput(NSNitroClusterErrors):
-
     """
         Nitro error code 2457
         Currently throughput settings are not allowed on CLAG
@@ -13768,7 +12262,6 @@ class NSNitroNserrClagthroughput(NSNitroClusterErrors):
 
 
 class NSNitroNserrLicmismatch(NSNitroClusterErrors):
-
     """
         Nitro error code 2458
         License mismatch between Configuration Coordinator and local
@@ -13778,7 +12271,6 @@ class NSNitroNserrLicmismatch(NSNitroClusterErrors):
 
 
 class NSNitroNserrClipInvalidnetmask(NSNitroClusterErrors):
-
     """
         Nitro error code 2459
         CLIP netmask should be 255.255.255.255.
@@ -13787,7 +12279,6 @@ class NSNitroNserrClipInvalidnetmask(NSNitroClusterErrors):
 
 
 class NSNitroNserrBkplanelacpdelete(NSNitroClusterErrors):
-
     """
         Nitro error code 2460
         This is the last interface in LACP channel configured as
@@ -13797,7 +12288,6 @@ class NSNitroNserrBkplanelacpdelete(NSNitroClusterErrors):
 
 
 class NSNitroNserrLinksetmember(NSNitroClusterErrors):
-
     """
         Nitro error code 2461
         Interface/Channel is Linkset member.
@@ -13806,7 +12296,6 @@ class NSNitroNserrLinksetmember(NSNitroClusterErrors):
 
 
 class NSNitroNserrConfigParam(NSNitroClusterErrors):
-
     """
         Nitro error code 2462
         Setting up of netscaler parameter ignored using this command in
@@ -13816,7 +12305,6 @@ class NSNitroNserrConfigParam(NSNitroClusterErrors):
 
 
 class NSNitroNserrClipInvalidprefixlen(NSNitroClusterErrors):
-
     """
         Nitro error code 2463
         CLIP prefix length should be 128.
@@ -13825,7 +12313,6 @@ class NSNitroNserrClipInvalidprefixlen(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterL2notsupp(NSNitroClusterErrors):
-
     """
         Nitro error code 2464
         L2 Mode not supported in Cluster mode.
@@ -13834,7 +12321,6 @@ class NSNitroNserrClusterL2notsupp(NSNitroClusterErrors):
 
 
 class NSNitroNserrLinksetOnepernode(NSNitroClusterErrors):
-
     """
         Nitro error code 2465
         Linkset can have only one Interface/Channel per Node
@@ -13843,7 +12329,6 @@ class NSNitroNserrLinksetOnepernode(NSNitroClusterErrors):
 
 
 class NSNitroNserrLinksetNotbound(NSNitroClusterErrors):
-
     """
         Nitro error code 2466
         Interface/Channel not bound to Linkset
@@ -13852,7 +12337,6 @@ class NSNitroNserrLinksetNotbound(NSNitroClusterErrors):
 
 
 class NSNitroNserrLinksetIdinvalid(NSNitroClusterErrors):
-
     """
         Nitro error code 2467
         Linkset name should be of form LS/,  id range:1-32
@@ -13861,7 +12345,6 @@ class NSNitroNserrLinksetIdinvalid(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterNbnotsupp(NSNitroClusterErrors):
-
     """
         Nitro error code 2468
         Net Bridge is not supported in Cluster mode.
@@ -13870,7 +12353,6 @@ class NSNitroNserrClusterNbnotsupp(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterVpnnotsupp(NSNitroClusterErrors):
-
     """
         Nitro error code 2469
         SSLVPN is not supported in Cluster mode.
@@ -13879,7 +12361,6 @@ class NSNitroNserrClusterVpnnotsupp(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterAaanotsupp(NSNitroClusterErrors):
-
     """
         Nitro error code 2470
         AAA is not supported in Cluster mode.
@@ -13888,7 +12369,6 @@ class NSNitroNserrClusterAaanotsupp(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterIpsecnotsupp(NSNitroClusterErrors):
-
     """
         Nitro error code 2471
         IPSEC is not supported in Cluster mode.
@@ -13897,7 +12377,6 @@ class NSNitroNserrClusterIpsecnotsupp(NSNitroClusterErrors):
 
 
 class NSNitroNserrLinksetLamember(NSNitroClusterErrors):
-
     """
         Nitro error code 2472
         Interface part of a Channel
@@ -13906,7 +12385,6 @@ class NSNitroNserrLinksetLamember(NSNitroClusterErrors):
 
 
 class NSNitroNserrClipLocalnodeNotconfigured(NSNitroClusterErrors):
-
     """
         Nitro error code 2473
         CLIP cannot be added as the local node is not a member of the
@@ -13916,7 +12394,6 @@ class NSNitroNserrClipLocalnodeNotconfigured(NSNitroClusterErrors):
 
 
 class NSNitroNserrClversionmismatch(NSNitroClusterErrors):
-
     """
         Nitro error code 2474
         Cluster version mismatch between Configuration Coordinator and
@@ -13926,7 +12403,6 @@ class NSNitroNserrClversionmismatch(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterCmnotsupp(NSNitroClusterErrors):
-
     """
         Nitro error code 2475
         Connection Mirroring is not supported in Cluster mode
@@ -13935,7 +12411,6 @@ class NSNitroNserrClusterCmnotsupp(NSNitroClusterErrors):
 
 
 class NSNitroNserrArpClagOwnernodeMandatory(NSNitroClusterErrors):
-
     """
         Nitro error code 2476
         Owner Node should be specified for CLAG.
@@ -13944,7 +12419,6 @@ class NSNitroNserrArpClagOwnernodeMandatory(NSNitroClusterErrors):
 
 
 class NSNitroNserrArpOwnernodeMandatory(NSNitroClusterErrors):
-
     """
         Nitro error code 2477
         Owner Node should be specified.
@@ -13953,7 +12427,6 @@ class NSNitroNserrArpOwnernodeMandatory(NSNitroClusterErrors):
 
 
 class NSNitroNserrNoopcco(NSNitroClusterErrors):
-
     """
         Nitro error code 2478
         Operation not permitted on the Configuration Coordinator.
@@ -13962,7 +12435,6 @@ class NSNitroNserrNoopcco(NSNitroClusterErrors):
 
 
 class NSNitroNserrSpottedConfigPresent(NSNitroClusterErrors):
-
     """
         Nitro error code 2479
         Operation not permitted as the node is part of spotted entity
@@ -13972,7 +12444,6 @@ class NSNitroNserrSpottedConfigPresent(NSNitroClusterErrors):
 
 
 class NSNitroNserrNotClusterIp(NSNitroClusterErrors):
-
     """
         Nitro error code 2480
         IP address should be a CLIP address.
@@ -13981,7 +12452,6 @@ class NSNitroNserrNotClusterIp(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterNnres(NSNitroClusterErrors):
-
     """
         Nitro error code 2481
         Error in communication with other nodes in the cluster
@@ -13990,7 +12460,6 @@ class NSNitroNserrClusterNnres(NSNitroClusterErrors):
 
 
 class NSNitroNserrLastClusterIpRemoval(NSNitroClusterErrors):
-
     """
         Nitro error code 2482
         A NetScaler cluster must have a minimum of one cluster IP
@@ -14001,7 +12470,6 @@ class NSNitroNserrLastClusterIpRemoval(NSNitroClusterErrors):
 
 
 class NSNitroNserrConfigParamInvalid(NSNitroClusterErrors):
-
     """
         Nitro error code 2483
         Configured Param(s) too small for Cluster. Parameter value(s)
@@ -14011,7 +12479,6 @@ class NSNitroNserrConfigParamInvalid(NSNitroClusterErrors):
 
 
 class NSNitroNserrClusterInvalidnode(NSNitroClusterErrors):
-
     """
         Nitro error code 2484
         Owner node value should be between 0 and 31,  both inclusive.
@@ -14020,7 +12487,6 @@ class NSNitroNserrClusterInvalidnode(NSNitroClusterErrors):
 
 
 class NSNitroNnmErrors(NSNitroError):
-
     """
         Base exception class NSNitroNnmErrors
     """
@@ -14028,7 +12494,6 @@ class NSNitroNnmErrors(NSNitroError):
 
 
 class NSNitroNserrNnmFailed(NSNitroNnmErrors):
-
     """
         Nitro error code 2528
         General NNM failure
@@ -14037,7 +12502,6 @@ class NSNitroNserrNnmFailed(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmConnCleaned(NSNitroNnmErrors):
-
     """
         Nitro error code 2529
         NNM connection was cleaned
@@ -14046,7 +12510,6 @@ class NSNitroNserrNnmConnCleaned(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmConnFailed(NSNitroNnmErrors):
-
     """
         Nitro error code 2530
         NNM connection failed
@@ -14055,7 +12518,6 @@ class NSNitroNserrNnmConnFailed(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmNoConn(NSNitroNnmErrors):
-
     """
         Nitro error code 2531
         NNM connection was not found
@@ -14064,7 +12526,6 @@ class NSNitroNserrNnmNoConn(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmConnDropped(NSNitroNnmErrors):
-
     """
         Nitro error code 2532
         NNM connection dropped
@@ -14073,7 +12534,6 @@ class NSNitroNserrNnmConnDropped(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmEinject(NSNitroNnmErrors):
-
     """
         Nitro error code 2533
         NNM error injection
@@ -14082,7 +12542,6 @@ class NSNitroNserrNnmEinject(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmVersionUnsupported(NSNitroNnmErrors):
-
     """
         Nitro error code 2534
         NNM group payload version is unsupported
@@ -14091,7 +12550,6 @@ class NSNitroNserrNnmVersionUnsupported(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmTimeoutMsg(NSNitroNnmErrors):
-
     """
         Nitro error code 2535
         NNM timeout unable to send message
@@ -14100,7 +12558,6 @@ class NSNitroNserrNnmTimeoutMsg(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmTimeoutAck(NSNitroNnmErrors):
-
     """
         Nitro error code 2536
         NNM timeout waiting for ACK
@@ -14109,7 +12566,6 @@ class NSNitroNserrNnmTimeoutAck(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmMcast(NSNitroNnmErrors):
-
     """
         Nitro error code 2537
         NNM multicast/broadcast failed
@@ -14118,7 +12574,6 @@ class NSNitroNserrNnmMcast(NSNitroNnmErrors):
 
 
 class NSNitroNserrNnmPending(NSNitroNnmErrors):
-
     """
         Nitro error code 2538
         NNM operation is in a pending state (e.g.,  ACK held)
@@ -14127,7 +12582,6 @@ class NSNitroNserrNnmPending(NSNitroNnmErrors):
 
 
 class NSNitroInternalNameserverErrors(NSNitroError):
-
     """
         Base exception class NSNitroInternalNameserverErrors
     """
@@ -14135,7 +12589,6 @@ class NSNitroInternalNameserverErrors(NSNitroError):
 
 
 class NSNitroNserrNameSvrExists(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2561
         Name server already exists.
@@ -14144,7 +12597,6 @@ class NSNitroNserrNameSvrExists(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrIdnsNempty(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2562
         Name servers already configured.
@@ -14153,7 +12605,6 @@ class NSNitroNserrNameSvrIdnsNempty(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrIvalpolicy(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2563
         Invalid LB method for vserver-based name server.
@@ -14162,7 +12613,6 @@ class NSNitroNserrNameSvrIvalpolicy(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrIvalproto(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2564
         Invalid service type for vserver-based name server.
@@ -14171,7 +12621,6 @@ class NSNitroNserrNameSvrIvalproto(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrAddNexistVip(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2565
         vserver does not exist.
@@ -14180,7 +12629,6 @@ class NSNitroNserrNameSvrAddNexistVip(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrNexist(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2566
         Name server does not exist.
@@ -14189,7 +12637,6 @@ class NSNitroNserrNameSvrNexist(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrIdnsPerm(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2567
         Operation on internal entity not permitted
@@ -14198,7 +12645,6 @@ class NSNitroNserrNameSvrIdnsPerm(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrIpExists(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2568
         Name server exists with this IP address
@@ -14207,7 +12653,6 @@ class NSNitroNserrNameSvrIpExists(NSNitroInternalNameserverErrors):
 
 
 class NSNitroNserrNameSvrTypeNexistVip(NSNitroInternalNameserverErrors):
-
     """
         Nitro error code 2569
         vserver of given type does not exist.
@@ -14216,7 +12661,6 @@ class NSNitroNserrNameSvrTypeNexistVip(NSNitroInternalNameserverErrors):
 
 
 class NSNitroSslvpnAaaErrors(NSNitroError):
-
     """
         Base exception class NSNitroSslvpnAaaErrors
     """
@@ -14224,7 +12668,6 @@ class NSNitroSslvpnAaaErrors(NSNitroError):
 
 
 class NSNitroNserrErrAaaLicense(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2624
         MaxAAAUsers value not allowed by license
@@ -14233,7 +12676,6 @@ class NSNitroNserrErrAaaLicense(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrUsrNointraip(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2625
         No intranet IP bound to user
@@ -14242,7 +12684,6 @@ class NSNitroNserrUsrNointraip(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrUsrNotconfigured(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2626
         User does not exist
@@ -14251,7 +12692,6 @@ class NSNitroNserrUsrNotconfigured(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrInvalAaaGrp(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2627
         Group does not exist
@@ -14260,7 +12700,6 @@ class NSNitroNserrInvalAaaGrp(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrInvalCombnation(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2628
         NONE and ALL cannot be used simultaneously
@@ -14269,7 +12708,6 @@ class NSNitroNserrInvalCombnation(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrInvalMipIip(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2629
         Both Mapped IP and Intranet IP must be specified
@@ -14278,7 +12716,6 @@ class NSNitroNserrInvalMipIip(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrInvalMipoffIipoff(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2630
         Mapped IP and Intranet IP cannot be OFF at the same time
@@ -14287,7 +12724,6 @@ class NSNitroNserrInvalMipoffIipoff(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrUserexist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2631
         User already exists
@@ -14296,7 +12732,6 @@ class NSNitroNserrUserexist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrGroupexist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2632
         Group already exists
@@ -14305,7 +12740,6 @@ class NSNitroNserrGroupexist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrUseralreadybound(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2633
         User is already bound to the group
@@ -14314,7 +12748,6 @@ class NSNitroNserrUseralreadybound(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrUsernotbound(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2640
         User is not bound to the group
@@ -14323,7 +12756,6 @@ class NSNitroNserrUsernotbound(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrEntitynotbound(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2641
         Entity not bound
@@ -14332,7 +12764,6 @@ class NSNitroNserrEntitynotbound(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrGroupnotexist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2642
         Group does not exist
@@ -14341,7 +12772,6 @@ class NSNitroNserrGroupnotexist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrInvalidloglevel(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2643
         NONE cannot be combined with other options
@@ -14350,7 +12780,6 @@ class NSNitroNserrInvalidloglevel(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrDhMisconfig(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2644
         The first hop and second hop can not be enabled on the same
@@ -14360,7 +12789,6 @@ class NSNitroNserrDhMisconfig(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrDhIpport(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2645
         The SG second hop ip and port are required
@@ -14369,7 +12797,6 @@ class NSNitroNserrDhIpport(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrDhinuse(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2646
         Bound double hop server cannot be removed
@@ -14378,7 +12805,6 @@ class NSNitroNserrDhinuse(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrInvalAaaglobalPoltype(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2647
         Only preauthentication policies can be bound to AAA global
@@ -14387,7 +12813,6 @@ class NSNitroNserrInvalAaaglobalPoltype(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrNoIp(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2648
         ServerIP not configured for the authentication type
@@ -14396,7 +12821,6 @@ class NSNitroNserrNoIp(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAaatmLic(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2649
         Feature not licensed [AAA]
@@ -14405,7 +12829,6 @@ class NSNitroNserrAaatmLic(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAaatmDisabled(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2650
         Feature(s) not enabled [AAA]
@@ -14414,7 +12837,6 @@ class NSNitroNserrAaatmDisabled(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrNoAuthHost(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2651
         No Authentication Host specified
@@ -14423,7 +12845,6 @@ class NSNitroNserrNoAuthHost(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAuthOn(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2652
         Turn authentication off first
@@ -14432,7 +12853,6 @@ class NSNitroNserrAuthOn(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKillpending(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2653
         Another kill command in progress
@@ -14441,7 +12861,6 @@ class NSNitroNserrKillpending(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAaatmNoAuthVs(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2654
         No Authentication vserver name specified
@@ -14450,7 +12869,6 @@ class NSNitroNserrAaatmNoAuthVs(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAaatm401authOn(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2655
         Turn off 401 based authentication first
@@ -14459,7 +12877,6 @@ class NSNitroNserrAaatm401authOn(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrUnauthrzed(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2656
         Unauthorized
@@ -14468,7 +12885,6 @@ class NSNitroNserrUnauthrzed(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKillInprogress(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2657
         A kill session command is in progress. Try again later
@@ -14477,7 +12893,6 @@ class NSNitroNserrKillInprogress(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiFrmNotexist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2658
         Farm does not exist
@@ -14486,7 +12901,6 @@ class NSNitroNserrWiFrmNotexist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiFrmLast(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2659
         At least one Farm should be configured: can not remove last farm
@@ -14495,7 +12909,6 @@ class NSNitroNserrWiFrmLast(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiNotinst(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2660
         Web interface not installed
@@ -14504,7 +12917,6 @@ class NSNitroNserrWiNotinst(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiGenfailed(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2661
         Unable to generate website
@@ -14513,7 +12925,6 @@ class NSNitroNserrWiGenfailed(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteExist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2662
         Site already exists
@@ -14522,7 +12933,6 @@ class NSNitroNserrWiSiteExist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteNotexist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2663
         Site does not exist
@@ -14531,7 +12941,6 @@ class NSNitroNserrWiSiteNotexist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteInvalAgurl(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2664
         Invalid agURL
@@ -14540,7 +12949,6 @@ class NSNitroNserrWiSiteInvalAgurl(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteInvalStaurl(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2665
         Invalid staURL
@@ -14549,7 +12957,6 @@ class NSNitroNserrWiSiteInvalStaurl(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteOnlyMpx(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2666
         WI can only be installed on NetScaler nCore builds
@@ -14558,7 +12965,6 @@ class NSNitroNserrWiSiteOnlyMpx(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiInstfailed(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2667
         Installation failed. Please check the log file
@@ -14568,7 +12974,6 @@ class NSNitroNserrWiInstfailed(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiMaxsiteExcd(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2668
         Maximum number of WI Sites exceeded. Please check the log file
@@ -14578,7 +12983,6 @@ class NSNitroNserrWiMaxsiteExcd(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiStawithoutagurl(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2669
         STAUrl cannot be specified without AGUrl.
@@ -14587,7 +12991,6 @@ class NSNitroNserrWiStawithoutagurl(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiAgurlwithoutsta(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2670
         AGUrl cannot be specified without STAUrl.
@@ -14596,7 +12999,6 @@ class NSNitroNserrWiAgurlwithoutsta(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiRelwithoutagurl(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2671
         SessionReliability cannot be ON without AGUrl.
@@ -14605,7 +13007,6 @@ class NSNitroNserrWiRelwithoutagurl(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiAuthwithoutagurl(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2672
         AuthenticationPoint cannot be specified without AGUrl.
@@ -14614,7 +13015,6 @@ class NSNitroNserrWiAuthwithoutagurl(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiTwotktwithoutrel(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2673
         UseTwoTickets cannot be ON without SessionReliability.
@@ -14623,7 +13023,6 @@ class NSNitroNserrWiTwotktwithoutrel(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiTwotktwithoutsecsta(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2674
         UseTwoTickets cannot be ON without SecondSTAUrl.
@@ -14632,7 +13031,6 @@ class NSNitroNserrWiTwotktwithoutsecsta(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSecstasame(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2675
         SecondSTAUrl should be different from StaURL.
@@ -14641,7 +13039,6 @@ class NSNitroNserrWiSecstasame(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiLicense(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2676
         Web Interface on NS Feature not licensed.
@@ -14650,7 +13047,6 @@ class NSNitroNserrWiLicense(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSecstawithoutsta(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2677
         SecondSTAUrl cannot be specified without STAUrl.
@@ -14659,7 +13055,6 @@ class NSNitroNserrWiSecstawithoutsta(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAuthNegotiate(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2678
         Negotiate authentication required
@@ -14668,7 +13063,6 @@ class NSNitroNserrAuthNegotiate(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiInstsitesreduced(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2679
         Memory available is not sufficient for the passed maxSites value
@@ -14677,7 +13071,6 @@ class NSNitroNserrWiInstsitesreduced(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiIncompatibleauthpoint(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2680
         WI Authentication methods can not be specified unless
@@ -14687,7 +13080,6 @@ class NSNitroNserrWiIncompatibleauthpoint(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteWithinSite(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2681
         One WI site can not be completely within another WI site
@@ -14696,7 +13088,6 @@ class NSNitroNserrWiSiteWithinSite(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteTranslationNoexist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2682
         Translation Map does not exist
@@ -14705,7 +13096,6 @@ class NSNitroNserrWiSiteTranslationNoexist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteTranslationLast(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2683
         Can't Unbind Last Translation Map
@@ -14714,7 +13104,6 @@ class NSNitroNserrWiSiteTranslationLast(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSiteNoagurl(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2684
         AGURL is not set
@@ -14723,7 +13112,6 @@ class NSNitroNserrWiSiteNoagurl(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAgsvcAuthfail(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2685
         AG-Service request with invalid AAAC cookie
@@ -14732,7 +13120,6 @@ class NSNitroNserrAgsvcAuthfail(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrTmInvalidPersConfig(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2686
         Please specify both persistentCookie and
@@ -14742,7 +13129,6 @@ class NSNitroNserrTmInvalidPersConfig(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSmartcardNotSupported(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2687
         SmartCard AGAuthentication method is not supported with sites
@@ -14752,7 +13138,6 @@ class NSNitroNserrWiSmartcardNotSupported(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiSearchNotSiteweb(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2688
         Show Search Attribute supported only for site type XenAppWeb
@@ -14761,7 +13146,6 @@ class NSNitroNserrWiSearchNotSiteweb(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdAccountNotExists(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2689
         The KCD account does not exist
@@ -14770,7 +13154,6 @@ class NSNitroNserrKcdAccountNotExists(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdKeytabNotExists(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2690
         The keytab file does not exist
@@ -14779,7 +13162,6 @@ class NSNitroNserrKcdKeytabNotExists(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdVsPrincipleNotFound(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2691
         The Vserver principle not found
@@ -14788,7 +13170,6 @@ class NSNitroNserrKcdVsPrincipleNotFound(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdRemInuse(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2692
         KCD account is in use and cannot be removed
@@ -14797,7 +13178,6 @@ class NSNitroNserrKcdRemInuse(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdTooManyVsPrinciple(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2693
         Too many host principles
@@ -14806,7 +13186,6 @@ class NSNitroNserrKcdTooManyVsPrinciple(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiRefreshNotSiteweb(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2694
         Show Refresh Attribute supported only for site type XenAppWeb
@@ -14815,7 +13194,6 @@ class NSNitroNserrWiRefreshNotSiteweb(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiUimodeNotSiteweb(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2695
         User Interface Mode  Attribute supported only for site type
@@ -14825,7 +13203,6 @@ class NSNitroNserrWiUimodeNotSiteweb(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiUilayoutNotSiteweb(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2696
         User Interface Layout  Attribute supported only for site type
@@ -14835,7 +13212,6 @@ class NSNitroNserrWiUilayoutNotSiteweb(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrWiMessagestrsNotSiteweb(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2697
         App Welcome Message,  Welcome Message,  Footer Text,  Login Sys
@@ -14846,7 +13222,6 @@ class NSNitroNserrWiMessagestrsNotSiteweb(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrAaatmAuthnProfileConf(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2704
         Please turn ON authentication or authn401 setting in order to
@@ -14856,7 +13231,6 @@ class NSNitroNserrAaatmAuthnProfileConf(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrBindNegparamAaaglobal(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2705
         Negotiate params is already bound. Please unbind existing
@@ -14866,7 +13240,6 @@ class NSNitroNserrBindNegparamAaaglobal(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrNoProductionFarm(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2706
         WI site will not be fuctional till a production farm is bound
@@ -14875,7 +13248,6 @@ class NSNitroNserrNoProductionFarm(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrSamlFormConflict(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2707
         Traffic cannot have both SAML SSO and Form SSO on same action
@@ -14884,7 +13256,6 @@ class NSNitroNserrSamlFormConflict(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrMaxloginFailloginConflict(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2708
         Please specify both max login attempts and fail login timeout
@@ -14893,7 +13264,6 @@ class NSNitroNserrMaxloginFailloginConflict(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdAccountExist(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2709
         The KCD account does not exist
@@ -14902,7 +13272,6 @@ class NSNitroNserrKcdAccountExist(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdAccountNotconfigured(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2710
         The KCD account is not configured
@@ -14911,7 +13280,6 @@ class NSNitroNserrKcdAccountNotconfigured(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrNegactionKeytabConflict(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2711
         Action should have either keytab file or both username and
@@ -14921,7 +13289,6 @@ class NSNitroNserrNegactionKeytabConflict(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKeytabInvalidEnc(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2712
         Unsupported encryption type in keytab file
@@ -14930,7 +13297,6 @@ class NSNitroNserrKeytabInvalidEnc(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdaccountKeytab(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2713
         Keytab file cannot be specified along with other parameters in
@@ -14940,7 +13306,6 @@ class NSNitroNserrKcdaccountKeytab(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroNserrKcdaccountRealm(NSNitroSslvpnAaaErrors):
-
     """
         Nitro error code 2714
         Realm is a mandatory argument. When specified,  it should not be
@@ -14950,7 +13315,6 @@ class NSNitroNserrKcdaccountRealm(NSNitroSslvpnAaaErrors):
 
 
 class NSNitroRewriteErrors(NSNitroError):
-
     """
         Base exception class NSNitroRewriteErrors
     """
@@ -14958,7 +13322,6 @@ class NSNitroRewriteErrors(NSNitroError):
 
 
 class NSNitroNserrRwActInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2817
         Invalid rewrite action
@@ -14967,7 +13330,6 @@ class NSNitroNserrRwActInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRwUndefactInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2818
         Invalid undef action or log action
@@ -14976,7 +13338,6 @@ class NSNitroNserrRwUndefactInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrActflowmismatch(NSNitroRewriteErrors):
-
     """
         Nitro error code 2819
         Flow types of target and string expression are incompatible
@@ -14985,7 +13346,6 @@ class NSNitroNserrActflowmismatch(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRonlyTarExpr(NSNitroRewriteErrors):
-
     """
         Nitro error code 2820
         Target must be a simple reference to an unmodified portion of
@@ -14995,7 +13355,6 @@ class NSNitroNserrRonlyTarExpr(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetBindfail(NSNitroRewriteErrors):
-
     """
         Nitro error code 2821
         Unable to bind the pattern to dataset/patset
@@ -15004,7 +13363,6 @@ class NSNitroNserrDatasetBindfail(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetUnbindfail(NSNitroRewriteErrors):
-
     """
         Nitro error code 2822
         Pattern does not exist in dataset/patset
@@ -15013,7 +13371,6 @@ class NSNitroNserrDatasetUnbindfail(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetNotpresent(NSNitroRewriteErrors):
-
     """
         Nitro error code 2823
         Dataset/Patset does not exist
@@ -15022,7 +13379,6 @@ class NSNitroNserrDatasetNotpresent(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspActInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2824
         Invalid responder action
@@ -15031,7 +13387,6 @@ class NSNitroNserrRspActInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspPolicyFlowtypeReq(NSNitroRewriteErrors):
-
     """
         Nitro error code 2825
         Responder policy must be a request policy
@@ -15040,7 +13395,6 @@ class NSNitroNserrRspPolicyFlowtypeReq(NSNitroRewriteErrors):
 
 
 class NSNitroNserrTarFlowtypeNres(NSNitroRewriteErrors):
-
     """
         Nitro error code 2826
         Flow type of target should not be response type
@@ -15049,7 +13403,6 @@ class NSNitroNserrTarFlowtypeNres(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspConfigLock(NSNitroRewriteErrors):
-
     """
         Nitro error code 2827
         Responder configuration is temporarily disabled
@@ -15058,7 +13411,6 @@ class NSNitroNserrRspConfigLock(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspActMustBeNoop(NSNitroRewriteErrors):
-
     """
         Nitro error code 2828
         Non-terminating policy must have NOOP action
@@ -15067,7 +13419,6 @@ class NSNitroNserrRspActMustBeNoop(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPatsetInvalidRegex(NSNitroRewriteErrors):
-
     """
         Nitro error code 2829
         Patset contains invalid regex.
@@ -15076,7 +13427,6 @@ class NSNitroNserrPatsetInvalidRegex(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetBindfailDupIndex(NSNitroRewriteErrors):
-
     """
         Nitro error code 2830
         Pattern index already in use,  try using other index
@@ -15085,7 +13435,6 @@ class NSNitroNserrDatasetBindfailDupIndex(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPatsetBindfailPatlenLtWuMinlen(NSNitroRewriteErrors):
-
     """
         Nitro error code 2833
         Patset search on a body target not allowed if any of the patset
@@ -15095,7 +13444,6 @@ class NSNitroNserrPatsetBindfailPatlenLtWuMinlen(NSNitroRewriteErrors):
 
 
 class NSNitroNserrTargetNotAllowedInRule(NSNitroRewriteErrors):
-
     """
         Nitro error code 2834
         Expression involving Target not allowed in rule.
@@ -15104,7 +13452,6 @@ class NSNitroNserrTargetNotAllowedInRule(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRwTargetNotAllowedInStrbuilder(NSNitroRewriteErrors):
-
     """
         Nitro error code 2835
         Expression involving Target not allowed in StringBuilder
@@ -15114,7 +13461,6 @@ class NSNitroNserrRwTargetNotAllowedInStrbuilder(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPitInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2836
         Invalid Packet data
@@ -15123,7 +13469,6 @@ class NSNitroNserrPitInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalInvokepoint(NSNitroRewriteErrors):
-
     """
         Nitro error code 2837
         Invalid invoke point
@@ -15132,7 +13477,6 @@ class NSNitroNserrInvalInvokepoint(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPitMaxPacket(NSNitroRewriteErrors):
-
     """
         Nitro error code 2838
         Packet size exceeds maximum size
@@ -15141,7 +13485,6 @@ class NSNitroNserrPitMaxPacket(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRefineSearchInvalid(NSNitroRewriteErrors):
-
     """
         Nitro error code 2839
         Regular expression for patterns not allowed when refine search
@@ -15151,7 +13494,6 @@ class NSNitroNserrRefineSearchInvalid(NSNitroRewriteErrors):
 
 
 class NSNitroNserrExtendInvalid(NSNitroRewriteErrors):
-
     """
         Nitro error code 2840
         Extend not allowed for non-body expressions
@@ -15160,7 +13502,6 @@ class NSNitroNserrExtendInvalid(NSNitroRewriteErrors):
 
 
 class NSNitroNserrNonExtendExpr(NSNitroRewriteErrors):
-
     """
         Nitro error code 2841
         Non extend expressions are not allowed
@@ -15169,7 +13510,6 @@ class NSNitroNserrNonExtendExpr(NSNitroRewriteErrors):
 
 
 class NSNitroNserrExtendInvalPirl(NSNitroRewriteErrors):
-
     """
         Nitro error code 2842
         Extend not allowed in the string builder expression
@@ -15178,7 +13518,6 @@ class NSNitroNserrExtendInvalPirl(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalTarExpr(NSNitroRewriteErrors):
-
     """
         Nitro error code 2843
         Invalid target expression
@@ -15187,7 +13526,6 @@ class NSNitroNserrInvalTarExpr(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalPatternSearchSet(NSNitroRewriteErrors):
-
     """
         Nitro error code 2844
         Cannot set both pattern and search
@@ -15196,7 +13534,6 @@ class NSNitroNserrInvalPatternSearchSet(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalSearchArgs(NSNitroRewriteErrors):
-
     """
         Nitro error code 2845
         Invalid argument: search supports text,  xpath,  xpath_json,
@@ -15206,7 +13543,6 @@ class NSNitroNserrInvalSearchArgs(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspActMustBeResetDrop(NSNitroRewriteErrors):
-
     """
         Nitro error code 2846
         Policy action must be DROP|RESET
@@ -15215,7 +13551,6 @@ class NSNitroNserrRspActMustBeResetDrop(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalSearchSyntax(NSNitroRewriteErrors):
-
     """
         Nitro error code 2847
         Invalid search syntax
@@ -15224,7 +13559,6 @@ class NSNitroNserrInvalSearchSyntax(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalSearchXpathSyntax(NSNitroRewriteErrors):
-
     """
         Nitro error code 2848
         Invalid xpath syntax
@@ -15233,7 +13567,6 @@ class NSNitroNserrInvalSearchXpathSyntax(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalSearchPatsetSyntax(NSNitroRewriteErrors):
-
     """
         Nitro error code 2849
         Invalid patset syntax
@@ -15242,7 +13575,6 @@ class NSNitroNserrInvalSearchPatsetSyntax(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalSearchRegexSyntax(NSNitroRewriteErrors):
-
     """
         Nitro error code 2850
         Invalid regex syntax
@@ -15251,7 +13583,6 @@ class NSNitroNserrInvalSearchRegexSyntax(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRwReqBodyNotAllowed(NSNitroRewriteErrors):
-
     """
         Nitro error code 2851
         Request body based expression is not allowed
@@ -15260,7 +13591,6 @@ class NSNitroNserrRwReqBodyNotAllowed(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRenameNotsupported(NSNitroRewriteErrors):
-
     """
         Nitro error code 2852
         Renaming this entity is not supported as entity based expression
@@ -15270,7 +13600,6 @@ class NSNitroNserrRenameNotsupported(NSNitroRewriteErrors):
 
 
 class NSNitroNserrEntityRemovalNotallowed(NSNitroRewriteErrors):
-
     """
         Nitro error code 2853
         Removing this entity is not allowed as entity based expression
@@ -15280,7 +13609,6 @@ class NSNitroNserrEntityRemovalNotallowed(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPiEntityExists(NSNitroRewriteErrors):
-
     """
         Nitro error code 2854
         Advanced expression entity with same name already exists.
@@ -15289,7 +13617,6 @@ class NSNitroNserrPiEntityExists(NSNitroRewriteErrors):
 
 
 class NSNitroNserrIncompatibleCalloutChange(NSNitroRewriteErrors):
-
     """
         Nitro error code 2855
         Incompatible callout change for in-use callout.
@@ -15298,7 +13625,6 @@ class NSNitroNserrIncompatibleCalloutChange(NSNitroRewriteErrors):
 
 
 class NSNitroNserrStringmapNotpresent(NSNitroRewriteErrors):
-
     """
         Nitro error code 2856
         String map does not exist
@@ -15307,7 +13633,6 @@ class NSNitroNserrStringmapNotpresent(NSNitroRewriteErrors):
 
 
 class NSNitroNserrHttpProfileActionNotAllowed(NSNitroRewriteErrors):
-
     """
         Nitro error code 2857
         Responder action using HTTP protocol expressions is not allowed
@@ -15317,7 +13642,6 @@ class NSNitroNserrHttpProfileActionNotAllowed(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspActMustBeDropNoopRespondwith(NSNitroRewriteErrors):
-
     """
         Nitro error code 2858
         Policy action must be DROP|NOOP|RESPONDWITH
@@ -15326,7 +13650,6 @@ class NSNitroNserrRspActMustBeDropNoopRespondwith(NSNitroRewriteErrors):
 
 
 class NSNitroNserrRspUndefActMustBeDropNoop(NSNitroRewriteErrors):
-
     """
         Nitro error code 2859
         Policy undef action must be DROP|NOOP
@@ -15335,7 +13658,6 @@ class NSNitroNserrRspUndefActMustBeDropNoop(NSNitroRewriteErrors):
 
 
 class NSNitroNserrIncompatibleUndef(NSNitroRewriteErrors):
-
     """
         Nitro error code 2860
         Incompatible global undef action for SIP policy
@@ -15344,7 +13666,6 @@ class NSNitroNserrIncompatibleUndef(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPitActionEvalInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2861
         Action cannot be evaluated due to wrong input type.
@@ -15353,7 +13674,6 @@ class NSNitroNserrPitActionEvalInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetInvalid(NSNitroRewriteErrors):
-
     """
         Nitro error code 2866
         Invalid dataset element
@@ -15362,7 +13682,6 @@ class NSNitroNserrDatasetInvalid(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetBindfailDupPattern(NSNitroRewriteErrors):
-
     """
         Nitro error code 2867
         Pattern already bound to dataset/patset,  try using other
@@ -15372,7 +13691,6 @@ class NSNitroNserrDatasetBindfailDupPattern(NSNitroRewriteErrors):
 
 
 class NSNitroNserrTimerActInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2868
         Invalid timer action
@@ -15381,7 +13699,6 @@ class NSNitroNserrTimerActInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrTimerEntityInuse(NSNitroRewriteErrors):
-
     """
         Nitro error code 2869
         Timer entity name already in use
@@ -15390,7 +13707,6 @@ class NSNitroNserrTimerEntityInuse(NSNitroRewriteErrors):
 
 
 class NSNitroNserrTimerEntityGlobalBindpointInval(NSNitroRewriteErrors):
-
     """
         Nitro error code 2870
         Invalid global bindpoint
@@ -15399,7 +13715,6 @@ class NSNitroNserrTimerEntityGlobalBindpointInval(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPatsetBuiltin(NSNitroRewriteErrors):
-
     """
         Nitro error code 2871
         Built-in Patsets cannot be modified or deleted
@@ -15408,7 +13723,6 @@ class NSNitroNserrPatsetBuiltin(NSNitroRewriteErrors):
 
 
 class NSNitroNserrCrossMaxLimit(NSNitroRewriteErrors):
-
     """
         Nitro error code 2872
         Maximum value can be 2147483647
@@ -15417,7 +13731,6 @@ class NSNitroNserrCrossMaxLimit(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalidIpv4Format(NSNitroRewriteErrors):
-
     """
         Nitro error code 2873
         Value should be in IPv4 format
@@ -15426,7 +13739,6 @@ class NSNitroNserrInvalidIpv4Format(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalidIpv4MaxFieldValue(NSNitroRewriteErrors):
-
     """
         Nitro error code 2880
         Maximum value of an IPv4 field can be 255
@@ -15435,7 +13747,6 @@ class NSNitroNserrInvalidIpv4MaxFieldValue(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalidIpv6Format(NSNitroRewriteErrors):
-
     """
         Nitro error code 2881
         Invalid IPv6 address format
@@ -15444,7 +13755,6 @@ class NSNitroNserrInvalidIpv6Format(NSNitroRewriteErrors):
 
 
 class NSNitroNserrInvalidNumericFormat(NSNitroRewriteErrors):
-
     """
         Nitro error code 2882
         Value should be in decimal or hexadecimal format
@@ -15453,7 +13763,6 @@ class NSNitroNserrInvalidNumericFormat(NSNitroRewriteErrors):
 
 
 class NSNitroNserrDatasetPatternAlreadyBound(NSNitroRewriteErrors):
-
     """
         Nitro error code 2883
         Specified pattern is already bound to dataset/patset
@@ -15462,7 +13771,6 @@ class NSNitroNserrDatasetPatternAlreadyBound(NSNitroRewriteErrors):
 
 
 class NSNitroNserrPiCircularReferenceDetected(NSNitroRewriteErrors):
-
     """
         Nitro error code 2884
         Circular reference detected
@@ -15471,7 +13779,6 @@ class NSNitroNserrPiCircularReferenceDetected(NSNitroRewriteErrors):
 
 
 class NSNitroUrltransErrors(NSNitroError):
-
     """
         Base exception class NSNitroUrltransErrors
     """
@@ -15479,7 +13786,6 @@ class NSNitroUrltransErrors(NSNitroError):
 
 
 class NSNitroNserrUrltransMaxEntities(NSNitroUrltransErrors):
-
     """
         Nitro error code 2960
         Number of URL Transformation entities exceeds limit
@@ -15488,7 +13794,6 @@ class NSNitroNserrUrltransMaxEntities(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransInvalProfile(NSNitroUrltransErrors):
-
     """
         Nitro error code 2962
         Invalid URL Transformation profile
@@ -15497,7 +13802,6 @@ class NSNitroNserrUrltransInvalProfile(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransActionInuse(NSNitroUrltransErrors):
-
     """
         Nitro error code 2963
         Action name is already in use
@@ -15506,7 +13810,6 @@ class NSNitroNserrUrltransActionInuse(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransPriorityExists(NSNitroUrltransErrors):
-
     """
         Nitro error code 2964
         An object with this priority already exists
@@ -15515,7 +13818,6 @@ class NSNitroNserrUrltransPriorityExists(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransReqPcreErr(NSNitroUrltransErrors):
-
     """
         Nitro error code 2965
         Invalid PCRE expression under 'reqUrlFrom'
@@ -15524,7 +13826,6 @@ class NSNitroNserrUrltransReqPcreErr(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransRespPcreErr(NSNitroUrltransErrors):
-
     """
         Nitro error code 2966
         Invalid PCRE expression under 'resUrlFrom'
@@ -15533,7 +13834,6 @@ class NSNitroNserrUrltransRespPcreErr(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransReqIntoErr(NSNitroUrltransErrors):
-
     """
         Nitro error code 2967
         Invalid expression under 'reqUrlInto'
@@ -15542,7 +13842,6 @@ class NSNitroNserrUrltransReqIntoErr(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransRespIntoErr(NSNitroUrltransErrors):
-
     """
         Nitro error code 2968
         Invalid expression under 'resUrlInto'
@@ -15551,7 +13850,6 @@ class NSNitroNserrUrltransRespIntoErr(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransCookieIntoErr(NSNitroUrltransErrors):
-
     """
         Nitro error code 2969
         Invalid expression under 'cookieDomainInto'
@@ -15560,7 +13858,6 @@ class NSNitroNserrUrltransCookieIntoErr(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransCookiePcreErr(NSNitroUrltransErrors):
-
     """
         Nitro error code 2970
         Invalid PCRE expression under 'cookieDomainFrom'
@@ -15569,7 +13866,6 @@ class NSNitroNserrUrltransCookiePcreErr(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransTooManyBackrefs(NSNitroUrltransErrors):
-
     """
         Nitro error code 2971
         More than 5 back references in PCRE expression
@@ -15578,7 +13874,6 @@ class NSNitroNserrUrltransTooManyBackrefs(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransMissingFrom(NSNitroUrltransErrors):
-
     """
         Nitro error code 2972
         Each 'Into' expression must have a corresponding 'From' pattern
@@ -15587,7 +13882,6 @@ class NSNitroNserrUrltransMissingFrom(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransNotSupportedVs(NSNitroUrltransErrors):
-
     """
         Nitro error code 2973
         Specified policy can be bound only to HTTP/SSL vserver
@@ -15596,7 +13890,6 @@ class NSNitroNserrUrltransNotSupportedVs(NSNitroUrltransErrors):
 
 
 class NSNitroNserrUrltransBadComment(NSNitroUrltransErrors):
-
     """
         Nitro error code 2974
         Invalid comment
@@ -15605,7 +13898,6 @@ class NSNitroNserrUrltransBadComment(NSNitroUrltransErrors):
 
 
 class NSNitroPiErrors(NSNitroError):
-
     """
         Base exception class NSNitroPiErrors
     """
@@ -15613,7 +13905,6 @@ class NSNitroPiErrors(NSNitroError):
 
 
 class NSNitroNserrPiLongvsvrname(NSNitroPiErrors):
-
     """
         Nitro error code 3040
         The name of the label must be less than 32 characters
@@ -15622,7 +13913,6 @@ class NSNitroNserrPiLongvsvrname(NSNitroPiErrors):
 
 
 class NSNitroNserrPiPriorityExists(NSNitroPiErrors):
-
     """
         Nitro error code 3041
         A policy is already bound to the specified priority
@@ -15631,7 +13921,6 @@ class NSNitroNserrPiPriorityExists(NSNitroPiErrors):
 
 
 class NSNitroNserrPiconGotoNotEnd(NSNitroPiErrors):
-
     """
         Nitro error code 3042
         GotoPriorityExpression for this policy has to be END
@@ -15640,7 +13929,6 @@ class NSNitroNserrPiconGotoNotEnd(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalThreshold(NSNitroPiErrors):
-
     """
         Nitro error code 3043
         Invalid threshold size value. Threshold size must be lesser than
@@ -15650,7 +13938,6 @@ class NSNitroNserrInvalThreshold(NSNitroPiErrors):
 
 
 class NSNitroNserrDefInvalidUnbind(NSNitroPiErrors):
-
     """
         Nitro error code 3044
         Default binding cannot be unbinded
@@ -15659,7 +13946,6 @@ class NSNitroNserrDefInvalidUnbind(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalpiexpr(NSNitroPiErrors):
-
     """
         Nitro error code 3073
         Invalid expression
@@ -15668,7 +13954,6 @@ class NSNitroNserrInvalpiexpr(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalintop(NSNitroPiErrors):
-
     """
         Nitro error code 3074
         Expecting numeric arguments in this context for '-',  '+',  '*'
@@ -15678,7 +13963,6 @@ class NSNitroNserrInvalintop(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalcompare(NSNitroPiErrors):
-
     """
         Nitro error code 3075
         Invalid arguments to compare operation
@@ -15687,7 +13971,6 @@ class NSNitroNserrInvalcompare(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalboolop(NSNitroPiErrors):
-
     """
         Nitro error code 3076
         The '!',  '||' and '&&' operators can have only boolean
@@ -15697,7 +13980,6 @@ class NSNitroNserrInvalboolop(NSNitroPiErrors):
 
 
 class NSNitroNserrArgneg(NSNitroPiErrors):
-
     """
         Nitro error code 3077
         Argument cannot be negative
@@ -15706,7 +13988,6 @@ class NSNitroNserrArgneg(NSNitroPiErrors):
 
 
 class NSNitroNserrArgexceed(NSNitroPiErrors):
-
     """
         Nitro error code 3078
         Argument exceeds maximum allowed value
@@ -15715,7 +13996,6 @@ class NSNitroNserrArgexceed(NSNitroPiErrors):
 
 
 class NSNitroNserrArgzero(NSNitroPiErrors):
-
     """
         Nitro error code 3079
         Operand or function argument should be non-zero
@@ -15724,7 +14004,6 @@ class NSNitroNserrArgzero(NSNitroPiErrors):
 
 
 class NSNitroNserrMaxheader(NSNitroPiErrors):
-
     """
         Nitro error code 3080
         Number of custom header exceeds limit
@@ -15733,7 +14012,6 @@ class NSNitroNserrMaxheader(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalpicexpr(NSNitroPiErrors):
-
     """
         Nitro error code 3081
         Expression syntax error
@@ -15742,7 +14020,6 @@ class NSNitroNserrInvalpicexpr(NSNitroPiErrors):
 
 
 class NSNitroNserrCexprlimit(NSNitroPiErrors):
-
     """
         Nitro error code 3082
         Expression too long
@@ -15751,7 +14028,6 @@ class NSNitroNserrCexprlimit(NSNitroPiErrors):
 
 
 class NSNitroNserrExprlimit(NSNitroPiErrors):
-
     """
         Nitro error code 3083
         Expression too long
@@ -15760,7 +14036,6 @@ class NSNitroNserrExprlimit(NSNitroPiErrors):
 
 
 class NSNitroNserrSexprlimit(NSNitroPiErrors):
-
     """
         Nitro error code 3084
         String expression too long
@@ -15769,7 +14044,6 @@ class NSNitroNserrSexprlimit(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalpisexpr(NSNitroPiErrors):
-
     """
         Nitro error code 3085
         String expression syntax error
@@ -15778,7 +14052,6 @@ class NSNitroNserrInvalpisexpr(NSNitroPiErrors):
 
 
 class NSNitroNserrNobidi(NSNitroPiErrors):
-
     """
         Nitro error code 3086
         Bi-directional expression not allowed
@@ -15787,7 +14060,6 @@ class NSNitroNserrNobidi(NSNitroPiErrors):
 
 
 class NSNitroNserrNolab(NSNitroPiErrors):
-
     """
         Nitro error code 3087
         Policy Label does not exist
@@ -15796,7 +14068,6 @@ class NSNitroNserrNolab(NSNitroPiErrors):
 
 
 class NSNitroNserrInternalLabelRm(NSNitroPiErrors):
-
     """
         Nitro error code 3088
         Default Policy labels cannot be removed
@@ -15805,7 +14076,6 @@ class NSNitroNserrInternalLabelRm(NSNitroPiErrors):
 
 
 class NSNitroNserrPolicyFlowtypeNone(NSNitroPiErrors):
-
     """
         Nitro error code 3089
         Policy should either be a request or response policy
@@ -15814,7 +14084,6 @@ class NSNitroNserrPolicyFlowtypeNone(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalPriority(NSNitroPiErrors):
-
     """
         Nitro error code 3090
         Priority should be in the range from 1 to 2147483647
@@ -15823,7 +14092,6 @@ class NSNitroNserrInvalPriority(NSNitroPiErrors):
 
 
 class NSNitroNserrNumericexpr(NSNitroPiErrors):
-
     """
         Nitro error code 3091
         Expression should evaluate to numeric value
@@ -15832,7 +14100,6 @@ class NSNitroNserrNumericexpr(NSNitroPiErrors):
 
 
 class NSNitroNserrBoolexpr(NSNitroPiErrors):
-
     """
         Nitro error code 3092
         Expression should evaluate to true or false
@@ -15841,7 +14108,6 @@ class NSNitroNserrBoolexpr(NSNitroPiErrors):
 
 
 class NSNitroNserrNotbound(NSNitroPiErrors):
-
     """
         Nitro error code 3093
         Cannot unbind a policy that is not bound
@@ -15850,7 +14116,6 @@ class NSNitroNserrNotbound(NSNitroPiErrors):
 
 
 class NSNitroNserrPolicyInuse(NSNitroPiErrors):
-
     """
         Nitro error code 3094
         Policy name already in use
@@ -15859,7 +14124,6 @@ class NSNitroNserrPolicyInuse(NSNitroPiErrors):
 
 
 class NSNitroNserrPolicySetNotallowed(NSNitroPiErrors):
-
     """
         Nitro error code 3095
         Invalid rule/action for bound policy
@@ -15868,7 +14132,6 @@ class NSNitroNserrPolicySetNotallowed(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalidBind(NSNitroPiErrors):
-
     """
         Nitro error code 3096
         Policy cannot be bound to specified policy label
@@ -15877,7 +14140,6 @@ class NSNitroNserrInvalidBind(NSNitroPiErrors):
 
 
 class NSNitroNserrUseInvokeResult(NSNitroPiErrors):
-
     """
         Nitro error code 3097
         USE_INVOCATION_RESULT can be used only with invoke
@@ -15886,7 +14148,6 @@ class NSNitroNserrUseInvokeResult(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalExprDataType(NSNitroPiErrors):
-
     """
         Nitro error code 3098
         Invalid expression data type
@@ -15895,7 +14156,6 @@ class NSNitroNserrInvalExprDataType(NSNitroPiErrors):
 
 
 class NSNitroNserrExprConstOnly(NSNitroPiErrors):
-
     """
         Nitro error code 3099
         Only constant parameters are allowed for function
@@ -15904,7 +14164,6 @@ class NSNitroNserrExprConstOnly(NSNitroPiErrors):
 
 
 class NSNitroNserrAltExprStringOnly(NSNitroPiErrors):
-
     """
         Nitro error code 3100
         Only string expressions are allowed for ALT
@@ -15913,7 +14172,6 @@ class NSNitroNserrAltExprStringOnly(NSNitroPiErrors):
 
 
 class NSNitroNserrActionDefSetInval(NSNitroPiErrors):
-
     """
         Nitro error code 3101
         Default action cannot be modified
@@ -15922,7 +14180,6 @@ class NSNitroNserrActionDefSetInval(NSNitroPiErrors):
 
 
 class NSNitroNserrPolicyDefSetInval(NSNitroPiErrors):
-
     """
         Nitro error code 3102
         Default policy cannot be modified
@@ -15931,7 +14188,6 @@ class NSNitroNserrPolicyDefSetInval(NSNitroPiErrors):
 
 
 class NSNitroNserrPolicyLabelDefSetInval(NSNitroPiErrors):
-
     """
         Nitro error code 3103
         Default policylabel cannot be modified
@@ -15940,7 +14196,6 @@ class NSNitroNserrPolicyLabelDefSetInval(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalUnbind(NSNitroPiErrors):
-
     """
         Nitro error code 3104
         Policy not bound to specified policy label
@@ -15949,7 +14204,6 @@ class NSNitroNserrInvalUnbind(NSNitroPiErrors):
 
 
 class NSNitroNserrRegexInvalid(NSNitroPiErrors):
-
     """
         Nitro error code 3105
         Invalid regular expression
@@ -15958,7 +14212,6 @@ class NSNitroNserrRegexInvalid(NSNitroPiErrors):
 
 
 class NSNitroNserrRegexBackref(NSNitroPiErrors):
-
     """
         Nitro error code 3106
         Backreference in regular expression
@@ -15967,7 +14220,6 @@ class NSNitroNserrRegexBackref(NSNitroPiErrors):
 
 
 class NSNitroNserrRegexRecursive(NSNitroPiErrors):
-
     """
         Nitro error code 3107
         Recursive regular expression present
@@ -15976,7 +14228,6 @@ class NSNitroNserrRegexRecursive(NSNitroPiErrors):
 
 
 class NSNitroNserrPixlExprUnsafe(NSNitroPiErrors):
-
     """
         Nitro error code 3108
         Input expression is unsafe
@@ -15985,7 +14236,6 @@ class NSNitroNserrPixlExprUnsafe(NSNitroPiErrors):
 
 
 class NSNitroNserrPiActionMaxRefReached(NSNitroPiErrors):
-
     """
         Nitro error code 3109
         Cannot create policy. Binding limit for action reached (65536)
@@ -15994,7 +14244,6 @@ class NSNitroNserrPiActionMaxRefReached(NSNitroPiErrors):
 
 
 class NSNitroNserrPiInvalidUnset(NSNitroPiErrors):
-
     """
         Nitro error code 3110
         Cannot unset rule or action. No changes done
@@ -16003,7 +14252,6 @@ class NSNitroNserrPiInvalidUnset(NSNitroPiErrors):
 
 
 class NSNitroNserrEmptyString(NSNitroPiErrors):
-
     """
         Nitro error code 3111
         Zero length string not allowed
@@ -16012,7 +14260,6 @@ class NSNitroNserrEmptyString(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalBtwArgs(NSNitroPiErrors):
-
     """
         Nitro error code 3112
         Arguments to BETWEEN are incorrect
@@ -16021,7 +14268,6 @@ class NSNitroNserrInvalBtwArgs(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalArgSpecified(NSNitroPiErrors):
-
     """
         Nitro error code 3113
         GotoPriorityExpression,  flowtype and invoke apply only to
@@ -16031,7 +14277,6 @@ class NSNitroNserrInvalArgSpecified(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalArgCspl(NSNitroPiErrors):
-
     """
         Nitro error code 3854
         Target vserver cannot be specified along with
@@ -16041,7 +14286,6 @@ class NSNitroNserrInvalArgCspl(NSNitroPiErrors):
 
 
 class NSNitroNserrFlowtypeNotApplicable(NSNitroPiErrors):
-
     """
         Nitro error code 3114
         Flowtype applies only to rewrite,  responder and cache policies
@@ -16050,7 +14294,6 @@ class NSNitroNserrFlowtypeNotApplicable(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalArgSpecifiedCs(NSNitroPiErrors):
-
     """
         Nitro error code 3115
         Flowtype and invoke apply only to Advanced policies.
@@ -16059,7 +14302,6 @@ class NSNitroNserrInvalArgSpecifiedCs(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalGotoexprCs(NSNitroPiErrors):
-
     """
         Nitro error code 3116
         GotoPriorityExpression applies only to advanced content
@@ -16070,7 +14312,6 @@ class NSNitroNserrInvalGotoexprCs(NSNitroPiErrors):
 
 
 class NSNitroNserrRebindFailed(NSNitroPiErrors):
-
     """
         Nitro error code 3117
         Rebinding of policy with new bind parameters failed. The policy
@@ -16080,7 +14321,6 @@ class NSNitroNserrRebindFailed(NSNitroPiErrors):
 
 
 class NSNitroNserrSecondBind(NSNitroPiErrors):
-
     """
         Nitro error code 3118
         A policy can be bound only once
@@ -16089,7 +14329,6 @@ class NSNitroNserrSecondBind(NSNitroPiErrors):
 
 
 class NSNitroNserrNonhttpVs(NSNitroPiErrors):
-
     """
         Nitro error code 3119
         Specified policy can be bound only to HTTP/SSL vserver
@@ -16098,7 +14337,6 @@ class NSNitroNserrNonhttpVs(NSNitroPiErrors):
 
 
 class NSNitroNserrPiLexFailure(NSNitroPiErrors):
-
     """
         Nitro error code 3344
         Error in parsing
@@ -16107,7 +14345,6 @@ class NSNitroNserrPiLexFailure(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalXpathExpr(NSNitroPiErrors):
-
     """
         Nitro error code 3858
         XPath Expression Compilation Failed
@@ -16116,7 +14353,6 @@ class NSNitroNserrInvalXpathExpr(NSNitroPiErrors):
 
 
 class NSNitroNserrXpathExprNotSupported(NSNitroPiErrors):
-
     """
         Nitro error code 3859
         Unsupported XPath
@@ -16125,7 +14361,6 @@ class NSNitroNserrXpathExprNotSupported(NSNitroPiErrors):
 
 
 class NSNitroNserrTargetInval(NSNitroPiErrors):
-
     """
         Nitro error code 3860
         Target Vserver cannot be specified for this policy
@@ -16134,7 +14369,6 @@ class NSNitroNserrTargetInval(NSNitroPiErrors):
 
 
 class NSNitroNserrNonRespHttpVsList(NSNitroPiErrors):
-
     """
         Nitro error code 3861
         Specified policy can be bound only to HTTP/SSL/TCP/SSL_BRIDGE/FT
@@ -16144,7 +14378,6 @@ class NSNitroNserrNonRespHttpVsList(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalVserverBind(NSNitroPiErrors):
-
     """
         Nitro error code 3862
         Policy can be bound only to LB/CS vserver types
@@ -16153,7 +14386,6 @@ class NSNitroNserrInvalVserverBind(NSNitroPiErrors):
 
 
 class NSNitroNserrAppFreedNsb(NSNitroPiErrors):
-
     """
         Nitro error code 3863
         Application reset/drop connection and freed nsb
@@ -16162,7 +14394,6 @@ class NSNitroNserrAppFreedNsb(NSNitroPiErrors):
 
 
 class NSNitroNserrMultBindInval(NSNitroPiErrors):
-
     """
         Nitro error code 3864
         CVPN Policies cannot be bound to multiple entities
@@ -16171,7 +14402,6 @@ class NSNitroNserrMultBindInval(NSNitroPiErrors):
 
 
 class NSNitroNserrInvalidKeyvalue(NSNitroPiErrors):
-
     """
         Nitro error code 3905
         The keyvalue argument is incorrect.
@@ -16180,7 +14410,6 @@ class NSNitroNserrInvalidKeyvalue(NSNitroPiErrors):
 
 
 class NSNitroAsErrors(NSNitroError):
-
     """
         Base exception class NSNitroAsErrors
     """
@@ -16188,7 +14417,6 @@ class NSNitroAsErrors(NSNitroError):
 
 
 class NSNitroNserrAsNostarturl(NSNitroAsErrors):
-
     """
         Nitro error code 3120
         No such StartURL check
@@ -16197,7 +14425,6 @@ class NSNitroNserrAsNostarturl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistStarturl(NSNitroAsErrors):
-
     """
         Nitro error code 3121
         The StartURL check is already in use
@@ -16206,7 +14433,6 @@ class NSNitroNserrAsExistStarturl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNodenyurl(NSNitroAsErrors):
-
     """
         Nitro error code 3122
         No such DenyURL check
@@ -16215,7 +14441,6 @@ class NSNitroNserrAsNodenyurl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistDenyurl(NSNitroAsErrors):
-
     """
         Nitro error code 3123
         The DenyURL check is already in use
@@ -16224,7 +14449,6 @@ class NSNitroNserrAsExistDenyurl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNocookieconsistency(NSNitroAsErrors):
-
     """
         Nitro error code 3124
         No such CookieConsistency check
@@ -16233,7 +14457,6 @@ class NSNitroNserrAsNocookieconsistency(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistCookieconsistency(NSNitroAsErrors):
-
     """
         Nitro error code 3125
         The CookieConsistency check is already in use
@@ -16242,7 +14465,6 @@ class NSNitroNserrAsExistCookieconsistency(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNofieldconsistency(NSNitroAsErrors):
-
     """
         Nitro error code 3126
         No such FieldConsistency check
@@ -16251,7 +14473,6 @@ class NSNitroNserrAsNofieldconsistency(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistFieldconsistency(NSNitroAsErrors):
-
     """
         Nitro error code 3127
         The FieldConsistency check is already in use
@@ -16260,7 +14481,6 @@ class NSNitroNserrAsExistFieldconsistency(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoxss(NSNitroAsErrors):
-
     """
         Nitro error code 3128
         No such CrossSiteScripting check
@@ -16269,7 +14489,6 @@ class NSNitroNserrAsNoxss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXss(NSNitroAsErrors):
-
     """
         Nitro error code 3129
         The CrossSiteScripting check is already in use
@@ -16278,7 +14497,6 @@ class NSNitroNserrAsExistXss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNosql(NSNitroAsErrors):
-
     """
         Nitro error code 3130
         No such SQLInjection check
@@ -16287,7 +14505,6 @@ class NSNitroNserrAsNosql(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistSql(NSNitroAsErrors):
-
     """
         Nitro error code 3131
         The SQLInjection check is already in use
@@ -16296,7 +14513,6 @@ class NSNitroNserrAsExistSql(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNofieldformat(NSNitroAsErrors):
-
     """
         Nitro error code 3132
         No such FieldFormat check
@@ -16305,7 +14521,6 @@ class NSNitroNserrAsNofieldformat(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistFieldformat(NSNitroAsErrors):
-
     """
         Nitro error code 3133
         The FieldFormat check is already in use
@@ -16314,7 +14529,6 @@ class NSNitroNserrAsExistFieldformat(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoobjectexpression(NSNitroAsErrors):
-
     """
         Nitro error code 3134
         No such SafeObject check
@@ -16323,7 +14537,6 @@ class NSNitroNserrAsNoobjectexpression(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistObjectexpression(NSNitroAsErrors):
-
     """
         Nitro error code 3135
         The SafeObject check is already in use
@@ -16332,7 +14545,6 @@ class NSNitroNserrAsExistObjectexpression(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNofieldtype(NSNitroAsErrors):
-
     """
         Nitro error code 3136
         No such FieldType. See /var/log/ns.log for more details.
@@ -16341,7 +14553,6 @@ class NSNitroNserrAsNofieldtype(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNotSupportedVs(NSNitroAsErrors):
-
     """
         Nitro error code 3137
         Specified policy can be bound only to HTTP/SSL vserver
@@ -16350,7 +14561,6 @@ class NSNitroNserrAsNotSupportedVs(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionStarturl(NSNitroAsErrors):
-
     """
         Nitro error code 3138
         Invalid StartURL Action
@@ -16359,7 +14569,6 @@ class NSNitroNserrAsBadActionStarturl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionDenyurl(NSNitroAsErrors):
-
     """
         Nitro error code 3139
         Invalid DenyURL Action
@@ -16368,7 +14577,6 @@ class NSNitroNserrAsBadActionDenyurl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionCookieconsistency(NSNitroAsErrors):
-
     """
         Nitro error code 3140
         Invalid CookieConsistency Action
@@ -16377,7 +14585,6 @@ class NSNitroNserrAsBadActionCookieconsistency(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionFieldconsistency(NSNitroAsErrors):
-
     """
         Nitro error code 3141
         Invalid FieldConsistency Action
@@ -16386,7 +14593,6 @@ class NSNitroNserrAsBadActionFieldconsistency(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionXss(NSNitroAsErrors):
-
     """
         Nitro error code 3142
         Invalid CrossSiteScripting Action
@@ -16395,7 +14601,6 @@ class NSNitroNserrAsBadActionXss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionSql(NSNitroAsErrors):
-
     """
         Nitro error code 3143
         Invalid SQLInjection Action
@@ -16404,7 +14609,6 @@ class NSNitroNserrAsBadActionSql(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionFieldformat(NSNitroAsErrors):
-
     """
         Nitro error code 3144
         Invalid FieldFormat Action
@@ -16413,7 +14617,6 @@ class NSNitroNserrAsBadActionFieldformat(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionObjectexpression(NSNitroAsErrors):
-
     """
         Nitro error code 3145
         Invalid SafeObject Action
@@ -16422,7 +14625,6 @@ class NSNitroNserrAsBadActionObjectexpression(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionBufferoverflow(NSNitroAsErrors):
-
     """
         Nitro error code 3146
         Invalid BufferOverflow Action
@@ -16431,7 +14633,6 @@ class NSNitroNserrAsBadActionBufferoverflow(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionCcard(NSNitroAsErrors):
-
     """
         Nitro error code 3147
         Invalid CreditCard Action
@@ -16440,7 +14641,6 @@ class NSNitroNserrAsBadActionCcard(NSNitroAsErrors):
 
 
 class NSNitroNserrAsFieldformatMinGtMax(NSNitroAsErrors):
-
     """
         Nitro error code 3148
         Minimum FieldFormat length cannot exceed maximum FieldFormat
@@ -16450,7 +14650,6 @@ class NSNitroNserrAsFieldformatMinGtMax(NSNitroAsErrors):
 
 
 class NSNitroNserrAsFieldtypeBadNameLen(NSNitroAsErrors):
-
     """
         Nitro error code 3149
         Invalid FieldType name length
@@ -16459,7 +14658,6 @@ class NSNitroNserrAsFieldtypeBadNameLen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadCommentLen(NSNitroAsErrors):
-
     """
         Nitro error code 3150
         Invalid comment length
@@ -16468,7 +14666,6 @@ class NSNitroNserrAsBadCommentLen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsFieldtypeBadRegexLen(NSNitroAsErrors):
-
     """
         Nitro error code 3151
         Invalid regex length
@@ -16477,7 +14674,6 @@ class NSNitroNserrAsFieldtypeBadRegexLen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSecurityCheckRequired(NSNitroAsErrors):
-
     """
         Nitro error code 3152
         Security check required
@@ -16486,7 +14682,6 @@ class NSNitroNserrAsSecurityCheckRequired(NSNitroAsErrors):
 
 
 class NSNitroNserrAsFieldtypeBuiltin(NSNitroAsErrors):
-
     """
         Nitro error code 3153
         Built-in FieldTypes cannot be modified or deleted
@@ -16495,7 +14690,6 @@ class NSNitroNserrAsFieldtypeBuiltin(NSNitroAsErrors):
 
 
 class NSNitroNserrAsMaxEntities(NSNitroAsErrors):
-
     """
         Nitro error code 3154
         Number of Application Firewall entities exceeds limit
@@ -16504,7 +14698,6 @@ class NSNitroNserrAsMaxEntities(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadDefaultCharset(NSNitroAsErrors):
-
     """
         Nitro error code 3155
         Invalid default character set
@@ -16513,7 +14706,6 @@ class NSNitroNserrAsBadDefaultCharset(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadCookieconsistencyName(NSNitroAsErrors):
-
     """
         Nitro error code 3156
         Invalid Cookie name
@@ -16522,7 +14714,6 @@ class NSNitroNserrAsBadCookieconsistencyName(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadErrorurl(NSNitroAsErrors):
-
     """
         Nitro error code 3157
         Invalid ErrorURL
@@ -16531,7 +14722,6 @@ class NSNitroNserrAsBadErrorurl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadEncodingUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3158
         Invalid encoding for URL
@@ -16540,7 +14730,6 @@ class NSNitroNserrAsBadEncodingUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadEncodingFieldname(NSNitroAsErrors):
-
     """
         Nitro error code 3159
         Invalid encoding for field name
@@ -16549,7 +14738,6 @@ class NSNitroNserrAsBadEncodingFieldname(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadEncodingCookiename(NSNitroAsErrors):
-
     """
         Nitro error code 3160
         Invalid encoding for cookie name
@@ -16558,7 +14746,6 @@ class NSNitroNserrAsBadEncodingCookiename(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadEncodingObjectexpressionName(NSNitroAsErrors):
-
     """
         Nitro error code 3161
         Invalid encoding for SafeObject name
@@ -16567,7 +14754,6 @@ class NSNitroNserrAsBadEncodingObjectexpressionName(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadEncodingExpression(NSNitroAsErrors):
-
     """
         Nitro error code 3162
         Invalid encoding for expression
@@ -16576,7 +14762,6 @@ class NSNitroNserrAsBadEncodingExpression(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadEncodingRegex(NSNitroAsErrors):
-
     """
         Nitro error code 3163
         Invalid encoding for regex
@@ -16585,7 +14770,6 @@ class NSNitroNserrAsBadEncodingRegex(NSNitroAsErrors):
 
 
 class NSNitroNserrAsModifiedUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3164
         Replaced character that is not printable ASCII with escaped
@@ -16595,7 +14779,6 @@ class NSNitroNserrAsModifiedUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsModifiedObjectexpression(NSNitroAsErrors):
-
     """
         Nitro error code 3165
         Replaced character that is not printable ASCII with escaped
@@ -16605,7 +14788,6 @@ class NSNitroNserrAsModifiedObjectexpression(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCffieldBadFieldnameLen(NSNitroAsErrors):
-
     """
         Nitro error code 3166
         Invalid confidential form field name length
@@ -16614,7 +14796,6 @@ class NSNitroNserrAsCffieldBadFieldnameLen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCffieldBadUrlLen(NSNitroAsErrors):
-
     """
         Nitro error code 3167
         Invalid confidential form field URL length
@@ -16623,7 +14804,6 @@ class NSNitroNserrAsCffieldBadUrlLen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNocffield(NSNitroAsErrors):
-
     """
         Nitro error code 3168
         No such confidential form field
@@ -16632,7 +14812,6 @@ class NSNitroNserrAsNocffield(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadCffName(NSNitroAsErrors):
-
     """
         Nitro error code 3169
         Name may not contain leading/trailing spaces.
@@ -16641,7 +14820,6 @@ class NSNitroNserrAsBadCffName(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadCffUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3170
         URL may not contain leading/trailing spaces.
@@ -16650,7 +14828,6 @@ class NSNitroNserrAsBadCffUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCffDup(NSNitroAsErrors):
-
     """
         Nitro error code 3171
         The confidential field is already in use.
@@ -16659,7 +14836,6 @@ class NSNitroNserrAsCffDup(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionXdos(NSNitroAsErrors):
-
     """
         Nitro error code 3172
         Invalid XML Dos Action
@@ -16668,7 +14844,6 @@ class NSNitroNserrAsBadActionXdos(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXmlDosUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3173
         The XML DoS URL check is already in use.
@@ -16677,7 +14852,6 @@ class NSNitroNserrAsExistXmlDosUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrXmlUrlNotSupported(NSNitroAsErrors):
-
     """
         Nitro error code 3174
         Only .* is supported for XML checks.
@@ -16686,7 +14860,6 @@ class NSNitroNserrXmlUrlNotSupported(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoXdosUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3175
         No such URL exist for XDOS check.
@@ -16695,7 +14868,6 @@ class NSNitroNserrAsNoXdosUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidXmlDosConf(NSNitroAsErrors):
-
     """
         Nitro error code 3176
         Invalid configuration: xmlMaxFileSize can not be less than
@@ -16705,7 +14877,6 @@ class NSNitroNserrAsInvalidXmlDosConf(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionXmlSqlinjection(NSNitroAsErrors):
-
     """
         Nitro error code 3177
         Invalid XML - SQLInjection Action.
@@ -16714,7 +14885,6 @@ class NSNitroNserrAsBadActionXmlSqlinjection(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionXmlXss(NSNitroAsErrors):
-
     """
         Nitro error code 3178
         Invalid XML - CrossSiteScripting Action.
@@ -16723,7 +14893,6 @@ class NSNitroNserrAsBadActionXmlXss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionXmlWellformedness(NSNitroAsErrors):
-
     """
         Nitro error code 3179
         Invalid XML - Format Action.
@@ -16732,7 +14901,6 @@ class NSNitroNserrAsBadActionXmlWellformedness(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionProfileType(NSNitroAsErrors):
-
     """
         Nitro error code 3180
         Invalid Appsecure Profile Type.
@@ -16741,7 +14909,6 @@ class NSNitroNserrAsBadActionProfileType(NSNitroAsErrors):
 
 
 class NSNitroNserrAsModifiedFieldname(NSNitroAsErrors):
-
     """
         Nitro error code 3181
         Replaced character that is not printable ASCII with escaped
@@ -16751,7 +14918,6 @@ class NSNitroNserrAsModifiedFieldname(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionWsi(NSNitroAsErrors):
-
     """
         Nitro error code 3182
         Invalid XML WS-I Action.
@@ -16760,7 +14926,6 @@ class NSNitroNserrAsBadActionWsi(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXmlWsiUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3183
         The XML WS-I URL check is already in use.
@@ -16769,7 +14934,6 @@ class NSNitroNserrAsExistXmlWsiUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoWsiUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3184
         No such URL exist for WS-I check.
@@ -16778,7 +14942,6 @@ class NSNitroNserrAsNoWsiUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidXmlWsiConf(NSNitroAsErrors):
-
     """
         Nitro error code 3185
         Invalid WS-I rule id in the list.
@@ -16787,7 +14950,6 @@ class NSNitroNserrAsInvalidXmlWsiConf(NSNitroAsErrors):
 
 
 class NSNitroNserrAsObjectnameTooBig(NSNitroAsErrors):
-
     """
         Nitro error code 3186
         Object too big.
@@ -16796,7 +14958,6 @@ class NSNitroNserrAsObjectnameTooBig(NSNitroAsErrors):
 
 
 class NSNitroNserrAsObjectNoExist(NSNitroAsErrors):
-
     """
         Nitro error code 3187
         Imported file does not exist [Please import the file before
@@ -16806,7 +14967,6 @@ class NSNitroNserrAsObjectNoExist(NSNitroAsErrors):
 
 
 class NSNitroNserrAsServerNameTooBig(NSNitroAsErrors):
-
     """
         Nitro error code 3188
         Server name too big.
@@ -16815,7 +14975,6 @@ class NSNitroNserrAsServerNameTooBig(NSNitroAsErrors):
 
 
 class NSNitroNserrAsObjectNotReadable(NSNitroAsErrors):
-
     """
         Nitro error code 3189
         Object not readable [Please make sure it exists].
@@ -16824,7 +14983,6 @@ class NSNitroNserrAsObjectNotReadable(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoprofile(NSNitroAsErrors):
-
     """
         Nitro error code 3190
         No such profile.
@@ -16833,7 +14991,6 @@ class NSNitroNserrAsNoprofile(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionXmlAttachment(NSNitroAsErrors):
-
     """
         Nitro error code 3191
         Invalid XML - Attachment Action
@@ -16842,7 +14999,6 @@ class NSNitroNserrAsBadActionXmlAttachment(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionMsgval(NSNitroAsErrors):
-
     """
         Nitro error code 3192
         Invalid XML Message Validation Action.
@@ -16851,7 +15007,6 @@ class NSNitroNserrAsBadActionMsgval(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXmlMsgvalUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3193
         The XML MSGVAL URL check is already in use.
@@ -16860,7 +15015,6 @@ class NSNitroNserrAsExistXmlMsgvalUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoMsgvalUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3194
         No such URL exist for MSGVAL check.
@@ -16869,7 +15023,6 @@ class NSNitroNserrAsNoMsgvalUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidXmlMsgvalConf(NSNitroAsErrors):
-
     """
         Nitro error code 3195
         Invalid MsgVal configuration.
@@ -16878,7 +15031,6 @@ class NSNitroNserrAsInvalidXmlMsgvalConf(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBindXmlMsgvalConf(NSNitroAsErrors):
-
     """
         Nitro error code 3196
         Error in message validation binding. For More details see log
@@ -16888,7 +15040,6 @@ class NSNitroNserrAsBindXmlMsgvalConf(NSNitroAsErrors):
 
 
 class NSNitroNserrAsImportFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3197
         Importing the resource failed
@@ -16897,7 +15048,6 @@ class NSNitroNserrAsImportFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsObjectExist(NSNitroAsErrors):
-
     """
         Nitro error code 3198
         Object already exists
@@ -16906,7 +15056,6 @@ class NSNitroNserrAsObjectExist(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidOption(NSNitroAsErrors):
-
     """
         Nitro error code 3199
         Invalid option
@@ -16915,7 +15064,6 @@ class NSNitroNserrAsInvalidOption(NSNitroAsErrors):
 
 
 class NSNitroNserrAsRemoveFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3200
         Problem in removing resource
@@ -16924,7 +15072,6 @@ class NSNitroNserrAsRemoveFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoResource(NSNitroAsErrors):
-
     """
         Nitro error code 3201
         No such resource. Object you are trying to update or remove does
@@ -16934,7 +15081,6 @@ class NSNitroNserrAsNoResource(NSNitroAsErrors):
 
 
 class NSNitroNserrAsShowFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3202
         Problem in showing object
@@ -16943,7 +15089,6 @@ class NSNitroNserrAsShowFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsDependencyFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3203
         Problem in downloading dependencies
@@ -16952,7 +15097,6 @@ class NSNitroNserrAsDependencyFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCompilationFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3204
         Problem compiling object. For more details see /var/log/ns.log
@@ -16962,7 +15106,6 @@ class NSNitroNserrAsCompilationFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrInvalidObjectName(NSNitroAsErrors):
-
     """
         Nitro error code 3205
         Invalid name; names must begin with an alphanumeric character or
@@ -16973,7 +15116,6 @@ class NSNitroNserrInvalidObjectName(NSNitroAsErrors):
 
 
 class NSNitroNserrAsImportDownloadFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3206
         Problem in importing the object. Please check the DNS
@@ -16984,7 +15126,6 @@ class NSNitroNserrAsImportDownloadFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsResourceInuse(NSNitroAsErrors):
-
     """
         Nitro error code 3207
         Can not remove resource. Resource is in use
@@ -16993,7 +15134,6 @@ class NSNitroNserrAsResourceInuse(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadMappingData(NSNitroAsErrors):
-
     """
         Nitro error code 3208
         Mapping Data Corrupted
@@ -17002,7 +15142,6 @@ class NSNitroNserrAsBadMappingData(NSNitroAsErrors):
 
 
 class NSNitroNserrAsProfileChangeHtml(NSNitroAsErrors):
-
     """
         Nitro error code 3209
         HTML checks will not be applicable when profile type is XML
@@ -17011,7 +15150,6 @@ class NSNitroNserrAsProfileChangeHtml(NSNitroAsErrors):
 
 
 class NSNitroNserrAsProfileChangeXml(NSNitroAsErrors):
-
     """
         Nitro error code 3210
         XML checks will not be applicable when profile type is HTML
@@ -17020,7 +15158,6 @@ class NSNitroNserrAsProfileChangeXml(NSNitroAsErrors):
 
 
 class NSNitroNserrAsImportAlreadyInprocess(NSNitroAsErrors):
-
     """
         Nitro error code 3211
         Import failed. Another resource with the same name being
@@ -17030,7 +15167,6 @@ class NSNitroNserrAsImportAlreadyInprocess(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidXmlErrorObject(NSNitroAsErrors):
-
     """
         Nitro error code 3212
         Invalid XML error object
@@ -17039,7 +15175,6 @@ class NSNitroNserrAsInvalidXmlErrorObject(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXmlWellformednessDisabled(NSNitroAsErrors):
-
     """
         Nitro error code 3213
         XML Security checks can not be performed,  once an XML message
@@ -17049,7 +15184,6 @@ class NSNitroNserrAsXmlWellformednessDisabled(NSNitroAsErrors):
 
 
 class NSNitroNserrAsIndividualImportLimitExceeded(NSNitroAsErrors):
-
     """
         Nitro error code 3214
         Import failed - importing file size greater than configured size
@@ -17059,7 +15193,6 @@ class NSNitroNserrAsIndividualImportLimitExceeded(NSNitroAsErrors):
 
 
 class NSNitroNserrAsTotalImportLimitExceeded(NSNitroAsErrors):
-
     """
         Nitro error code 3215
         Import failed - exceeding the configured total size limit on the
@@ -17069,7 +15202,6 @@ class NSNitroNserrAsTotalImportLimitExceeded(NSNitroAsErrors):
 
 
 class NSNitroNserrAsLearningBusy(NSNitroAsErrors):
-
     """
         Nitro error code 3216
         Please wait for the learning database to finish updating
@@ -17078,7 +15210,6 @@ class NSNitroNserrAsLearningBusy(NSNitroAsErrors):
 
 
 class NSNitroNserrAsDeprecatedXmlWsiRuleR4003(NSNitroAsErrors):
-
     """
         Nitro error code 3217
         WS-I Rule R4003 has been deprecated,  it will be removed from
@@ -17088,7 +15219,6 @@ class NSNitroNserrAsDeprecatedXmlWsiRuleR4003(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXmlAttachmentUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3218
         The XML Attachment URL check is already in use.
@@ -17097,7 +15227,6 @@ class NSNitroNserrAsExistXmlAttachmentUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoXmlAttachmentUrl(NSNitroAsErrors):
-
     """
         Nitro error code 3219
         No such URL exist for XML Attachment check.
@@ -17106,7 +15235,6 @@ class NSNitroNserrAsNoXmlAttachmentUrl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionSoapFault(NSNitroAsErrors):
-
     """
         Nitro error code 3220
         Invalid SOAP Fault Filtering Action.
@@ -17115,7 +15243,6 @@ class NSNitroNserrAsBadActionSoapFault(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXmlDosValueOutOfRange(NSNitroAsErrors):
-
     """
         Nitro error code 3221
         XML DoS check value is not within the allowed range.
@@ -17124,7 +15251,6 @@ class NSNitroNserrAsXmlDosValueOutOfRange(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXmlMsgvalCliError(NSNitroAsErrors):
-
     """
         Nitro error code 3222
         -XMLValidateResponse requires one of [-XMLValidateSOAPEnvelope,
@@ -17134,7 +15260,6 @@ class NSNitroNserrAsXmlMsgvalCliError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidCustomSettingsObject(NSNitroAsErrors):
-
     """
         Nitro error code 3223
         Import failed. Please check syntax of signature object
@@ -17143,7 +15268,6 @@ class NSNitroNserrAsInvalidCustomSettingsObject(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSessionTimeoutLifetimeConflict(NSNitroAsErrors):
-
     """
         Nitro error code 3224
         The session lifetime cannot be less than the session timeout
@@ -17152,7 +15276,6 @@ class NSNitroNserrAsSessionTimeoutLifetimeConflict(NSNitroAsErrors):
 
 
 class NSNitroNserrAsClassicPolicyAlreadyBound(NSNitroAsErrors):
-
     """
         Nitro error code 3225
         Failed to bind advanced policy because a classic one is already
@@ -17163,7 +15286,6 @@ class NSNitroNserrAsClassicPolicyAlreadyBound(NSNitroAsErrors):
 
 
 class NSNitroNserrAsAdvancedPolicyAlreadyBound(NSNitroAsErrors):
-
     """
         Nitro error code 3226
         Failed to bind classic policy because an advanced one is already
@@ -17175,7 +15297,6 @@ class NSNitroNserrAsAdvancedPolicyAlreadyBound(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCustomSettingsNoInjectionType(NSNitroAsErrors):
-
     """
         Nitro error code 3227
         Failed to set signature object. One of the  tags do not have
@@ -17185,7 +15306,6 @@ class NSNitroNserrAsCustomSettingsNoInjectionType(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNocsrfTag(NSNitroAsErrors):
-
     """
         Nitro error code 3228
         No such CrossSiteRequestForgery check
@@ -17194,7 +15314,6 @@ class NSNitroNserrAsNocsrfTag(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistCsrfTag(NSNitroAsErrors):
-
     """
         Nitro error code 3229
         The CrossSiteRequestForgery check is already in use
@@ -17203,7 +15322,6 @@ class NSNitroNserrAsExistCsrfTag(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadActionCsrfTag(NSNitroAsErrors):
-
     """
         Nitro error code 3230
         Invalid CSRF Tag Action
@@ -17212,7 +15330,6 @@ class NSNitroNserrAsBadActionCsrfTag(NSNitroAsErrors):
 
 
 class NSNitroNserrAsTurningTaggingOffCsrfTagOn(NSNitroAsErrors):
-
     """
         Nitro error code 3231
         Must set CSRF tagging check to 'none' before disabling form
@@ -17222,7 +15339,6 @@ class NSNitroNserrAsTurningTaggingOffCsrfTagOn(NSNitroAsErrors):
 
 
 class NSNitroNserrAsTurningCsrfTagOnTaggingOff(NSNitroAsErrors):
-
     """
         Nitro error code 3232
         Form tagging must be enabled before turning on CSRF tag checks.
@@ -17231,7 +15347,6 @@ class NSNitroNserrAsTurningCsrfTagOnTaggingOff(NSNitroAsErrors):
 
 
 class NSNitroNserrAsImportLimitLessThanImportDirSize(NSNitroAsErrors):
-
     """
         Nitro error code 3233
         Import limit should be greater than the current total imported
@@ -17241,7 +15356,6 @@ class NSNitroNserrAsImportLimitLessThanImportDirSize(NSNitroAsErrors):
 
 
 class NSNitroNserrAsUnsupportedImportProtocol(NSNitroAsErrors):
-
     """
         Nitro error code 3234
         Unsupported import source protocol. Supported protocols are http
@@ -17251,7 +15365,6 @@ class NSNitroNserrAsUnsupportedImportProtocol(NSNitroAsErrors):
 
 
 class NSNitroNserrAsUnsupportedExportProtocol(NSNitroAsErrors):
-
     """
         Nitro error code 3235
         Unsupported export target protocol. Supported protocols are http
@@ -17261,7 +15374,6 @@ class NSNitroNserrAsUnsupportedExportProtocol(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExportFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3236
         Export failed. Check /var/log/ns.log for details.
@@ -17270,7 +15382,6 @@ class NSNitroNserrAsExportFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBadLocalFile(NSNitroAsErrors):
-
     """
         Nitro error code 3237
         Local file cannot use .. to backtrack up a directory.
@@ -17279,7 +15390,6 @@ class NSNitroNserrAsBadLocalFile(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidRegexCustomObject(NSNitroAsErrors):
-
     """
         Nitro error code 3238
         Invalid regular expression in custom object. Reverting to
@@ -17289,7 +15399,6 @@ class NSNitroNserrAsInvalidRegexCustomObject(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBuiltinInvalidOp(NSNitroAsErrors):
-
     """
         Nitro error code 3239
         Invalid operation for built-in profile
@@ -17298,7 +15407,6 @@ class NSNitroNserrAsBuiltinInvalidOp(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidAdvPolicyState(NSNitroAsErrors):
-
     """
         Nitro error code 3240
         Cannot bind advanced policy with state set to DISABLED
@@ -17307,7 +15415,6 @@ class NSNitroNserrAsInvalidAdvPolicyState(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBuiltinNamesInConf(NSNitroAsErrors):
-
     """
         Nitro error code 3241
         Entities with names reserved for built-in profiles have been
@@ -17317,7 +15424,6 @@ class NSNitroNserrAsBuiltinNamesInConf(NSNitroAsErrors):
 
 
 class NSNitroNserrAsDefaultProfileIsBypass(NSNitroAsErrors):
-
     """
         Nitro error code 3242
         The default profile is set to bypass traffic. It can be set
@@ -17327,7 +15433,6 @@ class NSNitroNserrAsDefaultProfileIsBypass(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnDenyurl(NSNitroAsErrors):
-
     """
         Nitro error code 3243
         Learn is not supported as a denyURLAction.
@@ -17336,7 +15441,6 @@ class NSNitroNserrAsNoLearnDenyurl(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidXmlFileSize(NSNitroAsErrors):
-
     """
         Nitro error code 3244
         Invalid configuration: xmlMinFileSize / xmlMaxFileSize can not
@@ -17346,7 +15450,6 @@ class NSNitroNserrAsInvalidXmlFileSize(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnCcard(NSNitroAsErrors):
-
     """
         Nitro error code 3245
         Learn is not supported as a creditCardAction.
@@ -17355,7 +15458,6 @@ class NSNitroNserrAsNoLearnCcard(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnBufferoverflow(NSNitroAsErrors):
-
     """
         Nitro error code 3246
         Learn is not supported as a bufferOvewflowAction.
@@ -17364,7 +15466,6 @@ class NSNitroNserrAsNoLearnBufferoverflow(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnXmlFormat(NSNitroAsErrors):
-
     """
         Nitro error code 3247
         Learn is not supported as an XMLFormatAction.
@@ -17373,7 +15474,6 @@ class NSNitroNserrAsNoLearnXmlFormat(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnXmlSqlinjection(NSNitroAsErrors):
-
     """
         Nitro error code 3251
         Learn is not supported as an XMLSQLInjectionAction.
@@ -17382,7 +15482,6 @@ class NSNitroNserrAsNoLearnXmlSqlinjection(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnXmlXss(NSNitroAsErrors):
-
     """
         Nitro error code 3252
         Learn is not supported as an XMLXSSAction.
@@ -17391,7 +15490,6 @@ class NSNitroNserrAsNoLearnXmlXss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnXmlMsgval(NSNitroAsErrors):
-
     """
         Nitro error code 3253
         Learn is not supported as an XMLValidationAction.
@@ -17400,7 +15498,6 @@ class NSNitroNserrAsNoLearnXmlMsgval(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoLearnXmlSoapFault(NSNitroAsErrors):
-
     """
         Nitro error code 3254
         Learn is not supported as an XMLSOAPFaultAction.
@@ -17409,7 +15506,6 @@ class NSNitroNserrAsNoLearnXmlSoapFault(NSNitroAsErrors):
 
 
 class NSNitroNserrAsImportInternalError(NSNitroAsErrors):
-
     """
         Nitro error code 3255
         Internal error while importing resource.
@@ -17418,7 +15514,6 @@ class NSNitroNserrAsImportInternalError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNetsvcConnFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3256
         Critical internal error. please retry after some time.
@@ -17427,7 +15522,6 @@ class NSNitroNserrAsNetsvcConnFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsValidationFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3257
         Problem validating Imported object against specification. For
@@ -17437,7 +15531,6 @@ class NSNitroNserrAsValidationFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCkiTransformDisabled(NSNitroAsErrors):
-
     """
         Nitro error code 3258
         This setting will not take effect until cookieTransforms is
@@ -17447,7 +15540,6 @@ class NSNitroNserrAsCkiTransformDisabled(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoxmlxss(NSNitroAsErrors):
-
     """
         Nitro error code 3259
         No such XMLXSS check
@@ -17456,7 +15548,6 @@ class NSNitroNserrAsNoxmlxss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXmlxss(NSNitroAsErrors):
-
     """
         Nitro error code 3260
         The XMLXSS check is already in use
@@ -17465,7 +15556,6 @@ class NSNitroNserrAsExistXmlxss(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoxmlsql(NSNitroAsErrors):
-
     """
         Nitro error code 3261
         No such XMLSQLInjection check
@@ -17474,7 +15564,6 @@ class NSNitroNserrAsNoxmlsql(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistXmlsql(NSNitroAsErrors):
-
     """
         Nitro error code 3262
         The XMLSQLInjection check is already in use
@@ -17483,7 +15572,6 @@ class NSNitroNserrAsExistXmlsql(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoEndtag(NSNitroAsErrors):
-
     """
         Nitro error code 3263
         Missing end tag in the imported signature file.
@@ -17492,7 +15580,6 @@ class NSNitroNserrAsNoEndtag(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidRuleid(NSNitroAsErrors):
-
     """
         Nitro error code 3264
         Invalid rule id in imported signature.
@@ -17501,7 +15588,6 @@ class NSNitroNserrAsSigInvalidRuleid(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidRuleVersion(NSNitroAsErrors):
-
     """
         Nitro error code 3265
         Invalid version in imported signature.
@@ -17510,7 +15596,6 @@ class NSNitroNserrAsSigInvalidRuleVersion(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigParseError(NSNitroAsErrors):
-
     """
         Nitro error code 3266
         Error parsing imported signatures.
@@ -17519,7 +15604,6 @@ class NSNitroNserrAsSigParseError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidAttribute(NSNitroAsErrors):
-
     """
         Nitro error code 3267
         Imported signatures have invalid attributes
@@ -17528,7 +15612,6 @@ class NSNitroNserrAsSigInvalidAttribute(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMultipleLocations(NSNitroAsErrors):
-
     """
         Nitro error code 3268
         Imported signature patterns has multiple locations
@@ -17537,7 +15620,6 @@ class NSNitroNserrAsSigMultipleLocations(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidState(NSNitroAsErrors):
-
     """
         Nitro error code 3269
         Error parsing imported signatures. Invalid parse state.
@@ -17546,7 +15628,6 @@ class NSNitroNserrAsSigInvalidState(NSNitroAsErrors):
 
 
 class NSNitroNserrAsCkiEncryptMethodIsNone(NSNitroAsErrors):
-
     """
         Nitro error code 3270
         For security purposes,  please set the NS encryptions parameter
@@ -17556,7 +15637,6 @@ class NSNitroNserrAsCkiEncryptMethodIsNone(NSNitroAsErrors):
 
 
 class NSNitroNserrAsUpdateFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3271
         Updating the resource failed
@@ -17565,7 +15645,6 @@ class NSNitroNserrAsUpdateFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsObjectNotUsed(NSNitroAsErrors):
-
     """
         Nitro error code 3272
         The specified object is not used
@@ -17574,7 +15653,6 @@ class NSNitroNserrAsObjectNotUsed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMultipleUrls(NSNitroAsErrors):
-
     """
         Nitro error code 3273
         Imported signature pattern location has multiple URLs
@@ -17583,7 +15661,6 @@ class NSNitroNserrAsSigMultipleUrls(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMultipleFieldNames(NSNitroAsErrors):
-
     """
         Nitro error code 3274
         Imported signature pattern location has multiple field names
@@ -17592,7 +15669,6 @@ class NSNitroNserrAsSigMultipleFieldNames(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigNoFastmatch(NSNitroAsErrors):
-
     """
         Nitro error code 3275
         A signature rule has no fastmatch pattern.  See log for details.
@@ -17601,7 +15677,6 @@ class NSNitroNserrAsSigNoFastmatch(NSNitroAsErrors):
 
 
 class NSNitroNserrAsPePolicyNotsupported(NSNitroAsErrors):
-
     """
         Nitro error code 3276
         Not supported for classic policy.
@@ -17610,7 +15685,6 @@ class NSNitroNserrAsPePolicyNotsupported(NSNitroAsErrors):
 
 
 class NSNitroNserrAsAuditlogPolicyNotsupported(NSNitroAsErrors):
-
     """
         Nitro error code 3277
         Not supported for auditlog policy.
@@ -17619,7 +15693,6 @@ class NSNitroNserrAsAuditlogPolicyNotsupported(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMultipleCreditCardRules(NSNitroAsErrors):
-
     """
         Nitro error code 3278
         Imported signatures has multiple credit card patterns in Rule.
@@ -17628,7 +15701,6 @@ class NSNitroNserrAsSigMultipleCreditCardRules(NSNitroAsErrors):
 
 
 class NSNitroNserrAsTurningTaggingOffSessionlessFfcOn(NSNitroAsErrors):
-
     """
         Nitro error code 3279
         Must disable sessionless field consistency checks before
@@ -17638,7 +15710,6 @@ class NSNitroNserrAsTurningTaggingOffSessionlessFfcOn(NSNitroAsErrors):
 
 
 class NSNitroNserrAsTurningSessionlessFfcOnTaggingOff(NSNitroAsErrors):
-
     """
         Nitro error code 3280
         Form tagging must be enabled before enabling sessionless field
@@ -17648,7 +15719,6 @@ class NSNitroNserrAsTurningSessionlessFfcOnTaggingOff(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidCreditCardPattern(NSNitroAsErrors):
-
     """
         Nitro error code 3281
         Imported Signatures has invalid Credit Card pattern.
@@ -17657,7 +15727,6 @@ class NSNitroNserrAsSigInvalidCreditCardPattern(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidSafeObjectPattern(NSNitroAsErrors):
-
     """
         Nitro error code 3282
         Imported Signatures has invalid Safe Object pattern.
@@ -17666,7 +15735,6 @@ class NSNitroNserrAsSigInvalidSafeObjectPattern(NSNitroAsErrors):
 
 
 class NSNitroNserrAsImportInvalidTarArchive(NSNitroAsErrors):
-
     """
         Nitro error code 3283
         Imported archive is invalid. Please provide valid tar.gz
@@ -17676,7 +15744,6 @@ class NSNitroNserrAsImportInvalidTarArchive(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSqlinjectionKeywordInvalidAttribute(NSNitroAsErrors):
-
     """
         Nitro error code 3284
         Imported signatures has invalid SQL injection attributes.
@@ -17685,7 +15752,6 @@ class NSNitroNserrAsSqlinjectionKeywordInvalidAttribute(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSplstringInvalidAttribute(NSNitroAsErrors):
-
     """
         Nitro error code 3285
         Imported signatures has invalid special string attributes.
@@ -17694,7 +15760,6 @@ class NSNitroNserrAsSplstringInvalidAttribute(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSqlinjectionKeywordLiteralExceedMaxlen(NSNitroAsErrors):
-
     """
         Nitro error code 3286
         Maximum allowed length for type \"LITERAL\" for keyword is 255.
@@ -17703,7 +15768,6 @@ class NSNitroNserrAsSqlinjectionKeywordLiteralExceedMaxlen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSplstringLiteralExceedMaxlen(NSNitroAsErrors):
-
     """
         Nitro error code 3287
         Maximum allowed length for type \"LITERAL\" for special string
@@ -17713,7 +15777,6 @@ class NSNitroNserrAsSplstringLiteralExceedMaxlen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXsltTranformLatest(NSNitroAsErrors):
-
     """
         Nitro error code 3288
         Problem converting imported signature to the latest version. For
@@ -17723,7 +15786,6 @@ class NSNitroNserrAsXsltTranformLatest(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXsltTranformUser(NSNitroAsErrors):
-
     """
         Nitro error code 3289
         Problem converting imported signature with the given xslt file.
@@ -17733,7 +15795,6 @@ class NSNitroNserrAsXsltTranformUser(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigRespBodyExprError(NSNitroAsErrors):
-
     """
         Nitro error code 3290
         Match type EXPRESSION is not supported in response rules.
@@ -17742,7 +15803,6 @@ class NSNitroNserrAsSigRespBodyExprError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNotrustedlearningclient(NSNitroAsErrors):
-
     """
         Nitro error code 3291
         No Such Trusted Learning Client.
@@ -17751,7 +15811,6 @@ class NSNitroNserrAsNotrustedlearningclient(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistTrustedlearningclient(NSNitroAsErrors):
-
     """
         Nitro error code 3292
         The Trusted Learning Client is already in use.
@@ -17760,7 +15819,6 @@ class NSNitroNserrAsExistTrustedlearningclient(NSNitroAsErrors):
 
 
 class NSNitroNserrAsPolicyAllowedBindpointNone(NSNitroAsErrors):
-
     """
         Nitro error code 3293
         Only bindpoint none is allowed for this policy.
@@ -17769,7 +15827,6 @@ class NSNitroNserrAsPolicyAllowedBindpointNone(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXssDeniedPatternInvalidAttribute(NSNitroAsErrors):
-
     """
         Nitro error code 3294
         Imported signatures has invalid denied pattern attribute.
@@ -17778,7 +15835,6 @@ class NSNitroNserrAsXssDeniedPatternInvalidAttribute(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXssDeniedPatternExceedMaxlen(NSNitroAsErrors):
-
     """
         Nitro error code 3295
         Maximum allowed length for type \"LITERAL\" for denied pattern
@@ -17788,7 +15844,6 @@ class NSNitroNserrAsXssDeniedPatternExceedMaxlen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXssAllowedPatternInvalidAttribute(NSNitroAsErrors):
-
     """
         Nitro error code 3296
         Imported signatures has invalid allowed pattern attribute.
@@ -17797,7 +15852,6 @@ class NSNitroNserrAsXssAllowedPatternInvalidAttribute(NSNitroAsErrors):
 
 
 class NSNitroNserrAsXssAllowedPatternExceedMaxlen(NSNitroAsErrors):
-
     """
         Nitro error code 3297
         Maximum allowed length for type \"LITERAL\" for allowed pattern
@@ -17807,7 +15861,6 @@ class NSNitroNserrAsXssAllowedPatternExceedMaxlen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMultipleSubLocations(NSNitroAsErrors):
-
     """
         Nitro error code 3298
         Imported signature pattern location has multiple sub locations
@@ -17816,7 +15869,6 @@ class NSNitroNserrAsSigMultipleSubLocations(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInternalError(NSNitroAsErrors):
-
     """
         Nitro error code 3299
         Internal error when configuring signatures.
@@ -17825,7 +15877,6 @@ class NSNitroNserrAsSigInternalError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigUrlTagError(NSNitroAsErrors):
-
     """
         Nitro error code 3300
         Signature file has  tag in an improper location.
@@ -17834,7 +15885,6 @@ class NSNitroNserrAsSigUrlTagError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigHeaderNameTagError(NSNitroAsErrors):
-
     """
         Nitro error code 3301
         Signature file has  tag in an improper location.
@@ -17843,7 +15893,6 @@ class NSNitroNserrAsSigHeaderNameTagError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigCookieNameTagError(NSNitroAsErrors):
-
     """
         Nitro error code 3302
         Signature file has  tag in an improper location.
@@ -17852,7 +15901,6 @@ class NSNitroNserrAsSigCookieNameTagError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigFieldNameTagError(NSNitroAsErrors):
-
     """
         Nitro error code 3303
         Signature file has  tag in an improper location.
@@ -17861,7 +15909,6 @@ class NSNitroNserrAsSigFieldNameTagError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigPatternAddError(NSNitroAsErrors):
-
     """
         Nitro error code 3304
         Problem constructing signature pattern from file
@@ -17870,7 +15917,6 @@ class NSNitroNserrAsSigPatternAddError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigNonLiteralFastmatch(NSNitroAsErrors):
-
     """
         Nitro error code 3305
         Signature file has \"fastmatch\" on a non-literal match.
@@ -17879,7 +15925,6 @@ class NSNitroNserrAsSigNonLiteralFastmatch(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigNegatedLiteralFastmatch(NSNitroAsErrors):
-
     """
         Nitro error code 3306
         Signature file has \"fastmatch\" on a negated literal match.
@@ -17888,7 +15933,6 @@ class NSNitroNserrAsSigNegatedLiteralFastmatch(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMemAllocFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3307
         Memory allocation failed while loading signatures.
@@ -17897,7 +15941,6 @@ class NSNitroNserrAsSigMemAllocFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigTooManyPatterns(NSNitroAsErrors):
-
     """
         Nitro error code 3308
         Signature file has a rule with too many patterns.
@@ -17906,7 +15949,6 @@ class NSNitroNserrAsSigTooManyPatterns(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigLiteralHexParseError(NSNitroAsErrors):
-
     """
         Nitro error code 3309
         Signature file has a pattern with hex byte syntax error.
@@ -17915,7 +15957,6 @@ class NSNitroNserrAsSigLiteralHexParseError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigPcreCompileError(NSNitroAsErrors):
-
     """
         Nitro error code 3310
         Signature file has an invalid PCRE.
@@ -17924,7 +15965,6 @@ class NSNitroNserrAsSigPcreCompileError(NSNitroAsErrors):
 
 
 class NSNitroNserrInvalidSignatureName(NSNitroAsErrors):
-
     """
         Nitro error code 3311
         Invalid signature name; it must begin with an alphanumeric
@@ -17935,7 +15975,6 @@ class NSNitroNserrInvalidSignatureName(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSignatureMerge(NSNitroAsErrors):
-
     """
         Nitro error code 3312
         Problem merging imported signature rules with the existing
@@ -17945,7 +15984,6 @@ class NSNitroNserrAsSignatureMerge(NSNitroAsErrors):
 
 
 class NSNitroNserrAsRecorderMemAllocError(NSNitroAsErrors):
-
     """
         Nitro error code 3313
         Cannot allocate memory for requested recorder size.
@@ -17954,7 +15992,6 @@ class NSNitroNserrAsRecorderMemAllocError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigInvalidFileVersion(NSNitroAsErrors):
-
     """
         Nitro error code 3314
         Signature file has an invalid SignaturesFile 'version' value.
@@ -17963,7 +16000,6 @@ class NSNitroNserrAsSigInvalidFileVersion(NSNitroAsErrors):
 
 
 class NSNitroNserrAsAutoSignatureUpdatedFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3315
         Updating of signatures failed. For more details see
@@ -17973,7 +16009,6 @@ class NSNitroNserrAsAutoSignatureUpdatedFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNoContentType(NSNitroAsErrors):
-
     """
         Nitro error code 3316
         No Such content-type.
@@ -17982,7 +16017,6 @@ class NSNitroNserrAsNoContentType(NSNitroAsErrors):
 
 
 class NSNitroNserrAsPolicyBindingNotallowed(NSNitroAsErrors):
-
     """
         Nitro error code 3317
         Appfw policy can only be bound to spotted vservers that are
@@ -17992,7 +16026,6 @@ class NSNitroNserrAsPolicyBindingNotallowed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsPolicySetNotallowed(NSNitroAsErrors):
-
     """
         Nitro error code 3318
         Set disallowed as advance profile can only be associated to
@@ -18002,7 +16035,6 @@ class NSNitroNserrAsPolicySetNotallowed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSignatureUrlNotAccessible(NSNitroAsErrors):
-
     """
         Nitro error code 3319
         Signature URL set in 'set appfw settings' is not accessible.
@@ -18012,7 +16044,6 @@ class NSNitroNserrAsSignatureUrlNotAccessible(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNodegroupUnbindVserverNotallowed(NSNitroAsErrors):
-
     """
         Nitro error code 3320
         Unbinding vserver from nodegroup disallowed as vserver has appfw
@@ -18022,7 +16053,6 @@ class NSNitroNserrAsNodegroupUnbindVserverNotallowed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNodegroupBindNodeNotallowed(NSNitroAsErrors):
-
     """
         Nitro error code 3321
         Nodegroup could be associated with only one node if it has a
@@ -18032,7 +16062,6 @@ class NSNitroNserrAsNodegroupBindNodeNotallowed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsBuiltInObjectError(NSNitroAsErrors):
-
     """
         Nitro error code 3322
         Cannot add or remove built in objects.
@@ -18041,7 +16070,6 @@ class NSNitroNserrAsBuiltInObjectError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSignatureValidateFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3323
         Imported signature is failed to validate against sha1 file. For
@@ -18051,7 +16079,6 @@ class NSNitroNserrAsSignatureValidateFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSignatureInvalidName(NSNitroAsErrors):
-
     """
         Nitro error code 3324
         Signature name must be only '*Default Signatures' when using
@@ -18061,7 +16088,6 @@ class NSNitroNserrAsSignatureInvalidName(NSNitroAsErrors):
 
 
 class NSNitroNserrAsInvalidParameter(NSNitroAsErrors):
-
     """
         Nitro error code 3325
         Sha1 parameter is allowed to use only with Import Appfw
@@ -18071,7 +16097,6 @@ class NSNitroNserrAsInvalidParameter(NSNitroAsErrors):
 
 
 class NSNitroNserrAsLearningDbError(NSNitroAsErrors):
-
     """
         Nitro error code 3326
         Learning database is either corrupt or does not exist.
@@ -18080,7 +16105,6 @@ class NSNitroNserrAsLearningDbError(NSNitroAsErrors):
 
 
 class NSNitroNserrAsValidationSignatureMappingFailed(NSNitroAsErrors):
-
     """
         Nitro error code 3327
         SignatureMapping.xml is invalid. Failed to validate
@@ -18090,7 +16114,6 @@ class NSNitroNserrAsValidationSignatureMappingFailed(NSNitroAsErrors):
 
 
 class NSNitroNserrAsExistContentType(NSNitroAsErrors):
-
     """
         Nitro error code 3332
         Content-type is already in use.
@@ -18099,7 +16122,6 @@ class NSNitroNserrAsExistContentType(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSigMissingMaxMatchLen(NSNitroAsErrors):
-
     """
         Nitro error code 3333
         Signature file has a rule with a response body pattern without
@@ -18109,7 +16131,6 @@ class NSNitroNserrAsSigMissingMaxMatchLen(NSNitroAsErrors):
 
 
 class NSNitroNserrAsNotAllowedContentType(NSNitroAsErrors):
-
     """
         Nitro error code 3334
         Content-types 'application/x-www-form-urlencoded' or 'multipart
@@ -18120,7 +16141,6 @@ class NSNitroNserrAsNotAllowedContentType(NSNitroAsErrors):
 
 
 class NSNitroNserrAsTotalImportSizeLimitExceeded(NSNitroAsErrors):
-
     """
         Nitro error code 3335
         Update is successful but update operation of this import object
@@ -18131,7 +16151,6 @@ class NSNitroNserrAsTotalImportSizeLimitExceeded(NSNitroAsErrors):
 
 
 class NSNitroNserrAsMaxTotalImportLimitExceeded(NSNitroAsErrors):
-
     """
         Nitro error code 3336
         Update operation of this import object exceeded maximum total
@@ -18141,7 +16160,6 @@ class NSNitroNserrAsMaxTotalImportLimitExceeded(NSNitroAsErrors):
 
 
 class NSNitroNserrAsSqlwildcharInvalidAttribute(NSNitroAsErrors):
-
     """
         Nitro error code 3339
         Imported signatures has invalid wild char attributes.
@@ -18150,7 +16168,6 @@ class NSNitroNserrAsSqlwildcharInvalidAttribute(NSNitroAsErrors):
 
 
 class NSNitroNserrAsWildcharLiteralExceedMaxlen(NSNitroAsErrors):
-
     """
         Nitro error code 3340
         Maximum allowed length for type \"LITERAL\" for wild char
@@ -18160,7 +16177,6 @@ class NSNitroNserrAsWildcharLiteralExceedMaxlen(NSNitroAsErrors):
 
 
 class NSNitroCvpnErrors(NSNitroError):
-
     """
         Base exception class NSNitroCvpnErrors
     """
@@ -18168,7 +16184,6 @@ class NSNitroCvpnErrors(NSNitroError):
 
 
 class NSNitroNserrNoSuchProfile(NSNitroCvpnErrors):
-
     """
         Nitro error code 3248
         Profile does not exist
@@ -18177,7 +16192,6 @@ class NSNitroNserrNoSuchProfile(NSNitroCvpnErrors):
 
 
 class NSNitroNserrProfileInUse(NSNitroCvpnErrors):
-
     """
         Nitro error code 3249
         Profile in use
@@ -18186,7 +16200,6 @@ class NSNitroNserrProfileInUse(NSNitroCvpnErrors):
 
 
 class NSNitroVmacErrors(NSNitroError):
-
     """
         Base exception class NSNitroVmacErrors
     """
@@ -18194,7 +16207,6 @@ class NSNitroVmacErrors(NSNitroError):
 
 
 class NSNitroNserrInterfaceBound(NSNitroVmacErrors):
-
     """
         Nitro error code 3329
         Interface already bound
@@ -18203,7 +16215,6 @@ class NSNitroNserrInterfaceBound(NSNitroVmacErrors):
 
 
 class NSNitroNserrVridInterfaceNotBound(NSNitroVmacErrors):
-
     """
         Nitro error code 3330
         Interface not bound
@@ -18212,7 +16223,6 @@ class NSNitroNserrVridInterfaceNotBound(NSNitroVmacErrors):
 
 
 class NSNitroNserrNoSuchInterface(NSNitroVmacErrors):
-
     """
         Nitro error code 3331
         No such interface
@@ -18221,7 +16231,6 @@ class NSNitroNserrNoSuchInterface(NSNitroVmacErrors):
 
 
 class NSNitroJazzErrors(NSNitroError):
-
     """
         Base exception class NSNitroJazzErrors
     """
@@ -18229,7 +16238,6 @@ class NSNitroJazzErrors(NSNitroError):
 
 
 class NSNitroBackupErrors(NSNitroError):
-
     """
         Base exception class NSNitroBackupErrors
     """
@@ -18237,7 +16245,6 @@ class NSNitroBackupErrors(NSNitroError):
 
 
 class NSNitroSnmpErrors(NSNitroError):
-
     """
         Base exception class NSNitroSnmpErrors
     """
@@ -18245,7 +16252,6 @@ class NSNitroSnmpErrors(NSNitroError):
 
 
 class NSNitroNserrInvalthreshold(NSNitroSnmpErrors):
-
     """
         Nitro error code 3457
         Threshold value for this alarm is a percentage (1 - 100)
@@ -18254,7 +16260,6 @@ class NSNitroNserrInvalthreshold(NSNitroSnmpErrors):
 
 
 class NSNitroNserrWrongthresholds(NSNitroSnmpErrors):
-
     """
         Nitro error code 3458
         Normal threshold must be lower than alarm threshold
@@ -18263,7 +16268,6 @@ class NSNitroNserrWrongthresholds(NSNitroSnmpErrors):
 
 
 class NSNitroNserrInvalidSrcip(NSNitroSnmpErrors):
-
     """
         Nitro error code 3459
         Valid source IP: NSIP,  SNIP,  MIP. In cluster setup,  valid
@@ -18273,7 +16277,6 @@ class NSNitroNserrInvalidSrcip(NSNitroSnmpErrors):
 
 
 class NSNitroNserrThresholdUnsettable(NSNitroSnmpErrors):
-
     """
         Nitro error code 3460
         Threshold value cannot be set/unset for this alarm
@@ -18282,7 +16285,6 @@ class NSNitroNserrThresholdUnsettable(NSNitroSnmpErrors):
 
 
 class NSNitroNserrTimeUnsettable(NSNitroSnmpErrors):
-
     """
         Nitro error code 3461
         Time interval cannot be set/unset for this alarm
@@ -18291,7 +16293,6 @@ class NSNitroNserrTimeUnsettable(NSNitroSnmpErrors):
 
 
 class NSNitroNserrWrongLowThresholds(NSNitroSnmpErrors):
-
     """
         Nitro error code 3462
         Normal threshold must be higher than alarm threshold
@@ -18300,7 +16301,6 @@ class NSNitroNserrWrongLowThresholds(NSNitroSnmpErrors):
 
 
 class NSNitroHtmlInjectionErrors(NSNitroError):
-
     """
         Base exception class NSNitroHtmlInjectionErrors
     """
@@ -18308,7 +16308,6 @@ class NSNitroHtmlInjectionErrors(NSNitroError):
 
 
 class NSNitroInatErrors(NSNitroError):
-
     """
         Base exception class NSNitroInatErrors
     """
@@ -18316,7 +16315,6 @@ class NSNitroInatErrors(NSNitroError):
 
 
 class NSNitroNserrPublicip(NSNitroInatErrors):
-
     """
         Nitro error code 3888
         Invalid Public IP address
@@ -18325,7 +16323,6 @@ class NSNitroNserrPublicip(NSNitroInatErrors):
 
 
 class NSNitroNserrPrivateip(NSNitroInatErrors):
-
     """
         Nitro error code 3889
         Invalid Private IP address
@@ -18334,7 +16331,6 @@ class NSNitroNserrPrivateip(NSNitroInatErrors):
 
 
 class NSNitroNserrProxyip(NSNitroInatErrors):
-
     """
         Nitro error code 3890
         Invalid Proxy IP address
@@ -18343,7 +16339,6 @@ class NSNitroNserrProxyip(NSNitroInatErrors):
 
 
 class NSNitroNserrWildcardtcpvip(NSNitroInatErrors):
-
     """
         Nitro error code 3891
         TCPPROXY enabled when wildcard TCP Vserver already present
@@ -18352,7 +16347,6 @@ class NSNitroNserrWildcardtcpvip(NSNitroInatErrors):
 
 
 class NSNitroNserrWildcardanyvip(NSNitroInatErrors):
-
     """
         Nitro error code 3892
         INAT rule with wildcard ANY vserver,  not allowed
@@ -18361,7 +16355,6 @@ class NSNitroNserrWildcardanyvip(NSNitroInatErrors):
 
 
 class NSNitroNserrFtpvippresent(NSNitroInatErrors):
-
     """
         Nitro error code 3893
         FTP enabled when FTP vserver already present
@@ -18370,7 +16363,6 @@ class NSNitroNserrFtpvippresent(NSNitroInatErrors):
 
 
 class NSNitroNserrV46Usip(NSNitroInatErrors):
-
     """
         Nitro error code 3894
         USIP is not allowed in mixed topology
@@ -18379,7 +16371,6 @@ class NSNitroNserrV46Usip(NSNitroInatErrors):
 
 
 class NSNitroNserrIncompatibleIp(NSNitroInatErrors):
-
     """
         Nitro error code 3895
         Private and Proxy IP should share the same IP Type
@@ -18388,7 +16379,6 @@ class NSNitroNserrIncompatibleIp(NSNitroInatErrors):
 
 
 class NSNitroNserrOnlyNat46Supported(NSNitroInatErrors):
-
     """
         Nitro error code 3896
         Stateless mode only supported for IPv4->IPV6
@@ -18397,7 +16387,6 @@ class NSNitroNserrOnlyNat46Supported(NSNitroInatErrors):
 
 
 class NSNitroNserrNat46ProxyIp(NSNitroInatErrors):
-
     """
         Nitro error code 3897
         Proxy IP is not supported in stateless mode
@@ -18406,7 +16395,6 @@ class NSNitroNserrNat46ProxyIp(NSNitroInatErrors):
 
 
 class NSNitroNserrNat46InvalidPrefixlen(NSNitroInatErrors):
-
     """
         Nitro error code 3898
         Prefix length other than 96 is not supported
@@ -18415,7 +16403,6 @@ class NSNitroNserrNat46InvalidPrefixlen(NSNitroInatErrors):
 
 
 class NSNitroNserrNat46InvalidSetting(NSNitroInatErrors):
-
     """
         Nitro error code 3899
         Invalid configuration for nat46
@@ -18424,7 +16411,6 @@ class NSNitroNserrNat46InvalidSetting(NSNitroInatErrors):
 
 
 class NSNitroNserrNat46PrivateipExists(NSNitroInatErrors):
-
     """
         Nitro error code 3900
         Private IP already configured in another nat46 rule
@@ -18433,7 +16419,6 @@ class NSNitroNserrNat46PrivateipExists(NSNitroInatErrors):
 
 
 class NSNitroNserrTftpvippresent(NSNitroInatErrors):
-
     """
         Nitro error code 3901
         TFTP enabled when TFTP vserver already present
@@ -18442,7 +16427,6 @@ class NSNitroNserrTftpvippresent(NSNitroInatErrors):
 
 
 class NSNitroNetbridgeErrors(NSNitroError):
-
     """
         Base exception class NSNitroNetbridgeErrors
     """
@@ -18450,7 +16434,6 @@ class NSNitroNetbridgeErrors(NSNitroError):
 
 
 class NSNitroNserrTnlNetbridged(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3920
         Tunnel bound to netbridge
@@ -18459,7 +16442,6 @@ class NSNitroNserrTnlNetbridged(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrTnlGre(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3921
         Tunnel protocol is not GRE
@@ -18468,7 +16450,6 @@ class NSNitroNserrTnlGre(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrTnlRipmask(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3922
         Remote IP mask of the tunnel should be 255.255.255.255
@@ -18477,7 +16458,6 @@ class NSNitroNserrTnlRipmask(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrVlanNetbridged(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3923
         Vlan already bound to some netbridge
@@ -18486,7 +16466,6 @@ class NSNitroNserrVlanNetbridged(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrMaxNetbridgeTunnel(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3924
         reached maximum netbridge tunnel bindings
@@ -18495,7 +16474,6 @@ class NSNitroNserrMaxNetbridgeTunnel(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrTunBound(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3925
         Tunnel already bound to this netbridge
@@ -18504,7 +16482,6 @@ class NSNitroNserrTunBound(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrSubnetBound(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3926
         Subnet already bound to this netbridge
@@ -18513,7 +16490,6 @@ class NSNitroNserrSubnetBound(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrTunConfNetbridge(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3927
         Tunnel is not configured
@@ -18522,7 +16498,6 @@ class NSNitroNserrTunConfNetbridge(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrVlanConfNetbridge(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3928
         Vlan is not configured
@@ -18531,7 +16506,6 @@ class NSNitroNserrVlanConfNetbridge(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrIpInvalNetbridge(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3929
         IP is not binded to netbridge
@@ -18540,7 +16514,6 @@ class NSNitroNserrIpInvalNetbridge(NSNitroNetbridgeErrors):
 
 
 class NSNitroNserrIpv6InvalNetbridge(NSNitroNetbridgeErrors):
-
     """
         Nitro error code 3930
         IPV6 is not binded to netbridge
@@ -18549,7 +16522,6 @@ class NSNitroNserrIpv6InvalNetbridge(NSNitroNetbridgeErrors):
 
 
 class NSNitroAppflowErrors(NSNitroError):
-
     """
         Base exception class NSNitroAppflowErrors
     """
@@ -18557,7 +16529,6 @@ class NSNitroAppflowErrors(NSNitroError):
 
 
 class NSNitroNserrAppflowInvalidport(NSNitroAppflowErrors):
-
     """
         Nitro error code 3936
         Invalid collector port
@@ -18566,7 +16537,6 @@ class NSNitroNserrAppflowInvalidport(NSNitroAppflowErrors):
 
 
 class NSNitroNserrIpfixMaxCollectors(NSNitroAppflowErrors):
-
     """
         Nitro error code 3937
         Exceeded maximum collectors limit
@@ -18575,7 +16545,6 @@ class NSNitroNserrIpfixMaxCollectors(NSNitroAppflowErrors):
 
 
 class NSNitroNserrNoSuchCollector(NSNitroAppflowErrors):
-
     """
         Nitro error code 3938
         No matching collector
@@ -18584,7 +16553,6 @@ class NSNitroNserrNoSuchCollector(NSNitroAppflowErrors):
 
 
 class NSNitroNserrAppflowNcoreOnly(NSNitroAppflowErrors):
-
     """
         Nitro error code 3939
         The AppFlow feature is available only on Citrix NetScaler nCore.
@@ -18593,7 +16561,6 @@ class NSNitroNserrAppflowNcoreOnly(NSNitroAppflowErrors):
 
 
 class NSNitroNserrAppflowNonzeroActionRefcount(NSNitroAppflowErrors):
-
     """
         Nitro error code 3940
         The specified AppFlow collector is being used in an AppFlow
@@ -18603,7 +16570,6 @@ class NSNitroNserrAppflowNonzeroActionRefcount(NSNitroAppflowErrors):
 
 
 class NSNitroNserrAppflowCollectorNameInuse(NSNitroAppflowErrors):
-
     """
         Nitro error code 3941
         AppFlow collector name already in use.
@@ -18612,7 +16578,6 @@ class NSNitroNserrAppflowCollectorNameInuse(NSNitroAppflowErrors):
 
 
 class NSNitroNserrAppflowActInval(NSNitroAppflowErrors):
-
     """
         Nitro error code 3942
         No such AppFlow action exists.
@@ -18621,7 +16586,6 @@ class NSNitroNserrAppflowActInval(NSNitroAppflowErrors):
 
 
 class NSNitroNetprofileErrors(NSNitroError):
-
     """
         Base exception class NSNitroNetprofileErrors
     """
@@ -18629,7 +16593,6 @@ class NSNitroNetprofileErrors(NSNitroError):
 
 
 class NSNitroNserrIpsetRef(NSNitroNetprofileErrors):
-
     """
         Nitro error code 3952
         IP set must be unbound before it can be removed
@@ -18638,7 +16601,6 @@ class NSNitroNserrIpsetRef(NSNitroNetprofileErrors):
 
 
 class NSNitroNserrNetprofileRef(NSNitroNetprofileErrors):
-
     """
         Nitro error code 3953
         Netprofile must be unbound before it can be removed
@@ -18647,7 +16609,6 @@ class NSNitroNserrNetprofileRef(NSNitroNetprofileErrors):
 
 
 class NSNitroNserrIpsetBound(NSNitroNetprofileErrors):
-
     """
         Nitro error code 3954
         IP set is already bound to the network profile
@@ -18656,7 +16617,6 @@ class NSNitroNserrIpsetBound(NSNitroNetprofileErrors):
 
 
 class NSNitroNserrNoSuchIpset(NSNitroNetprofileErrors):
-
     """
         Nitro error code 3955
         IP set does not exist
@@ -18665,7 +16625,6 @@ class NSNitroNserrNoSuchIpset(NSNitroNetprofileErrors):
 
 
 class NSNitroNserrNoSuchNetprof(NSNitroNetprofileErrors):
-
     """
         Nitro error code 3956
         Netprofile does not exist
@@ -18674,7 +16633,6 @@ class NSNitroNserrNoSuchNetprof(NSNitroNetprofileErrors):
 
 
 class NSNitroNat64Errors(NSNitroError):
-
     """
         Base exception class NSNitroNat64Errors
     """
@@ -18682,7 +16640,6 @@ class NSNitroNat64Errors(NSNitroError):
 
 
 class NSNitroNserrNat64AclExists(NSNitroNat64Errors):
-
     """
         Nitro error code 3959
         ACL is bound to another NAT64 rule
@@ -18691,7 +16648,6 @@ class NSNitroNserrNat64AclExists(NSNitroNat64Errors):
 
 
 class NSNitroIntfErrors(NSNitroError):
-
     """
         Base exception class NSNitroIntfErrors
     """
@@ -18699,7 +16655,6 @@ class NSNitroIntfErrors(NSNitroError):
 
 
 class NSNitroNserr1gsfpspeedlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3968
         1G SFP's are restricted to speed 1000 or AUTO only
@@ -18708,7 +16663,6 @@ class NSNitroNserr1gsfpspeedlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr1gsfpduplexlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3969
         1G SFP's are restricted to duplex FULL or AUTO only
@@ -18717,7 +16671,6 @@ class NSNitroNserr1gsfpduplexlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr1gspeedlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3970
         1G port can not be configured as 10G speed
@@ -18726,7 +16679,6 @@ class NSNitroNserr1gspeedlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr1gduplexlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3971
         1G port can not be configured as HALF duplex
@@ -18735,7 +16687,6 @@ class NSNitroNserr1gduplexlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr10gspeedlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3972
         10G ports on this platform can only be configured as speed 1G,
@@ -18745,7 +16696,6 @@ class NSNitroNserr10gspeedlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr10gduplexlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3973
         10G ports on this platform can only be configured as duplex FULL
@@ -18755,7 +16705,6 @@ class NSNitroNserr10gduplexlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr10gautoneglimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3974
         10G ports on this platform do not support AUTONEG
@@ -18764,7 +16713,6 @@ class NSNitroNserr10gautoneglimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr10gspeedonly(NSNitroIntfErrors):
-
     """
         Nitro error code 3975
         10G ports on this platform are restricted to speed 10000 or AUTO
@@ -18774,7 +16722,6 @@ class NSNitroNserr10gspeedonly(NSNitroIntfErrors):
 
 
 class NSNitroNserrFullduplexonly(NSNitroIntfErrors):
-
     """
         Nitro error code 3976
         These ports do not support HALF duplex mode
@@ -18783,7 +16730,6 @@ class NSNitroNserrFullduplexonly(NSNitroIntfErrors):
 
 
 class NSNitroNserrAutoinvalspeed(NSNitroIntfErrors):
-
     """
         Nitro error code 3977
         Static CLAG does not support speed as AUTO
@@ -18792,7 +16738,6 @@ class NSNitroNserrAutoinvalspeed(NSNitroIntfErrors):
 
 
 class NSNitroNserrClagspeedreq(NSNitroIntfErrors):
-
     """
         Nitro error code 3978
         Static CLAG explicitly requires speed to be configured other
@@ -18802,7 +16747,6 @@ class NSNitroNserrClagspeedreq(NSNitroIntfErrors):
 
 
 class NSNitroNserrThroughputlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3979
         Throughput limit error. Possible values: 1G port - 1000Mbps,
@@ -18812,7 +16756,6 @@ class NSNitroNserrThroughputlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserrBandwidthlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3980
         Bandwidth limit error. Possible values: 1G port - 1000Mbps,  10G
@@ -18822,7 +16765,6 @@ class NSNitroNserrBandwidthlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserr10gdacSpeedlimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3981
         DAC port speed must be configured as 10G or AUTO
@@ -18831,7 +16773,6 @@ class NSNitroNserr10gdacSpeedlimit(NSNitroIntfErrors):
 
 
 class NSNitroNserrKvmLacpCaution(NSNitroIntfErrors):
-
     """
         Nitro error code 3982
         LACP works in only pass-through interface mode.
@@ -18840,7 +16781,6 @@ class NSNitroNserrKvmLacpCaution(NSNitroIntfErrors):
 
 
 class NSNitroNserrLaSlaveLimit(NSNitroIntfErrors):
-
     """
         Nitro error code 3983
         No more member interfaces allowed.
@@ -18849,7 +16789,6 @@ class NSNitroNserrLaSlaveLimit(NSNitroIntfErrors):
 
 
 class NSNitroNstraceErrors(NSNitroError):
-
     """
         Base exception class NSNitroNstraceErrors
     """
@@ -18857,7 +16796,6 @@ class NSNitroNstraceErrors(NSNitroError):
 
 
 class NSNitroSpottedConfigErrors(NSNitroError):
-
     """
         Base exception class NSNitroSpottedConfigErrors
     """
@@ -18865,7 +16803,6 @@ class NSNitroSpottedConfigErrors(NSNitroError):
 
 
 class NSNitroVpathErrors(NSNitroError):
-
     """
         Base exception class NSNitroVpathErrors
     """
@@ -18873,7 +16810,6 @@ class NSNitroVpathErrors(NSNitroError):
 
 
 class NSNitroNserrVpathIncompatibleIp(NSNitroVpathErrors):
-
     """
         Nitro error code 4032
         Destination and Gateway ip should be of same type
@@ -18882,7 +16818,6 @@ class NSNitroNserrVpathIncompatibleIp(NSNitroVpathErrors):
 
 
 class NSNitroNserrVpathGwNa(NSNitroVpathErrors):
-
     """
         Nitro error code 4033
         Gateway not applicable with this encap mode
@@ -18891,7 +16826,6 @@ class NSNitroNserrVpathGwNa(NSNitroVpathErrors):
 
 
 class NSNitroWarningErrors(NSNitroError):
-
     """
         Base exception class NSNitroWarningErrors
     """

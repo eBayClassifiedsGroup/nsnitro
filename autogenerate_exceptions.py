@@ -18,6 +18,8 @@ import sys
 import textwrap
 
 
+
+
 """ location of the netscaler /var/netscaler/nitro/nitro-rest.tgz """
 DOC = '/Users/ndenev/Netscaler/doc/html/errorlisting.html'
 
@@ -66,8 +68,7 @@ class $err_cls(NSNitroError):
 def gen_exception_lookup_dict(exceptions):
     """ generate the exceptions lookup dictionary in nsexceptions/nsexceptions.py """
     lines = []
-    lines.append(
-        "NSNitroExceptionClassMap = defaultdict(lambda: NSNitroError)")
+    lines.append("NSNitroExceptionClassMap = defaultdict(lambda: NSNitroError)")
     lines.append("NSNitroExceptions = {")
     for code, exception in exceptions.iteritems():
         lines.append("    {}: {},".format(code, exception))
@@ -75,7 +76,6 @@ def gen_exception_lookup_dict(exceptions):
     lines.append("NSNitroExceptionClassMap.update(NSNitroExceptions)")
     lines.append("")
     return "\n".join(lines)
-
 
 def gen__init__(exceptions):
     """ generate nsexceptions/__init__.py file """
@@ -93,26 +93,22 @@ def gen__init__(exceptions):
     lines.append("")
     return "\n".join(lines)
 
-
 def parse_arguments():
     """ parse command line arguments """
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument("--errorlist", dest='html_errors', default=DOC, action='store',
-                            help="path to errorlisting.html file")
+        help="path to errorlisting.html file")
     arg_parser.add_argument("--write-files", dest='write_files', default=False, action='store_true',
-                            help="If specified writes __init__.py and nsexceptions.py files in the current directory")
+        help="If specified writes __init__.py and nsexceptions.py files in the current directory")
     return arg_parser.parse_args()
-
 
 def main():
     nsnitro_dir = os.path.dirname(os.path.realpath(__file__))
     args = parse_arguments()
 
     if args.write_files:
-        init_file = open(
-            os.path.join(nsnitro_dir, 'nsnitro/nsexceptions/__init__.py'), 'w')
-        exceptions_file = open(
-            os.path.join(nsnitro_dir, 'nsnitro/nsexceptions/nsexceptions.py'), 'w')
+        init_file = open(os.path.join(nsnitro_dir, 'nsnitro/nsexceptions/__init__.py'), 'w')
+        exceptions_file = open(os.path.join(nsnitro_dir, 'nsnitro/nsexceptions/nsexceptions.py'), 'w')
     else:
         init_file = exceptions_file = sys.stdout
 
@@ -129,7 +125,7 @@ def main():
 
     error_class = ""
     exceptions = OrderedDict()
-
+ 
     sys.stderr.write("generating exception classes...")
     rows = soup.find_all('tr')
     for row in rows:
@@ -170,9 +166,8 @@ def main():
                     raise
                 exceptions[error_code] = exception
                 """ wrap long descriptions """
-                desc = "\n        ".join(textwrap.wrap(error_desc, 64))
-                exceptions_file.write(SPEC_EXC.substitute(
-                    exc=exception, err_cls=error_class, errc=error_code, desc=desc))
+                desc = "\n        ".join(textwrap.wrap(error_desc,64))
+                exceptions_file.write(SPEC_EXC.substitute(exc=exception, err_cls=error_class, errc=error_code, desc=desc))
     sys.stderr.write("done.\n")
 
     sys.stderr.write("generating exception lookup dictionary...")
