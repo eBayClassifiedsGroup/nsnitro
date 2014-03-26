@@ -1,10 +1,12 @@
 """ Citrix Netscaler Nitro API accessor """
 
-import urllib, urllib2
+import urllib
+import urllib2
 from nsutil import *
 from nsexceptions import *
 
 __version__ = "0.0.2"
+
 
 class NSNitro:
 

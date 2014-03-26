@@ -2,6 +2,7 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSVLANInterfaceBinding(NSBaseResource):
 
     # General Netscaler configuration object
@@ -75,4 +76,3 @@ class NSVLANInterfaceBinding(NSBaseResource):
         __resource.set_id(resource.get_id())
         __resource.get_resource(nitro, object_name=__resource.get_id())
         return __resource
-

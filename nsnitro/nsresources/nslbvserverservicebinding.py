@@ -1,6 +1,7 @@
 from nsbaseresource import NSBaseResource
 __author__ = 'vlazarenko'
 
+
 class NSLBVServerServiceBinding(NSBaseResource):
 
     def __init__(self, json_data=None):
