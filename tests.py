@@ -11,6 +11,7 @@ class test_nitro:
                     useSSL=False)
 
         def login(self):
+                # Log in to Netscaler
                 return self.nitro.login()
 
         def add_server(self):
@@ -273,8 +274,7 @@ class test_nitro:
                 rewriteaction.set_type("insert_http_header")
                 rewriteaction.set_target("ble")
                 rewriteaction.set_stringbuilderexpr("CLIENT.IP.SRC")
-                return NSRewriteAction.add(self.nitro,
-                                           rewriteaction)
+                return NSRewriteAction.add(self.nitro, rewriteaction)
 
         def delete_rewriteaction(self):
                 # Delete rewrite action
@@ -283,6 +283,7 @@ class test_nitro:
                 return NSRewriteAction.delete(self.nitro, rewriteaction)
 
         def add_lbmonitor(self):
+                # Add load-balancing monitor
                 lbmon = NSLBMonitor()
                 lbmon.set_monitorname("test_https")
                 lbmon.set_type("HTTP")
@@ -295,12 +296,13 @@ class test_nitro:
                 return NSLBMonitor.add(self.nitro, lbmon)
 
         def update_lbmonitor(self):
-            lbmon = NSLBMonitor()
-            lbmon.set_monitorname("test_https")
-            lbmon.set_type("HTTP")
-            lbmon.set_interval("60")
-            lbmon.set_resptimeout("24")
-            return NSLBMonitor.update(self.nitro, lbmon)
+                # Update load-balancing monitor
+                lbmon = NSLBMonitor()
+                lbmon.set_monitorname("test_https")
+                lbmon.set_type("HTTP")
+                lbmon.set_interval("60")
+                lbmon.set_resptimeout("24")
+                return NSLBMonitor.update(self.nitro, lbmon)
 
         def add_lbmonitorbinding(self):
                 # Bind load-balancing monitor to a service
@@ -310,13 +312,14 @@ class test_nitro:
                 return NSLBMonitorServiceBinding.add(self.nitro, lbmonbind)
 
         def delete_lbmonitorbinding(self):
-                # Delete load-balancing monitor from a service
+                # Unbind load-balancing monitor from a service
                 lbmonbind = NSLBMonitorServiceBinding()
                 lbmonbind.set_servicename("service_nitro_test")
                 lbmonbind.set_monitorname("test_https")
                 return NSLBMonitorServiceBinding.delete(self.nitro, lbmonbind)
 
         def delete_lbmonitor(self):
+                # Delete load-balancing monitor
                 lbmon = NSLBMonitor()
                 lbmon.set_monitorname("test_https")
                 lbmon.set_type("HTTP")
@@ -352,28 +355,29 @@ class test_nitro:
 def main():
     a = test_nitro()
     print 'Login Status Code: ' + str(a.login())
-#    print 'Adding command policy: ' + str(a.add_cmdpol())
-#    print 'Updating command policy: ' + str(a.update_cmdpol())
-#    print 'Adding server: ' + str(a.add_server())
-#    print 'Disabling server: ' + str(a.disable_server())
-#    print 'Enabling server: ' + str(a.enable_server())
-#    print 'Adding servicegroup: ' + str(a.add_servicegroup())
-#    print 'Adding service: ' + str(a.add_service())
-#    print 'Disabling service: ' + str(a.disable_service())
-#    print 'Enabling service: ' + str(a.enable_service())
-#    print 'Updating service: ' + str(a.update_service())
-#    print 'Renaming service: ' + str(a.rename_service())
-#    print 'Adding VLAN: ' + str(a.add_vlan())
-#    print 'Adding IP address: ' + str(a.add_ip())
-#    print 'Adding LB virtual server: ' + str(a.add_lbvserver())
+
+    print 'Adding command policy: ' + str(a.add_cmdpol())
+    print 'Updating command policy: ' + str(a.update_cmdpol())
+    print 'Adding server: ' + str(a.add_server())
+    print 'Disabling server: ' + str(a.disable_server())
+    print 'Enabling server: ' + str(a.enable_server())
+    print 'Adding service: ' + str(a.add_service())
+    print 'Disabling service: ' + str(a.disable_service())
+    print 'Enabling service: ' + str(a.enable_service())
+    print 'Updating service: ' + str(a.update_service())
+    print 'Renaming service: ' + str(a.rename_service())
+    print 'Adding servicegroup: ' + str(a.add_servicegroup())
+    print 'Adding VLAN: ' + str(a.add_vlan())
+    print 'Adding IP address: ' + str(a.add_ip())
+    print 'Adding LB virtual server: ' + str(a.add_lbvserver())
 #    print 'Adding rewrite action: ' + str(a.add_rewriteaction())
     print 'Adding LB monitor: ' + str(a.add_lbmonitor())
     print 'Updating LB monitor: ' + str(a.update_lbmonitor())
-#    print 'Adding LB monitor binding: ' + str(a.add_lbmonitorbinding())
+    print 'Adding LB monitor binding: ' + str(a.add_lbmonitorbinding())
 #    print 'Adding CS policy: ' + str(a.add_cspolicy())
-#    print 'Binding LB virtual server: ' + str(a.bind_lbvserver())
-#    print 'Binding VLAN to interface: ' + str(a.bind_vlan_to_if())
-#    print 'Binding VLAN to IP address: ' + str(a.bind_vlan_to_ip())
+    print 'Binding LB virtual server: ' + str(a.bind_lbvserver())
+    print 'Binding VLAN to interface: ' + str(a.bind_vlan_to_if())
+    print 'Binding VLAN to IP address: ' + str(a.bind_vlan_to_ip())
 #    print 'Disabling features: ' + str(a.disable_feature())
 #    print 'Enabling features: ' + str(a.enable_feature())
 #    print 'List of HA nodes: '+str(a.list_hanodes())
@@ -383,19 +387,19 @@ def main():
 #    print 'List of VLAN IP bindings: '+str(a.list_vlan_ip_bindings())
 #    print 'List LB virtual server binding: '+str(a.list_lbvserver_binding())
 #    print 'Deleting CS policy: ' + str(a.delete_cspolicy())
-#    print 'Deleting LB monitor binding: ' + str(a.delete_lbmonitorbinding())
+    print 'Deleting LB monitor binding: ' + str(a.delete_lbmonitorbinding())
 #    print 'Deleting rewrite action: ' + str(a.delete_rewriteaction())
     print 'Deleting LB monitor: ' + str(a.delete_lbmonitor())
-#    print 'Deleting VLAN to IP address binding: ' + str(a.delete_vipb())
-#    print 'Deleting VLAN to interface binding: ' + str(a.delete_vifb())
-#    print 'Deleting LB virtual server binding: ' + str(a.delete_binding())
-#    print 'Deleting LB virtual server: ' + str(a.delete_lbvserver())
-#    print 'Deleting IP address: ' + str(a.delete_ip())
-#    print 'Deleting VLAN: ' + str(a.delete_vlan())
-#    print 'Deleting servicegroup: ' + str(a.delete_servicegroup())
-#    print 'Deleting service: ' + str(a.delete_service())
-#    print 'Deleting server: ' + str(a.delete_server())
-#    print 'Deleting command policy: ' + str(a.delete_cmdpol())
+    print 'Deleting VLAN to IP address binding: ' + str(a.delete_vipb())
+    print 'Deleting VLAN to interface binding: ' + str(a.delete_vifb())
+    print 'Deleting LB virtual server binding: ' + str(a.delete_binding())
+    print 'Deleting LB virtual server: ' + str(a.delete_lbvserver())
+    print 'Deleting IP address: ' + str(a.delete_ip())
+    print 'Deleting VLAN: ' + str(a.delete_vlan())
+    print 'Deleting servicegroup: ' + str(a.delete_servicegroup())
+    print 'Deleting service: ' + str(a.delete_service())
+    print 'Deleting server: ' + str(a.delete_server())
+    print 'Deleting command policy: ' + str(a.delete_cmdpol())
     print 'Logout Status Code: ' + str(a.logout())
 
 if __name__ == '__main__':
