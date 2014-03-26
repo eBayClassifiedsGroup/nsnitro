@@ -22,7 +22,7 @@ class NSVLANInterfaceBinding(NSBaseResource):
 
         if not (json_data is None):
             for key in json_data.keys():
-                if self.options.has_key(key):
+                if key in self.options:
                     self.options[key] = json_data[key]
 
         self.resourcetype = NSVLANInterfaceBinding.get_resourcetype()
@@ -74,5 +74,5 @@ class NSVLANInterfaceBinding(NSBaseResource):
         """
         __resource = NSVLANInterfaceBinding()
         __resource.set_id(resource.get_id())
-        __resource.get_resource(nitro, object_name=resource.get_id())
+        __resource.get_resource(nitro, object_name=__resource.get_id())
         return __resource

@@ -21,10 +21,11 @@ class NSNitro:
     __initialized = False
     __contenttype = "application/x-www-form-urlencoded"
     __postheaders = {
-        'Cookie': 'sessionid=' + __sessionid, 'Content-type': __contenttype}
+        'Cookie': 'sessionid=' + __sessionid,
+        'Content-type': __contenttype}
 
     def __init__(self, ip, user, password, useSSL=False):
-        """ Contructor: ip - LB ip, user - LB username, pass - LB password """
+        """ Constructor: ip - LB ip, user - LB username, pass - LB password """
         self.__ip = ip
         self.__user = user
         self.__password = password
@@ -54,13 +55,12 @@ class NSNitro:
             {"login": {"username": self.__user, "password": self.__password}})}
         try:
             nsresponse = self.post(payload)
-
             self.__sessionid = nsresponse.get_response_field('sessionid')
             self.__postheaders = {
-                'Cookie': 'sessionid=' + self.__sessionid, 'Content-type': self.__contenttype}
+                'Cookie': 'sessionid=' + self.__sessionid,
+                'Content-type': self.__contenttype}
             self.__loggedin = True
-            return True
-
+            return nsresponse.get_json_response()
         except SyntaxError:
             raise NSNitroError("Could not parse LB response.")
         except urllib2.URLError, ue:
@@ -69,18 +69,15 @@ class NSNitro:
     def post(self, payload):
         try:
             payload_encoded = urllib.urlencode(payload)
-
             req = urllib2.Request(
                 self.__baseurl, payload_encoded, self.__postheaders)
             response = urllib2.urlopen(req)
-
         except urllib2.HTTPError, e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
                 raise NSNitroError(
                     "Could not send post request: %s, %s" % (e.code, e.reason))
-
         return NSNitroResponse(response.read())
 
     def put(self, payload):
@@ -90,14 +87,12 @@ class NSNitro:
             request.add_header('Cookie', 'sessionid=' + self.__sessionid)
             request.get_method = lambda: 'PUT'
             response = opener.open(request)
-
         except urllib2.HTTPError, e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
                 raise NSNitroError(
                     "Could not send put request: %s, %s" % (e.code, e.reason))
-
         return NSNitroResponse(response.read())
 
     def get(self, url):
@@ -106,24 +101,20 @@ class NSNitro:
             opener.addheaders.append(
                 ('Cookie', 'sessionid=' + self.__sessionid))
             response = opener.open(url)
-
         except urllib2.HTTPError, e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
                 raise NSNitroError(
                     "Could not get resource: %s, %s" % (e.code, e.reason))
-
         return NSNitroResponse(response.read())
 
     def delete(self, url):
         try:
-            opener = urllib2.build_opener()
             req = urllib2.Request(url)
             req.add_header('Cookie', 'sessionid=' + self.__sessionid)
             req.get_method = lambda: 'DELETE'
             response = urllib2.urlopen(req)
-
         except urllib2.HTTPError, e:
             try:
                 NSNitroResponse(e.read())
@@ -145,5 +136,5 @@ class NSNitro:
             del self.__sessionid
             return nsresponse.get_json_response()
 
-        except NSNitroError, e:
+        except NSNitroError, nsresponse:
             raise NSNitroError(nsresponse.message)
