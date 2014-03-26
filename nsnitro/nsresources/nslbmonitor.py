@@ -22,6 +22,7 @@ class NSLBMonitor(NSBaseResource):
                                 'dynamicresponsetimeout': '',
                                 'failureretries': '',
                                 'firmwarerevision': '',
+                                'httprequest': '',
                                 'inbandsecurityid': '',
                                 'interval': '',
                                 'iptunnel': '',
@@ -38,6 +39,7 @@ class NSLBMonitor(NSBaseResource):
                                 'resptimeoutthresh': '',
                                 'retries': '',
                                 'reverse': '',
+                                'rtsprequest': '',
                                 'secure': '',
                                 'send': '',
                                 'sipmethod': '',
@@ -140,6 +142,12 @@ class NSLBMonitor(NSBaseResource):
         def get_firmwarerevision(self):
                 return self.options['firmwarerevision']
 
+        def set_httprequest(self, httprequest):
+                self.options['httprequest'] = httprequest
+
+        def get_httprequest(self):
+                return self.options['httprequest']
+
         def set_inbandsecurityid(self, inbandsecurityid):
                 self.options['inbandsecurityid'] = inbandsecurityid
 
@@ -152,6 +160,12 @@ class NSLBMonitor(NSBaseResource):
         def get_interval(self):
                 return self.options['interval']
 
+        def set_iptunnel(self, iptunnel):
+                self.options['iptunnel'] = iptunnel
+
+        def get_iptunnel(self):
+                return self.options['iptunnel']
+
         def set_lrtm(self, lrtm):
                 self.options['lrtm'] = lrtm
 
@@ -163,6 +177,12 @@ class NSLBMonitor(NSBaseResource):
 
         def get_lrtmconf(self):
                 return self.options['lrtmconf']
+
+        def set_maxforwards(self, maxforwards):
+                self.options['maxforwards'] = maxforwards
+
+        def get_maxforwards(self):
+                return self.options['maxforwards']
 
         def set_radaccounttype(self, radaccounttype):
                 self.options['radaccounttype'] = radaccounttype
@@ -218,10 +238,16 @@ class NSLBMonitor(NSBaseResource):
         def get_reverse(self):
                 return self.options['reverse']
 
+        def set_rtsprequest(self, rtsprequest):
+                self.options['rtsprequest'] = rtsprequest
+
+        def get_rtsprequest(self):
+                return self.options['rtsprequest']
+
         def set_secure(self, secure):
                 self.options['secure'] = secure
 
-        def get_secure(self, secure):
+        def get_secure(self):
                 return self.options['secure']
 
         def set_send(self, send):
@@ -330,6 +356,7 @@ class NSLBMonitor(NSBaseResource):
                 __monitor.get_resource(nitro)
                 return __monitor
 
+        @staticmethod
         def get_all(nitro):
                 """
                 Use this API to fetch all configured monitor resources.
@@ -343,9 +370,67 @@ class NSLBMonitor(NSBaseResource):
                         __monitors.append(NSLBMonitor(json_monitor))
                 return __monitors
 
+        @staticmethod
         def add(nitro, resource):
                 """
-                Use this API to add lbmonitor.
+                Use this API to add a new LB monitor.
+                """
+                __resource = NSLBMonitor()
+                __resource.set_monitorname(resource.get_monitorname())
+                __resource.set_alertretries(resource.get_alertretries())
+                __resource.set_destport(resource.get_destport())
+                __resource.set_deviation(resource.get_deviation())
+                __resource.set_dispatcherip(resource.get_dispatcherip())
+                __resource.set_dispatcherport(resource.get_dispatcherport())
+                __resource.set_downtime(resource.get_downtime())
+                __resource.set_dup_state(resource.get_dup_state())
+                __resource.set_dynamicinterval(resource.get_dynamicinterval())
+                __resource.set_dynamicresponsetimeout(
+                    resource.get_dynamicresponsetimeout())
+                __resource.set_failureretries(resource.get_failureretries())
+                __resource.set_firmwarerevision(
+                    resource.get_firmwarerevision())
+                __resource.set_inbandsecurityid(
+                    resource.get_inbandsecurityid())
+                __resource.set_interval(resource.get_interval())
+                __resource.set_iptunnel(resource.get_iptunnel())
+                __resource.set_lrtm(resource.get_lrtm())
+                __resource.set_lrtmconf(resource.get_lrtmconf())
+                __resource.set_maxforwards(resource.get_maxforwards())
+                __resource.set_radaccounttype(resource.get_radaccounttype())
+                __resource.set_radframedip(resource.get_radframedip())
+                __resource.set_radnasip(resource.get_radnasip())
+                __resource.set_recv(resource.get_recv())
+                __resource.set_respcode(resource.get_respcode())
+                __resource.set_resptimeout(resource.get_resptimeout())
+                __resource.set_resptimeoutthresh(
+                    resource.get_resptimeoutthresh())
+                __resource.set_retries(resource.get_retries())
+                __resource.set_reverse(resource.get_reverse())
+                __resource.set_secure(resource.get_secure())
+                __resource.set_send(resource.get_send())
+                __resource.set_sipmethod(resource.get_sipmethod())
+                __resource.set_snmpversion(resource.get_snmpversion())
+                __resource.set_state(resource.get_state())
+                __resource.set_storedb(resource.get_storedb())
+                __resource.set_storefrontacctservice(
+                    resource.get_storefrontacctservice())
+                __resource.set_successretries(resource.get_successretries())
+                __resource.set_tos(resource.get_tos())
+                __resource.set_transparent(resource.get_transparent())
+                __resource.set_type(resource.get_type())
+                __resource.set_units1(resource.get_units1())
+                __resource.set_units2(resource.get_units2())
+                __resource.set_units3(resource.get_units3())
+                __resource.set_units4(resource.get_units4())
+                __resource.set_validatecred(resource.get_validatecred())
+                __resource.set_vendorid(resource.get_vendorid())
+                return __resource.add_resource(nitro)
+
+        @staticmethod
+        def update(nitro, resource):
+                """
+                Use this API to update an existing LB monitor.
                 """
                 __resource = NSLBMonitor()
                 __resource.set_monitorname(resource.get_monitorname())
@@ -406,6 +491,7 @@ class NSLBMonitor(NSBaseResource):
                 """
                 __resource = NSLBMonitor()
                 __resource.set_monitorname(resource.get_monitorname())
+                __resource.set_type(resource.get_type())
                 nsresponse = __resource.delete_resource(
                     nitro, object_name=__resource.get_monitorname())
                 return nsresponse

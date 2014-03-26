@@ -3,7 +3,11 @@ from nsexceptions import *
 
 
 class NSNitroResponse:
-        """ Generic class for accessing LB response dictionary. Can provide string response back and a parsed dictionary """
+
+        """
+        Generic class for accessing LB response dictionary.
+        Can provide string response back and a parsed dictionary
+        """
         __jresponse = False
         __sresponse = False
         errorcode = -1
@@ -26,7 +30,7 @@ class NSNitroResponse:
 
         def __parse_response(self):
                 self.errorcode = self.__jresponse['errorcode']
-                self.message   = self.__jresponse['message']
+                self.message = self.__jresponse['message']
                 if self.errorcode != 0:
                         self._raise_exception()
                         self.failed = True
