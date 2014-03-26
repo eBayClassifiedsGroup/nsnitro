@@ -16,10 +16,28 @@ class test_nitro:
 
         def add_server(self):
                 # Add server
-                addserver = NSServer()
-                addserver.set_name("nitro_example_server")
-                addserver.set_ipaddress("10.32.110.99")
-                return NSServer.add(self.nitro, addserver)
+                try:
+                    addserver = NSServer()
+                    addserver.set_name("nitro_example_server")
+                    addserver.set_ipaddress("10.32.110.99")
+                    return NSServer.add(self.nitro, addserver)
+                except NSNitroError, nsresponse:
+                    return NSNitroError(nsresponse.message)
+
+        def disable_server(self):
+                # Disable server
+                try:
+                    server = NSServer()
+                    server.set_name("nitro_example_server")
+                    return NSServer.disable(self.nitro, server)
+                except NSNitroError, e:
+                    raise e
+
+        def enable_server(self):
+                # Enable server
+                server = NSServer()
+                server.set_name("nitro_example_server")
+                return NSServer.enable(self.nitro, server)
 
         def add_servicegroup(self):
                 # Add servicegroup
@@ -35,18 +53,6 @@ class test_nitro:
                 servicegroup.set_servicegroupname('nitro_example_servicegroup')
                 return NSServiceGroup.delete(self.nitro,
                                              servicegroup)
-
-        def disable_server(self):
-                # Disable server
-                server = NSServer()
-                server.set_name("nitro_example_server")
-                return NSServer.disable(self.nitro, server)
-
-        def enable_server(self):
-                # Enable server
-                server = NSServer()
-                server.set_name("nitro_example_server")
-                return NSServer.enable(self.nitro, server)
 
         def add_service(self):
                 # Add service
