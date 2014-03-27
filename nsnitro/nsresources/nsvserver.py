@@ -5,7 +5,7 @@ __author__ = 'Aleksandar Topuzovic'
 
 class NSVServer(NSBaseResource):
 
-# Configuration for Load Balancing Virtual Server resource.
+    # Configuration for Load Balancing Virtual Server resource.
 
     def __init__(self, json_data=None):
         """
@@ -529,7 +529,7 @@ class NSVServer(NSBaseResource):
 
     # Operations methods
     @staticmethod
-    def disable(nitro, lbvserver):
+    def disable(nitro, vserver):
         """
         Use this API to disable vserver.
         """
