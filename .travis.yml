@@ -6,6 +6,6 @@ env:
 install:
   - "pip install flake8 --use-mirrors"
   - "python setup.py develop"
-before_script: "flake8 nsnitro --ignore=E501,W291,W293"
+before_script: "flake8 nsnitro --ignore=E501,F401,F403,W291,W293"
 # command to run tests
 script: "python setup.py nosetests"
