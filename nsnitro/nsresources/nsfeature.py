@@ -5,7 +5,7 @@ from nsbaseresource import NSBaseResource
 
 class NSFeature(NSBaseResource):
 
-# Configuration for NS Features.
+    # Configuration for NS Features.
 
     def __init__(self, json_data=None):
         """

@@ -5,7 +5,7 @@ __author__ = 'vlazarenko'
 
 class NSCSVServer(NSBaseResource):
 
-# Configuration for Content Switching Virtual Server resource.
+    # Configuration for Content Switching Virtual Server resource.
 
     def __init__(self, json_data=None):
         """

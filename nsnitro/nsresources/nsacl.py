@@ -3,7 +3,7 @@ from nsbaseresource import NSBaseResource
 
 class NSAcl(NSBaseResource):
 
-# Configuration for ACL entry resource.
+    # Configuration for ACL entry resource.
 
     def __init__(self, json_data=None):
         """
@@ -557,12 +557,12 @@ class NSAcl(NSBaseResource):
         __nsacl.set_ratelimit(nsacl.get_ratelimit())
         return __nsacl.update_resource(nitro)
 
-    #@staticmethod
-    # def unset(nitro, nsacl):
-    #    """ generated source for method unset """
-    #    unsetresource = nsacl()
-    #    unsetresource.aclname = aclname
-    #    return unsetresource.unset_resource(client, args)
+#    @staticmethod
+#    def unset(nitro, nsacl):
+#        """ generated source for method unset """
+#        unsetresource = nsacl()
+#        unsetresource.aclname = aclname
+#        return unsetresource.unset_resource(client, args)
 
     @staticmethod
     def enable(nitro, nsacl):

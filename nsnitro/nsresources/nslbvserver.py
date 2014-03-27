@@ -3,7 +3,7 @@ from nsbaseresource import NSBaseResource
 
 class NSLBVServer(NSBaseResource):
 
-# Configuration for Load Balancing Virtual Server resource.
+    # Configuration for Load Balancing Virtual Server resource.
 
     def __init__(self, json_data=None):
         """
