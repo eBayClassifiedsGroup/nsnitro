@@ -70,7 +70,7 @@ class NSService(NSBaseResource):
 
         if not (json_data is None):
             for key in json_data.keys():
-                if self.options.has_key(key):
+                if key in self.options:
                     self.options[key] = json_data[key]
 
         self.resourcetype = NSService.get_resourcetype()

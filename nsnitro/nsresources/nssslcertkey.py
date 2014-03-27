@@ -43,7 +43,7 @@ class NSSSLCertKey(NSBaseResource):
 
         if not (json_data is None):
             for key in json_data.keys():
-                if key in self.options.keys():
+                if key in self.options:
                     self.options[key] = json_data[key]
 
         self.resourcetype = NSSSLCertKey.get_resourcetype()

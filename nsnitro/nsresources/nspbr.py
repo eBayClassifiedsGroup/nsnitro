@@ -4,7 +4,7 @@ __author__ = 'ndenev'
 
 class NSPbr(NSBaseResource):
 
-# Configuration for PBR entry resource.
+    # Configuration for PBR entry resource.
 
     def __init__(self, json_data=None):
         """
@@ -348,12 +348,12 @@ class NSPbr(NSBaseResource):
         __NSPbr.set_monitor(nspbr.get_monitor())
         return __NSPbr.update_resource(nitro)
 
-    #@staticmethod
-    # def unset(nitro, NSPbr):
-    #    """ generated source for method unset """
-    #    unsetresource = NSPbr()
-    #    unsetresource.name = pbrname
-    #    return unsetresource.unset_resource(client, args)
+#    @staticmethod
+#    def unset(nitro, NSPbr):
+#        """ generated source for method unset """
+#        unsetresource = NSPbr()
+#        unsetresource.name = pbrname
+#        return unsetresource.unset_resource(client, args)
 
     @staticmethod
     def enable(nitro, nspbr):
