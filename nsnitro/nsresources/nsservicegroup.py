@@ -2,70 +2,71 @@ from nsbaseresource import NSBaseResource
 
 __author__ = 'vlazarenko'
 
+
 class NSServiceGroup(NSBaseResource):
 
-    def __init__(self, json_data = None):
+    def __init__(self, json_data=None):
         """
         Supplied with json_data the object can be pre-filled
         """
         super(NSServiceGroup, self).__init__()
 
         self.options = {
-            'servicegroupname' : '',
-            'servicetype' : '',
-            'cachetype' : '',
-            'maxclient' : '',
-            'maxreq' : '',
-            'cacheable' : '',
-            'cip' : '',
-            'cipheader' : '',
-            'usip' : '',
-            'useproxyport' : '',
-            'sc' : '',
-            'sp' : '',
-            'rtspsessionidremap' : '',
-            'clttimeout' : '',
-            'svrtimeout' : '',
-            'cka' : '',
-            'tcpb' : '',
-            'cmp' : '',
-            'maxbandwidth' : '',
-            'monthreshold' : '',
-            'state' : '',
-            'downstateflush' : '',
-            'tcpprofilename' : '',
-            'httpprofilename' : '',
-            'comment' : '',
-            'servername' : '',
-            'port' : '',
-            'weight' : '',
-            'serverid' : '',
-            'monitor_name_svc' : '',
-            'dup_weight' : '',
-            'delay' : '',
-            'includemembers' : '',
-            'newname' : '',
-            'serviceconftype' : '',
-            'value' : '',
-            'svrstate' : '',
-            'ip' : '',
-            'monitostate' : '',
-            'monstatcode' : '',
-            'monstatparam1' : '',
-            'monstatparam2' : '',
-            'monstatparam3' : '',
-            'statechangetimesec' : '',
-            'statechangetimemsec' : '',
-            'timesincelaststatechange' : '',
-            'tickssincelaststatechange' : '',
-            'stateupdatereason' : '',
-            'groupcount' : '',
-            }
+            'servicegroupname': '',
+            'servicetype': '',
+            'cachetype': '',
+            'maxclient': '',
+            'maxreq': '',
+            'cacheable': '',
+            'cip': '',
+            'cipheader': '',
+            'usip': '',
+            'useproxyport': '',
+            'sc': '',
+            'sp': '',
+            'rtspsessionidremap': '',
+            'clttimeout': '',
+            'svrtimeout': '',
+            'cka': '',
+            'tcpb': '',
+            'cmp': '',
+            'maxbandwidth': '',
+            'monthreshold': '',
+            'state': '',
+            'downstateflush': '',
+            'tcpprofilename': '',
+            'httpprofilename': '',
+            'comment': '',
+            'servername': '',
+            'port': '',
+            'weight': '',
+            'serverid': '',
+            'monitor_name_svc': '',
+            'dup_weight': '',
+            'delay': '',
+            'includemembers': '',
+            'newname': '',
+            'serviceconftype': '',
+            'value': '',
+            'svrstate': '',
+            'ip': '',
+            'monitostate': '',
+            'monstatcode': '',
+            'monstatparam1': '',
+            'monstatparam2': '',
+            'monstatparam3': '',
+            'statechangetimesec': '',
+            'statechangetimemsec': '',
+            'timesincelaststatechange': '',
+            'tickssincelaststatechange': '',
+            'stateupdatereason': '',
+            'groupcount': '',
+        }
 
         if not (json_data is None):
             for key in json_data.keys():
                 if self.options.has_key(key):
-                    self.options[key]=json_data[key]
+                    self.options[key] = json_data[key]
 
         self.resourcetype = NSServiceGroup.get_resourcetype()
 
@@ -455,7 +456,6 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup.set_monitor_name_svc(servicegroup.get_monitor_name_svc())
         __servicegroup.set_dup_weight(servicegroup.get_dup_weight())
 
-
         __servicegroup.set_maxclient(servicegroup.get_maxclient())
         __servicegroup.set_maxreq(servicegroup.get_maxreq())
         __servicegroup.set_cacheable(servicegroup.get_cacheable())
@@ -478,7 +478,6 @@ class NSServiceGroup(NSBaseResource):
         __servicegroup.set_httpprofilename(servicegroup.get_httpprofilename())
         __servicegroup.set_comment(servicegroup.get_comment())
         return __servicegroup.update_resource(nitro)
-
 
     @staticmethod
     def delete(nitro, servicegroup):
