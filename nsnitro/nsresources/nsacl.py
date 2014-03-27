@@ -3,7 +3,7 @@ from nsbaseresource import NSBaseResource
 
 class NSAcl(NSBaseResource):
 
-# Configuration for ACL entry resource.
+    # Configuration for ACL entry resource.
 
     def __init__(self, json_data=None):
         """
@@ -47,7 +47,7 @@ class NSAcl(NSBaseResource):
 
         if not (json_data is None):
             for key in json_data.keys():
-                if self.options.has_key(key):
+                if key in self.options.keys():
                     self.options[key] = json_data[key]
 
     @staticmethod
@@ -98,7 +98,7 @@ class NSAcl(NSBaseResource):
         return self.options['srcip']
 
     def set_srcipop(self, srcipop):
-        """ 
+        """
         Logical operator.
         Default value: 0
         """
@@ -557,12 +557,12 @@ class NSAcl(NSBaseResource):
         __nsacl.set_ratelimit(nsacl.get_ratelimit())
         return __nsacl.update_resource(nitro)
 
-    #@staticmethod
-    # def unset(nitro, nsacl):
-    #    """ generated source for method unset """
-    #    unsetresource = nsacl()
-    #    unsetresource.aclname = aclname
-    #    return unsetresource.unset_resource(client, args)
+#    @staticmethod
+#    def unset(nitro, nsacl):
+#        """ generated source for method unset """
+#        unsetresource = nsacl()
+#        unsetresource.aclname = aclname
+#        return unsetresource.unset_resource(client, args)
 
     @staticmethod
     def enable(nitro, nsacl):

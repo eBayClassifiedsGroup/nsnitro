@@ -478,6 +478,16 @@ class test_nitro:
         except:
             return sys.exc_info()[1]
 
+    def get_lbmonitor(self):
+        # Get load-balancing monitor info
+        try:
+            lbmon = NSLBMonitor()
+            lbmon.set_monitorname("test_https")
+            NSLBMonitor.get(self.nitro, lbmon)
+            return 'Passed'
+        except:
+            return sys.exc_info()[1]
+
     def add_lbmonitorbinding(self):
         # Bind load-balancing monitor to a service
         try:
@@ -572,6 +582,7 @@ def main():
     print 'Adding LB virtual server:            ' + str(a.add_lbvserver())
     print 'Adding LB monitor:                   ' + str(a.add_lbmonitor())
     print 'Updating LB monitor:                 ' + str(a.update_lbmonitor())
+    print 'Getting LB monitor info:             ' + str(a.get_lbmonitor())
     print 'Adding LB monitor binding:           ' + str(a.add_lbmonitorbinding())
     print 'Binding LB virtual server:           ' + str(a.bind_lbvserver())
     print 'Binding VLAN to interface:           ' + str(a.bind_vlan_to_if())

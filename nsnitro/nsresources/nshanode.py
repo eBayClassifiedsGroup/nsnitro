@@ -3,7 +3,7 @@ from nsbaseresource import NSBaseResource
 
 class NSHANode(NSBaseResource):
 
-# Configuration for HA node resource.
+    # Configuration for HA node resource.
 
     def __init__(self, json_data=None):
         """

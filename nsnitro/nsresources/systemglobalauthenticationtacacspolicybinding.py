@@ -19,7 +19,7 @@ class SystemGlobalAuthTacacsPolicyBinding(NSBaseResource):
 
         if not (json_data is None):
             for key in json_data.keys():
-                if key in self.options:
+                if key in self.options.keys():
                     self.options[key] = json_data[key]
 
     @staticmethod
