@@ -68,15 +68,15 @@ class SystemGlobalAuthTacacsPolicyBinding(NSBaseResource):
         return __policybindings
 
     @staticmethod
-    def add(nitro, polycibinding):
+    def add(nitro, policybinding):
         """
         Use this API to add systemglobal_authenticationtacacspolicy_binding.
         """
-        __polycibinding = SystemGlobalAuthTacacsPolicyBinding()
-        __polycibinding.set_policyname(polycibinding.get_policyname())
-        __polycibinding.set_priority(polycibinding.get_priority())
-        __polycibinding.set_builtin(polycibinding.get_builtin())
-        return __polycibinding.add_resource(nitro)
+        __policybinding = SystemGlobalAuthTacacsPolicyBinding()
+        __policybinding.set_policyname(policybinding.get_policyname())
+        __policybinding.set_priority(policybinding.get_priority())
+        __policybinding.set_builtin(policybinding.get_builtin())
+        return __policybinding.add_resource(nitro)
 
     @staticmethod
     def delete(nitro, policybinding):
