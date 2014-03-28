@@ -1,3 +1,4 @@
+import json
 import random
 import unittest
 from nsnitro import *
@@ -217,6 +218,7 @@ class TestNitroFunctions(unittest.TestCase):
         ip_list = []
         for ip in ips:
             ip_list.append(ip.get_ipaddress())
+        self.assertIn(nsnitro_test_netscaler_ipaddress, ip_list)
         self.assertIn(nsnitro_test_ip_ipaddress, ip_list)
 
     def test_05_get_lbmonitor(self):
@@ -226,6 +228,7 @@ class TestNitroFunctions(unittest.TestCase):
         r = NSLBMonitor.get(self.nitro, lbmonitor).__dict__['options']
         self.assertIn('nsnitro_test_lbmonitor', r['monitorname'])
         self.assertIn('HEAD /', r['httprequest'])
+        self.assertEqual(5, r['interval'])
 
     def test_05_get_lbvserver(self):
         # Get load-balanced virtual server info
@@ -237,14 +240,15 @@ class TestNitroFunctions(unittest.TestCase):
         self.assertEqual(nsnitro_test_lbvserver_port, r['port'])
 
     def test_05_get_lbvserverservice_bindings(self):
-        # Get all load-balanced virtual server/service bindings
-        lbvserverservice = NSLBVServerServiceBinding()
-        lbvserverservice.set_name('nsnitro_test_lbvserver')
-        lbvserverservices = NSLBVServerServiceBinding.get(self.nitro, lbvserverservice)
-        lbvserverservice_list = []
-        for lbvserver in lbvserverservices:
-            lbvserverservice_list.append(lbvserver.get_servicename())
-        self.assertIn('nsnitro_test_service', lbvserverservice_list)
+        # Get load-balanced virtual server/service binding
+        lbvserverservicebinding = NSLBVServerServiceBinding()
+        lbvserverservicebinding.set_name('nsnitro_test_lbvserver')
+        r = NSLBVServerServiceBinding.get(self.nitro, lbvserverservicebinding).__dict__['options']
+        self.assertIn('nsnitro_test_service', r['servicename'])
+        self.assertIn('nsnitro_test_lbvserver', r['name'])
+        self.assertIn(nsnitro_test_server_ipaddress, r['ipv46'])
+        self.assertIn(nsnitro_test_server_ipaddress, r['vsvrbindsvcip'])
+        self.assertEqual(nsnitro_test_service_port, r['port'])
 
     def test_05_get_nsconfig(self):
         # Get system configuration
@@ -276,6 +280,7 @@ class TestNitroFunctions(unittest.TestCase):
             vifbs = NSVLANInterfaceBinding.get(self.nitro, vlan)
             vifb = vifbs.__dict__['options']
             vifb_list.append(vifb['id'])
+        self.assertIn('1', vifb_list)
         self.assertIn(nsnitro_test_vlan_id, vifb_list)
 
     def test_05_get_vlan_ip_bindings(self):
@@ -286,6 +291,7 @@ class TestNitroFunctions(unittest.TestCase):
             vipbs = NSVLANNSIPBinding.get(self.nitro, vlan)
             vipb = vipbs.__dict__['options']
             vipb_list.append(vipb['id'])
+        self.assertIn('1', vipb_list)
         self.assertIn(nsnitro_test_vlan_id, vipb_list)
 
     def test_05_get_vlans(self):
@@ -294,6 +300,7 @@ class TestNitroFunctions(unittest.TestCase):
         vlan_list = []
         for vlan in vlans:
             vlan_list.append(vlan.get_id())
+        self.assertIn('1', vlan_list)
         self.assertIn(nsnitro_test_vlan_id, vlan_list)
 
     def test_06_rename_server_01(self):
