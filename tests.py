@@ -1,16 +1,18 @@
+import random
 import unittest
-import json
 from nsnitro import *
 
 nsnitro_test_netscaler_ipaddress = '10.216.91.222'
 nsnitro_test_netscaler_uname = 'nsroot'
 nsnitro_test_netscaler_pword = 'nsroot'
-nsnitro_test_ip_ipaddress = '10.40.12.181'
+nsnitro_test_ip_ipaddress = '10.32.100.' + str(random.randrange(1, 256))
 nsnitro_test_ip_netmask = '255.255.255.224'
-nsnitro_test_server_ipaddress = '10.32.110.99'
-nsnitro_test_lbvserver_ipaddress = '10.32.110.55'
+nsnitro_test_lbvserver_ipaddress = '10.32.110.' + str(random.randrange(1, 256))
+nsnitro_test_lbvserver_port = random.randrange(1025, 65536)
+nsnitro_test_server_ipaddress = '10.32.120.' + str(random.randrange(1, 256))
+nsnitro_test_service_port = random.randrange(1025, 65536)
 nsnitro_test_interface_ifnum = '1/1'
-nsnitro_test_vlan_id = '125'
+nsnitro_test_vlan_id = str(random.randrange(1025, 4096))
 
 
 class TestNitroFunctions(unittest.TestCase):
@@ -89,7 +91,7 @@ class TestNitroFunctions(unittest.TestCase):
         lbvserver = NSLBVServer()
         lbvserver.set_name('nsnitro_test_lbvserver')
         lbvserver.set_ipv46(nsnitro_test_lbvserver_ipaddress)
-        lbvserver.set_port(11111)
+        lbvserver.set_port(nsnitro_test_lbvserver_port)
         lbvserver.set_clttimeout(180)
         lbvserver.set_persistencetype('NONE')
         lbvserver.set_servicetype('HTTP')
@@ -112,7 +114,7 @@ class TestNitroFunctions(unittest.TestCase):
         service.set_name('nsnitro_test_service')
         service.set_servername('nsnitro_test_server')
         service.set_servicetype('HTTP')
-        service.set_port(22222)
+        service.set_port(nsnitro_test_service_port)
         r = NSService.add(self.nitro, service)
         self.assertEqual(r.errorcode, 0)
 
@@ -232,7 +234,7 @@ class TestNitroFunctions(unittest.TestCase):
         r = NSLBVServer.get(self.nitro, lbvserver).__dict__['options']
         self.assertIn('nsnitro_test_lbvserver', r['name'])
         self.assertEqual('180', r['clttimeout'])
-        self.assertEqual(11111, r['port'])
+        self.assertEqual(nsnitro_test_lbvserver_port, r['port'])
 
     def test_05_get_lbvserverservice_bindings(self):
         # Get all load-balanced virtual server/service bindings
@@ -264,7 +266,7 @@ class TestNitroFunctions(unittest.TestCase):
         r = NSService.get(self.nitro, service).__dict__['options']
         self.assertIn('nsnitro_test_service', r['name'])
         self.assertIn('HTTP', r['servicetype'])
-        self.assertEqual(22222, r['port'])
+        self.assertEqual(nsnitro_test_service_port, r['port'])
 
     def test_05_get_vlan_if_bindings(self):
         # Get all VLAN/interface bindings
