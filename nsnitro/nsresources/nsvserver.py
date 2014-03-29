@@ -48,6 +48,7 @@ class NSVServer(NSBaseResource):
             "clttimeout": "",
             "somethod": "",
             "sopersistence": "",
+            "sopersistencetimeout": "",
             "sothreshold": "",
             "lbmethod": "",
             "hashlength": "",
