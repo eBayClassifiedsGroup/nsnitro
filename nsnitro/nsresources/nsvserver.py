@@ -81,6 +81,7 @@ class NSVServer(NSBaseResource):
             "version": "",
             "totalservices": "",
             "activeservices": "",
+            "pushvserver": "",
         }
 
         self.resourcetype = NSVServer.get_resourcetype()
