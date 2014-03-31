@@ -628,7 +628,4 @@ class NSConfig(NSBaseResource):
         """
         __url = nitro.get_url() + NSConfig.get_resourcetype()
         __json_configs = nitro.get(__url).get_response_field(NSConfig.get_resourcetype())
-        __configs = []
-        for json_config in __json_configs:
-            __configs.append(NSConfig(json_config))
-        return __configs
+        return NSConfig(__json_configs)
