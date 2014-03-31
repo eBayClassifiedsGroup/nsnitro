@@ -48,6 +48,7 @@ class NSVServer(NSBaseResource):
             "clttimeout": "",
             "somethod": "",
             "sopersistence": "",
+            "sopersistencetimeout": "",
             "sothreshold": "",
             "lbmethod": "",
             "hashlength": "",
@@ -80,6 +81,7 @@ class NSVServer(NSBaseResource):
             "version": "",
             "totalservices": "",
             "activeservices": "",
+            "pushvserver": "",
         }
 
         self.resourcetype = NSVServer.get_resourcetype()
