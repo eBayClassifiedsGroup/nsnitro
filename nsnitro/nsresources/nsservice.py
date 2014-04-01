@@ -26,6 +26,7 @@ class NSService(NSBaseResource):
             'maxclient': '',
             'ipaddress': '',
             'delay': '',
+            'graceful': '',
             'usip': '',
             'rtspsessionidremap': '',
             'cleartextport': '',
@@ -389,6 +390,22 @@ class NSService(NSBaseResource):
         Default value: 0
         """
         self.options['delay'] = delay
+
+    def set_graceful(self, graceful):
+        """
+        Indicates graceful shutdown of the service. System will wait for all outstanding
+        connections to this service to be closed before disabling the service.
+        Default value: NO
+        """
+        self.options['graceful'] = graceful
+
+    def get_graceful(self):
+        """
+        Indicates graceful shutdown of the service. System will wait for all outstanding
+        connections to this service to be closed before disabling the service.
+        Default value: NO
+        """
+        return self.options['graceful']
 
     def get_usip(self):
         """
@@ -766,6 +783,7 @@ class NSService(NSBaseResource):
         __service = NSService()
         __service.set_name(service.get_name())
         __service.set_delay(service.get_delay())
+        __service.set_graceful(service.get_graceful())
         return __service.perform_operation(nitro, "disable")
 
     @staticmethod

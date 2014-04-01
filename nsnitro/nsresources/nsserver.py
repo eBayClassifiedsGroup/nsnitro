@@ -24,6 +24,7 @@ class NSServer(NSBaseResource):
             'comment': '',
             'domainresolvenow': '',
             'delay': '',
+            'graceful': '',
             'newname': ''
         }
 
@@ -208,6 +209,22 @@ class NSServer(NSBaseResource):
         """
         return self.options['delay']
 
+    def set_graceful(self, graceful):
+        """
+        Indicates graceful shutdown of the service. System will wait for all outstanding
+        connections to this service to be closed before disabling the service.
+        Default value: NO
+        """
+        self.options['graceful'] = graceful
+
+    def get_graceful(self):
+        """
+        Indicates graceful shutdown of the service. System will wait for all outstanding
+        connections to this service to be closed before disabling the service.
+        Default value: NO
+        """
+        return self.options['graceful']
+
     def set_newname(self, newname):
         """
         The new name of the server.
@@ -232,6 +249,8 @@ class NSServer(NSBaseResource):
         """
         __server = NSServer()
         __server.set_name(server.get_name())
+        __server.set_delay(server.get_delay())
+        __server.set_graceful(server.get_graceful())
         return __server.perform_operation(nitro, "disable")
 
     @staticmethod
