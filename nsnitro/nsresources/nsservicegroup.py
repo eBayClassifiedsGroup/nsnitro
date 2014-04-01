@@ -44,6 +44,7 @@ class NSServiceGroup(NSBaseResource):
             'monitor_name_svc': '',
             'dup_weight': '',
             'delay': '',
+            'graceful': '',
             'includemembers': '',
             'newname': '',
             'serviceconftype': '',
@@ -265,6 +266,12 @@ class NSServiceGroup(NSBaseResource):
 
     def get_delay(self):
         return self.options['delay']
+
+    def set_graceful(self, graceful):
+        self.options['graceful'] = graceful
+
+    def get_graceful(self):
+        return self.options['graceful']
 
     def set_includemembers(self, includemembers):
         self.options['includemembers'] = includemembers
