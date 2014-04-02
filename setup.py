@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "nsnitro",
-    version = "1.0.27",
+    version = "1.0.28",
     author = "Vladimir Lazarenko",
     author_email = "vllazarenko@ebay.com",
     description = ("A simple library to control Citrix Netscaler 9.2+ with NITRO API."),
