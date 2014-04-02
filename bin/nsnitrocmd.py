@@ -74,7 +74,7 @@ if __name__ == "__main__":
         parser.add_argument('--svrtimeout', metavar='SRVTIMEOUT', default=9000, help='service timeout')
         parser.add_argument('--persistencetype', metavar='PERSISTENCETYPE', default='NONE', help='persistence type')
         parser.add_argument('--bindingweight', metavar='BINDINGWIIGHT', default=40, help='weight parameter for binding service')
-        parser.add_argument('--delay', metavar='DELAY', default=0, help='Delay in seconds')
+        parser.add_argument('--delay', metavar='DELAY', help='Delay in seconds')
         parser.add_argument('--graceful', metavar='GRACEFUL', choices=['YES','NO'], default='NO', help='Graceful YES | NO')
 
         # ACL related arguments
@@ -265,7 +265,7 @@ if __name__ == "__main__":
                         sys.exit(0)
 
                 if args.disableservice:
-                        if not args.delay or not args.graceful:
+                        if not args.delay and not args.graceful:
                           print "Please provide either --delay or --graceful when disabling a service."
                           nitro.logout()
                           sys.exit(0)
@@ -384,7 +384,7 @@ if __name__ == "__main__":
                         sys.exit(0)
 
                 if args.disableserver:
-                        if not args.delay or not args.graceful:
+                        if not args.delay and not args.graceful:
                           print "Please provide either --delay or --graceful when disabling a server."
                           nitro.logout()
                           sys.exit(0)
