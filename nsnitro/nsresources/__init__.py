@@ -48,6 +48,7 @@ from nspbrs import NSPbrs
 from authenticationtacacsaction import AuthTacacsAction
 from authenticationtacacspolicy import AuthTacacsPolicy
 from snmpcommunity import SNMPCommunity
+from snmpmanager import SNMPManager
 from systemuser import SystemUser
 from systemglobalauthenticationtacacspolicybinding import SystemGlobalAuthTacacsPolicyBinding
 
@@ -101,6 +102,7 @@ __all__ = ['NSBaseResource',
            'AuthTacacsAction',
            'AuthTacacsPolicy',
            'SNMPCommunity',
+           'SNMPManager',
            'SystemGlobalAuthTacacsPolicyBinding',
            'SystemUser'
            ]
