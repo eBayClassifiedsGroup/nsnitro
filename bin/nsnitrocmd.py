@@ -74,6 +74,8 @@ if __name__ == "__main__":
         parser.add_argument('--svrtimeout', metavar='SRVTIMEOUT', default=9000, help='service timeout')
         parser.add_argument('--persistencetype', metavar='PERSISTENCETYPE', default='NONE', help='persistence type')
         parser.add_argument('--bindingweight', metavar='BINDINGWIIGHT', default=40, help='weight parameter for binding service')
+        parser.add_argument('--delay', metavar='DELAY', help='Delay in seconds')
+        parser.add_argument('--graceful', metavar='GRACEFUL', choices=['YES','NO'], default='NO', help='Graceful YES | NO')
 
         # ACL related arguments
         parser.add_argument('--getacl', metavar='ACLNAME', help='show acl')
@@ -263,8 +265,14 @@ if __name__ == "__main__":
                         sys.exit(0)
 
                 if args.disableservice:
+                        if not args.delay and not args.graceful:
+                          print "Please provide either --delay or --graceful when disabling a service."
+                          nitro.logout()
+                          sys.exit(0)
                         service = NSService()
                         service.set_name(args.disableservice)
+                        service.set_delay(args.delay)
+                        service.set_graceful(args.graceful)
                         NSService.disable(nitro, service)
                         print "Disabled service: %s" % args.disableservice
                         nitro.logout()
@@ -376,8 +384,14 @@ if __name__ == "__main__":
                         sys.exit(0)
 
                 if args.disableserver:
+                        if not args.delay and not args.graceful:
+                          print "Please provide either --delay or --graceful when disabling a server."
+                          nitro.logout()
+                          sys.exit(0)
                         server = NSServer()
                         server.set_name(args.disableserver)
+                        server.set_delay(args.delay)
+                        server.set_graceful(args.graceful)
                         NSServer.disable(nitro, server)
                         print "Disabled server: %s" % args.disableserver
                         nitro.logout()
