@@ -27,6 +27,8 @@ from nssslcertkeysslvserverbinding import NSSSLCertKeySSLVServerBinding
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nshanode import NSHANode
+from nshardware import NSHardware
+from nshostname import NSHostname
 from nsip import NSIP
 from nsiptunnel import NSIPTunnel
 from nsroute import NSRoute
@@ -78,6 +80,8 @@ __all__ = ['NSBaseResource',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
            'NSHANode',
+           'NSHardware',
+           'NSHostname',
            'NSIP',
            'NSIPTunnel',
            'NSRoute',
