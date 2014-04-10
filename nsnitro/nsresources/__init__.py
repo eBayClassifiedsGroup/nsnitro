@@ -7,7 +7,7 @@ from nscsvserverresponderpolicybinding import NSCSVServerResponderPolicyBinding
 from nscsvserverrewritepolicybinding import NSCSVServerRewritePolicyBinding
 from nslbvserver import NSLBVServer
 from nslbvserverservicebinding import NSLBVServerServiceBinding
-from nslbvserverservicebinding import NSLBVServerServiceGroupBinding
+from nslbvserverservicegroupbinding import NSLBVServerServiceGroupBinding
 from nslbvservercsvserverbinding import NSLBVServerCSVserverBinding
 from nsresponderaction import NSResponderAction
 from nsresponderpolicy import NSResponderPolicy
@@ -26,6 +26,8 @@ from nssslcertkeysslvserverbinding import NSSSLCertKeySSLVServerBinding
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nshanode import NSHANode
+from nshardware import NSHardware
+from nshostname import NSHostname
 from nsip import NSIP
 from nsiptunnel import NSIPTunnel
 from nsroute import NSRoute
@@ -76,6 +78,8 @@ __all__ = ['NSBaseResource',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
            'NSHANode',
+           'NSHardware',
+           'NSHostname',
            'NSIP',
            'NSIPTunnel',
            'NSRoute',
