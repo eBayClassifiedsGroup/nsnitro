@@ -1,3 +1,9 @@
+nsnitro (1.0.29) unstable; urgency=low
+
+  * Various fixes, including that of logout for 10.x
+
+ -- Vladimir Lazarenko <vllazarenko@ebay.com>  Fri, 18 Apr 2014 18:30:52 +0200
+
 nsnitro (1.0.28) unstable; urgency=low
 
   * Added delay and graceful options to nsnitrocmd.
