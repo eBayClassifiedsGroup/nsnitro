@@ -4,7 +4,6 @@ import urllib
 import urllib2
 from nsutil import *
 from nsexceptions import *
-import requests
 
 __version__ = "0.0.2"
 
