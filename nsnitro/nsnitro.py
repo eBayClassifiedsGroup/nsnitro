@@ -4,6 +4,7 @@ import urllib
 import urllib2
 from nsutil import *
 from nsexceptions import *
+import requests
 
 __version__ = "0.0.2"
 
@@ -58,7 +59,8 @@ class NSNitro:
             self.__sessionid = nsresponse.get_response_field('sessionid')
             self.__postheaders = {
                 'Cookie': 'sessionid=' + self.__sessionid,
-                'Content-type': self.__contenttype}
+                'Content-type': self.__contenttype,
+                'Set-Cookie': 'NITRO_AUTH_TOKEN={0}'.format(self.__sessionid)}
             self.__loggedin = True
             return nsresponse.get_json_response()
         except SyntaxError:
