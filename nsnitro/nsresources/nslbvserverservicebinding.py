@@ -156,10 +156,14 @@ class NSLBVServerServiceBinding(NSBaseResource):
         """
         Use this API to fetch configured vserver_service_binding resources of a given name.
         """
-        __vserver_service_binding = NSLBVServerServiceBinding()
-        __vserver_service_binding.set_name(vserver_service_binding.get_name())
-        __vserver_service_binding.get_resource(nitro, object_name=__vserver_service_binding.get_name())
-        return __vserver_service_binding
+        __url = nitro.get_url() + NSLBVServerServiceBinding.get_resourcetype() + \
+            "/" + vserver_service_binding.get_name()
+        __json_services = nitro.get(__url).get_response_field(
+            NSLBVServerServiceBinding.get_resourcetype())
+        __services = []
+        for json_service in __json_services:
+            __services.append(NSLBVServerServiceBinding(json_service))
+        return __services
 
 
     @staticmethod
