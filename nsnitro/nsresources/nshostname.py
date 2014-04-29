@@ -33,4 +33,6 @@ class NSHostname(NSBaseResource):
         def get(nitro):
             __url = nitro.get_url() + NSHostname.get_resourcetype()
             __json_nshostname = nitro.get(__url).get_response_field(NSHostname.get_resourcetype())
+            if isinstance(__json_nshostname, list):
+                    return NSHostname(__json_nshostname[0])
             return NSHostname(__json_nshostname)
