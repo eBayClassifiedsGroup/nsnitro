@@ -24,6 +24,7 @@ from nsservicegroupserverbinding import NSServiceGroupServerBinding
 from nsservicelbmonitorbinding import NSServiceLBMonitorBinding
 from nssslcertkey import NSSSLCertKey
 from nssslcertkeysslvserverbinding import NSSSLCertKeySSLVServerBinding
+from nssslpolicy import NSSSLPolicy
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nssslvserversslpolicybinding import NSSSLVServerSSLPolicyBinding
@@ -79,6 +80,7 @@ __all__ = ['NSBaseResource',
            'NSServiceLBMonitorBinding',
            'NSSSLCertKey',
            'NSSSLCertKeySSLVServerBinding',
+           'NSSSLPolicy',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
            'NSSSLVServerSSLPolicyBinding',
