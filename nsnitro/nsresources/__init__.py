@@ -26,6 +26,7 @@ from nssslaction import NSSSLAction
 from nssslcertkey import NSSSLCertKey
 from nssslcertkeysslvserverbinding import NSSSLCertKeySSLVServerBinding
 from nssslpolicy import NSSSLPolicy
+from nssslservice import NSSSLService
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nssslvserversslpolicybinding import NSSSLVServerSSLPolicyBinding
@@ -82,6 +83,7 @@ __all__ = ['NSBaseResource',
            'NSSSLAction',
            'NSSSLCertKey',
            'NSSSLCertKeySSLVServerBinding',
+           'NSSSLService',
            'NSSSLPolicy',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
