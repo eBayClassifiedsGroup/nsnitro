@@ -79,9 +79,14 @@ class NSSSLVServerSSLPolicyBinding(NSBaseResource):
         """
         Use this API to fetch sslvserver resource of given name.
         """
-        __resource = NSSSLVServerSSLPolicyBinding()
-        __resource.get_resource(nitro, resource.get_vservername())
-        return __resource
+        __url = nitro.get_url() + NSSSLVServerSSLPolicyBinding.get_resourcetype() + \
+            "/" + resource.get_vservername()
+        __json_resources = nitro.get(__url).get_response_field(
+            NSSSLVServerSSLPolicyBinding.get_resourcetype())
+        __resources = []
+        for json_resource in __json_resources:
+            __resources.append(NSSSLVServerSSLPolicyBinding(json_resource))
+        return __resources
 
     @staticmethod
     def add(nitro, resource):
