@@ -22,10 +22,16 @@ from nsserver import NSServer
 from nsservicegroup import NSServiceGroup
 from nsservicegroupserverbinding import NSServiceGroupServerBinding
 from nsservicelbmonitorbinding import NSServiceLBMonitorBinding
+from nssslaction import NSSSLAction
 from nssslcertkey import NSSSLCertKey
 from nssslcertkeysslvserverbinding import NSSSLCertKeySSLVServerBinding
+from nssslcertlink import NSSSLCertLink
+from nssslpolicy import NSSSLPolicy
+from nssslservice import NSSSLService
+from nssslservicesslpolicybinding import NSSSLServiceSSLPolicyBinding
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
+from nssslvserversslpolicybinding import NSSSLVServerSSLPolicyBinding
 from nshanode import NSHANode
 from nshardware import NSHardware
 from nshostname import NSHostname
@@ -76,10 +82,16 @@ __all__ = ['NSBaseResource',
            'NSServiceGroup',
            'NSServiceGroupServerBinding',
            'NSServiceLBMonitorBinding',
+           'NSSSLAction',
            'NSSSLCertKey',
            'NSSSLCertKeySSLVServerBinding',
+           'NSSSLCertLink',
+           'NSSSLService',
+           'NSSSLServiceSSLPolicyBinding',
+           'NSSSLPolicy',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
+           'NSSSLVServerSSLPolicyBinding',
            'NSHANode',
            'NSHardware',
            'NSHostname',
