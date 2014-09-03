@@ -23,6 +23,7 @@ if __name__ == "__main__":
         parser.add_argument('--lbip', metavar='IP', required=True, help='lb ip address')
         parser.add_argument('--user', metavar='USERNAME', default='api_user', help='lb username')
         parser.add_argument('--password', metavar='PASSWORD', default='api_user', help='lb password')
+        parser.add_argument('--ssl', metavar='SSL', default='false', help='ssl true of false')
 
         parser.add_argument('--addlbvserver', metavar='LBVSERVERNAME', help='enable lb vserver')
         parser.add_argument('--enablelbvserver', metavar='LBVSERVERNAME', help='enable lb vserver')
@@ -98,7 +99,7 @@ if __name__ == "__main__":
                 print(args)
                 sys.exit(0)
 
-        nitro = NSNitro(args.lbip, args.user, args.password)
+        nitro = NSNitro(args.lbip, args.user, args.password, useSSL=args.ssl)
 
         try:
                 nitro.login()
