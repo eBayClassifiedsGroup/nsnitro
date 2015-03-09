@@ -398,6 +398,7 @@ class NSLBMonitor(NSBaseResource):
         __resource.set_failureretries(resource.get_failureretries())
         __resource.set_firmwarerevision(
             resource.get_firmwarerevision())
+        __resource.set_httprequest(resource.get_httprequest())
         __resource.set_inbandsecurityid(
             resource.get_inbandsecurityid())
         __resource.set_interval(resource.get_interval())
@@ -456,6 +457,7 @@ class NSLBMonitor(NSBaseResource):
         __resource.set_failureretries(resource.get_failureretries())
         __resource.set_firmwarerevision(
             resource.get_firmwarerevision())
+        __resource.set_httprequest(resource.get_httprequest())
         __resource.set_inbandsecurityid(
             resource.get_inbandsecurityid())
         __resource.set_interval(resource.get_interval())
