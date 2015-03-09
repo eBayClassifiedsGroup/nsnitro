@@ -18,6 +18,7 @@ from nsresponderpolicycsvserverbinding import NSResponderPolicyCSVServerBinding
 from nsrewritepolicy import NSRewritePolicy
 from nsrewritepolicycsvserverbinding import NSRewritePolicyCSVServerBinding
 from nsrunningconfig import NSRunningConfig
+from nssavedconfig import NSSavedConfig
 from nsservice import NSService
 from nsserver import NSServer
 from nsservicegroup import NSServiceGroup
