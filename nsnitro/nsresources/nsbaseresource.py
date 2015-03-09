@@ -27,10 +27,10 @@ class NSBaseResource(object):
         self.options = options
 
         # Filter out empty options
-        self.options = dict([(k, v) for k, v in self.options.items() if v])
+        self.options = dict([(k, v) for k, v in self.options.items() if v != ''])
 
     def get_payload(self):
-        options = dict([(k, v) for k, v in self.options.items() if v])
+        options = dict([(k, v) for k, v in self.options.items() if v != ''])
         if self.__baseaction:
             payload = {"object": json.dumps({"params": {"action": self.__baseaction}, self.resourcetype: options})}
         else:
@@ -39,7 +39,7 @@ class NSBaseResource(object):
         return payload
 
     def get_put_payload(self, sessionid):
-        options = dict([(k, v) for k, v in self.options.items() if v])
+        options = dict([(k, v) for k, v in self.options.items() if v != ''])
         if self.__baseaction:
             payload = {"params": {"action": self.__baseaction}, self.resourcetype: options}
         else:
@@ -48,7 +48,7 @@ class NSBaseResource(object):
         return payload
 
     def get_delete_args(self):
-        options = dict([(k, v) for k, v in self.options.items() if v])
+        options = dict([(k, v) for k, v in self.options.items() if v != ''])
 
         args = "?args="
 

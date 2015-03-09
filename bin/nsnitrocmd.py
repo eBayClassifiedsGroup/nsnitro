@@ -4,6 +4,7 @@
 #
 #import the necessary libraries
 import argparse
+import getpass
 import sys
 import nsnitro
 from nsnitro.nsnitro import *
@@ -17,12 +18,13 @@ from nsnitro.nsresources.nsacl import NSAcl
 from nsnitro.nsresources.nsacls import NSAcls
 from nsnitro.nsresources.nshanode import NSHANode
 from nsnitro.nsresources.nsservicegroupserverbinding import NSServiceGroupServerBinding
+from nsnitro.nsresources.nslbvserverservicebinding import NSLBVServerServiceBinding
 
 if __name__ == "__main__":
         parser = argparse.ArgumentParser(description='Netscaler NITRO controller')
         parser.add_argument('--lbip', metavar='IP', required=True, help='lb ip address')
-        parser.add_argument('--user', metavar='USERNAME', default='api_user', help='lb username')
-        parser.add_argument('--password', metavar='PASSWORD', default='api_user', help='lb password')
+        parser.add_argument('--user', metavar='USERNAME', help='lb username')
+        parser.add_argument('--password', metavar='PASSWORD', help='lb password')
         parser.add_argument('--ssl', action="store_true", help='turns SSL on')
 
         parser.add_argument('--addlbvserver', metavar='LBVSERVERNAME', help='enable lb vserver')
@@ -99,13 +101,23 @@ if __name__ == "__main__":
                 print(args)
                 sys.exit(0)
 
-        nitro = NSNitro(args.lbip, args.user, args.password, args.ssl)
+        if not args.user:
+            user = getpass.getuser()
+        else:
+            user = args.user
+
+        if not args.password:
+            password = getpass.getpass("{0}@{1}'s password: ".format(user, args.lbip))
+        else:
+            password = args.password
+
+        nitro = NSNitro(args.lbip, user, password, args.ssl)
 
         try:
                 nitro.login()
 
                 if args.bindservertoservicegroup:
-                  if not args.servername or not args.servicegroupname or not args.serviceport: 
+                  if not args.servername or not args.servicegroupname or not args.serviceport:
                     print "--servername, --servicename, and --serviceport are required for binding a server to a service group"
                     nitro.logout()
                     sys.exit(0)
@@ -122,9 +134,9 @@ if __name__ == "__main__":
                     finally:
                       nitro.logout()
                       sys.exit(0)
-                    
+
                 if args.unbindserverfromservicegroup:
-                  if not args.servername or not args.servicegroupname or not args.serviceport: 
+                  if not args.servername or not args.servicegroupname or not args.serviceport:
                     print "--servername, --servicename, and --serviceport are required for binding a server to a service group"
                     nitro.logout()
                     sys.exit(0)
@@ -141,7 +153,7 @@ if __name__ == "__main__":
                     finally:
                       nitro.logout()
                       sys.exit(0)
-                    
+
 
                 if args.addlbvserver:
                         if not args.port or not args.ip:
