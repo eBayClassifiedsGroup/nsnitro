@@ -33,13 +33,6 @@ def action_getprimarylb(args):
 
 
 def action_get(args, nitro):
-        """
-        Get information about an object
-
-        :param args: arguments from argparse
-        :return:  Bool
-        """
-
         if args.object == "csvserver":
                 csvserver = NSCSVServer()
                 csvserver.set_name(args.object_name)
@@ -86,36 +79,31 @@ def action_get(args, nitro):
 
 
 def action_addservice(args, nitro):
-        if not args.port:
-                print "--port is required for adding service"
-                nitro.logout()
-                sys.exit(0)
         service = NSService()
         service.set_port(args.port)
         service.set_servicetype(args.servicetype)
         service.set_clttimeout(args.clttimeout)
         service.set_svrtimeout(args.svrtimeout)
-        service.set_name(args.source)
+        service.set_name(args.service)
         service.set_servername(args.target)
-        NSService.add(nitro, args.source)
-        print "Service '%s:%d/%s' was added to '%s'." % (args.source, args.port, args.servicetype, args.target)
+        NSService.add(nitro, service)
+        print "Service '%s:%d/%s' was added to '%s'." % (args.service, args.port, args.servicetype, args.target)
         nitro.logout()
         sys.exit(0)
 
 
 def action_addlbvserver(args, nitro):
-        if args.object == "lbvserver":
-                lbvserver = NSLBVServer()
-                lbvserver.set_name(args.object_name)
-                lbvserver.set_ipv46(args.ip)
-                lbvserver.set_port(args.port)
-                lbvserver.set_clttimeout(args.clttimeout)
-                lbvserver.set_persistencetype(args.persistencetype)
-                lbvserver.set_servicetype(args.servicetype)
-                NSLBVServer.add(nitro, lbvserver)
-                print "lb vserver %s (%s:%d/%s) was added" % (args.object_name, args.ip, args.port, args.servicetype)
-                nitro.logout()
-                sys.exit(0)
+        lbvserver = NSLBVServer()
+        lbvserver.set_name(args.lbvserver)
+        lbvserver.set_ipv46(args.ip)
+        lbvserver.set_port(args.port)
+        lbvserver.set_clttimeout(args.clttimeout)
+        lbvserver.set_persistencetype(args.persistencetype)
+        lbvserver.set_servicetype(args.servicetype)
+        NSLBVServer.add(nitro, lbvserver)
+        print "lb vserver %s (%s:%d/%s) was added" % (args.lbvserver, args.ip, args.port, args.servicetype)
+        nitro.logout()
+        sys.exit(0)
 
 
 def action_enable(args, nitro):
@@ -170,10 +158,6 @@ def action_disable(args, nitro):
                 sys.exit(0)
 
         if args.object == "server":
-                if not args.delay and not args.graceful:
-                        print "Please provide either --delay or --graceful when disabling a server."
-                        nitro.logout()
-                        sys.exit(0)
                 server = NSServer()
                 server.set_name(args.object_name)
                 server.set_delay(args.delay)
@@ -184,10 +168,6 @@ def action_disable(args, nitro):
                 sys.exit(0)
 
         if args.object == "service":
-                if not args.delay and not args.graceful:
-                        print "Please provide either --delay or --graceful when disabling a service."
-                        nitro.logout()
-                        sys.exit(0)
                 service = NSService()
                 service.set_name(args.object_name)
                 service.set_delay(args.delay)
@@ -220,7 +200,7 @@ def action_rename(args, nitro):
         if args.object == "server":
                 server = NSServer()
                 server.set_name(args.object_name)
-                server.set_newname(args.args.newname)
+                server.set_newname(args.newname)
                 NSServer.rename(nitro, server)
                 print "Renamed server from '%s' to '%s'." % (args.object_name, args.newname)
                 nitro.logout()
@@ -326,8 +306,8 @@ def action_saveconfig(args, nitro):
 
 def action_bindserver(args, nitro):
         svcgrpbinding = NSServiceGroupServerBinding()
-        svcgrpbinding.set_servername(args.servername)
-        svcgrpbinding.set_servicegroupname(args.servicegroupname)
+        svcgrpbinding.set_servername(args.server)
+        svcgrpbinding.set_servicegroupname(args.servicegroup)
         svcgrpbinding.set_port(args.serviceport)
         try:
                 NSServiceGroupServerBinding.add(nitro, svcgrpbinding)
@@ -342,8 +322,8 @@ def action_bindserver(args, nitro):
 
 def action_unbindserver(args, nitro):
         svcgrpbinding = NSServiceGroupServerBinding()
-        svcgrpbinding.set_servername(args.servername)
-        svcgrpbinding.set_servicegroupname(args.servicegroupname)
+        svcgrpbinding.set_servername(args.server)
+        svcgrpbinding.set_servicegroupname(args.servicegroup)
         svcgrpbinding.set_port(args.serviceport)
         try:
                 NSServiceGroupServerBinding.delete(nitro, svcgrpbinding)
@@ -372,20 +352,19 @@ def action_unbindservice(args, nitro):
         raise NotImplementedError
 
 
-def action_getacl(args, nitro):
-        acl = NSAcl()
-        acl.set_aclname(args.getacl)
-        acl = NSAcl.get(nitro, acl)
-
-        print "--- ACL: " + acl.get_aclname() + " ---"
-        for k in sorted(acl.options.iterkeys(), key=lambda k: k):
-                print "\t%s: %s" % (k, acl.options[k])
-
-        nitro.logout()
-        sys.exit(0)
-
-
 def action_acl(args, nitro):
+        if args.action == "get":
+                acl = NSAcl()
+                acl.set_aclname(args.name)
+                acl = NSAcl.get(nitro, acl)
+
+                print "--- ACL: " + acl.get_aclname() + " ---"
+                for k in sorted(acl.options.iterkeys(), key=lambda k: k):
+                        print "\t%s: %s" % (k, acl.options[k])
+
+                nitro.logout()
+                sys.exit(0)
+
         if args.action == "list":
                 acls = NSAcl().get_all(nitro)
                 print "-- Configured ACLs ---"
@@ -443,16 +422,28 @@ if __name__ == "__main__":
         pp_list.add_argument('object', choices=OBJECTS, help="Object type to list")
 
         pp_addservice = argparse.ArgumentParser(description="Add a service to a lbvserver", add_help=False)
-        pp_addservice.add_argument('source', metavar='SOURCE', help='object we are adding')
-        pp_addservice.add_argument('target', metavar='TARGETNAME', help='target to add it to')
-        pp_addservice.add_argument('--persistencetype', metavar='PERSISTENCETYPE', default='NONE',
-                                   help='persistence type')
-        pp_addservice.add_argument('--port', metavar='PORT', help='port number')
-        pp_addservice.add_argument('--ip', metavar='IP', help='IP address')
-        pp_addservice.add_argument('--clttimeout', metavar='CLTTIMEOUT', default=9000, help='Clt timeout')
-        pp_addservice.add_argument('--svrtimeout', metavar='SRVTIMEOUT', default=9000, help='service timeout')
-        pp_addservice.add_argument('--servicetype', metavar='SERVICETYPE', choices=['TCP', 'HTTP'], default='TCP',
-                                   help='Service type')
+        pp_addservice.add_argument('service', metavar='NAME', help='name of service to add')
+        pp_addservice.add_argument('target', metavar='LBVSERVER', help='target lbvserver to add it to')
+        pp_addservice.add_argument('--persistence', metavar='TYPE', default='NONE',
+                                   help='persistence type (none by default)')
+        pp_addservice.add_argument('ip', metavar='IP', help='IP address')
+        pp_addservice.add_argument('port', metavar='PORT', help='port number')
+        pp_addservice.add_argument('--clttimeout', metavar='CLTTIMEOUT', default=9000,
+                                   help='Clt timeout (9000 by default')
+        pp_addservice.add_argument('--svrtimeout', metavar='SRVTIMEOUT', default=9000,
+                                   help='service timeout (9000 by default')
+        pp_addservice.add_argument('--servicetype', metavar='TYPE', choices=['TCP', 'HTTP'], default='TCP',
+                                   help='Service type, TCP by default')
+
+        pp_addlbvserver = argparse.ArgumentParser(description="Add a service to a lbvserver", add_help=False)
+        pp_addlbvserver.add_argument('lbvserver', metavar='NAME', help='name of lbvserver to add')
+        pp_addlbvserver.add_argument('ip', metavar='IP', help='IP address')
+        pp_addlbvserver.add_argument('port', metavar='PORT', help='port number')
+        pp_addlbvserver.add_argument('--persistencetype', metavar='PERSISTENCETYPE', default='NONE',
+                                     help='persistence type')
+        pp_addlbvserver.add_argument('--clttimeout', metavar='CLTTIMEOUT', default=9000, help='Clt timeout')
+        pp_addlbvserver.add_argument('--servicetype', metavar='SERVICETYPE', choices=['TCP', 'HTTP'], default='TCP',
+                                     help='Service type')
 
         pp_bindservice = argparse.ArgumentParser(description="Bind a service to a lbvserver", add_help=False)
         pp_bindservice.add_argument('service', metavar='SERVICENAME', help='service to bind')
@@ -462,47 +453,54 @@ if __name__ == "__main__":
 
         pp_bindserver = argparse.ArgumentParser(description="Bind a server to a service group", add_help=False)
         pp_bindserver.add_argument('server', metavar='SERVERNAME', help='server to bind')
-        pp_bindserver.add_argument('servicegroupname', metavar='SERVICEGROUPNAME',
+        pp_bindserver.add_argument('servicegroup', metavar='SERVICEGROUPNAME',
                                    help='service group object to bind to')
-        pp_bindserver.add_argument('--serviceport', help='service port')
-
+        pp_bindserver.add_argument('--serviceport', required=True, help='service port')
 
         pp_disable = argparse.ArgumentParser(description="Disable parameters", add_help=False)
-        pp_disable.add_argument('--delay', metavar='DELAY', help='Delay in seconds')
+        pp_disable.add_argument('--delay', metavar='DELAY', help='Delay in seconds', default=None)
         pp_disable.add_argument('--graceful', metavar='GRACEFUL', choices=['YES', 'NO'], default='NO',
                                 help='Graceful YES | NO')
 
         pp_rename = argparse.ArgumentParser(description="Rename an object", add_help=False)
-        pp_rename.add_argument('newname', metavar='NAME', nargs=2, help="New name for object")
+        pp_rename.add_argument('newname', metavar='NEWNAME', help="New name for object")
 
         pp_acl = argparse.ArgumentParser(description="ACL operations", add_help=False)
-        pp_acl.add_argument('action', choices=['list', 'apply', 'clear', 'renumber', 'delete'],
+        pp_acl.add_argument('action', choices=['get', 'list', 'apply', 'clear', 'renumber', 'delete'],
                             help="Action to perform")
-        pp_acl.add_argument('--name', metavar="ACLNAME", help="Name of acl when deleting", required=False)
+        pp_acl.add_argument('--name', metavar="ACLNAME", help="Name of acl when getting/deleting", default=None)
+
+        pp_statusfull = argparse.ArgumentParser(description="Print more detailed lbvserver status", add_help=False)
+        pp_statusfull.add_argument('object_name', metavar="LBVSERVERNAME", help="Name of lbvserver")
+
 
         # Subparsers
         subparsers = parser.add_subparsers(dest="context")
         sp_get = subparsers.add_parser('get', parents=[pp_objects], help="Get information about an object")
-        sp_addservice = subparsers.add_parser('add', parents=[pp_objects, pp_addservice], help="Add an object")
+        sp_addlbvserver = subparsers.add_parser('addlbvserver', parents=[pp_addlbvserver], help="Add an lbvserver")
+        sp_addservice = subparsers.add_parser('addservice', parents=[pp_addservice], help="Add a service")
         sp_enable = subparsers.add_parser('enable', parents=[pp_objects], help="Enable an object")
-        sp_disable = subparsers.add_parser('disable', parents=[pp_objects], help="Disable an object")
+        sp_disable = subparsers.add_parser('disable', parents=[pp_objects, pp_disable], help="Disable an object")
         sp_rename = subparsers.add_parser('rename', parents=[pp_objects, pp_rename], help="Rename an object")
         sp_list = subparsers.add_parser('list', parents=[pp_list], help="Get a list of objects")
-        sp_status = subparsers.add_parser('status', parents=[pp_objects], help="Get status of an object")
+        sp_status = subparsers.add_parser('status', parents=[pp_list], help="Get status of an object")
         sp_saveconfig = subparsers.add_parser('saveconfig', help="save load balancer config")
         sp_getprimarylb = subparsers.add_parser('getprimarylb', parents=[])
-        sp_bindservice = subparsers.add_parser('bindservice', parents=[pp_bindservice])
+        sp_bindservice = subparsers.add_parser('bindservice', parents=[pp_bindservice],
+                                               help="Bind a service to a lbvserver")
         sp_unbindservice = subparsers.add_parser('unbindservice', parents=[pp_bindservice],
-                                                 help="Unbind one object fom another")
-        sp_bindserver = subparsers.add_parser('bindserver', parents=[pp_bindserver])
-        sp_unbindserver = subparsers.add_parser('unbindserver', parents=[pp_bindserver])
-        sp_statusfull = subparsers.add_parser('statusfull', help="Get full status")
-        sp_getacl = subparsers.add_parser('getacl', help="Get ACL")
-        sp_acl = subparsers.add_parser('acl', help="ACL operations")
+                                                 help="Unbind a service from a lbvserver")
+        sp_bindserver = subparsers.add_parser('bindserver', parents=[pp_bindserver],
+                                              help="Bind a server to a servicegroup")
+        sp_unbindserver = subparsers.add_parser('unbindserver', parents=[pp_bindserver],
+                                                help="Unbind a server from a servicegroup")
+        sp_statusfull = subparsers.add_parser('statusfull', parents=[pp_statusfull], help="Get full status")
+        sp_acl = subparsers.add_parser('acl', parents=[pp_acl], help="ACL operations")
 
 
         # Set functions
         sp_get.set_defaults(func=action_get)
+        sp_addlbvserver.set_defaults(func=action_addlbvserver)
         sp_addservice.set_defaults(func=action_addservice)
         sp_enable.set_defaults(func=action_enable)
         sp_disable.set_defaults(func=action_disable)
@@ -516,7 +514,6 @@ if __name__ == "__main__":
         sp_bindserver.set_defaults(func=action_bindserver)
         sp_unbindserver.set_defaults(func=action_unbindserver)
         sp_statusfull.set_defaults(func=action_statusfull)
-        sp_getacl.set_defaults(func=action_getacl)
         sp_acl.set_defaults(func=action_acl)
         args = parser.parse_args()
 
