@@ -17,6 +17,8 @@ from nsresponderpolicylabelbinding import NSResponderPolicyLabelBinding
 from nsresponderpolicycsvserverbinding import NSResponderPolicyCSVServerBinding
 from nsrewritepolicy import NSRewritePolicy
 from nsrewritepolicycsvserverbinding import NSRewritePolicyCSVServerBinding
+from nsrunningconfig import NSRunningConfig
+from nssavedconfig import NSSavedConfig
 from nsservice import NSService
 from nsserver import NSServer
 from nsservicegroup import NSServiceGroup
@@ -77,6 +79,8 @@ __all__ = ['NSBaseResource',
            'NSResponderPolicyCSVServerBinding',
            'NSRewritePolicy',
            'NSRewritePolicyCSVServerBinding',
+           'NSRunningConfig',
+           'NSSavedConfig',
            'NSServer',
            'NSService',
            'NSServiceGroup',

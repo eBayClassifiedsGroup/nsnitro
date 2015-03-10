@@ -12,6 +12,7 @@ class NSLBMonitor(NSBaseResource):
         super(NSLBMonitor, self).__init__()
         self.options = {'monitorname': '',
                         'alertretries': '',
+                        'destip': '',
                         'destport': '',
                         'deviation': '',
                         'dispatcherip': '',
@@ -87,6 +88,12 @@ class NSLBMonitor(NSBaseResource):
 
     def get_destport(self):
         return self.options['destport']
+
+    def set_destip(self, destip):
+        self.options['destip'] = destip
+
+    def get_destip(self):
+        return self.options['destip']
 
     def set_deviation(self, deviation):
         self.options['deviation'] = deviation
@@ -378,6 +385,7 @@ class NSLBMonitor(NSBaseResource):
         __resource = NSLBMonitor()
         __resource.set_monitorname(resource.get_monitorname())
         __resource.set_alertretries(resource.get_alertretries())
+        __resource.set_destip(resource.get_destip())
         __resource.set_destport(resource.get_destport())
         __resource.set_deviation(resource.get_deviation())
         __resource.set_dispatcherip(resource.get_dispatcherip())
@@ -390,6 +398,7 @@ class NSLBMonitor(NSBaseResource):
         __resource.set_failureretries(resource.get_failureretries())
         __resource.set_firmwarerevision(
             resource.get_firmwarerevision())
+        __resource.set_httprequest(resource.get_httprequest())
         __resource.set_inbandsecurityid(
             resource.get_inbandsecurityid())
         __resource.set_interval(resource.get_interval())
@@ -435,6 +444,7 @@ class NSLBMonitor(NSBaseResource):
         __resource = NSLBMonitor()
         __resource.set_monitorname(resource.get_monitorname())
         __resource.set_alertretries(resource.get_alertretries())
+        __resource.set_destip(resource.get_destip())
         __resource.set_destport(resource.get_destport())
         __resource.set_deviation(resource.get_deviation())
         __resource.set_dispatcherip(resource.get_dispatcherip())
@@ -447,6 +457,7 @@ class NSLBMonitor(NSBaseResource):
         __resource.set_failureretries(resource.get_failureretries())
         __resource.set_firmwarerevision(
             resource.get_firmwarerevision())
+        __resource.set_httprequest(resource.get_httprequest())
         __resource.set_inbandsecurityid(
             resource.get_inbandsecurityid())
         __resource.set_interval(resource.get_interval())
