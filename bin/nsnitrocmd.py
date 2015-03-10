@@ -28,9 +28,6 @@ def action_getprimarylb(args):
                 if state == 'primary':
                         print(node.get_ipaddress())
                         break
-        nitro.logout()
-        sys.exit(0)
-
 
 def action_get(args, nitro):
         if args.object == "csvserver":
@@ -41,9 +38,6 @@ def action_get(args, nitro):
                 for k in sorted(csvserver.options.iterkeys(), key=lambda k: k):
                         print "\t%s: %s" % (k, csvserver.options[k])
 
-                nitro.logout()
-                sys.exit(0)
-
         if args.object == "lbvserver":
                 lbvserver = NSLBVServer()
                 lbvserver.set_name(args.object_name)
@@ -52,9 +46,6 @@ def action_get(args, nitro):
                 for k in sorted(lbvserver.options.iterkeys(), key=lambda k: k):
                         print "\t%s: %s" % (k, lbvserver.options[k])
 
-                nitro.logout()
-                sys.exit(0)
-
         if args.object == "server":
                 server = NSServer()
                 server.set_name(args.object_name)
@@ -62,8 +53,6 @@ def action_get(args, nitro):
                 print "--- Server: " + server.get_name() + " ---"
                 for k in sorted(server.options.iterkeys(), key=lambda k: k):
                         print "\t%s: %s" % (k, server.options[k])
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "service":
                 service = NSService()
@@ -73,9 +62,6 @@ def action_get(args, nitro):
                 print "--- Service: " + service.get_name() + " ---"
                 for k in sorted(service.options.iterkeys(), key=lambda k: k):
                         print "\t%s: %s" % (k, service.options[k])
-
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_addservice(args, nitro):
@@ -88,8 +74,6 @@ def action_addservice(args, nitro):
         service.set_servername(args.target)
         NSService.add(nitro, service)
         print "Service '%s:%d/%s' was added to '%s'." % (args.service, args.port, args.servicetype, args.target)
-        nitro.logout()
-        sys.exit(0)
 
 
 def action_addlbvserver(args, nitro):
@@ -102,8 +86,6 @@ def action_addlbvserver(args, nitro):
         lbvserver.set_servicetype(args.servicetype)
         NSLBVServer.add(nitro, lbvserver)
         print "lb vserver %s (%s:%d/%s) was added" % (args.lbvserver, args.ip, args.port, args.servicetype)
-        nitro.logout()
-        sys.exit(0)
 
 
 def action_enable(args, nitro):
@@ -112,32 +94,24 @@ def action_enable(args, nitro):
                 csvserver.set_name(args.object_name)
                 NSCSVServer.enable(nitro, csvserver)
                 print "Enabled cs vserver: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "lbvserver":
                 lbvserver = NSLBVServer()
                 lbvserver.set_name(args.object_name)
                 NSLBVServer.enable(nitro, lbvserver)
                 print "Enabled lb vserver: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "server":
                 server = NSServer()
                 server.set_name(args.object_name)
                 NSServer.enable(nitro, server)
                 print "Enabled server: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "service":
                 service = NSService()
                 service.set_name(args.object_name)
                 NSService.enable(nitro, service)
                 print "Enabled service: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_disable(args, nitro):
@@ -146,16 +120,12 @@ def action_disable(args, nitro):
                 csvserver.set_name(args.object_name)
                 NSCSVServer.disable(nitro, csvserver)
                 print "Disabled cs vserver: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "lbvserver":
                 lbvserver = NSLBVServer()
                 lbvserver.set_name(args.object_name)
                 NSLBVServer.disable(nitro, lbvserver)
                 print "Disabled lb vserver: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "server":
                 server = NSServer()
@@ -164,8 +134,6 @@ def action_disable(args, nitro):
                 server.set_graceful(args.graceful)
                 NSServer.disable(nitro, server)
                 print "Disabled server: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "service":
                 service = NSService()
@@ -174,8 +142,6 @@ def action_disable(args, nitro):
                 service.set_graceful(args.graceful)
                 NSService.disable(nitro, service)
                 print "Disabled service: %s" % args.object_name
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_rename(args, nitro):
@@ -185,8 +151,6 @@ def action_rename(args, nitro):
                 csvserver.set_newname(args.newname)
                 NSCSVServer.rename(nitro, csvserver)
                 print "Renamed CS vserver from '%s' to '%s'." % (args.object_name, args.newname)
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "lbvserver":
                 lbvserver = NSLBVServer()
@@ -194,8 +158,6 @@ def action_rename(args, nitro):
                 lbvserver.set_newname(args.newname)
                 NSLBVServer.rename(nitro, lbvserver)
                 print "Renamed LB vserver from '%s' to '%s'." % (args.object_name, args.newname)
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "server":
                 server = NSServer()
@@ -203,8 +165,6 @@ def action_rename(args, nitro):
                 server.set_newname(args.newname)
                 NSServer.rename(nitro, server)
                 print "Renamed server from '%s' to '%s'." % (args.object_name, args.newname)
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "service":
                 service = NSService()
@@ -212,8 +172,6 @@ def action_rename(args, nitro):
                 service.set_newname(args.newname)
                 NSService.rename(nitro, service)
                 print "Renamed service from '%s' to '%s'." % (args.object_name, args.newname)
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_list(args, nitro):
@@ -222,32 +180,24 @@ def action_list(args, nitro):
                 print "-- Configured CS vservers ---"
                 for vserver in sorted(vservers, key=lambda k: k.get_name()):
                         print "\t" + vserver.get_name()
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "lbvserver":
                 vservers = NSLBVServer().get_all(nitro)
                 print "-- Configured LB vservers ---"
                 for vserver in sorted(vservers, key=lambda k: k.get_name()):
                         print "\t" + vserver.get_name()
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "server":
                 servers = NSServer().get_all(nitro)
                 print "-- Configured servers ---"
                 for server in sorted(servers, key=lambda k: k.get_name()):
                         print "\t" + server.get_name()
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "service":
                 services = NSService().get_all(nitro)
                 print "-- Configured services ---"
                 for service in sorted(services, key=lambda k: k.get_name()):
                         print "\t" + service.get_name()
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_status(args, nitro):
@@ -256,32 +206,24 @@ def action_status(args, nitro):
                 print "-- Configured CS vservers (with status) ---"
                 for vserver in sorted(vservers, key=lambda k: k.get_name()):
                         print vserver.get_name() + ": " + vserver.get_curstate()
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "lbvserver":
                 vservers = NSLBVServer().get_all(nitro)
                 print "-- Configured LB vservers (with status) ---"
                 for vserver in sorted(vservers, key=lambda k: k.get_name()):
                         print vserver.get_name() + ": " + vserver.get_effectivestate()
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "server":
                 servers = NSServer().get_all(nitro)
                 print "-- Configured servers (with status) ---"
                 for server in sorted(servers, key=lambda k: k.get_name()):
                         print "\t" + server.get_name() + ": " + server.get_state()
-                nitro.logout()
-                sys.exit(0)
 
         if args.object == "service":
                 services = NSService().get_all(nitro)
                 print "-- Configured services (with status) ---"
                 for service in sorted(services, key=lambda k: k.get_name()):
                         print "\t" + service.get_name() + ": " + service.get_svrstate()
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_statusfull(args, nitro):
@@ -293,15 +235,11 @@ def action_statusfull(args, nitro):
                 print ' | ', s.get_name(), ' | ', s.get_servicename(), ' | ', s.get_curstate(),
                 print ' | ', s.get_servicetype(), ' | ', s.get_ipv46(), ' | ', s.get_port(),
                 print ' | ', s.get_weight()
-        nitro.logout()
-        sys.exit(0)
 
 
 def action_saveconfig(args, nitro):
         NSConfig.save(nitro)
         print "Saved Netscaler configuration"
-        nitro.logout()
-        sys.exit(0)
 
 
 def action_bindserver(args, nitro):
@@ -315,9 +253,6 @@ def action_bindserver(args, nitro):
                         args.servername, args.servicegroupname, args.serviceport)
         except nsnitro.nsexceptions.nsexceptions.NSNitroNserrExist as e:
                 print "Error: ", e.message
-        finally:
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_unbindserver(args, nitro):
@@ -331,9 +266,6 @@ def action_unbindserver(args, nitro):
                         args.servername, args.servicegroupname, args.serviceport)
         except nsnitro.nsexceptions.nsexceptions.NSNitroNserrNoent as e:
                 print "Error: ", e.message
-        finally:
-                nitro.logout()
-                sys.exit(0)
 
 
 def action_bindservice(args, nitro):
@@ -344,8 +276,6 @@ def action_bindservice(args, nitro):
         NSLBVServerServiceBinding.add(nitro, binding)
         print "Service '%s' was binded to LB vserver '%s' with weight %d." % (
                 args.service, args.lbvserver, args.bindingweight)
-        nitro.logout()
-        sys.exit(0)
 
 
 def action_unbindservice(args, nitro):
@@ -362,34 +292,24 @@ def action_acl(args, nitro):
                 for k in sorted(acl.options.iterkeys(), key=lambda k: k):
                         print "\t%s: %s" % (k, acl.options[k])
 
-                nitro.logout()
-                sys.exit(0)
 
         if args.action == "list":
                 acls = NSAcl().get_all(nitro)
                 print "-- Configured ACLs ---"
                 for acl in sorted(acls, key=lambda k: k.get_aclname()):
                         print "\t" + acl.get_aclname()
-                nitro.logout()
-                sys.exit(0)
 
         if args.action == "apply":
                 NSAcls.apply(nitro)
                 print "Applied all ACLs to netscaler kernel."
-                nitro.logout()
-                sys.exit(0)
 
         if args.action == "clear":
                 NSAcls.clear(nitro)
                 print "Cleared ACLs on the netscaler."
-                nitro.logout()
-                sys.exit(0)
 
         if args.action == "renumber":
                 NSAcls.renumber(nitro)
                 print "Renumbered ACLs on the netscaler."
-                nitro.logout()
-                sys.exit(0)
 
         if args.action == "delete":
                 if not args.name:
@@ -399,8 +319,6 @@ def action_acl(args, nitro):
                         acl.set_aclname(args.delacl)
                         acl = NSAcl.delete(nitro, acl)
                         print "ACL '%s' was deleted. Do not forget to run --applyacls to activate it." % (args.name)
-                nitro.logout()
-                sys.exit(0)
 
 
 if __name__ == "__main__":
@@ -533,8 +451,10 @@ if __name__ == "__main__":
                 nitro.login()
         except NSNitroError, e:
                 print("Error: %s" % e.message)
+                sys.exit(1)
 
-        args.func(args, nitro)
-
-        print("No action specified. Exiting.")
-        sys.exit(0)
+        try:
+                args.func(args, nitro)
+        finally:
+                nitro.logout()
+                sys.exit(0)
