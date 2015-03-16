@@ -558,7 +558,7 @@ class NSService(NSBaseResource):
         Default value: 0
         Minimum length =  1.
         """
-        return self.options['cip']
+        return self.options['cipheader']
 
     def set_cipheader(self, cipheader):
         """
