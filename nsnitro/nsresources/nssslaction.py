@@ -139,7 +139,7 @@ class NSSSLAction(NSBaseResource):
         """
         self.options['clientcertsubject'] = clientcertsubject
 
-    def get_clientcertsubject(self, clientcertsubject):
+    def get_clientcertsubject(self):
         """
         The state of insertion of the client certificate's Subject Name in the
         HTTP header when the request is sent to the web-server.
