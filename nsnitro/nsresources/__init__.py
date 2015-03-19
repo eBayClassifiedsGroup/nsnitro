@@ -34,9 +34,11 @@ from nssslservicesslpolicybinding import NSSSLServiceSSLPolicyBinding
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nssslvserversslpolicybinding import NSSSLVServerSSLPolicyBinding
+from nstcpprofile import NSTCPProfile
 from nshanode import NSHANode
 from nshardware import NSHardware
 from nshostname import NSHostname
+from nshttpprofile import NSHTTPProfile
 from nsip import NSIP
 from nsiptunnel import NSIPTunnel
 from nsroute import NSRoute
@@ -96,9 +98,11 @@ __all__ = ['NSBaseResource',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
            'NSSSLVServerSSLPolicyBinding',
+           'NSTCPProfile',
            'NSHANode',
            'NSHardware',
            'NSHostname',
+           'NSHTTPProfile',
            'NSIP',
            'NSIPTunnel',
            'NSRoute',
