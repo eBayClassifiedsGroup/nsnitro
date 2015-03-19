@@ -31,6 +31,8 @@ class NSLBMonitor(NSBaseResource):
                         'lrtmconf': '',
                         'maxforwards': '',
                         'multimetrictable': '',
+                        'query': '',
+                        'querytype': '',
                         'radaccounttype': '',
                         'radframedip': '',
                         'radnasip': '',
@@ -190,6 +192,18 @@ class NSLBMonitor(NSBaseResource):
 
     def get_maxforwards(self):
         return self.options['maxforwards']
+
+    def set_query(self, query):
+        self.options['query'] = query
+
+    def get_query(self):
+        return self.options['query']
+
+    def set_querytype(self, querytype):
+        self.options['querytype'] = querytype
+
+    def get_querytype(self):
+        return self.options['querytype']
 
     def set_radaccounttype(self, radaccounttype):
         self.options['radaccounttype'] = radaccounttype
@@ -406,6 +420,8 @@ class NSLBMonitor(NSBaseResource):
         __resource.set_lrtm(resource.get_lrtm())
         __resource.set_lrtmconf(resource.get_lrtmconf())
         __resource.set_maxforwards(resource.get_maxforwards())
+        __resource.set_query(resource.get_query())
+        __resource.set_querytype(resource.get_querytype())
         __resource.set_radaccounttype(resource.get_radaccounttype())
         __resource.set_radframedip(resource.get_radframedip())
         __resource.set_radnasip(resource.get_radnasip())
@@ -465,6 +481,8 @@ class NSLBMonitor(NSBaseResource):
         __resource.set_lrtm(resource.get_lrtm())
         __resource.set_lrtmconf(resource.get_lrtmconf())
         __resource.set_maxforwards(resource.get_maxforwards())
+        __resource.set_query(resource.get_query())
+        __resource.set_querytype(resource.get_querytype())
         __resource.set_radaccounttype(resource.get_radaccounttype())
         __resource.set_radframedip(resource.get_radframedip())
         __resource.set_radnasip(resource.get_radnasip())
