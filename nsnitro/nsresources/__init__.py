@@ -34,6 +34,7 @@ from nssslservicesslpolicybinding import NSSSLServiceSSLPolicyBinding
 from nssslvserver import NSSSLVServer
 from nssslvserversslcertkeybinding import NSSSLVServerSSLCertKeyBinding
 from nssslvserversslpolicybinding import NSSSLVServerSSLPolicyBinding
+from nstcpprofile import NSTCPProfile
 from nshanode import NSHANode
 from nshardware import NSHardware
 from nshostname import NSHostname
@@ -97,6 +98,7 @@ __all__ = ['NSBaseResource',
            'NSSSLVServer',
            'NSSSLVServerSSLCertKeyBinding',
            'NSSSLVServerSSLPolicyBinding',
+           'NSTCPProfile',
            'NSHANode',
            'NSHardware',
            'NSHostname',
