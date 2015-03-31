@@ -1,3 +1,8 @@
+nsnitro (1.0.33) unstable; urgency=low
+
+  * New pypi build
+
+ -- vlazarenko <vlazarenko@squeeze.par>  Wed, 31 Mar 2015 09:53:05 +0100
 nsnitro (1.0.32) unstable; urgency=low
 
   * Removed namespace declaration to prevent import warnings.
