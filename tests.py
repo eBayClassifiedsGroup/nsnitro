@@ -3,7 +3,7 @@ import random
 import unittest
 from nsnitro import *
 
-nsnitro_test_netscaler_ipaddress = '10.216.91.222'
+nsnitro_test_netscaler_ipaddress = '172.16.214.200'
 nsnitro_test_netscaler_uname = 'nsroot'
 nsnitro_test_netscaler_pword = 'nsroot'
 nsnitro_test_ip_ipaddress = '10.32.100.' + str(random.randrange(1, 256))
@@ -98,6 +98,45 @@ class TestNitroFunctions(unittest.TestCase):
         lbvserver.set_servicetype('HTTP')
         r = NSLBVServer.add(self.nitro, lbvserver)
         self.assertEqual(r.errorcode, 0)
+
+    def test_01_add_acl(self):
+        #Add extended acl
+        acl = NSAcl()
+        acl.set_aclaction('ALLOW')
+        acl.set_aclname('TEST_acl')
+        acl.set_srcipop('=')
+        acl.set_destportop('=')
+        acl.set_srcipval('192.168.0.2')
+        acl.set_srcip('1')
+        acl.set_destport('1')
+        acl.set_protocolnumber(6)
+        acl.set_destportval('8080')
+        r = NSAcl.add(self.nitro, acl)
+        self.assertEqual(r.errorcode, 0)
+
+    def test_01_add_simple_acl(self):
+        #Add simple acl
+        simpleacl = NSSimpleacl()
+        simpleacl.set_aclaction('DENY')
+        simpleacl.set_aclname('TEST_simple_acl')
+        simpleacl.set_srcip('192.168.0.5')
+        simpleacl.set_destport('9090')
+        simpleacl.set_protocol('TCP')
+        r = NSSimpleacl.add(self.nitro, simpleacl)
+        self.assertEqual(r.errorcode, 0)
+
+    def test_01_add_simple_acl_ttl(self):
+        #Add simple acl with a TTL
+        simpleacl = NSSimpleacl()
+        simpleacl.set_aclaction('DENY')
+        simpleacl.set_aclname('TEST_simple_acl_ttl')
+        simpleacl.set_srcip('192.168.0.10')
+        simpleacl.set_destport('10000')
+        simpleacl.set_protocol('TCP')
+        simpleacl.set_ttl('4')
+        r = NSSimpleacl.add(self.nitro, simpleacl)
+        self.assertEqual(r.errorcode, 0)
+
 
 #    def test_01_add_rewriteaction(self):
 #        # Add rewrite action
@@ -243,11 +282,12 @@ class TestNitroFunctions(unittest.TestCase):
         # Get load-balanced virtual server/service binding
         lbvserverservicebinding = NSLBVServerServiceBinding()
         lbvserverservicebinding.set_name('nsnitro_test_lbvserver')
-        r = NSLBVServerServiceBinding.get(self.nitro, lbvserverservicebinding).__dict__['options']
+        #This returned as a list with a single dict in it
+        r = NSLBVServerServiceBinding.get(self.nitro, lbvserverservicebinding)[0].__dict__['options']
         self.assertIn('nsnitro_test_service', r['servicename'])
         self.assertIn('nsnitro_test_lbvserver', r['name'])
         self.assertIn(nsnitro_test_server_ipaddress, r['ipv46'])
-        self.assertIn(nsnitro_test_server_ipaddress, r['vsvrbindsvcip'])
+        #self.assertIn(nsnitro_test_server_ipaddress, r['vsvrbindsvcip']) #key is not returned
         self.assertEqual(nsnitro_test_service_port, r['port'])
 
     def test_05_get_nsconfig(self):
@@ -302,6 +342,28 @@ class TestNitroFunctions(unittest.TestCase):
             vlan_list.append(vlan.get_id())
         self.assertIn('1', vlan_list)
         self.assertIn(nsnitro_test_vlan_id, vlan_list)
+
+    def test_05_get_simple_acl(self):
+        #Get simple acl
+        simpleacl = NSSimpleacl()
+        simpleacl.set_aclname('TEST_simple_acl')
+        r = NSSimpleacl.get(self.nitro, simpleacl)
+        self.assertEqual(r.__dict__['options']['aclname'],'TEST_simple_acl')
+
+    def test_05_get_simple_acl_ttl(self):
+        #Get simple acl with TTL
+        simpleacl = NSSimpleacl()
+        simpleacl.set_aclname('TEST_simple_acl_ttl')
+        r = NSSimpleacl.get(self.nitro, simpleacl)
+        self.assertEqual(r.__dict__['options']['aclname'],'TEST_simple_acl_ttl')
+
+    def test_05_get_acl(self):
+        #Get extended acl
+        acl = NSAcl()
+        acl.set_aclname('TEST_acl')
+        r = NSAcl.get(self.nitro, acl)
+        self.assertEqual(r.__dict__['options']['aclname'],'TEST_acl')
+        self.assertEqual(r.__dict__['options']['destportval'],'8080')
 
     def test_06_rename_server_01(self):
         # Rename service
@@ -370,6 +432,20 @@ class TestNitroFunctions(unittest.TestCase):
         lbmon.set_resptimeout('24')
         r = NSLBMonitor.update(self.nitro, lbmon)
         self.assertEqual(r.errorcode, 0)
+
+    def test_06_update_acl(self):
+    #    #Update extended acl
+        acl = NSAcl()
+        acl.set_aclname('TEST_acl')
+        acl.set_destportval('8081')
+        acl.set_destport('1')
+        acl.set_aclaction("DENY")
+        r = NSAcl.update(self.nitro, acl)
+        self.assertEqual(r.errorcode, 0)
+        r = NSAcl.get(self.nitro, acl)
+        self.assertEqual(r.__dict__['options']['destportval'],'8081')
+        self.assertEqual(r.__dict__['options']['aclaction'],'DENY')
+
 
     def test_07_unbind_lbmonitorservice(self):
         # Unbind load-balancing monitor from a service
@@ -480,6 +556,39 @@ class TestNitroFunctions(unittest.TestCase):
         config = NSConfig()
         r = config.save(self.nitro)
         self.assertEqual(r.errorcode, 0)
+
+    def test_10_del_simple_acl(self):
+        #Delete simple acl
+        simpleacl = NSSimpleacl()
+        simpleacl.set_aclname('TEST_simple_acl')
+        r = NSSimpleacl.delete(self.nitro, simpleacl)
+        self.assertEqual(r.errorcode,0)
+
+    def test_10_del_simple_acl_ttl(self):
+        #Delete simple acl with ttl
+        simpleacl = NSSimpleacl()
+        simpleacl.set_aclname('TEST_simple_acl_ttl')
+        r = NSSimpleacl.delete(self.nitro, simpleacl)
+        self.assertEqual(r.errorcode,0)
+
+    def test_10_del_acl(self):
+        #Delete extended acl
+        acl = NSAcl()
+        acl.set_aclname('TEST_acl')
+        r = NSAcl.delete(self.nitro, acl)
+        self.assertEqual(r.errorcode,0)
+
+    #This will clear all simple acl on the device
+    #def test_11_zclear_all_simple_acl(self):
+    #    simpleacl = NSSimpleacl()
+    #    r = NSSimpleacl.clear(self.nitro)
+    #    self.assertEqual(r.errorcode, 0)
+
+    def test_11_flush_simple_acl(self):
+        simpleacl = NSSimpleacl()
+        r = NSSimpleacl.flush(self.nitro)
+        self.assertEqual(r.errorcode, 0)
+
 
 if __name__ == '__main__':
     unittest.main()
