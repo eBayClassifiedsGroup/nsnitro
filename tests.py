@@ -282,11 +282,12 @@ class TestNitroFunctions(unittest.TestCase):
         # Get load-balanced virtual server/service binding
         lbvserverservicebinding = NSLBVServerServiceBinding()
         lbvserverservicebinding.set_name('nsnitro_test_lbvserver')
+        #This returned as a list with a single dict in it
         r = NSLBVServerServiceBinding.get(self.nitro, lbvserverservicebinding)[0].__dict__['options']
         self.assertIn('nsnitro_test_service', r['servicename'])
         self.assertIn('nsnitro_test_lbvserver', r['name'])
         self.assertIn(nsnitro_test_server_ipaddress, r['ipv46'])
-        #self.assertIn(nsnitro_test_server_ipaddress, r['vsvrbindsvcip'])
+        #self.assertIn(nsnitro_test_server_ipaddress, r['vsvrbindsvcip']) #key is not returned
         self.assertEqual(nsnitro_test_service_port, r['port'])
 
     def test_05_get_nsconfig(self):
