@@ -53,6 +53,7 @@ from nslbmonitorservicebinding import NSLBMonitorServiceBinding
 from nssystemcmdpolicy import NSSystemCMDPolicy
 from nsacl import NSAcl
 from nsacls import NSAcls
+from nssimpleacl import NSSimpleacl
 from nspbr import NSPbr
 from nspbrs import NSPbrs
 from authenticationtacacsaction import AuthTacacsAction
@@ -117,6 +118,7 @@ __all__ = ['NSBaseResource',
            'NSSystemCMDPolicy',
            'NSAcl',
            'NSAcls',
+           'NSSimpleacl',
            'NSPbr',
            'NSPbrs',
            'AuthTacacsAction',
