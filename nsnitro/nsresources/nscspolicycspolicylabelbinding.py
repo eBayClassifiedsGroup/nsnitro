@@ -9,7 +9,7 @@ class NSCSPolicyCSPolicylabelBinding(NSBaseResource):
         """
         Supplied with json_data the object can be pre-filled
         """
-        super(NSCspolicyCspolicylabelBinding, self).__init__()
+        super(NSCSPolicyCSPolicylabelBinding, self).__init__()
         self.options = {'policyname': '',
                         'priority': 0,
                         'targetvserver': '',
@@ -24,7 +24,7 @@ class NSCSPolicyCSPolicylabelBinding(NSBaseResource):
                 if key in self.options.keys():
                     self.options[key] = json_data[key]
 
-        self.resourcetype = NSCspolicyCspolicylabelBinding.get_resourcetype()
+        self.resourcetype = NSCSPolicyCSPolicylabelBinding.get_resourcetype()
 
     @staticmethod
     def get_resourcetype():
@@ -218,13 +218,13 @@ class NSCSPolicyCSPolicylabelBinding(NSBaseResource):
         """
         Use this API to fetch all configured csvserver_cspolicy_binding resources.
         """
-        __url = (nitro.get_url() + NSCspolicyCspolicylabelBinding.get_resourcetype() +
+        __url = (nitro.get_url() + NSCSPolicyCSPolicylabelBinding.get_resourcetype() +
                  "/" +
                  csvserver_cspolicy_binding.get_name())
-        __json_resources = nitro.get(__url).get_response_field(NSCspolicyCspolicylabelBinding.get_resourcetype())
+        __json_resources = nitro.get(__url).get_response_field(NSCSPolicyCSPolicylabelBinding.get_resourcetype())
         __resources = []
         for json_resource in __json_resources:
-            __resources.append(NSCspolicyCspolicylabelBinding(json_resource))
+            __resources.append(NSCSPolicyCSPolicylabelBinding(json_resource))
         return __resources
 
     @staticmethod
@@ -232,7 +232,7 @@ class NSCSPolicyCSPolicylabelBinding(NSBaseResource):
         """
         Use this API to add csvserver_cspolicy_binding.
         """
-        __csvserver_cspolicy_binding = NSCspolicyCspolicylabelBinding()
+        __csvserver_cspolicy_binding = NSCSPolicyCSPolicylabelBinding()
         __csvserver_cspolicy_binding.set_labelname(csvserver_cspolicy_binding.get_labelname())
         __csvserver_cspolicy_binding.set_policyname(csvserver_cspolicy_binding.get_policyname())
         __csvserver_cspolicy_binding.set_priority(csvserver_cspolicy_binding.get_priority())
@@ -250,7 +250,7 @@ class NSCSPolicyCSPolicylabelBinding(NSBaseResource):
         """
         Use this API to delete csvserver_cspolicy_binding of a given name.
         """
-        __csvserver_cspolicy_binding = NSCspolicyCspolicylabelBinding()
+        __csvserver_cspolicy_binding = NSCSPolicyCSPolicylabelBinding()
         __csvserver_cspolicy_binding.set_name(csvserver_cspolicy_binding.get_name())
         __csvserver_cspolicy_binding.set_policyname(csvserver_cspolicy_binding.get_policyname())
         __csvserver_cspolicy_binding.set_priority(csvserver_cspolicy_binding.get_priority())
