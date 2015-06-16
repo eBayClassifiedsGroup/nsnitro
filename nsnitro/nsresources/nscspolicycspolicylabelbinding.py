@@ -241,8 +241,6 @@ class NSCSPolicyCSPolicylabelBinding(NSBaseResource):
         __csvserver_cspolicy_binding.set_invoke(csvserver_cspolicy_binding.get_invoke())
         __csvserver_cspolicy_binding.set_labeltype(csvserver_cspolicy_binding.get_labeltype())
         __csvserver_cspolicy_binding.set_invoke_labelname(csvserver_cspolicy_binding.get_invoke_labelname())
-
-        print __csvserver_cspolicy_binding
         return __csvserver_cspolicy_binding.update_resource(nitro)
 
     @staticmethod
