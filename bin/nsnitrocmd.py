@@ -21,6 +21,40 @@ from nsnitro.nsresources.nsservicegroupserverbinding import NSServiceGroupServer
 from nsnitro.nsresources.nslbvserverservicebinding import NSLBVServerServiceBinding
 
 
+type_mapping = {
+        'csvserver':
+        {
+            'class_name': NSCSVServer,
+            'state_function': 'get_curstate',
+            'up_state': 'UP'
+        },
+        'lbvserver':
+        {
+            'class_name': NSLBVServer,
+            'state_function': 'get_effectivestate',
+            'up_state': 'UP'
+        },
+        'server':
+        {
+            'class_name': NSServer,
+            'state_function': 'get_state',
+            'up_state': 'ENABLED'
+
+        },
+        'service':
+        {
+            'class_name': NSService,
+            'state_function': 'get_svrstate',
+            'up_state': 'UP'
+        }
+}
+
+
+def get_mappings(args):
+        type_map = type_mapping[args.object]
+        return type_map['class_name'], type_map['state_function'], type_map['up_state']
+
+
 def action_getprimarylb(args):
         ha_node = NSHANode()
         for node in ha_node.get_all(nitro):
@@ -29,39 +63,15 @@ def action_getprimarylb(args):
                         print(node.get_ipaddress())
                         break
 
+
 def action_get(args, nitro):
-        if args.object == "csvserver":
-                csvserver = NSCSVServer()
-                csvserver.set_name(args.object_name)
-                csvserver = NSCSVServer.get(nitro, csvserver)
-                print "--- CS vserver: " + csvserver.get_name() + " ---"
-                for k in sorted(csvserver.options.iterkeys(), key=lambda k: k):
-                        print "\t%s: %s" % (k, csvserver.options[k])
-
-        if args.object == "lbvserver":
-                lbvserver = NSLBVServer()
-                lbvserver.set_name(args.object_name)
-                lbvserver = NSLBVServer.get(nitro, lbvserver)
-                print "--- LB vserver: " + lbvserver.get_name() + " ---"
-                for k in sorted(lbvserver.options.iterkeys(), key=lambda k: k):
-                        print "\t%s: %s" % (k, lbvserver.options[k])
-
-        if args.object == "server":
-                server = NSServer()
-                server.set_name(args.object_name)
-                server = NSServer.get(nitro, server)
-                print "--- Server: " + server.get_name() + " ---"
-                for k in sorted(server.options.iterkeys(), key=lambda k: k):
-                        print "\t%s: %s" % (k, server.options[k])
-
-        if args.object == "service":
-                service = NSService()
-                service.set_name(args.object_name)
-                service = NSService.get(nitro, service)
-
-                print "--- Service: " + service.get_name() + " ---"
-                for k in sorted(service.options.iterkeys(), key=lambda k: k):
-                        print "\t%s: %s" % (k, service.options[k])
+        class_name, state_function, up_state = get_mappings(args)
+        object = class_name()
+        object.set_name(args.object_name)
+        instance = class_name.get(nitro, object)
+        print "--- %s: %s ---" % (args.object, object.get_name())
+        for k in sorted(instance.options.iterkeys(), key=lambda k: k):
+                print "\t%s: %s" % (k, instance.options[k])
 
 
 def action_addservice(args, nitro):
@@ -89,141 +99,80 @@ def action_addlbvserver(args, nitro):
 
 
 def action_enable(args, nitro):
-        if args.object == "csvserver":
-                csvserver = NSCSVServer()
-                csvserver.set_name(args.object_name)
-                NSCSVServer.enable(nitro, csvserver)
-                print "Enabled cs vserver: %s" % args.object_name
-
-        if args.object == "lbvserver":
-                lbvserver = NSLBVServer()
-                lbvserver.set_name(args.object_name)
-                NSLBVServer.enable(nitro, lbvserver)
-                print "Enabled lb vserver: %s" % args.object_name
-
-        if args.object == "server":
-                server = NSServer()
-                server.set_name(args.object_name)
-                NSServer.enable(nitro, server)
-                print "Enabled server: %s" % args.object_name
-
-        if args.object == "service":
-                service = NSService()
-                service.set_name(args.object_name)
-                NSService.enable(nitro, service)
-                print "Enabled service: %s" % args.object_name
+        class_name, state_function, up_state = get_mappings(args)
+        object = class_name()
+        object.set_name(args.object_name)
+        try:
+                class_name.enable(nitro, object)
+                print "Enabled %s: %s" % (args.object, args.object_name)
+        except NSNitroError:
+                print "Failed to enable %s: %s" % (args.object, args.object_name)
+                return 2
 
 
 def action_disable(args, nitro):
-        if args.object == "csvserver":
-                csvserver = NSCSVServer()
-                csvserver.set_name(args.object_name)
-                NSCSVServer.disable(nitro, csvserver)
-                print "Disabled cs vserver: %s" % args.object_name
-
-        if args.object == "lbvserver":
-                lbvserver = NSLBVServer()
-                lbvserver.set_name(args.object_name)
-                NSLBVServer.disable(nitro, lbvserver)
-                print "Disabled lb vserver: %s" % args.object_name
-
-        if args.object == "server":
-                server = NSServer()
-                server.set_name(args.object_name)
-                server.set_delay(args.delay)
-                server.set_graceful(args.graceful)
-                NSServer.disable(nitro, server)
-                print "Disabled server: %s" % args.object_name
-
-        if args.object == "service":
-                service = NSService()
-                service.set_name(args.object_name)
-                service.set_delay(args.delay)
-                service.set_graceful(args.graceful)
-                NSService.disable(nitro, service)
-                print "Disabled service: %s" % args.object_name
+        class_name, state_function, up_state = get_mappings(args)
+        object = class_name()
+        object.set_name(args.object_name)
+        if args.object == "server" or args.object == "service":
+                object.set_delay(args.delay)
+                object.set_graceful(args.graceful)
+        try:
+                class_name.disable(nitro, object)
+                print "Disabled %s: %s" % (args.object, args.object_name)
+        except NSNitroError:
+                print "Failed to disable %s: %s" % (args.object, args.object_name)
+                return 2
 
 
 def action_rename(args, nitro):
-        if args.object == "csvserver":
-                csvserver = NSCSVServer()
-                csvserver.set_name(args.object_name)
-                csvserver.set_newname(args.newname)
-                NSCSVServer.rename(nitro, csvserver)
-                print "Renamed CS vserver from '%s' to '%s'." % (args.object_name, args.newname)
-
-        if args.object == "lbvserver":
-                lbvserver = NSLBVServer()
-                lbvserver.set_name(args.object_name)
-                lbvserver.set_newname(args.newname)
-                NSLBVServer.rename(nitro, lbvserver)
-                print "Renamed LB vserver from '%s' to '%s'." % (args.object_name, args.newname)
-
-        if args.object == "server":
-                server = NSServer()
-                server.set_name(args.object_name)
-                server.set_newname(args.newname)
-                NSServer.rename(nitro, server)
-                print "Renamed server from '%s' to '%s'." % (args.object_name, args.newname)
-
-        if args.object == "service":
-                service = NSService()
-                service.set_name(args.object_name)
-                service.set_newname(args.newname)
-                NSService.rename(nitro, service)
-                print "Renamed service from '%s' to '%s'." % (args.object_name, args.newname)
+        class_name, state_function, up_state = get_mappings(args)
+        object = class_name()
+        object.set_name(args.object_name)
+        object.set_newname(args.newname)
+        try:
+                class_name.rename(nitro, object)
+                print "Renamed %s from '%s' to '%s'." % (args.object, args.object_name, args.newname)
+        except NSNitroError:
+                print "Failed to rename %s from '%s' to '%s'." % (args.object, args.object_name, args.newname)
+                return 2
 
 
 def action_list(args, nitro):
-        if args.object == "csvserver":
-                vservers = NSCSVServer().get_all(nitro)
-                print "-- Configured CS vservers ---"
-                for vserver in sorted(vservers, key=lambda k: k.get_name()):
-                        print "\t" + vserver.get_name()
-
-        if args.object == "lbvserver":
-                vservers = NSLBVServer().get_all(nitro)
-                print "-- Configured LB vservers ---"
-                for vserver in sorted(vservers, key=lambda k: k.get_name()):
-                        print "\t" + vserver.get_name()
-
-        if args.object == "server":
-                servers = NSServer().get_all(nitro)
-                print "-- Configured servers ---"
-                for server in sorted(servers, key=lambda k: k.get_name()):
-                        print "\t" + server.get_name()
-
-        if args.object == "service":
-                services = NSService().get_all(nitro)
-                print "-- Configured services ---"
-                for service in sorted(services, key=lambda k: k.get_name()):
-                        print "\t" + service.get_name()
+        class_name, state_function, up_state = get_mappings(args)
+        objects = class_name().get_all(nitro)
+        print "-- Configured %s ---" % args.object
+        for instance in sorted(objects, key=lambda k: k.get_name()):
+                print "\t" + instance.get_name()
 
 
 def action_status(args, nitro):
-        if args.object == "csvserver":
-                vservers = NSCSVServer().get_all(nitro)
-                print "-- Configured CS vservers (with status) ---"
-                for vserver in sorted(vservers, key=lambda k: k.get_name()):
-                        print vserver.get_name() + ": " + vserver.get_curstate()
-
-        if args.object == "lbvserver":
-                vservers = NSLBVServer().get_all(nitro)
-                print "-- Configured LB vservers (with status) ---"
-                for vserver in sorted(vservers, key=lambda k: k.get_name()):
-                        print vserver.get_name() + ": " + vserver.get_effectivestate()
-
-        if args.object == "server":
-                servers = NSServer().get_all(nitro)
-                print "-- Configured servers (with status) ---"
-                for server in sorted(servers, key=lambda k: k.get_name()):
-                        print "\t" + server.get_name() + ": " + server.get_state()
-
-        if args.object == "service":
-                services = NSService().get_all(nitro)
-                print "-- Configured services (with status) ---"
-                for service in sorted(services, key=lambda k: k.get_name()):
-                        print "\t" + service.get_name() + ": " + service.get_svrstate()
+        class_name, state_function, up_state = get_mappings(args)
+        if args.object_name:
+                object = class_name()
+                object.set_name(args.object_name)
+                try:
+                        instance = class_name().get(nitro, object)
+                        state_func = getattr(instance, state_function)
+                except NSNitroError:
+                        return 2
+                else:
+                        state = state_func()
+                        print instance.get_name() + ": " + state
+                        if state == up_state:
+                                return 0
+                        else:
+                                return 1
+        else:
+                instances = class_name().get_all(nitro)
+                print "-- Configured %s (with status) ---" % args.object
+                for instance in sorted(instances, key=lambda k: k.get_name()):
+                        try:
+                                state_func = getattr(instance, state_function)
+                        except Exception, e:
+                                print e
+                        state = state_func()
+                        print instance.get_name() + ": " + state
 
 
 def action_statusfull(args, nitro):
@@ -235,7 +184,6 @@ def action_statusfull(args, nitro):
                 print ' | ', s.get_name(), ' | ', s.get_servicename(), ' | ', s.get_curstate(),
                 print ' | ', s.get_servicetype(), ' | ', s.get_ipv46(), ' | ', s.get_port(),
                 print ' | ', s.get_weight()
-
 
 def action_saveconfig(args, nitro):
         NSConfig.save(nitro)
@@ -253,6 +201,7 @@ def action_bindserver(args, nitro):
                         args.servername, args.servicegroupname, args.serviceport)
         except nsnitro.nsexceptions.nsexceptions.NSNitroNserrExist as e:
                 print "Error: ", e.message
+                return 2
 
 
 def action_unbindserver(args, nitro):
@@ -266,6 +215,7 @@ def action_unbindserver(args, nitro):
                         args.servername, args.servicegroupname, args.serviceport)
         except nsnitro.nsexceptions.nsexceptions.NSNitroNserrNoent as e:
                 print "Error: ", e.message
+                return 2
 
 
 def action_bindservice(args, nitro):
@@ -274,7 +224,7 @@ def action_bindservice(args, nitro):
         binding.set_servicename(args.service)
         binding.set_name(args.lbvserver)
         NSLBVServerServiceBinding.add(nitro, binding)
-        print "Service '%s' was binded to LB vserver '%s' with weight %d." % (
+        print "Service '%s' was bound to LB vserver '%s' with weight %d." % (
                 args.service, args.lbvserver, args.bindingweight)
 
 
@@ -338,6 +288,7 @@ if __name__ == "__main__":
 
         pp_list = argparse.ArgumentParser(add_help=False)
         pp_list.add_argument('object', choices=OBJECTS, help="Object type to list")
+        pp_list.add_argument('object_name', nargs='?', help="Specific object to list")
 
         pp_addservice = argparse.ArgumentParser(description="Add a service to a lbvserver", add_help=False)
         pp_addservice.add_argument('service', metavar='NAME', help='name of service to add')
@@ -451,10 +402,12 @@ if __name__ == "__main__":
                 nitro.login()
         except NSNitroError, e:
                 print("Error: %s" % e.message)
-                sys.exit(1)
-
+                sys.exit(2)
         try:
-                args.func(args, nitro)
+                result = args.func(args, nitro)
         finally:
                 nitro.logout()
-                sys.exit(0)
+                if result is None:
+                        sys.exit(0)
+                else:
+                        sys.exit(result)
