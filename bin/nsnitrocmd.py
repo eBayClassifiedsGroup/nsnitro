@@ -39,7 +39,6 @@ type_mapping = {
             'class_name': NSServer,
             'state_function': 'get_state',
             'up_state': 'ENABLED'
-
         },
         'service':
         {
@@ -166,13 +165,16 @@ def action_status(args, nitro):
         else:
                 instances = class_name().get_all(nitro)
                 print "-- Configured %s (with status) ---" % args.object
+                status = 0
                 for instance in sorted(instances, key=lambda k: k.get_name()):
                         try:
                                 state_func = getattr(instance, state_function)
-                        except Exception, e:
+                                state = state_func()
+                                print instance.get_name() + ": " + state
+                        except NSNitroError:
                                 print e
-                        state = state_func()
-                        print instance.get_name() + ": " + state
+                                status = 1
+                return status
 
 
 def action_statusfull(args, nitro):
