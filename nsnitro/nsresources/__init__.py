@@ -59,10 +59,17 @@ from nspbr import NSPbr
 from nspbrs import NSPbrs
 from authenticationtacacsaction import AuthTacacsAction
 from authenticationtacacspolicy import AuthTacacsPolicy
+from authenticationldapaction import AuthLdapAction
+from authenticationldappolicy import AuthLdapPolicy
 from snmpcommunity import SNMPCommunity
 from snmpmanager import SNMPManager
 from systemuser import SystemUser
+from systemgroup import SystemGroup
+from systemparameter import SystemParameter
 from systemglobalauthenticationtacacspolicybinding import SystemGlobalAuthTacacsPolicyBinding
+from systemglobalauthenticationldappolicybinding import SystemGlobalAuthLdapPolicyBinding
+from systemgroupsystemcmdpolicybinding import SystemGroupSystemCmdPolicyBinding
+from systemgroupsystemuserbinding import SystemGroupSystemUserBinding
 
 __all__ = ['NSBaseResource',
            'NSConfig',
@@ -125,8 +132,15 @@ __all__ = ['NSBaseResource',
            'NSPbrs',
            'AuthTacacsAction',
            'AuthTacacsPolicy',
+           'AuthLdapAction',
+           'AuthLdapPolicy',
            'SNMPCommunity',
            'SNMPManager',
            'SystemGlobalAuthTacacsPolicyBinding',
-           'SystemUser'
+           'SystemGlobalAuthLdapPolicyBinding',
+           'SystemGroupSystemCmdPolicyBinding',
+           'SystemGroupSystemUserBinding',
+           'SystemUser',
+           'SystemGroup',
+           'SystemParameter'
            ]

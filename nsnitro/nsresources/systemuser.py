@@ -13,7 +13,11 @@ class SystemUser(NSBaseResource):
 
         self.options = {'username': '',
                         'password': '',
-                        'priority': ''}
+                        'priority': '',
+                        'externalauth': '',
+                        'promptstring': '',
+                        'timeout': '',
+                        'logging': ''}
 
         self.resourcetype = SystemUser.get_resourcetype()
 
@@ -47,11 +51,39 @@ class SystemUser(NSBaseResource):
         # The priority, when retrieve from the Nitro API, is always zero
         return self.options['priority']
 
+    def set_externalauth(self, externalauth):
+        self.options['externalauth'] = externalauth
+
+    def get_externalauth(self):
+        return self.options['externalauth']
+
+    def set_promptstring(self, promptstring):
+        self.options['promptstring'] = promptstring
+
+    def get_promptstring(self):
+        return self.options['promptstring']
+
+    def set_timeout(self, timeout):
+        self.options['timeout'] = timeout
+
+    def get_timeout(self):
+        return self.options['timeout']
+
+    def set_logging(self, logging):
+        self.options['logging'] = logging
+
+    def get_logging(self):
+        return self.options['logging']
+
     @staticmethod
     def add(nitro, systemuser):
         __systemuser = SystemUser()
         __systemuser.set_username(systemuser.get_username())
         __systemuser.set_password(systemuser.get_password())
+        __systemuser.set_externalauth(systemuser.get_externalauth())
+        __systemuser.set_promptstring(systemuser.get_promptstring())
+        __systemuser.set_timeout(systemuser.get_timeout())
+        __systemuser.set_logging(systemuser.get_logging())
         return __systemuser.add_resource(nitro)
 
     @staticmethod
@@ -66,6 +98,10 @@ class SystemUser(NSBaseResource):
         __systemuser = SystemUser()
         __systemuser.set_username(systemuser.get_username())
         __systemuser.set_password(systemuser.get_password())
+        __systemuser.set_externalauth(systemuser.get_externalauth())
+        __systemuser.set_promptstring(systemuser.get_promptstring())
+        __systemuser.set_timeout(systemuser.get_timeout())
+        __systemuser.set_logging(systemuser.get_logging())
         return __systemuser.update_resource(nitro)
 
     @staticmethod
