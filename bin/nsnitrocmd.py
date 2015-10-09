@@ -19,6 +19,7 @@ from nsnitro.nsresources.nsacls import NSAcls
 from nsnitro.nsresources.nshanode import NSHANode
 from nsnitro.nsresources.nsservicegroupserverbinding import NSServiceGroupServerBinding
 from nsnitro.nsresources.nslbvserverservicebinding import NSLBVServerServiceBinding
+from nsnitro.nsresources.nsservicegroup import NSServiceGroup
 
 
 type_mapping = {
@@ -44,6 +45,12 @@ type_mapping = {
         {
             'class_name': NSService,
             'state_function': 'get_svrstate',
+            'up_state': 'UP'
+        },
+        'servicegroup':
+        {
+            'class_name': NSServiceGroup,
+            'state_function': 'get_state',
             'up_state': 'UP'
         }
 }
@@ -85,7 +92,15 @@ def action_addservice(args, nitro):
         print "Service '%s:%d/%s' was added to '%s'." % (args.service, args.port, args.servicetype, args.target)
 
 
+def action_addservicegroup(args, nitro):
+        servicegroup = NSServiceGroup() 
+        servicegroup.set_servicegroupname = (args.servicegroupname)
+        servicegroup.set_state = (args.sgstate)
+        NSServiceGroup.add(nitro, servicegroup)
+        print "ServiceGroup might of been added if your lucky"
+
 def action_addlbvserver(args, nitro):
+        print args
         lbvserver = NSLBVServer()
         lbvserver.set_name(args.lbvserver)
         lbvserver.set_ipv46(args.ip)
@@ -96,6 +111,12 @@ def action_addlbvserver(args, nitro):
         NSLBVServer.add(nitro, lbvserver)
         print "lb vserver %s (%s:%d/%s) was added" % (args.lbvserver, args.ip, args.port, args.servicetype)
 
+def action_addserver(args, nitro):
+        addserver = NSServer()
+        addserver.set_name(args.server)
+        addserver.set_ipaddress(args.serverip)
+        NSServer.add(nitro, addserver)
+        print "server %s  was added" % (args.server)
 
 def action_enable(args, nitro):
         class_name, state_function, up_state = get_mappings(args)
@@ -271,6 +292,10 @@ def action_acl(args, nitro):
                         acl.set_aclname(args.delacl)
                         acl = NSAcl.delete(nitro, acl)
                         print "ACL '%s' was deleted. Do not forget to run --applyacls to activate it." % (args.name)
+                        
+
+
+                         
 
 
 if __name__ == "__main__":
@@ -291,6 +316,16 @@ if __name__ == "__main__":
         pp_list = argparse.ArgumentParser(add_help=False)
         pp_list.add_argument('object', choices=OBJECTS, help="Object type to list")
         pp_list.add_argument('object_name', nargs='?', help="Specific object to list")
+
+        pp_servicegroup = argparse.ArgumentParser(description="Add a Service Group  to the netscaler", add_help=False)
+        pp_servicegroup.add_argument('servicegroupname', metavar='SERVICEGROUPNAME', help='Service Group Name')
+#        pp_servicegroup.add_argument('servicegroupname', metavar='SERVICEGROUPNAME', help='Service Group Name')
+
+#add serviceGroup hcom-sg-milan-ShoppingApp HTTP -maxClient 0 -maxReq 0 -cip ENABLED True-Client-IP -usip NO -useproxyport YES -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP YES -appflowLog DISABLED
+
+        pp_addserver = argparse.ArgumentParser(description="Add a server to the netscaler", add_help=False)
+        pp_addserver.add_argument('server', metavar='SERVER', help='name of server to add')
+        pp_addserver.add_argument('serverip', metavar='SERVERIP', help='the server IP address')
 
         pp_addservice = argparse.ArgumentParser(description="Add a service to a lbvserver", add_help=False)
         pp_addservice.add_argument('service', metavar='NAME', help='name of service to add')
@@ -347,6 +382,7 @@ if __name__ == "__main__":
 
         # Subparsers
         subparsers = parser.add_subparsers(dest="context")
+        sp_addserver = subparsers.add_parser('addserver', parents=[pp_addserver], help="add a server")
         sp_get = subparsers.add_parser('get', parents=[pp_objects], help="Get information about an object")
         sp_addlbvserver = subparsers.add_parser('addlbvserver', parents=[pp_addlbvserver], help="Add an lbvserver")
         sp_addservice = subparsers.add_parser('addservice', parents=[pp_addservice], help="Add a service")
@@ -373,6 +409,7 @@ if __name__ == "__main__":
         sp_get.set_defaults(func=action_get)
         sp_addlbvserver.set_defaults(func=action_addlbvserver)
         sp_addservice.set_defaults(func=action_addservice)
+        sp_addserver.set_defaults(func=action_addserver)
         sp_enable.set_defaults(func=action_enable)
         sp_disable.set_defaults(func=action_disable)
         sp_rename.set_defaults(func=action_rename)
@@ -397,9 +434,8 @@ if __name__ == "__main__":
                 password = getpass.getpass("{0}@{1}'s password: ".format(user, args.lbip))
         else:
                 password = args.password
-
+        
         nitro = NSNitro(args.lbip, user, password, args.ssl)
-
         try:
                 nitro.login()
         except NSNitroError, e:
@@ -407,9 +443,11 @@ if __name__ == "__main__":
                 sys.exit(2)
         try:
                 result = args.func(args, nitro)
+                print result
         finally:
                 nitro.logout()
                 if result is None:
                         sys.exit(0)
                 else:
                         sys.exit(result)
+                        print result
