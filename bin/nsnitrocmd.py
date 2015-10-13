@@ -319,9 +319,6 @@ if __name__ == "__main__":
 
         pp_servicegroup = argparse.ArgumentParser(description="Add a Service Group  to the netscaler", add_help=False)
         pp_servicegroup.add_argument('servicegroupname', metavar='SERVICEGROUPNAME', help='Service Group Name')
-#        pp_servicegroup.add_argument('servicegroupname', metavar='SERVICEGROUPNAME', help='Service Group Name')
-
-#add serviceGroup hcom-sg-milan-ShoppingApp HTTP -maxClient 0 -maxReq 0 -cip ENABLED True-Client-IP -usip NO -useproxyport YES -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP YES -appflowLog DISABLED
 
         pp_addserver = argparse.ArgumentParser(description="Add a server to the netscaler", add_help=False)
         pp_addserver.add_argument('server', metavar='SERVER', help='name of server to add')
