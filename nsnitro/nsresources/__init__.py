@@ -71,6 +71,20 @@ from systemglobalauthenticationldappolicybinding import SystemGlobalAuthLdapPoli
 from systemgroupsystemcmdpolicybinding import SystemGroupSystemCmdPolicyBinding
 from systemgroupsystemuserbinding import SystemGroupSystemUserBinding
 
+from nsservicegrouplbmonitorbinding import NSServiceGroupLBMonitorBinding
+from nslbvserverrewritepolicybinding import NSLBVServerRewritePolicyBinding
+from nsgslbvserver import NSGSLBVServer
+from nsgslbvserverbinding import NSGSLBVServerBinding
+from nsgslbvserverdomainbinding import NSGSLBVServerDomainBinding
+from nsgslbvservergslbservicebinding import NSGSLBVServerGSLBServiceBinding
+from nsgslbconfig import NSGSLBConfig
+from nsgslbservice import NSGSLBService
+
+from nslbvserverstat import NSLBVServerStat
+from nsservicegroupstat import NSServiceGroupStat
+from nsservicegroupmemberstat import NSServiceGroupMemberStat
+from nscsvserverstat import NSCSVServerStat
+
 __all__ = ['NSBaseResource',
            'NSConfig',
            'NSCSPolicy',
@@ -143,4 +157,16 @@ __all__ = ['NSBaseResource',
            'SystemUser',
            'SystemGroup',
            'SystemParameter'
+           'NSServiceGroupLBMonitorBinding',
+           'NSLBVServerRewritePolicyBinding',
+           'NSGSLBVServer',
+           'NSGSLBVServerBinding',
+           'NSGSLBVServerDomainBinding',
+           'NSGSLBVServerGSLBServiceBinding',
+           'NSGSLBConfig',
+           'NSGSLBService',
+           'NSLBVServerStat',
+           'NSServiceGroupStat',
+           'NSServiceGroupMemberStat',
+           'NSCSVServerStat',
            ]
