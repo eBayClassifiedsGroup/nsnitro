@@ -192,7 +192,7 @@ class NSCSPolicy(NSBaseResource):
         """
         __cspolicy = NSCSPolicy()
         __cspolicy.set_policyname(cspolicy.get_policyname())
-        __cspolicy.get_resource(nitro)
+        __cspolicy.get_resource(nitro, cspolicy.get_policyname())
         return __cspolicy
 
     @staticmethod
