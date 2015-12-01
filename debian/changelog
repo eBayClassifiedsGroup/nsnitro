@@ -1,3 +1,9 @@
+nsnitro (1.0.35) unstable; urgency=low
+
+  * Fixed a typo in init
+
+ -- vlazarenko <vlazarenko@squeeze.par>  Tue, 1 Dec 2015 11:41:05 +0100
+
 nsnitro (1.0.34) unstable; urgency=low
 
   * Added new resources:
@@ -11,13 +17,13 @@ nsnitro (1.0.34) unstable; urgency=low
   *   System User extended to cover all possible parameters of Netscaler (tested on >= FW v.54.9)
 
  -- vlazarenko <vlazarenko@squeeze.par>  Wed, 1 Oct 2015 14:06:05 +0100
- 
+
  nsnitro (1.0.33) unstable; urgency=low
 
   * New pypi build
 
  -- vlazarenko <vlazarenko@squeeze.par>  Wed, 31 Mar 2015 09:53:05 +0100
- 
+
 nsnitro (1.0.32) unstable; urgency=low
 
   * Removed namespace declaration to prevent import warnings.
