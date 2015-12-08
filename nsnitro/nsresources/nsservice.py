@@ -49,6 +49,7 @@ class NSService(NSBaseResource):
             'httpprofilename': '',
             'tcpprofilename': '',
             'comment': '',
+            'appflowlog': '',
 
             # Readonly values
             'policyname': '',
@@ -675,6 +676,12 @@ class NSService(NSBaseResource):
         """
         return self.options['comment']
 
+    def set_appflowlog(self, appflowlog):
+        self.options['appflowlog'] = appflowlog
+
+    def get_appflowlog(self):
+        return self.options['appflowlog']
+
     # Read-only option getters
     def get_svrstate(self):
         """
@@ -863,6 +870,7 @@ class NSService(NSBaseResource):
         __service.set_tcpprofilename(service.get_tcpprofilename())
         __service.set_httpprofilename(service.get_httpprofilename())
         __service.set_comment(service.get_comment())
+        __service.set_appflowlog(service.get_appflowlog())
         return __service.add_resource(nitro)
 
     @staticmethod
@@ -898,6 +906,7 @@ class NSService(NSBaseResource):
         __service.set_tcpprofilename(service.get_tcpprofilename())
         __service.set_httpprofilename(service.get_httpprofilename())
         __service.set_comment(service.get_comment())
+        __service.set_appflowlog(service.get_appflowlog())
         return __service.update_resource(nitro)
 
     @staticmethod
