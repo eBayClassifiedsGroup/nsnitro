@@ -78,7 +78,8 @@ class NSCSVServer(NSBaseResource):
                         'gt2gb': '',
                         'statechangetimesec': '',
                         'statechangetimemsec': '',
-                        'tickssincelaststatechange': ''}
+                        'tickssincelaststatechange': '',
+                        'lbvserver': ''}
 
         self.resourcetype = NSCSVServer.get_resourcetype()
 
@@ -1001,6 +1002,12 @@ class NSCSVServer(NSBaseResource):
         Default value: 0
         """
         return self.options['tickssincelaststatechange']
+
+    def get_lbvserver(self):
+        """
+        Name of the default lb vserver bound.
+        """
+        return self.options['lbvserver']
 
     # Operations methods
     @staticmethod
