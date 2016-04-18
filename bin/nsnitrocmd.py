@@ -61,7 +61,7 @@ def get_mappings(args):
         return type_map['class_name'], type_map['state_function'], type_map['up_state']
 
 
-def action_getprimarylb(args):
+def action_getprimarylb(args, nitro):
         ha_node = NSHANode()
         for node in ha_node.get_all(nitro):
                 state = node.get_state().lower()
@@ -440,7 +440,8 @@ if __name__ == "__main__":
                 sys.exit(2)
         try:
                 result = args.func(args, nitro)
-                print result
+                if not result == None:
+                        print result
         finally:
                 nitro.logout()
                 if result is None:
