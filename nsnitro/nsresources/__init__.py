@@ -78,6 +78,7 @@ from nsgslbvserverdomainbinding import NSGSLBVServerDomainBinding
 from nsgslbvservergslbservicebinding import NSGSLBVServerGSLBServiceBinding
 from nsgslbconfig import NSGSLBConfig
 from nsgslbservice import NSGSLBService
+from nsgslbsite import NSGSLBSite
 from nslbvserverstat import NSLBVServerStat
 from nsservicegroupstat import NSServiceGroupStat
 from nsservicegroupmemberstat import NSServiceGroupMemberStat
@@ -163,6 +164,7 @@ __all__ = ['NSBaseResource',
            'NSGSLBVServerGSLBServiceBinding',
            'NSGSLBConfig',
            'NSGSLBService',
+           'NSGSLBSite',
            'NSLBVServerStat',
            'NSServiceGroupStat',
            'NSServiceGroupMemberStat',
