@@ -25,6 +25,7 @@ from nsserver import NSServer
 from nsservicegroup import NSServiceGroup
 from nsservicegroupserverbinding import NSServiceGroupServerBinding
 from nsservicelbmonitorbinding import NSServiceLBMonitorBinding
+from nsservicestat import NSServiceStat
 from nssslaction import NSSSLAction
 from nssslcertkey import NSSSLCertKey
 from nssslcertkeysslvserverbinding import NSSSLCertKeySSLVServerBinding
@@ -84,6 +85,7 @@ from nsservicegroupstat import NSServiceGroupStat
 from nsservicegroupmemberstat import NSServiceGroupMemberStat
 from nscsvserverstat import NSCSVServerStat
 
+
 __all__ = ['NSBaseResource',
            'NSConfig',
            'NSCSPolicy',
@@ -111,6 +113,7 @@ __all__ = ['NSBaseResource',
            'NSServiceGroup',
            'NSServiceGroupServerBinding',
            'NSServiceLBMonitorBinding',
+           'NSServiceStat',
            'NSSSLAction',
            'NSSSLCertKey',
            'NSSSLCertKeySSLVServerBinding',

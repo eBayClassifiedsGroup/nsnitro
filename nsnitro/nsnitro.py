@@ -15,7 +15,7 @@ class NSNitro:
     __ip = "1.2.3.4"
     __user = "api_user"
     __password = "api_user"
-    __baseurl = "http://1.2.3.4/nitro/v1/config/"
+    __baseurl = "http://1.2.3.4/nitro/v1/"
     __sessionid = ""
     __loggedin = False
     __initialized = False
@@ -29,15 +29,15 @@ class NSNitro:
         self.__ip = ip
         self.__user = user
         self.__password = password
-        self.__baseurl = "%s://%s/nitro/v1/config/" % (
+        self.__baseurl = "%s://%s/nitro/v1/" % (
             'https' if useSSL else 'http', ip)
         self.__initialized = True
 
-    def get_url(self):
+    def get_url(self, resource='config'):
         """ Returns base url for nitro API. Mostly useful for debugging """
         if not self.__initialized:
             raise NSNitroError("Not initialized.")
-        return self.__baseurl
+        return self.__baseurl + resource + '/'
 
     def get_sessionid(self):
         """ Returns sessionID that LB gave us after logging in """
@@ -71,7 +71,7 @@ class NSNitro:
         try:
             payload_encoded = urllib.urlencode(payload)
             req = urllib2.Request(
-                self.__baseurl, payload_encoded, self.__postheaders)
+                self.get_url(), payload_encoded, self.__postheaders)
             response = urllib2.urlopen(req)
         except urllib2.HTTPError, e:
             try:
@@ -84,7 +84,7 @@ class NSNitro:
     def put(self, payload):
         try:
             opener = urllib2.build_opener(urllib2.HTTPHandler)
-            request = urllib2.Request(self.__baseurl, json.dumps(payload))
+            request = urllib2.Request(self.get_url(), json.dumps(payload))
             request.add_header('Cookie', 'sessionid=' + self.__sessionid)
             request.get_method = lambda: 'PUT'
             response = opener.open(request)
