@@ -197,5 +197,5 @@ class NSServiceGroupServerBinding(NSBaseResource):
         __servicegroup_server_binding.set_servername(servicegroup_server_binding.get_servername())
         __servicegroup_server_binding.set_ip(servicegroup_server_binding.get_ip())
         __servicegroup_server_binding.set_port(servicegroup_server_binding.get_port())
-        __filter = servicegroup_server_binding.get_servicegroupname() + "/" + servicegroup_server_binding.get_servername()
+        __filter = servicegroup_server_binding.get_servicegroupname()
         return __servicegroup_server_binding.delete_resource(nitro, __filter)
