@@ -542,7 +542,7 @@ class NSSSLVServer(NSBaseResource):
         __sslvserver.set_cipherredirect(sslvserver.get_cipherredirect())
         __sslvserver.set_cipherurl(sslvserver.get_cipherurl())
         __sslvserver.set_sslv2redirect(sslvserver.get_sslv2redirect())
-        __sslvserver.set_sslv2url(sslvserver.get_sslv2redirect())
+        __sslvserver.set_sslv2url(sslvserver.get_sslv2url())
         __sslvserver.set_clientauth(sslvserver.get_clientauth())
         __sslvserver.set_clientcert(sslvserver.get_clientcert())
         __sslvserver.set_sslredirect(sslvserver.get_sslredirect())
