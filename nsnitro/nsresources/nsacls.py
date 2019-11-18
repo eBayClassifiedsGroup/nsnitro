@@ -1,4 +1,4 @@
-from nsbaseresource import NSBaseResource
+from .nsbaseresource import NSBaseResource
 
 
 class NSAcls(NSBaseResource):

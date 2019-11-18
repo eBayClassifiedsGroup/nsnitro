@@ -1,5 +1,5 @@
 # encoding: utf-8
-from nsbaseresource import NSBaseResource
+from .nsbaseresource import NSBaseResource
 
 
 class NSServiceGroupMemberStat(NSBaseResource):
@@ -46,8 +46,8 @@ class NSServiceGroupMemberStat(NSBaseResource):
         self.resourcetype = NSServiceGroupMemberStat.get_resourcetype()
 
         if not (json_data is None):
-            for key in json_data.keys():
-                if self.options.has_key(key):
+            for key in list(json_data.keys()):
+                if key in self.options:
                     self.options[key] = json_data[key]
 
     @staticmethod

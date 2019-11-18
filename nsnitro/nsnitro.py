@@ -1,9 +1,9 @@
 """ Citrix Netscaler Nitro API accessor """
 
-import urllib
-import urllib2
-from nsutil import *
-from nsexceptions import *
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
+from .nsutil import *
+from .nsexceptions import *
 
 __version__ = "0.0.2"
 
@@ -64,16 +64,16 @@ class NSNitro:
             return nsresponse.get_json_response()
         except SyntaxError:
             raise NSNitroError("Could not parse LB response.")
-        except urllib2.URLError, ue:
+        except urllib.error.URLError as ue:
             raise NSNitroError("Error logging in!" + str(ue))
 
     def post(self, payload):
         try:
-            payload_encoded = urllib.urlencode(payload)
-            req = urllib2.Request(
+            payload_encoded = urllib.parse.urlencode(payload).encode('utf-8')
+            req = urllib.request.Request(
                 self.get_url(), payload_encoded, self.__postheaders)
-            response = urllib2.urlopen(req)
-        except urllib2.HTTPError, e:
+            response = urllib.request.urlopen(req)
+        except urllib.error.HTTPError as e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
@@ -83,12 +83,12 @@ class NSNitro:
 
     def put(self, payload):
         try:
-            opener = urllib2.build_opener(urllib2.HTTPHandler)
-            request = urllib2.Request(self.get_url(), json.dumps(payload))
+            opener = urllib.request.build_opener(urllib.request.HTTPHandler)
+            request = urllib.request.Request(self.get_url(), json.dumps(payload).encode('utf-8'))
             request.add_header('Cookie', 'sessionid=' + self.__sessionid)
             request.get_method = lambda: 'PUT'
             response = opener.open(request)
-        except urllib2.HTTPError, e:
+        except urllib.error.HTTPError as e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
@@ -98,11 +98,11 @@ class NSNitro:
 
     def get(self, url):
         try:
-            opener = urllib2.build_opener()
+            opener = urllib.request.build_opener()
             opener.addheaders.append(
                 ('Cookie', 'sessionid=' + self.__sessionid))
             response = opener.open(url)
-        except urllib2.HTTPError, e:
+        except urllib.error.HTTPError as e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
@@ -112,11 +112,11 @@ class NSNitro:
 
     def delete(self, url):
         try:
-            req = urllib2.Request(url)
+            req = urllib.request.Request(url)
             req.add_header('Cookie', 'sessionid=' + self.__sessionid)
             req.get_method = lambda: 'DELETE'
-            response = urllib2.urlopen(req)
-        except urllib2.HTTPError, e:
+            response = urllib.request.urlopen(req)
+        except urllib.error.HTTPError as e:
             try:
                 NSNitroResponse(e.read())
             except AttributeError:
@@ -137,5 +137,5 @@ class NSNitro:
             del self.__sessionid
             return nsresponse.get_json_response()
 
-        except NSNitroError, nsresponse:
+        except NSNitroError as nsresponse:
             raise NSNitroError(nsresponse.message)
