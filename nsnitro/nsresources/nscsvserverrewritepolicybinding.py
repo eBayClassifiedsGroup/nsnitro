@@ -1,4 +1,4 @@
-from nsbaseresource import NSBaseResource
+from .nsbaseresource import NSBaseResource
 __author__ = 'vlazarenko'
 
 
@@ -19,8 +19,8 @@ class NSCSVServerRewritePolicyBinding(NSBaseResource):
                         'name': ''}
 
         if not (json_data is None):
-            for key in json_data.keys():
-                if key in self.options.keys():
+            for key in list(json_data.keys()):
+                if key in list(self.options.keys()):
                     self.options[key] = json_data[key]
 
         self.resourcetype = NSCSVServerRewritePolicyBinding.get_resourcetype()

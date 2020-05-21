@@ -1,6 +1,6 @@
 # encoding: utf-8
-from nsbaseresource import NSBaseResource
-from nsservice import NSService
+from .nsbaseresource import NSBaseResource
+from .nsservice import NSService
 
 class NSGSLBService(NSBaseResource):
 
@@ -29,8 +29,8 @@ class NSGSLBService(NSBaseResource):
 
         self.resourcetype = NSGSLBService.get_resourcetype()
         if not (json_data is None):
-            for key in json_data.keys():
-                if key in self.options.keys():
+            for key in list(json_data.keys()):
+                if key in list(self.options.keys()):
                     self.options[key] = json_data[key]
 
     @staticmethod

@@ -1,5 +1,5 @@
 from nsnitro.nsutil import NSNitroError
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import json
 
 
@@ -15,7 +15,7 @@ class NSBaseResource(object):
 
     def __str__(self):
         ret = ""
-        for key, value in self.options.items():
+        for key, value in list(self.options.items()):
             ret += "\t%s: \t\t%s\n" % (key, value)
 
         return ret
@@ -27,10 +27,10 @@ class NSBaseResource(object):
         self.options = options
 
         # Filter out empty options
-        self.options = dict([(k, v) for k, v in self.options.items() if v != ''])
+        self.options = dict([(k, v) for k, v in list(self.options.items()) if v != ''])
 
     def get_payload(self):
-        options = dict([(k, v) for k, v in self.options.items() if v != ''])
+        options = dict([(k, v) for k, v in list(self.options.items()) if v != ''])
         if self.__baseaction:
             payload = {"object": json.dumps({"params": {"action": self.__baseaction}, self.resourcetype: options})}
         else:
@@ -39,7 +39,7 @@ class NSBaseResource(object):
         return payload
 
     def get_put_payload(self, sessionid):
-        options = dict([(k, v) for k, v in self.options.items() if v != ''])
+        options = dict([(k, v) for k, v in list(self.options.items()) if v != ''])
         if self.__baseaction:
             payload = {"params": {"action": self.__baseaction}, self.resourcetype: options}
         else:
@@ -48,12 +48,12 @@ class NSBaseResource(object):
         return payload
 
     def get_delete_args(self):
-        options = dict([(k, v) for k, v in self.options.items() if v != ''])
+        options = dict([(k, v) for k, v in list(self.options.items()) if v != ''])
 
         args = "?args="
 
-        for key, value in options.iteritems():
-            args = "%s%s:%s%s" % (args, key, urllib.quote_plus(value) if type(value) is str else value, ",")
+        for key, value in options.items():
+            args = "%s%s:%s%s" % (args, key, urllib.parse.quote_plus(value) if type(value) is str else value, ",")
 
         args = args[:-1]  # remove last comma
 
@@ -74,7 +74,7 @@ class NSBaseResource(object):
             raise NSNitroError(response.message)
 
         for resource in response.get_response_field(self.resourcetype):
-            for k in resource.iterkeys():
+            for k in resource.keys():
                 self.options[k] = resource[k]
 
     def add_resource(self, nitro):

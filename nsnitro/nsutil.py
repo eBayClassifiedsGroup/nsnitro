@@ -1,5 +1,5 @@
 import json
-from nsexceptions import *
+from .nsexceptions import *
 
 
 class NSNitroResponse:

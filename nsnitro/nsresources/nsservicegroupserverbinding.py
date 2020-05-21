@@ -1,4 +1,4 @@
-from nsbaseresource import NSBaseResource
+from .nsbaseresource import NSBaseResource
 
 
 class NSServiceGroupServerBinding(NSBaseResource):
@@ -21,7 +21,7 @@ class NSServiceGroupServerBinding(NSBaseResource):
         }
 
         if not (json_data is None):
-            for key in json_data.keys():
+            for key in list(json_data.keys()):
                 if key in self.options:
                     self.options[key] = json_data[key]
 
